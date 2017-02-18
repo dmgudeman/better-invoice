@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
-import {IMyOptions, IMyDateModel} from 'mydatepicker';
+import { IMyOptions, IMyDateModel } from 'mydatepicker';
 import { Tab } from '../../shared/tab';
 import { Tabs } from '../../shared/tabs';
 
