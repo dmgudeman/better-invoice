@@ -34,7 +34,7 @@
             class="flex-item small" 
             fxFlex="40%" 
             fx LayoutAlign="center center" 
-            (click)="goToNewItem(company)"
+            (click)="goToNewItem(company, item)"
         >   {{item.description | truncate:22}}
         </div>
         <div 
@@ -42,7 +42,7 @@
             class="flex-item med" 
             fxFlex="40%"  
             fxLayoutAlign="center center" 
-            (click)="goToNewItem(company)"
+            (click)="goToNewItem(company, item)"
         >   {{item.description }}
         </div>
         

@@ -71,12 +71,23 @@ export class CompanyDetailsComponent implements OnInit {
     this.router.navigate(['/invoice', this.invoice.id]);
   }
 
-  goToNewItem(company: Company) {
+  goToNewItem(company: Company, item?: Item) {
+    if(item){
+      let id = item.id;
+    }
     let title= "Edit Item"
     let hourly = company.hourly;
     let companyName = company.name;
     let uId = 4
-    this.router.navigate(['/new-item', { hourly: hourly, companyName: companyName, uId: uId, title: title}]);
+    if (!item){
+              this.router.navigate(['/new-item', { hourly: hourly, 
+                                                   companyName: companyName, 
+                                                   uId: uId, 
+                                                 title: title}
+                                    ]);
+    }else{
+       this.router.navigate(['/new-item/id' ]);
+    }           
   }
   getCompany() {
     this.route.params

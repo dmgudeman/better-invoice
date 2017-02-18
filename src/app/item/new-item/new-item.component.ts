@@ -27,17 +27,22 @@ export class NewItemComponent implements OnInit {
   uId: number;
   title: string;
   canSave = true;
+  id;
 
   constructor(private route: ActivatedRoute) {
   }
 
   ngOnInit() {
       this.route.params.subscribe(params => {
+      this.id =params['id'];
+      
+        this.title = "New Item";
       this.hourly = params['hourly'];
       this.companyName = params['companyName'];
       this.coId = params['coId'];
       this.uId = params['uId'];
-      this.title = params['title'];
+      // this.title = params['title'];
+      
     })
   }
 

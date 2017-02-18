@@ -7,36 +7,17 @@
     font-weight: 300;
 }
 
-
-/*-----------------------------------------------------*/
-
-
-/*               NEW-ITEM NAV                          */
-
-
-/*-----------------------------------------------------*/
+/*-------------- NEW-ITEM NAV ------------------------ */
 
 .ni-nav {
     margin: 10px 0;
 }
 
-
-/*-----------------------------------------------------*/
-
-
-/*               NEW-ITEM HEADER                       */
-
-
-/*-----------------------------------------------------*/
-
-
-/*-----------------------------------------------------*/
-
-
-/*               NEW-ITEM INPUTS                       */
-
-
-/*-----------------------------------------------------*/
+/*-------------- NEW-ITEM INPUT  --------------------- */
+.ni-group-addon {
+    background: transparent;
+    padding: 0;
+}
 
 label {
     font-size: 75%;
@@ -50,37 +31,6 @@ label {
     width: 300px;
     border-radius: 4px;
 }
-/*.mydp {
-    /*min-width: 30px;
-    border-radius: 2px;
-    line-height: 1.1;
-    display: inline-block;
-    position: relative;*/
-     /*width: 300px;
-    border-radius: 4px;
-}*/
-
-/*.mydp * {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 0;
-    margin: 0;
-}*/
-
-/*.mydp .selector {
-    margin-top: 2px;
-    margin-left: -1px;
-    position: absolute;
-    width: 252px;
-    padding: 1px;
-    border-radius: 2px;
-    background-color: #CCC;
-    z-index: 100;
-    animation: selectorfadein 0.1s;
-}*/
-
 
 .ni-date {
     width: 100%;
@@ -100,6 +50,7 @@ label {
     font-size: 100%;
 }
 
+/* ------------- NEW-ITEM SUBMIT BUTTON -------------- */
 .ni-submit {
     font-size: 90%;
     box-sizing: border-box;
@@ -109,19 +60,7 @@ label {
     margin: 15px;
     max-width: 338px;
 }
-
-
-/*-----------------------------------------------------*/
-
-
-/*               NEW-ITEM NAVBAR                       */
-
-
-/*-----------------------------------------------------*/
-
-
 /*screen-xs*/
-
 @media (max-width: 768px) {
     .myCol {
         font-size: 100%;
@@ -138,19 +77,12 @@ label {
         line-height: 3.0;
     }
 }
-
-
 /*screen-sm*/
-
-
 /*@media (min-width: 768px) and (max-width: 992px) {
   .myCol{background-color:green;}
 }*/
 
-
 /*screen-md*/
-
-
 /*@media (min-width: 992px) and (max-width: 1200px) {
   .myCol{font-size:90%;
     max-width: 150px;
@@ -162,10 +94,7 @@ label {
     margin: 15px;
     line-height: 2.0;}
 }*/
-
-
 /*screen-lg corresponds with col-lg*/
-
 @media (min-width: 1200px) {
     .myCol {
         font-size: 90%;
@@ -179,4 +108,3 @@ label {
         line-height: 2.0;
     }
 }
-

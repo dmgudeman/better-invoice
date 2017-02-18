@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IMyOptions, IMyDateRangeModel }  from 'mydaterangepicker';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 import { InvoiceService } from './invoice.service';
@@ -10,6 +11,21 @@ import { Invoice } from './invoice';
   styleUrls: ['./invoice.component.css']
 })
 export class InvoiceComponent implements OnInit {
+   private myDateRangePickerOptions: IMyOptions = {
+        dateFormat: 'mm/dd/yyyy',
+        
+        inline: false,
+        selectionTxtFontSize: '15px',
+        
+    };
+  private newDate = new Date();
+  
+  private newYear = this.newDate.getFullYear();
+  private newDay = this.newDate.getUTCDate();
+  private newMonth = this.newDate.getMonth() + 1;
+
+private model: Object = {beginDate: {year: this.newYear, month: this.newMonth, day: this.newDay},
+                             endDate: {year: this.newYear, month: this.newMonth, day: this.newDay }};
   title: string;
   fromDate: string;
   toDate: string;
@@ -24,16 +40,16 @@ export class InvoiceComponent implements OnInit {
 
   ngOnInit() {
     this.getInvoice();
-    this.updateFromDate();
-    this.updateToDate();
+    
   }
-  updateFromDate() {
-    this.fromDate = this.dateFormat(this.fromDate, "mm/dd/yyyy");
-  }
-
-  updateToDate() {
-    this.toDate = this.dateFormat(this.toDate, "mm/dd/yyyy");
-  }
+  // dateRangeChanged callback function called when the user apply the date range. This is
+    // mandatory callback in this option. There are also optional inputFieldChanged and
+    // calendarViewChanged callbacks.
+  onDateRangeChanged(event: IMyDateRangeModel) {
+        // event properties are: event.beginDate, event.endDate, event.formatted,
+        // event.beginEpoc and event.endEpoc
+    }
+  
   updateDiscountAmount(newDiscountAmount: number) {
     this.discountAmount = newDiscountAmount;
   }

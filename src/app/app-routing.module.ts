@@ -13,6 +13,7 @@ import { InvoiceComponent } from './invoice/invoice.component';
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home-app', pathMatch: 'full'},
   { path: 'home-app', component: HomeComponent },
+  { path: 'new-item/:id', component: NewItemComponent},
   { path: 'new-item', component: NewItemComponent },
   { path: 'invoice/:id', component: InvoiceComponent },
   { path: 'invoice', component: InvoiceComponent },

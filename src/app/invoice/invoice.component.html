@@ -17,8 +17,22 @@
                     <div class="row">
                         <div class="col-sm-12">
 
-                            <div class="form-group col-md-6">
-                                <label for="fromdate">From Date</label>
+                            <div class="form-group col-xs-12">
+                                  <label 
+                                      for="mydaterange" 
+                                      class="iv-my-daterangepicker"
+                                      >Date Range
+                                  </label><br>
+                            <my-date-range-picker 
+                                 name="mydaterange" 
+                                 [options]="myDateRangePickerOptions"
+                                 (dateRangeChanged)="onDateRangeChanged($event)"
+                                 [(ngModel)]="model" 
+                                 class="iv-my-daterangepicker"
+                                 id="iv-my-daterangepicker"
+                                 >
+                            </my-date-range-picker>
+                                <!--<label for="fromdate">From Date</label>
                                 <input [(ngModel)]=fromDate 
                                        (change)="updateFromDate()" 
                                        name="fromdate" 
@@ -38,8 +52,8 @@
                                        type="text" 
                                        class="form-control" 
                                 >
-                            </div>
-                            <div class="form-group col-md-6">
+                            </div>-->
+                            <div class="form-group col-xs-12">
                                 <label for="discountAmount">Discount</label>
                                 
                                 <div class="input-group">
@@ -57,13 +71,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group col-md-12">
+                  
+                    <div class="form-group col-xs-12">
                         <label for="notes">Description/notes</label>
                         <textarea [(ngModel)]= description name="notes" #name="ngModel" id="notes" type="textbox" class="form-control iv-notes" required minlength="3"
                             placeholder="Type Here">
                             </textarea>
                     </div>
                     <div>
+                      </div>
                        <button class="col-xs-12 col-md-4 iv-submit"
                            (click)="setClasses()"
                            >

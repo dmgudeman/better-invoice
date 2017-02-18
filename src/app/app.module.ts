@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { DatepickerModule } from 'angular2-material-datepicker';
 import { MyDatePickerModule } from 'mydatepicker';
+import { MyDateRangePickerModule } from 'mydaterangepicker';
 
 import { AppComponent } from './app.component';
 import { ClientComponent } from './client/client.component';
@@ -23,7 +24,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { CompanyDetailsComponent } from './company/company-details/company-details.component';
 import { NewCompanyComponent } from './company/new-company/new-company.component';
 import { TruncatePipe } from './shared/truncate.pipe';
-
+import { Tab } from './shared/tab';
+import { Tabs } from './shared/tabs';
 
 
 @NgModule({
@@ -35,10 +37,11 @@ import { TruncatePipe } from './shared/truncate.pipe';
     NewItemComponent,
     ItemComponent,
     InvoiceComponent,
-    
     CompanyDetailsComponent,
     NewCompanyComponent,
     TruncatePipe,
+    Tab,
+    Tabs
   ],
   imports: [
     AppRoutingModule,
@@ -48,7 +51,7 @@ import { TruncatePipe } from './shared/truncate.pipe';
     HttpModule,
     // TabsModule.forRoot(),
     MyDatePickerModule,
-    MyDatePickerModule
+    MyDateRangePickerModule
 
   ],
   providers: [
