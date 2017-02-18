@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
-import { DatepickerModule } from 'angular2-material-datepicker';
 import { MyDatePickerModule } from 'mydatepicker';
 import { MyDateRangePickerModule } from 'mydaterangepicker';
 
