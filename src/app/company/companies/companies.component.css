@@ -1,0 +1,119 @@
+@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css");
+* {
+    box-sizing: border-box;
+    font-size: 20px;
+    max-width: 700px;
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-weight:300;
+}
+/* -------------------------------------------*/
+/*                NAVBAR                      */
+/* -------------------------------------------*/
+.co-navbar {
+       
+    background-color: black;
+    color: white;
+    height: 45px;
+    }
+.co-navbar-plus{
+    color: #f2f2f2;
+}
+.co-body {
+    max-width: 700px;
+}
+
+/*----------------------------------------------------*/
+/*               COMPANY BOX                          */
+/*----------------------------------------------------*/
+.co-box {
+    height: 100px;
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-right: 15px;
+    color: #f2f2f2;
+}
+.co-heading {
+    height: 50px;
+    width: 80px;
+    font-size: 100%;
+    padding-left: 30px;
+    padding-top: 10px;
+    border-radius: 7px;
+}
+.co-button{
+     color:#f2f2f2;
+     font-size: 90%;
+}
+.co-left {
+    display:inline-block;
+    border-bottom-left-radius: 10px;
+    height: 40px;
+    width: 150px;
+    margin-top:10px;
+   
+}
+.co-right {
+    display:inline-block;
+    border-bottom-right-radius: 10px;
+    height: 40px;
+    width: 150px;
+    margin-top:10px;
+    font-weight:600;
+}
+.little-rt-btn {
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    left:265px;
+    top: 6px;
+    border: none;
+    border-radius: 5px 10px 5px 5px;
+    background-color: rgba(0, 153, 51, 0);
+    font-size: 55%;
+}
+
+/*----------------------------------------------------*/
+/*               COMPANY COLORS                       */
+/*----------------------------------------------------*/
+
+.brown{
+    background-color: #8D6E63;
+}
+.blue{
+    background-color: #3498db;
+}
+.green{
+    background-color: #00C853;
+}
+.yellow {
+    background-color: #f1c40f;
+}
+.red{
+    background-color: #e74c3c;
+}
+.purple {
+    background-color: #9b59b6;
+}
+
+.green.co-button{
+     background-color: #00d95a;
+    
+}
+.brown.co-button{
+     background-color: #795548;
+}
+
+ .red.co-button{
+     background-color: #eb685a;
+}
+
+.blue.co-button{
+     background-color: #2487c9;
+}
+.yellow.co-button {
+    background-color: #e2b70d;
+}
+.purple.co-button {
+    background-color: #a265bb;
+}
+

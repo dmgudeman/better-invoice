@@ -1,0 +1,182 @@
+@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css");
+* {
+    box-sizing: border-box;
+    font-size: 20px;
+    max-width: 1200px;
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-weight: 300;
+}
+
+
+/*-----------------------------------------------------*/
+
+
+/*               NEW-ITEM NAV                          */
+
+
+/*-----------------------------------------------------*/
+
+.ni-nav {
+    margin: 10px 0;
+}
+
+
+/*-----------------------------------------------------*/
+
+
+/*               NEW-ITEM HEADER                       */
+
+
+/*-----------------------------------------------------*/
+
+
+/*-----------------------------------------------------*/
+
+
+/*               NEW-ITEM INPUTS                       */
+
+
+/*-----------------------------------------------------*/
+
+label {
+    font-size: 75%;
+}
+
+.form-control {
+    font-size: 100%;
+}
+
+.ni-my-datepicker {
+    width: 300px;
+    border-radius: 4px;
+}
+/*.mydp {
+    /*min-width: 30px;
+    border-radius: 2px;
+    line-height: 1.1;
+    display: inline-block;
+    position: relative;*/
+     /*width: 300px;
+    border-radius: 4px;
+}*/
+
+/*.mydp * {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+}*/
+
+/*.mydp .selector {
+    margin-top: 2px;
+    margin-left: -1px;
+    position: absolute;
+    width: 252px;
+    padding: 1px;
+    border-radius: 2px;
+    background-color: #CCC;
+    z-index: 100;
+    animation: selectorfadein 0.1s;
+}*/
+
+
+.ni-date {
+    width: 100%;
+}
+
+.ni-hours {
+    width: 100%;
+}
+
+.ni-notes {
+    width: 100%;
+    height: 300px;
+    resize: none;
+    box-sizing: border-box;
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: 100%;
+}
+
+.ni-submit {
+    font-size: 90%;
+    box-sizing: border-box;
+    border-radius: 4px;
+    background-color: #34495e;
+    color: #f2f2f2;
+    margin: 15px;
+    max-width: 338px;
+}
+
+
+/*-----------------------------------------------------*/
+
+
+/*               NEW-ITEM NAVBAR                       */
+
+
+/*-----------------------------------------------------*/
+
+
+/*screen-xs*/
+
+@media (max-width: 768px) {
+    .myCol {
+        font-size: 100%;
+        box-sizing: border-box;
+        border-radius: 0px;
+        border: transparent 0px;
+        background-color: #34495e;
+        color: #f2f2f2;
+        margin-left: -15px;
+        width: 400px;
+        position: fixed;
+        bottom: 0;
+        margin-bottom: 0px;
+        line-height: 3.0;
+    }
+}
+
+
+/*screen-sm*/
+
+
+/*@media (min-width: 768px) and (max-width: 992px) {
+  .myCol{background-color:green;}
+}*/
+
+
+/*screen-md*/
+
+
+/*@media (min-width: 992px) and (max-width: 1200px) {
+  .myCol{font-size:90%;
+    max-width: 150px;
+    box-sizing : border-box;
+    border-radius: 4px;
+    border: transparent 0px;
+    background-color: #34495e;
+    color: #f2f2f2;
+    margin: 15px;
+    line-height: 2.0;}
+}*/
+
+
+/*screen-lg corresponds with col-lg*/
+
+@media (min-width: 1200px) {
+    .myCol {
+        font-size: 90%;
+        max-width: 150px;
+        box-sizing: border-box;
+        border-radius: 4px;
+        border: transparent 0px;
+        background-color: #34495e;
+        color: #f2f2f2;
+        margin: 15px;
+        line-height: 2.0;
+    }
+}
+

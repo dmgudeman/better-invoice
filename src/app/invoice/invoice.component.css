@@ -1,0 +1,83 @@
+@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css");
+*{
+  box-sizing: border-box;
+    font-size: 20px;
+    max-width: 1200px;
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-weight:300;
+    
+ 
+}
+/*-----------------------------------------------------*/
+/*               NEW-ITEM NAV                          */
+/*-----------------------------------------------------*/
+
+.iv-nav{
+  margin: 10px 0;
+
+}
+/*-----------------------------------------------------*/
+/*               NEW-ITEM HEADER                       */
+/*-----------------------------------------------------*/
+
+
+
+
+/*-----------------------------------------------------*/
+/*               NEW-ITEM INPUTS                       */
+/*-----------------------------------------------------*/
+
+label {
+   
+   font-size: 75%;
+}
+
+.form-control {
+    
+  font-size: 100%;
+}
+
+.iv-date{
+  width:100%; 
+}
+.iv-hours{
+  width: 100%;
+
+}
+.iv-notes {
+   
+    width: 100%;
+    height: 300px;
+    resize: none;
+    box-sizing: border-box;
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: 100%;
+}
+
+.iv-group-addon {
+  /*border: 0 solid transparent;*/
+
+
+    background:transparent;
+  
+  padding:0;
+   
+}
+iv-input {
+
+}
+.iv-submit {
+    font-size:90%;
+    box-sizing : border-box;
+    border-radius: 4px;
+  
+    background-color: #34495e;
+    color:#f2f2f2;
+    margin: 15px;
+    max-width: 338px;
+    
+}
+
+
+

@@ -1,0 +1,79 @@
+<!-- NAVIGATION -->
+<div class="container-fluid">
+    <div class="row">
+        <div class=" col-sm-12 col-md-6 ni-nav">
+            <div>
+                <a [routerLink]="['/home-app']" class="glyphicon glyphicon-chevron-left" aria-hidden="true"></a>
+                <span>Export Invoice</span>
+            </div>
+        </div>
+    </div>
+    <!-- HEADER -->
+    <div class="row">
+        <div class="col-sm-12 col-md-5 col-md-offset-1">
+            <!--  FORM -->
+            <div class="iv-body">
+                <form #f="ngForm" (ngSubmit)="onSubscribe(f.form)">
+                    <div class="row">
+                        <div class="col-sm-12">
+
+                            <div class="form-group col-md-6">
+                                <label for="fromdate">From Date</label>
+                                <input [(ngModel)]=fromDate 
+                                       (change)="updateFromDate()" 
+                                       name="fromdate" 
+                                       #name="ngModel" 
+                                       id="fromdate" 
+                                       type="text" 
+                                       class="form-control" 
+                                >
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="todate">To Date</label>
+                                <input [(ngModel)]=toDate 
+                                       (change)="updateToDate()" 
+                                       name="todate" 
+                                       #name="ngModel" 
+                                       id="todate" 
+                                       type="text" 
+                                       class="form-control" 
+                                >
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="discountAmount">Discount</label>
+                                
+                                <div class="input-group">
+                                  <input [(ngModel)]=discountAmount 
+                                       (change)="updateDiscountAmount()" 
+                                       name="discount"
+                                       #name="ngModel" 
+                                       id="discount" 
+                                       type="text" 
+                                       class="form-control" 
+                                  > 
+                                     <span class="input-group-addon iv-group-addon" >%</span>
+                                  <span class="input-group-addon iv-group-addon" >$</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="notes">Description/notes</label>
+                        <textarea [(ngModel)]= description name="notes" #name="ngModel" id="notes" type="textbox" class="form-control iv-notes" required minlength="3"
+                            placeholder="Type Here">
+                            </textarea>
+                    </div>
+                    <div>
+                       <button class="col-xs-12 col-md-4 iv-submit"
+                           (click)="setClasses()"
+                           >
+                           Submit
+                       </button>
+                    </div>
+                    {{title}}
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,68 @@
+<!-- NAVIGATION -->
+<div class="container-fluid">
+    <div class="row">
+        <div class=" col-sm-12 col-md-6 ni-nav">
+            <div>
+                <a [routerLink]="['/home-app']" class="glyphicon glyphicon-chevron-left" aria-hidden="true"></a>
+                <span>{{title}}</span>
+            </div>
+        </div>
+    </div>
+    <!-- HEADER -->
+    <div class="row">
+        <div class="col-sm-12 col-md-5 col-md-offset-1">
+            <!--<tabset class="ni-header col-md-12">
+                <tab heading="Time"></tab>
+                <tab>
+                    <template tabHeading>
+                        <i class="glyphicon glyphicon-usd"></i>Amount
+                    </template>
+                </tab>
+            </tabset>-->
+            <!--  FORM -->
+            <div class="ni-body">
+                <form #f="ngForm" (ngSubmit)="onSubscribe(f.form)" novalidate>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group col-md-6">
+                                <label for="date">Date</label><br>
+                                <my-date-picker 
+                                    name="mydate" 
+                                    [options]="myDatePickerOptions" 
+                                    [(ngModel)]="model" 
+                                    class="ni-my-datepicker">
+                                </my-date-picker>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="hours">Hours</label>
+                                <input 
+                                    ngModel name="hours" 
+                                    #name="ngModel" 
+                                    id="hours" 
+                                    type="text" 
+                                    class="form-control"
+                                    placeholder="0">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="notes">Description/notes</label>
+                        <textarea 
+                            ngModel name="notes"
+                            #name="ngModel" 
+                            id="notes" 
+                            type="textbox" 
+                            class="form-control ni-notes" 
+                            placeholder="Type Here">
+                        </textarea>
+                    </div>
+                    <div>
+                        <button class="col-xs-12 col-md-4 myCol" (click)="onClickCanSave()">
+                           Submit
+                       </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
