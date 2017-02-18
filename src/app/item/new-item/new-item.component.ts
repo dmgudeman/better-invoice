@@ -35,8 +35,7 @@ export class NewItemComponent implements OnInit {
   ngOnInit() {
       this.route.params.subscribe(params => {
       this.id =params['id'];
-      
-        this.title = "New Item";
+      this.title = "New Item";
       this.hourly = params['hourly'];
       this.companyName = params['companyName'];
       this.coId = params['coId'];
@@ -46,10 +45,8 @@ export class NewItemComponent implements OnInit {
     })
   }
 
-    onDateChanged(event: IMyDateModel){
-}
-  updateDate() {
-    this.fdate = this.dateFormat(this.fdate, "mm/dd/yyyy")
+  onDateChanged(event: IMyDateModel){
+
   }
 
   onClickCanSave() {

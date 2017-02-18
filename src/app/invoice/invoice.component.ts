@@ -53,6 +53,15 @@ private model: Object = {beginDate: {year: this.newYear, month: this.newMonth, d
   updateDiscountAmount(newDiscountAmount: number) {
     this.discountAmount = newDiscountAmount;
   }
+  updateDiscountPercent(){
+
+  }
+  toggle = true;
+  toggleIt(){
+    this.toggle = !this.toggle;
+    console.log(this.toggle);
+    return this.toggle;
+  }
   canSave = true;
   onClickCanSave() {
     this.canSave = !this.canSave;

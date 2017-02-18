@@ -35,30 +35,54 @@
                                  id="iv-my-daterangepicker"
                              >
                              </my-date-range-picker>
-                          
+                        </div>
+                        </div>
+                        </div>
+                        <div class="row"> 
                         <div class="form-group col-md-12 iv-discount ">
-                              <div class="">
-                              <label 
+                             
+                              <div [ngClass]="{'toggle':false}">
+                                  <label 
                                   for="discountAmount"
-                                  >Discount
+                                  >Discount Amount
                               </label>
                               <div class="input-group ">
                                   <input [(ngModel)]=discountAmount 
                                        (change)="updateDiscountAmount()" 
-                                       name="discount"
+                                       name="discountAmount"
                                        #name="ngModel" 
-                                       id="discount" 
+                                       id="discountAmount" 
                                        type="text" 
-                                       class="form-control" 
+                                       class="form-control " 
                                   > 
-                                  <span class="input-group-addon iv-group-addon" >%</span>
-                                  <span class="input-group-addon iv-group-addon" >$</span>
+                                  <span class="input-group-addon iv-group-addon" 
+                                        (click)= "toggleIt()">%</span>
+                              </div>
+                              </div>
+                              <div [ngClass]="{'toggle':true}">
+                                  <label 
+                                  for="discountPercent"
+                                  >Discount Percentage
+                              </label>
+                              <div class="input-group ">
+                                  <input [(ngModel)]=discountPercent 
+                                       (change)="updateDiscountPercent()" 
+                                       name="updateDiscountPercent"
+                                       #name="ngModel" 
+                                       id="discountPercent" 
+                                       type="text" 
+                                       class="form-control "
+                                       (click)= "toggleIt()" 
+                                  > 
+                                 
+                                  <div class="input-group-addon iv-group-addon"
+                                         >$</div>
                               </div>
                               </div>
                         </div>
                         </div>
-                        </div> 
-                    </div>
+                    
+                    
                     <div class="form-group col-md-12">
                         <label for="notes">Description/notes</label>
                         <textarea 

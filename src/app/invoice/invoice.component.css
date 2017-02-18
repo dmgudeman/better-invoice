@@ -8,53 +8,30 @@
     
  
 }
-/*-----------------------------------------------------*/
-/*               NEW-ITEM NAV                          */
-/*-----------------------------------------------------*/
-
+/*-------------- INVOICE NAVBAR -----------------------*/
 .iv-nav{
   margin: 10px 0;
-
 }
-/*-----------------------------------------------------*/
-/*               NEW-ITEM HEADER                       */
-/*-----------------------------------------------------*/
-
-
-
-
-/*-----------------------------------------------------*/
-/*               NEW-ITEM INPUTS                       */
-/*-----------------------------------------------------*/
+/*-------------- INVOICE INPUTS -----------------------*/
 
 .iv-my-daterangepicker{
     width: 300px;
     border-radius: 4px;
-   /*max-width: 425px;*/
 }
 label {
    
-   font-size: 75%;
+    font-size: 75%;
 }
 
 .form-control {
-    
-  font-size: 100%;
+    font-size: 100%;
 }
 
 .iv-date{
-  width:100%; 
-}
-.iv-discount {
-  width: 100%;
-  /*max-width: 325px;
-  margin-right: 15px;
-
-  background-color: blue;*/
+    width:100%; 
 }
 .iv-notes {
-   
-    width: 100%;
+    max-width: 100%;
     height: 300px;
     resize: none;
     box-sizing: border-box;
@@ -84,6 +61,15 @@ label {
         margin-bottom: 0px;
         line-height: 3.0;
     }
+    .iv-discount{
+   
+    max-width: 370px ;
+    margin-left: 15px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: 100%;
+}
 }
 /*screen-sm*/
 /*@media (min-width: 768px) and (max-width: 992px) {
@@ -115,5 +101,15 @@ label {
         margin: 15px;
         line-height: 2.0;
     }
+    .iv-discount{
+   
+    max-width: 465px ;
+    margin-left: 15px;
+    box-sizing: borer-box;
+    border-radius: 4px;
+    /*background-color: #fff;*/
+    background-color:#fff;
+    font-size: 100%;
+}
 }
 
