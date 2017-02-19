@@ -28,6 +28,7 @@ export class NewItemComponent implements OnInit {
   title: string;
   canSave = true;
   id;
+  inputLabel:string;
 
   constructor(private route: ActivatedRoute) {
   }
@@ -51,5 +52,11 @@ export class NewItemComponent implements OnInit {
 
   onClickCanSave() {
     this.canSave = !this.canSave;
+  }
+
+  inputLabelUpdate(label) {
+ 
+    this.inputLabel = label;
+    console.log(this.inputLabel);
   }
 }

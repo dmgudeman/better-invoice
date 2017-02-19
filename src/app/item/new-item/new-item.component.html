@@ -11,10 +11,12 @@
     <!-- TABS -->
     <div class="row">
         <div class="col-xs-12 col-md-5 col-md-offset-1">
-            <!--<tabs>
-               <tab [tabTitle]="'Hours'">Hours</tab>
-               <tab tabTitle="$Amount">$Amount</tab>
-            </tabs>-->
+            
+ <tabs>
+      <tab [tabTitle]="'Tab 1'">Tab 1 Content</tab>
+      <tab tabTitle="Tab 2">Tab 2 Content</tab>
+    </tabs>
+            
             <!--  FORM -->
             <div >
                 <form #f="ngForm" (ngSubmit)="onSubscribe(f.form)" novalidate>
@@ -30,7 +32,7 @@
                                 </my-date-picker>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="hours">Hours</label>
+                                <label for="hours">{{inputLabel}}</label>
                                 <div class="input-group">
                                     <input 
                                         ngModel name="hours" 

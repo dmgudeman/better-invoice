@@ -16,6 +16,8 @@ import { InvoiceService } from './invoice/invoice.service';
 import { HomeComponent } from './home/home.component';
 import { CompaniesComponent } from './company/companies/companies.component';
 
+import { Tab } from './shared/tab';
+import { Tabs } from './shared/tabs';
 import { NewItemComponent } from './item/new-item/new-item.component';
 import { ItemComponent } from './item/item/item.component';
 import { InvoiceComponent } from './invoice/invoice.component';
@@ -23,12 +25,13 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { CompanyDetailsComponent } from './company/company-details/company-details.component';
 import { NewCompanyComponent } from './company/new-company/new-company.component';
 import { TruncatePipe } from './shared/truncate.pipe';
-import { Tab } from './shared/tab';
-import { Tabs } from './shared/tabs';
+
 
 
 @NgModule({
   declarations: [
+    Tab,
+    Tabs,
     AppComponent,
     ClientComponent,
     HomeComponent,
@@ -39,8 +42,7 @@ import { Tabs } from './shared/tabs';
     CompanyDetailsComponent,
     NewCompanyComponent,
     TruncatePipe,
-    Tab,
-    Tabs
+    
   ],
   imports: [
     AppRoutingModule,

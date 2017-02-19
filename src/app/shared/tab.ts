@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Tabs } from './tabs';
 
 @Component({
   selector: 'tab',
@@ -15,6 +16,5 @@ import { Component, Input } from '@angular/core';
 })
 export class Tab {
   @Input('tabTitle') title: string;
-
   @Input() active = false;
 }
