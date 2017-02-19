@@ -23,6 +23,7 @@ export class NewItemComponent implements OnInit {
   fdate: Date = new Date();
   getHourly: Observable<number>
   hourly: number;
+  hours:number;
   companyName: string;
   coId: number;
   uId: number;
@@ -30,6 +31,18 @@ export class NewItemComponent implements OnInit {
   canSave = true;
   id;
   inputLabel:string;
+  hoursArrayLimit = 25;
+  hoursArray:number[] = [];
+  
+  makeHoursArray(hoursArrayLimit):number[]{
+    for (let i =0; i < hoursArrayLimit; i++){
+      let x = 0.25 * i;
+      this.hoursArray.push(x);
+    }
+    return this.hoursArray;
+
+  }
+
 
   constructor(private route: ActivatedRoute) {
   }
@@ -43,7 +56,7 @@ export class NewItemComponent implements OnInit {
       this.coId = params['coId'];
       this.uId = params['uId'];
       // this.title = params['title'];
-      
+      this.makeHoursArray(this.hoursArrayLimit); 
     })
   }
 
