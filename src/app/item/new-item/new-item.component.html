@@ -11,9 +11,13 @@
     <!-- TABS -->
     <div class="row">
         <div class="col-xs-12 col-md-5 col-md-offset-1">
-            <md-tab-group>
+            
+            <!--  FORM -->
+            <div>
+                <form #f="ngForm" (ngSubmit)="onSubscribe(f.form)" novalidate>
+                    <md-tab-group>
                 <md-tab label="Hours">
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-xs-12 col-md-6">
                         <label for="hours">Hours</label>
                         <input 
                             ngModel name="hours" 
@@ -24,27 +28,10 @@
                             placeholder="0"
                         >
                     </div>
-                </md-tab>
-                <md-tab label="$Amount">
-                    <div class="form-group col-md-6">
-                        <label for="amount">$Amount</label>
-                        <input 
-                            ngModel name="amount" 
-                            #name="ngModel" 
-                            id="amount" 
-                            type="text" 
-                            class="form-control"
-                            placeholder="0"
-                        >
-                    </div>
-                </md-tab>
-            </md-tab-group>
-            <!--  FORM -->
-            <div>
-                <form #f="ngForm" (ngSubmit)="onSubscribe(f.form)" novalidate>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="form-group col-md-6">
+                    <!--<div class="row">-->
+                        
+                        <!--<div class="col-xs-12">-->
+                            <div class="form-group col-xs-12 col-md-6">
                                 <label for="date">Date</label><br>
                                 <my-date-picker 
                                     name="mydate" 
@@ -53,8 +40,8 @@
                                     class="ni-my-datepicker">
                                 </my-date-picker>
                             </div>
-                        </div>
-                    </div>
+                        <!--</div>-->
+                    <!--</div>-->
                     <div class="form-group col-md-12">
                         <label for="notes">Description/notes</label>
                         <textarea 
@@ -66,6 +53,48 @@
                             placeholder="Type Here">
                         </textarea>
                     </div>
+                </md-tab>
+                <md-tab label="$Amount">
+                    <div class="form-group col-xs-12 col-md-6">
+                        <label for="amount">$Amount</label>
+                        <input 
+                            ngModel name="amount" 
+                            #name="ngModel" 
+                            id="amount" 
+                            type="text" 
+                            class="form-control"
+                            placeholder="0"
+                        >
+                    </div>
+                    <!--<div class="row">-->
+                        
+                        <!--<div class="col-xs-12">-->
+                            <div class="form-group col-xs-12 col-md-6">
+                                <label for="date">Date</label><br>
+                                <my-date-picker 
+                                    name="mydate" 
+                                    [options]="myDatePickerOptions" 
+                                    [(ngModel)]="model" 
+                                    class="ni-my-datepicker">
+                                </my-date-picker>
+                            </div>
+                        <!--</div>-->
+                    <!--</div>-->
+                    <div class="form-group col-md-12">
+                        <label for="notes">Description/notes</label>
+                        <textarea 
+                            ngModel name="notes"
+                            #name="ngModel" 
+                            id="notes" 
+                            type="textbox" 
+                            class="form-control ni-notes" 
+                            placeholder="Type Here">
+                        </textarea>
+                    </div>
+                </md-tab>
+            </md-tab-group>
+                    
+                    
                     <div>
                         <button class="col-xs-12 col-md-4 myCol" (click)="onClickCanSave()">
                             Submit
