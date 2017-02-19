@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { IMyOptions, IMyDateModel } from 'mydatepicker';
 import { Tab } from '../../shared/tab';
 import { Tabs } from '../../shared/tabs';
+import { MaterialModule } from '@angular/material';
 
 
 @Component({

@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
+import { MaterialModule } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { MyDatePickerModule } from 'mydatepicker';
 import { MyDateRangePickerModule } from 'mydaterangepicker';
@@ -52,7 +53,8 @@ import { TruncatePipe } from './shared/truncate.pipe';
     HttpModule,
     // TabsModule.forRoot(),
     MyDatePickerModule,
-    MyDateRangePickerModule
+    MyDateRangePickerModule,
+    MaterialModule
 
   ],
   providers: [
