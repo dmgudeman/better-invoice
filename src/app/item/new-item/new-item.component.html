@@ -11,45 +11,36 @@
     <!-- TABS -->
     <div class="row">
         <div class="col-xs-12 col-md-5 col-md-offset-1">
-            
- <md-tab-group>
-  <md-tab label="Hours">
-    <div class="form-group col-md-6">
-                                <label for="hours">{{inputLabel}}</label>
-                                <div class="input-group">
-                                    <input 
-                                        ngModel name="hours" 
-                                        #name="ngModel" 
-                                        id="hours" 
-                                        type="text" 
-                                        class="form-control"
-                                        placeholder="0"
-                                    >
-                                   
-                                </div>
-                            </div>
-  </md-tab>
-  <md-tab label="$Amount">
-    <div class="form-group col-md-6">
-                                <label for="amount">{{inputLabel}}</label>
-                                <div class="input-group">
-                                    <input 
-                                        ngModel name="amount" 
-                                        #name="ngModel" 
-                                        id="amount" 
-                                        type="text" 
-                                        class="form-control"
-                                        placeholder="0"
-                                    >
-                                    
-                                </div>
-                            </div>
-  </md-tab>
-</md-tab-group>
-
-            
+            <md-tab-group>
+                <md-tab label="Hours">
+                    <div class="form-group col-md-6">
+                        <label for="hours">Hours</label>
+                        <input 
+                            ngModel name="hours" 
+                            #name="ngModel" 
+                            id="hours" 
+                            type="text" 
+                            class="form-control"
+                            placeholder="0"
+                        >
+                    </div>
+                </md-tab>
+                <md-tab label="$Amount">
+                    <div class="form-group col-md-6">
+                        <label for="amount">$Amount</label>
+                        <input 
+                            ngModel name="amount" 
+                            #name="ngModel" 
+                            id="amount" 
+                            type="text" 
+                            class="form-control"
+                            placeholder="0"
+                        >
+                    </div>
+                </md-tab>
+            </md-tab-group>
             <!--  FORM -->
-            <div >
+            <div>
                 <form #f="ngForm" (ngSubmit)="onSubscribe(f.form)" novalidate>
                     <div class="row">
                         <div class="col-xs-12">
@@ -62,7 +53,6 @@
                                     class="ni-my-datepicker">
                                 </my-date-picker>
                             </div>
-                            
                         </div>
                     </div>
                     <div class="form-group col-md-12">
@@ -78,8 +68,8 @@
                     </div>
                     <div>
                         <button class="col-xs-12 col-md-4 myCol" (click)="onClickCanSave()">
-                           Submit
-                       </button>
+                            Submit
+                        </button>
                     </div>
                 </form>
             </div>
