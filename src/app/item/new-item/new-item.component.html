@@ -17,7 +17,7 @@
                         <div class="form-group col-xs-12 col-md-6">
                             <label for="hours">Hours</label>
                             <select
-                                class="form-control" 
+                                class="form-control"
                                 ngModel name="hours" 
                                 #hours="ngModel" 
                                 id="hours" 
@@ -28,6 +28,7 @@
                         <div class="form-group col-xs-12 col-md-6">
                             <label for="date">Date</label><br>
                             <my-date-picker 
+                                
                                 name="mydate" 
                                 [options]="myDatePickerOptions" 
                                 [(ngModel)]="model" 
@@ -50,6 +51,7 @@
                         <div class="form-group col-xs-12 col-md-6">
                             <label for="amount">$Amount</label>
                             <input 
+                           
                                 ngModel name="amount" 
                                 #name="ngModel" 
                                 id="amount" 
@@ -61,10 +63,11 @@
                         <div class="form-group col-xs-12 col-md-6">
                             <label for="date">Date</label><br>
                             <my-date-picker 
+                             
                                 name="mydate" 
                                 [options]="myDatePickerOptions" 
                                 [(ngModel)]="model" 
-                                class="ni-my-datepicker">
+                                >
                             </my-date-picker>
                         </div>
                         <div class="form-group col-md-12">
