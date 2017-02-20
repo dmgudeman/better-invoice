@@ -11,5 +11,11 @@ export class Company {
     updatedAt:Date;
     createdAt:Date;
 
-   constructor(id,name, color, hourly, paymentTerms, active, updatedAt, createdAt){}
+   constructor(name:string, color:string, hourly:number, paymentTerms:number, active?:boolean){
+       this.name = name;
+       this.color = color;
+       this.hourly= hourly;
+       this.paymentTerms = paymentTerms;
+       this.active = active ? active : false;
+   }
 } 

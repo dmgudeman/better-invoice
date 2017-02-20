@@ -18,7 +18,13 @@ export class CompaniesComponent implements OnInit {
   companies: Observable<Company[]>;
   invoice: Invoice;
   errorMessage: string;
-
+  name:string;
+  color:string;
+  hourly:number;
+  paymentTerms:number;
+  active:boolean;
+  editing:boolean = false;
+  
   constructor(
               private _companyService: CompanyService,
               private _invoiceService: InvoiceService,
@@ -74,7 +80,7 @@ export class CompaniesComponent implements OnInit {
     let coId = company.id;
     this.router.navigate(['/new-item', {hourly: hourly, companyName:companyName, coId: coId, uId:uId , title: title}]);
   }
-  goToNewCompany(company:Company){
+  goToCompanyDetails(company:Company){
     let hourly = company.hourly;
     let companyName = company.name;
     let coId = company.id;
@@ -84,6 +90,52 @@ export class CompaniesComponent implements OnInit {
                                            uId:uId,
                                            id:coId}]);
   }
+  goToNewCompany(){
+    this.router.navigate['new-company'];
+  }
+  
+
+  // submitCompany(inputCompany?){
+  //     let company:Company;
+  //     let companies = this._companyService.getCompanies;
+        
+  //     if(inputCompany) { 
+  //       this.editing=true;
+  //       company = inputCompany;
+  //     } else{
+  //       company = new Company(this.name,  
+  //                             this.color,
+  //                             this.hourly,
+  //                                        this.paymentTerms,
+  //                                        this.active );
+  //   }
+  //       // Variable to hold a reference of addComment/updateComment
+  //   let companyOperation:Observable<Company[]>;
+  //      if(!this.editing){
+  //          // Create a new comment
+  //          companyOperation = this._companyService.addCompany (company)
+  //      } else {
+  //        // Update an existing comment
+  //          companyOperation = this._companyService.updateCompany(company)
+  //      }
+
+  //       // Subscribe to observable
+  //   companyOperation.subscribe(
+  //                               companies => {
+  //                                   // Emit list event
+  //                                   EmitterService.get(this.listId).emit(comments);
+  //                                   // Empty model
+  //                                   this.mode = new Comment(new Date(), '', '');
+  //                                   // Switch editing status
+  //                                   if(this.editing) this.editing = !this.editing;
+  //                               }, 
+  //                               err => {
+  //                                   // Log errors if any
+  //                                   console.log(err);
+  //                               });
+  // }
+
+  
 }
 
 

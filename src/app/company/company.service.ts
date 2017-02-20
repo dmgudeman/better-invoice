@@ -32,20 +32,13 @@ export class CompanyService {
                    .map(res => res.json())
                    .filter(company=>company.id == id)
     }
-    // addCompany (body: Object): Observable<Comment[]> {
-    //     let bodyString = JSON.stringify(body); // Stringify payload
-    //     let headers = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
-    //     let options = new RequestOptions({ headers: headers }); // Create a request option
-
-    //     return this._http.post(this.commentsUrl, body, options) // ...using post request
-    //                      .map((res:Response) => res.json()) // ...and calling .json() on the response to return data
-    //                      .catch((error:any) => Observable.throw(error.json().error || 'Server error')); //...errors if any
-    // }   
-    // XaddCompany(company){
-	// 	return this._http
-    //                .post(this._url, JSON.stringify(company))
-	// 		       .map(res => res.json());
-	// }
+    addCompany(company){
+		return this._http
+                   .post(this._url, JSON.stringify(company))
+			       .map(res => res.json())
+                   .do(data => console.log(data + "this is date"))
+                   .catch(this.handleError);
+	}
     
     updateCompany(company){
 		return this._http.put(this.getCompanyUrl(company.id), JSON.stringify(company))
