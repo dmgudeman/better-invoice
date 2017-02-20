@@ -33,8 +33,16 @@ export class CompanyService {
                    .filter(company=>company.id == id)
     }
     addCompany(company){
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        let body = JSON.stringify(company);
+        console.log(company.name);
+
+
+        console.log("body " + body);
 		return this._http
-                   .post(this._url, JSON.stringify(company))
+                   .post(this._url +'/company',body)
+                   .do(data => console.log(this._url +'/company'))
 			       .map(res => res.json())
                    .do(data => console.log(data + "this is date"))
                    .catch(this.handleError);

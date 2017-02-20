@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CompanyService } from 'app/company/company.service';
 import { Company } from '../company';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Observable } from 'RXJS/Observable';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-new-company',
@@ -10,38 +10,57 @@ import { Observable } from 'RXJS/Observable';
   styleUrls: ['./new-company.component.css']
 })
 export class NewCompanyComponent implements OnInit {
-  private company:Company;
+  newCompany:Company;
   private errorMessage: string;
+  private businessName;
+  private hourlyPay;
+  private paymentTerms;
+  private active;
+
+
+
+
+
   constructor(
            private _companyService: CompanyService,
            private _router:Router) { }
 
   ngOnInit() {}
    
-  // addCompany(company){ 
-  //  this._companyService.addCompany(company)
-  //      .subscribe( (companies):Company[] => 
-  //          this.company = companies,
-  //          error=> this.errorMessage = <any>error 
-  //     );
-  // }
-save(){
-        var result;
-        
-        if (this.company.id) 
-        
-            result = this._companyService.updateCompany(this.company);
-        else
-            result = this._companyService.addCompany(this.company)
-            
-		result.subscribe(x => {
-            // Ideally, here we'd want:
-            // this.form.markAsPristine();
-            this._router.navigate(['companies']);
-        });
-	}
-   
+  addCompany(company){ 
+    console.log( this.businessName +" " + this.hourlyPay + " " +this.paymentTerms +" " +this.active );
+  
+
+   this._companyService.addCompany(company)
+
+       .subscribe( (data) => 
+           console.log(data),
+          //  {this._companyService.getCompanies(); 
+         
+          //    return true},
+           error=> { console.error("Error saving company!");
+                     return Observable.throw(error);}
+      );
+  }
+
 }
+// save(){
+//         var result;
+        
+//         if (this.company.id) 
+        
+//             result = this._companyService.updateCompany(this.company);
+//         else
+//             result = this._companyService.addCompany(this.company)
+            
+// 		result.subscribe(x => {
+//             // Ideally, here we'd want:
+//             // this.form.markAsPristine();
+//             this._router.navigate(['companies']);
+//         });
+// 	}
+   
+// }
 //From userForm
 
 //From user.service
