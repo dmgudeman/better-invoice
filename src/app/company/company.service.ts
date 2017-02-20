@@ -33,8 +33,9 @@ export class CompanyService {
                    .filter(company=>company.id == id)
     }
     addCompany(company){
-		return this._http.post(this._url, JSON.stringify(company))
-			.map(res => res.json());
+		return this._http
+                   .post(this._url, JSON.stringify(company))
+			       .map(res => res.json());
 	}
     
     updateCompany(company){

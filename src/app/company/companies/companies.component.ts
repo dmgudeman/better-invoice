@@ -15,7 +15,7 @@ import { Observable } from 'RXJS/Observable';
 })
 export class CompaniesComponent implements OnInit {
   class: any;
-  companies: Company[];
+  companies: Observable<Company[]>;
   invoice: Invoice;
   errorMessage: string;
 
@@ -30,11 +30,12 @@ export class CompaniesComponent implements OnInit {
   }
   
   getCompanies(){
-   this._companyService.getCompanies()
-       .subscribe( (companies):Company[] => 
-           this.companies = companies,
-           error=> this.errorMessage = <any>error 
-      );
+    this.companies = this._companyService.getCompanies();
+  //  this._companyService.getCompanies()
+  //      .subscribe( (companies):Company[] => 
+  //          this.companies = companies,
+  //          error=> this.errorMessage = <any>error 
+  //     );
   
   }
 

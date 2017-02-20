@@ -13,7 +13,7 @@
      fxLayoutWrap
      fxLayoutGap.xs="5px"
      >
-  <div *ngFor="let company of companies" class="outer-div">
+  <div *ngFor="let company of companies | async" class="outer-div">
   <div class="flex-item co-box" 
        fxFlex="300px"
        fxFlex.xs="40%"
