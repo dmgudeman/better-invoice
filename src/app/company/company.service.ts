@@ -1,6 +1,6 @@
 import { Company }        from './company';
 import { Injectable }     from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, Headers, RequestOptions} from '@angular/http';
 import { Observable }     from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
@@ -9,14 +9,14 @@ import 'rxjs/add/observable/throw';
 export class CompanyService {
     
     
-	private _url = "http://localhost:3000/companies";
+	private _url = "http://localhost:3000";
 
 	constructor(private _http: Http){
 	}
 
 	getCompanies():Observable<Company[]>{
 		return this._http
-                   .get(this._url)
+                   .get(this._url + '/companies')
 			       .map((res:Response) => <Company[]>res.json().companies)
                    .do(data => console.log(data + " "+ data.length))
                    .catch(this.handleError);
@@ -28,15 +28,24 @@ export class CompanyService {
 	// 		.map(res => res.json());
 	// }
     getCompany(id:number){
-        return this._http.get(this._url)
+        return this._http.get(this._url + '/companies')
                    .map(res => res.json())
                    .filter(company=>company.id == id)
     }
-    addCompany(company){
-		return this._http
-                   .post(this._url, JSON.stringify(company))
-			       .map(res => res.json());
-	}
+    // addCompany (body: Object): Observable<Comment[]> {
+    //     let bodyString = JSON.stringify(body); // Stringify payload
+    //     let headers = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
+    //     let options = new RequestOptions({ headers: headers }); // Create a request option
+
+    //     return this._http.post(this.commentsUrl, body, options) // ...using post request
+    //                      .map((res:Response) => res.json()) // ...and calling .json() on the response to return data
+    //                      .catch((error:any) => Observable.throw(error.json().error || 'Server error')); //...errors if any
+    // }   
+    // XaddCompany(company){
+	// 	return this._http
+    //                .post(this._url, JSON.stringify(company))
+	// 		       .map(res => res.json());
+	// }
     
     updateCompany(company){
 		return this._http.put(this.getCompanyUrl(company.id), JSON.stringify(company))
