@@ -32,8 +32,8 @@ export class CompaniesComponent implements OnInit {
   getCompanies(){
    this._companyService.getCompanies()
        .subscribe( (companies):Company[] => 
-         this.companies = companies,
-                  error=> this.errorMessage = <any>error 
+           this.companies = companies,
+           error=> this.errorMessage = <any>error 
       );
   
   }
