@@ -86,9 +86,9 @@ export class CompaniesComponent implements OnInit {
     let coId = company.id;
     let uId =4
     this.router.navigate(['/company-details', {hourly: hourly, 
-                                           name:companyName, 
-                                           uId:uId,
-                                           id:coId}]);
+                                               name:companyName, 
+                                               uId:uId,
+                                               id:coId}]);
   }
   goToNewCompany(){
     this.router.navigate['new-company'];

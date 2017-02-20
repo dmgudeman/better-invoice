@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { CompanyService } from 'app/company/company.service';
+import { Company } from '../company';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Observable } from 'RXJS/Observable';
 
 @Component({
   selector: 'app-new-company',
@@ -6,10 +10,47 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new-company.component.css']
 })
 export class NewCompanyComponent implements OnInit {
+  private company:Company;
+  private errorMessage: string;
+  constructor(
+           private _companyService: CompanyService,
+           private _router:Router) { }
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
+   
+  // addCompany(company){ 
+  //  this._companyService.addCompany(company)
+  //      .subscribe( (companies):Company[] => 
+  //          this.company = companies,
+  //          error=> this.errorMessage = <any>error 
+  //     );
+  // }
+save(){
+        var result;
+        
+        if (this.company.id) 
+        
+            result = this._companyService.updateCompany(this.company);
+        else
+            result = this._companyService.addCompany(this.company)
+            
+		result.subscribe(x => {
+            // Ideally, here we'd want:
+            // this.form.markAsPristine();
+            this._router.navigate(['companies']);
+        });
+	}
+   
 }
+//From userForm
+
+//From user.service
+//  addUser(user){
+// 		return this._http.post(this._url, JSON.stringify(user))
+// 			.map(res => res.json());
+// 	}
+    
+//     updateUser(user){
+// 		return this._http.put(this.getUserUrl(user.id), JSON.stringify(user))
+// 			.map(res => res.json());
+// 	}
