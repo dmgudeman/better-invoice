@@ -6,6 +6,7 @@ import { Invoice } from '../../invoice/invoice';
 import { Item } from '../../item/item';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { Observable } from 'RXJS/Observable';
 
 @Component({
   selector: 'app-company-details',
@@ -35,8 +36,16 @@ export class CompanyDetailsComponent implements OnInit {
     this.company = this.getCompany();
     this.items = this.getItemsByInvoices(); 
   }
-  getCompanies(): Company[] {
-    return this._companyService.getCompanies();
+  // getCompanies(): Company[] {
+  //   return this._companyService.getCompanies();
+  // }
+  getCompanies(){
+   this._companyService.getCompanies()
+      .subscribe(companies => {
+        this.companies = companies;
+        console.log("this.companies.length)" + this.companies.length)
+        return this.companies;
+      });
   }
 
   setColor(color) {
@@ -91,7 +100,7 @@ export class CompanyDetailsComponent implements OnInit {
   }
   getCompany() {
     this.route.params
-      .switchMap((params: Params) => this._companyService.getCompanyById(+params['id']))
+      .switchMap((params: Params) => this._companyService.getCompany(+params['id']))
       .subscribe(company => {
         this.company = company;
         this.id = this.company.id;

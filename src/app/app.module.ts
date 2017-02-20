@@ -13,6 +13,7 @@ import { ClientComponent } from './client/client.component';
 import { ClientService } from './client.service';
 import { CompanyService } from './company/company.service';
 import { InvoiceService } from './invoice/invoice.service';
+import { ItemService } from './item/item.service';
 
 import { HomeComponent } from './home/home.component';
 import { CompaniesComponent } from './company/companies/companies.component';
@@ -61,6 +62,7 @@ import { TruncatePipe } from './shared/truncate.pipe';
     ClientService,
     CompanyService,
     InvoiceService,
+    ItemService
   ],
   bootstrap: [AppComponent]
 })

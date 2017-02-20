@@ -5,6 +5,8 @@ import { InvoiceService } from 'app/invoice/invoice.service';
 import { Invoice } from 'app/invoice/invoice';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { Observable } from 'RXJS/Observable';
+
 
 @Component({
   selector: 'companies',
@@ -15,17 +17,25 @@ export class CompaniesComponent implements OnInit {
   class: any;
   companies: Company[];
   invoice: Invoice;
+  errorMessage: string;
 
   constructor(
               private _companyService: CompanyService,
               private _invoiceService: InvoiceService,
               private router:Router) { };
 
-  ngOnInit() {
-    this.companies = this.getCompanies();
+  ngOnInit() { 
+    this.getCompanies();
+   
   }
-  getCompanies(): Company[] {
-    return this._companyService.getCompanies();
+  
+  getCompanies(){
+   this._companyService.getCompanies()
+       .subscribe( (companies):Company[] => 
+         this.companies = companies,
+                  error=> this.errorMessage = <any>error 
+      );
+  
   }
 
   setClasses(company: Company) {
