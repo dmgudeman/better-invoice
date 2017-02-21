@@ -4,6 +4,7 @@ import { Http, Response, Headers, RequestOptions} from '@angular/http';
 import { Observable }     from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
+import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class CompanyService {
@@ -32,21 +33,25 @@ export class CompanyService {
                    .map(res => res.json())
                    .filter(company=>company.id == id)
     }
-    addCompany(company){
+    addCompany(payload){
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
-        let body = JSON.stringify(company);
-        console.log(company.name);
+        // let body = JSON.stringify(payload);
+        let body = payload;
+        console.log (this._url +'/company');
+        console.log(body);
+        let url = this._url + "/company";
+        console.log(url);
+		// return this._http
+        //            .post(url, body, options)
+        //         //    .do(data => console.log("I'm here " + this._url +'/company'))
+		// 	       .map(res => <Company[]>res.json().companies)
+        //            .do(data => console.log(data + "this is date"))
+        //            .catch(this.handleError);
 
-
-        console.log("body " + body);
-		return this._http
-                   .post(this._url +'/company',body)
-                   .do(data => console.log(this._url +'/company'))
-			       .map(res => res.json())
-                   .do(data => console.log(data + "this is date"))
-                   .catch(this.handleError);
-	}
+    	return this._http.post(url, payload, options)
+			.map(res => res.json());
+    }
     
     updateCompany(company){
 		return this._http.put(this.getCompanyUrl(company.id), JSON.stringify(company))
@@ -61,11 +66,50 @@ export class CompanyService {
     private getCompanyUrl(companyId){
 		return this._url + "/" + companyId;
 	}
-    private handleError(error:Response){
+    
+    doPOST(payload){
+    //  let headers = new Headers({ 'Content-Type': 'application/json' });
+    // let options = new RequestOptions({ headers: headers });
+    
+    console.log("POST");
+    let url =  this._url + "/company";
+    console.log(url);
+    // this._http.post(url, payload ).subscribe(res => console.log(res.json()));
+    this._http.post(url, payload ).toPromise().then(res => res.json())
+}
+// doPost(payload){
+//     let headers = new Headers({ 'Content-Type': 'application/json' });
+//     let options = new RequestOptions({ headers: headers });
+
+//     var url = this._url + "/company";
+//     console.log(url);
+//     return this._http.post(url , payload)
+// 			.map(this.extractData)
+//             .catch(this.handleError);
+// }
+private extractData(res: Response) {
+  let body = res.json();
+  return body.data || { };
+}
+private handleError(error:Response){
         console.error(error);
         let message = `Error status code ${error.status} at ${error.url}`;
         return Observable.throw(message);
-    }
+}
+// private handleError (error: Response | any) {
+//   // In a real world app, we might use a remote logging infrastructure
+//   let errMsg: string;
+//   if (error instanceof Response) {
+//     const body = error.json() || '';
+//     const err = body.error || JSON.stringify(body);
+//     errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
+//   } else {
+//     errMsg = error.message ? error.message : error.toString();
+//   }
+//   console.error(errMsg);
+//   return Promise.reject(errMsg);
+// }
+
 }
 /************************************************************ */
     // companies: Company[] = [

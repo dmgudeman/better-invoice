@@ -35,7 +35,12 @@ export class NewCompanyComponent implements OnInit {
   }
    
   
-  onSubmit(form) {
-      console.log("Form Submitted!");
-    console.log( this.myform.value )}
+  onSubmit() {
+    console.log("Form Submitted!");
+    
+    var payload = "{" + '"company": ' + JSON.stringify(this.myform.value) + "}";
+    console.log("onSubmit:  " + payload );
+    // this._companyService.doPOST(payload);
+    this._companyService.addCompany(payload);
+  }
 }
