@@ -13,12 +13,19 @@ import { ReactiveFormsModule, FormGroup, FormsModule, FormControl } from '@angul
 export class NewCompanyComponent implements OnInit {
   private newCompany:Company;
   private errorMessage: string;
-  private businessName;
-  private hourlyPay;
-  private paymentTerms;
-  private active;
+  // private businessName;
+  // private hourlyPay;
+  // private paymentTerms;
+  // private active;
   myform : FormGroup;
-
+  public colorTags =[
+    {value: 'brown', display:''},
+    {value: 'blue', display:''},
+    {value: 'red', display:''},
+    {value: 'green', display:''},
+    {value: 'yellow', display:''},
+    {value: 'purple', display:''},
+  ]
   constructor(
            private _companyService: CompanyService,
            private _router:Router) { }
@@ -26,33 +33,37 @@ export class NewCompanyComponent implements OnInit {
   ngOnInit() {
       this.myform = new FormGroup({
         businessName: new FormControl(),
-        colorTags: new FormGroup ({
-           brownTag: new FormControl(),
-           blueTag: new FormControl(),
-           redTag: new FormControl(),
-           greenTag: new FormControl(),
-           yellowTag: new FormControl(),
-           purpleTag: new FormControl(),
-        }),
+        colorTags: new FormControl(),
         hourlyPay: new FormControl(),
         paymentTerms: new FormControl(),
         active: new FormControl(),
       })
   }
    
-  addCompany(company){ 
-    console.log( this.businessName +" " + this.hourlyPay + " " +this.paymentTerms +" " +this.active );
+  addCompany(){ 
+   
+    var objeh = this.myform.value.colorTags;
+     console.log("I'm here" + objeh.brownTag);
+    var color = function(){ for (let tag of objeh){ 
+       if(tag !== null){
+         console.log(tag);
+         return tag;
+       }
+       return null;
+    }
+    console.log( this.myform.value.colorTags );
 
-   this._companyService.addCompany(company)
+  //  this._companyService.addCompany(company)
 
-       .subscribe( (data) => 
-           console.log(data),
-          //  {this._companyService.getCompanies(); 
-          //    return true},
-           error=> { console.error("Error saving company!");
-                     return Observable.throw(error);}
-      );
+      //  .subscribe( (data) => 
+      //      console.log(data),
+      //     //  {this._companyService.getCompanies(); 
+      //     //    return true},
+      //      error=> { console.error("Error saving company!");
+      //                return Observable.throw(error);}
+      // );
   }
+}
 }
 // save(){
 //         var result;
