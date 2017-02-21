@@ -14,7 +14,7 @@
     <div class="col-sm-12 col-md-5 col-md-offset-1">
       <!--  FORM -->
       <div class="co-details-body">
-        <form [formGroup]="myform" novalidate>
+        <form [formGroup]="myform" (ngSubmit)="onSubmit()">
          <div> <pre>{{ myform.value | json}}</pre></div>
           <div class="row">
               <div class="form-group col-xs-12 col-md-6" name="name">

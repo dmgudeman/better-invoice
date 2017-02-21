@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CompanyService } from 'app/company/company.service';
 import { Company } from '../company';
 import { Router, ActivatedRoute, Params } from '@angular/router';
@@ -13,6 +13,7 @@ import { ReactiveFormsModule, FormGroup, FormsModule, FormControl } from '@angul
 export class NewCompanyComponent implements OnInit {
   private newCompany:Company;
   private errorMessage: string;
+  //@ViewChild('f')myform:any; //this is to access the ngForm on the template, used with @ViewChild
   // private businessName;
   // private hourlyPay;
   // private paymentTerms;
@@ -43,15 +44,17 @@ export class NewCompanyComponent implements OnInit {
   addCompany(){ 
    
     var objeh = this.myform.value.colorTags;
-     console.log("I'm here" + objeh.brownTag);
+      console.log("I'm here" + objeh.brownTag);
     var color = function(){ for (let tag of objeh){ 
        if(tag !== null){
          console.log(tag);
-         return tag;
+          return tag;
        }
        return null;
-    }
-    console.log( this.myform.value.colorTags );
+       }
+      console.log( this.myform.value.colorTags );
+
+    
 
   //  this._companyService.addCompany(company)
 
@@ -64,6 +67,12 @@ export class NewCompanyComponent implements OnInit {
       // );
   }
 }
+  onSubmit(form) {
+  if (this.myform.valid) {
+      console.log("Form Submitted!");
+      this.myform.reset();
+    }
+  }
 }
 // save(){
 //         var result;
