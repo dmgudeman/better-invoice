@@ -43,17 +43,9 @@ export class NewCompanyComponent implements OnInit {
    
   addCompany(){ 
    
-    var objeh = this.myform.value.colorTags;
-      console.log("I'm here" + objeh.brownTag);
-    var color = function(){ for (let tag of objeh){ 
-       if(tag !== null){
-         console.log(tag);
-          return tag;
-       }
-       return null;
-       }
+    
       console.log( this.myform.value.colorTags );
-
+  
     
 
   //  this._companyService.addCompany(company)
@@ -66,13 +58,10 @@ export class NewCompanyComponent implements OnInit {
       //                return Observable.throw(error);}
       // );
   }
-}
+
   onSubmit(form) {
-  if (this.myform.valid) {
       console.log("Form Submitted!");
-      this.myform.reset();
-    }
-  }
+    console.log( this.myform.value )}
 }
 // save(){
 //         var result;
