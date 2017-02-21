@@ -18,7 +18,7 @@ export class CompanyService {
 		return this._http
                    .get(this._url + '/companies')
 			       .map((res:Response) => <Company[]>res.json().companies)
-                   .do(data => console.log(data + " "+ data.length))
+                //    .do(data => console.log(data + " "+ data.length))
                    .catch(this.handleError);
 	}
     
@@ -31,8 +31,7 @@ export class CompanyService {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
         return this._http.post(this._url +'/company', {company:payload}, options)
-             .toPromise()
-             .catch(this.handleError);
+                   .map(res => res.json())
     }
 
     updateCompany(company){

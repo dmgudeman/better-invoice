@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { CompanyService } from 'app/company/company.service';
 import { Company } from '../company';
 import { Router, ActivatedRoute, Params } from '@angular/router';
@@ -8,7 +8,8 @@ import { ReactiveFormsModule, FormGroup, FormsModule, FormControl } from '@angul
 @Component({
   selector: 'app-new-company',
   templateUrl: './new-company.component.html',
-  styleUrls: ['./new-company.component.css']
+  styleUrls: ['./new-company.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NewCompanyComponent implements OnInit {
   private newCompany:Company;
@@ -28,13 +29,14 @@ export class NewCompanyComponent implements OnInit {
         active: new FormControl(),
       })
   }
-   
   
   onSubmit() {
     var payload = this.myform.value; 
+    let company;
     this._companyService.addCompany(payload)
-                        .then(newCompany=> {
-                          console.log(newCompany);
-                        });
-  }
+        .subscribe(x => {company = x;
+        this._router.navigate(['app-home']);
+        });
+	}
+    
 }
