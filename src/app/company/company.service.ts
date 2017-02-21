@@ -36,27 +36,14 @@ export class CompanyService {
     addCompany(payload){
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
-        // let body = JSON.stringify(payload);
-        let body = payload;
-        console.log (this._url +'/company');
-        console.log(body);
-        let url = this._url + "/company";
-        console.log(url);
-		// return this._http
-        //            .post(url, body, options)
-        //         //    .do(data => console.log("I'm here " + this._url +'/company'))
-		// 	       .map(res => <Company[]>res.json().companies)
-        //            .do(data => console.log(data + "this is date"))
-        //            .catch(this.handleError);
-
-    	return this._http.post(url, payload, options)
-			.map(res => res.json());
+        return this._http.post(this._url +'/company', {company:payload}, options)
+             .toPromise()
+             .catch(this.handleError);
     }
-    
+
     updateCompany(company){
 		return this._http.put(this.getCompanyUrl(company.id), JSON.stringify(company))
-			.map(res => res.json());
-	}
+			.map(res => res.json()).catch(this.handleError);}
     
     deleteCompany(companyId){
 		return this._http.delete(this.getCompanyUrl(companyId))
