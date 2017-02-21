@@ -26,7 +26,14 @@ export class NewCompanyComponent implements OnInit {
   ngOnInit() {
       this.myform = new FormGroup({
         businessName: new FormControl(),
-        colorTag: new FormControl(),
+        colorTags: new FormGroup ({
+           brownTag: new FormControl(),
+           blueTag: new FormControl(),
+           redTag: new FormControl(),
+           greenTag: new FormControl(),
+           yellowTag: new FormControl(),
+           purpleTag: new FormControl(),
+        }),
         hourlyPay: new FormControl(),
         paymentTerms: new FormControl(),
         active: new FormControl(),

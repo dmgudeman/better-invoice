@@ -20,44 +20,44 @@
               <div class="form-group col-xs-12 col-md-6" name="name">
                 <label for="businessName">Business Name</label>
                 <input class="form-control"
-                      
-                       name="businessName" 
-                       
+                       formControlName="businessName"
                        id="businessName" 
                        type="text">
               </div>
-              <div class="form-group col-xs-12 col-md-6 ">
+              <div class="form-group col-xs-12 col-md-6 " formGroupName="colorTags" >
                 <label for="colorTag">Color tag</label>
                 <div id="colorTag">
-                  <input type="radio" id="tag1" name="colorTag" value="brown" class="form-control">
+                  <input type="radio" id="tag1" value="brown" class="form-control" 
+                       formControlName="brownTag">
                   <label class=" cd-button brown" for="tag1"></label>
-                  <input type="radio" id="tag2" name="colorTag" value="blue" class="form-control">
+                  <input type="radio" id="tag2" value="blue" class="form-control"
+                       formControlName="blueTag">
                   <label class=" cd-button blue" for="tag2"></label>
-                  <input type="radio" id="tag3" name="colorTag" value="green" class="form-control">
+                  <input type="radio" id="tag3" value="green" class="form-control"
+                       formControlName="greenTag">
                   <label class=" cd-button green" for="tag3"></label>
-                  <input type="radio" id="tag4" name="colorTag" value="yellow" class="form-control">
+                  <input type="radio" id="tag4" value="yellow" class="form-control"
+                       formControlName="yellowTag">
                   <label class=" cd-button yellow" for="tag4"></label>
-                  <input type="radio" id="tag5" name="colorTag" value="red" class="form-control">
+                  <input type="radio" id="tag5" value="red" class="form-control"
+                       formControlName="redTag">
                   <label class=" cd-button red" for="tag5"></label>
-                  <input type="radio" id="tag6" name="colorTag" value="purple" class="form-control">
+                  <input type="radio" id="tag6" value="purple" class="form-control"
+                       formControlName="purpleTag">
                   <label class=" cd-button purple" for="tag6"></label>
                 </div>
               </div>
               <div class="form-group col-xs-12 col-md-6">
                 <label for="hourlyPay">Hourly pay</label>
                 <input class="form-control" 
-                       
-                       name="hourlyPay" 
-                      
+                       formControlName="hourlyPay"
                        id="hourlyPay" 
                        type="text" >
               </div>
                 <div class="form-group col-xs-12 col-md-6">
                   <label for="sel1">Payment terms</label>
                   <select class="form-control" 
-                       
-                          name="paymentTerms"
-                         
+                          formControlName="paymentTerms"
                           id="sel1">
                       <option>30</option>
                       <option>15</option>
@@ -68,8 +68,8 @@
                 <div class="form-group">
                   <label for="sel1">Active company</label>
                   <select class="form-control" 
-                          
-                          name="active">
+                          formControlName="active"
+                  > 
                           
                       <option>Yes</option>
                       <option>No</option>
