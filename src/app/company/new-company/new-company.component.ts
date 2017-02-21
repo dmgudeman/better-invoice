@@ -13,11 +13,6 @@ import { ReactiveFormsModule, FormGroup, FormsModule, FormControl } from '@angul
 export class NewCompanyComponent implements OnInit {
   private newCompany:Company;
   private errorMessage: string;
-  //@ViewChild('f')myform:any; //this is to access the ngForm on the template, used with @ViewChild
-  // private businessName;
-  // private hourlyPay;
-  // private paymentTerms;
-  // private active;
   myform : FormGroup;
   
   constructor(

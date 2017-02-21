@@ -7,7 +7,6 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { Observable } from 'RXJS/Observable';
 
-
 @Component({
   selector: 'companies',
   templateUrl: 'companies.component.html',
@@ -32,7 +31,6 @@ export class CompaniesComponent implements OnInit {
 
   ngOnInit() { 
     this.getCompanies();
-   
   }
   
   getCompanies(){
@@ -93,49 +91,4 @@ export class CompaniesComponent implements OnInit {
   goToNewCompany(){
     this.router.navigate['new-company'];
   }
-  
-
-  // submitCompany(inputCompany?){
-  //     let company:Company;
-  //     let companies = this._companyService.getCompanies;
-        
-  //     if(inputCompany) { 
-  //       this.editing=true;
-  //       company = inputCompany;
-  //     } else{
-  //       company = new Company(this.name,  
-  //                             this.color,
-  //                             this.hourly,
-  //                                        this.paymentTerms,
-  //                                        this.active );
-  //   }
-  //       // Variable to hold a reference of addComment/updateComment
-  //   let companyOperation:Observable<Company[]>;
-  //      if(!this.editing){
-  //          // Create a new comment
-  //          companyOperation = this._companyService.addCompany (company)
-  //      } else {
-  //        // Update an existing comment
-  //          companyOperation = this._companyService.updateCompany(company)
-  //      }
-
-  //       // Subscribe to observable
-  //   companyOperation.subscribe(
-  //                               companies => {
-  //                                   // Emit list event
-  //                                   EmitterService.get(this.listId).emit(comments);
-  //                                   // Empty model
-  //                                   this.mode = new Comment(new Date(), '', '');
-  //                                   // Switch editing status
-  //                                   if(this.editing) this.editing = !this.editing;
-  //                               }, 
-  //                               err => {
-  //                                   // Log errors if any
-  //                                   console.log(err);
-  //                               });
-  // }
-
-  
 }
-
-
