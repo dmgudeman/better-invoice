@@ -14,49 +14,50 @@
     <div class="col-sm-12 col-md-5 col-md-offset-1">
       <!--  FORM -->
       <div class="co-details-body">
-        <form #f="ngForm" (ngSubmit)="onSubscribe(f.form)">
+        <form [formGroup]="myform" novalidate>
+         <div> <pre>{{ myform.value | json}}</pre></div>
           <div class="row">
-              <div class="form-group col-xs-12 col-md-6">
+              <div class="form-group col-xs-12 col-md-6" name="name">
                 <label for="businessName">Business Name</label>
                 <input class="form-control"
-                       [(ngModel)]="buinessName" 
+                      
                        name="businessName" 
-                       #name="ngModel" 
+                       
                        id="businessName" 
                        type="text">
               </div>
               <div class="form-group col-xs-12 col-md-6 ">
                 <label for="colorTag">Color tag</label>
                 <div id="colorTag">
-                  <input type="radio" id="tag1" name="colorTag" value="brown" ngModel #name="ngModel" class="form-control">
+                  <input type="radio" id="tag1" name="colorTag" value="brown" class="form-control">
                   <label class=" cd-button brown" for="tag1"></label>
-                  <input type="radio" id="tag2" name="colorTag" value="blue" ngModel #name="ngModel" class="form-control">
+                  <input type="radio" id="tag2" name="colorTag" value="blue" class="form-control">
                   <label class=" cd-button blue" for="tag2"></label>
-                  <input type="radio" id="tag3" name="colorTag" value="green" ngModel #name="ngModel" class="form-control">
+                  <input type="radio" id="tag3" name="colorTag" value="green" class="form-control">
                   <label class=" cd-button green" for="tag3"></label>
-                  <input type="radio" id="tag4" name="colorTag" value="yellow" ngModel #name="ngModel" class="form-control">
+                  <input type="radio" id="tag4" name="colorTag" value="yellow" class="form-control">
                   <label class=" cd-button yellow" for="tag4"></label>
-                  <input type="radio" id="tag5" name="colorTag" value="red" ngModel #name="ngModel" class="form-control">
+                  <input type="radio" id="tag5" name="colorTag" value="red" class="form-control">
                   <label class=" cd-button red" for="tag5"></label>
-                  <input type="radio" id="tag6" name="colorTag" value="purple" ngModel #name="ngModel" class="form-control">
+                  <input type="radio" id="tag6" name="colorTag" value="purple" class="form-control">
                   <label class=" cd-button purple" for="tag6"></label>
                 </div>
               </div>
               <div class="form-group col-xs-12 col-md-6">
                 <label for="hourlyPay">Hourly pay</label>
                 <input class="form-control" 
-                       [(ngModel)]="hourlyPay" 
+                       
                        name="hourlyPay" 
-                       #name="ngModel" 
+                      
                        id="hourlyPay" 
                        type="text" >
               </div>
                 <div class="form-group col-xs-12 col-md-6">
                   <label for="sel1">Payment terms</label>
                   <select class="form-control" 
-                          [(ngModel)]="paymentTerms"
+                       
                           name="paymentTerms"
-                          #name="ngModel"
+                         
                           id="sel1">
                       <option>30</option>
                       <option>15</option>
@@ -67,9 +68,9 @@
                 <div class="form-group">
                   <label for="sel1">Active company</label>
                   <select class="form-control" 
-                          [(ngModel)]="active"
-                          name="active"
-                          #name="ngModel">
+                          
+                          name="active">
+                          
                       <option>Yes</option>
                       <option>No</option>
                   </select>

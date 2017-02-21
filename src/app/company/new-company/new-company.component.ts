@@ -3,6 +3,7 @@ import { CompanyService } from 'app/company/company.service';
 import { Company } from '../company';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
+import { ReactiveFormsModule, FormGroup, FormsModule, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-new-company',
@@ -10,39 +11,41 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./new-company.component.css']
 })
 export class NewCompanyComponent implements OnInit {
-  newCompany:Company;
+  private newCompany:Company;
   private errorMessage: string;
   private businessName;
   private hourlyPay;
   private paymentTerms;
   private active;
-
-
-
-
+  myform : FormGroup;
 
   constructor(
            private _companyService: CompanyService,
            private _router:Router) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+      this.myform = new FormGroup({
+        businessName: new FormControl(),
+        colorTag: new FormControl(),
+        hourlyPay: new FormControl(),
+        paymentTerms: new FormControl(),
+        active: new FormControl(),
+      })
+  }
    
   addCompany(company){ 
     console.log( this.businessName +" " + this.hourlyPay + " " +this.paymentTerms +" " +this.active );
-  
 
    this._companyService.addCompany(company)
 
        .subscribe( (data) => 
            console.log(data),
           //  {this._companyService.getCompanies(); 
-         
           //    return true},
            error=> { console.error("Error saving company!");
                      return Observable.throw(error);}
       );
   }
-
 }
 // save(){
 //         var result;
