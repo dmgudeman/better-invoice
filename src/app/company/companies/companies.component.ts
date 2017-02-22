@@ -91,4 +91,14 @@ export class CompaniesComponent implements OnInit {
   goToNewCompany(){
     this.router.navigate['new-company'];
   }
+  goToEditCompany(company?:Company){
+     if (company){
+        let coId = company.id;
+        let coName = company.name;
+        this.router.navigate(['/new-company', {id:coId, name: coName} ]);
+     } else {
+        this.router.navigate(['/new-company']);
+     }
+
+  }
 }

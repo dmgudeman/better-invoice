@@ -5,7 +5,7 @@
     <div class=" col-sm-12 col-md-6 ni-nav">
       <div>
         <a [routerLink]="['/home-app']" class="glyphicon glyphicon-chevron-left" aria-hidden="true"></a>
-        <span>New Company</span>
+        <span>{{title}}</span>
       </div>
     </div>
   </div>
@@ -76,7 +76,6 @@
                   <select class="form-control" 
                           formControlName="active"
                   > 
-                          
                       <option>true</option>
                       <option>false</option>
                   </select>

@@ -27,6 +27,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { CompanyDetailsComponent } from './company/company-details/company-details.component';
 import { NewCompanyComponent } from './company/new-company/new-company.component';
 import { TruncatePipe } from './shared/truncate.pipe';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 
@@ -44,6 +45,7 @@ import { TruncatePipe } from './shared/truncate.pipe';
     CompanyDetailsComponent,
     NewCompanyComponent,
     TruncatePipe,
+    NotFoundComponent,
     
   ],
   imports: [

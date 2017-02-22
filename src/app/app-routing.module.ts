@@ -7,6 +7,7 @@ import { NewCompanyComponent } from './company/new-company/new-company.component
 import { NewItemComponent } from './item/new-item/new-item.component';
 import { ItemComponent } from './item/item/item.component';
 import { InvoiceComponent } from './invoice/invoice.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 
@@ -19,7 +20,7 @@ const appRoutes: Routes = [
   { path: 'invoice', component: InvoiceComponent },
   { path: 'new-company', component:NewCompanyComponent },
   { path: 'company-details', component:CompanyDetailsComponent },
-  { path: '**', component: HomeComponent }
+  { path: '**', component: NotFoundComponent}
 ];
 
 

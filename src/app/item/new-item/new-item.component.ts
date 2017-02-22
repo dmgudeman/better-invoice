@@ -33,16 +33,6 @@ export class NewItemComponent implements OnInit {
   inputLabel:string;
   hoursArrayLimit = 25;
   hoursArray:number[] = [];
-  
-  makeHoursArray(hoursArrayLimit):number[]{
-    for (let i =0; i < hoursArrayLimit; i++){
-      let x = 0.25 * i;
-      this.hoursArray.push(x);
-    }
-    return this.hoursArray;
-
-  }
-
 
   constructor(private route: ActivatedRoute) {
   }
@@ -72,5 +62,12 @@ export class NewItemComponent implements OnInit {
  
     this.inputLabel = label;
     console.log(this.inputLabel);
+  }
+  makeHoursArray(hoursArrayLimit):number[]{
+    for (let i =0; i < hoursArrayLimit; i++){
+      let x = 0.25 * i;
+      this.hoursArray.push(x);
+    }
+    return this.hoursArray;
   }
 }
