@@ -25,23 +25,32 @@ export class CompanyService {
     
     getCompany(id:number){
         console.log("CS getCompnany() fired");
+        let body;
         return this._http.get(this.getCompanyUrl(id) )
                    .do(data => console.log("this.getCompanyUrl(id)" + this.getCompanyUrl(id)))
-                   .map((res:Response) => <Company>res.json().company)
-                   .do(data => console.log("DATA " + data.name));
+                   .map((res:Response) => { body = <Company>res.json().company;
+                                            return body;})
+                   .do(data => console.log("DATA " + JSON.stringify(body) ));
        }  
    
     
     addCompany(payload){
+        let id = payload.id;
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
-        return this._http.post(this._url +'/company', {company:payload}, options)
+        
+        return this._http.post(this.getCompanyUrl(id), {company:payload}, options)
                    .map(res => res.json())
     }
 
-    updateCompany(company){
-		return this._http.put(this.getCompanyUrl(company.id), JSON.stringify(company))
-			.map(res => res.json()).catch(this.handleError);}
+    updateCompany(payload){
+
+        let id = payload.id;
+
+		return this._http.put(this.getCompanyUrl(id), {company:payload})
+                            .map((res:Response) => <Company>res.json())
+                            .catch(this.handleError);
+        }
     
     deleteCompany(companyId){
 		return this._http.delete(this.getCompanyUrl(companyId))
