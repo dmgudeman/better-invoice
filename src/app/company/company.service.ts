@@ -25,9 +25,12 @@ export class CompanyService {
 	}
     
     getCompany(id:number){
+        var modId = id-1;
         return this._http.get(this._url + '/companies')
-                   .map((res:Response) => <Company[]>res.json().companies)
+                   .map((res:Response) => <Company[]>res.json().companies[id].id)
+                   .do(data => console.log("DATA " + data));
        }  
+   
     
     addCompany(payload){
         let headers = new Headers({ 'Content-Type': 'application/json' });

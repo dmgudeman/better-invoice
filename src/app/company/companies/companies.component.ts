@@ -95,7 +95,11 @@ export class CompaniesComponent implements OnInit {
      if (company){
         let coId = company.id;
         let coName = company.name;
-        this.router.navigate(['/new-company', {id:coId, name: coName} ]);
+        let color = company.color;
+        let hourly = company.hourly;
+        let paymentTerms = company.paymentTerms;
+        let active = company.active;
+        this.router.navigate(['/new-company', {id:coId, name: coName, color: color, hourly: hourly, paymentTerms:paymentTerms, active: active} ]);
      } else {
         this.router.navigate(['/new-company']);
      }
