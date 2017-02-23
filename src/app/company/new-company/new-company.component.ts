@@ -39,6 +39,13 @@ export class NewCompanyComponent implements OnInit {
             //         "paymentTerms": this.paymentTerms,
             //         "active": this.active,
             //     });
+            this._companyService.getCompany(this.coId)
+              .subscribe(company => this.company= company,
+              response => {
+                  if (response.status === 404){
+                    this._router.navigate(['NotFound']);
+              }
+          });
       
           this._route.params.subscribe(params => {
               this.myform = this._fb.group({
@@ -48,25 +55,13 @@ export class NewCompanyComponent implements OnInit {
                     "paymentTerms": this.paymentTerms = params['paymentTerms'],
                     "active": this.active = params['active'],
                 });
-         this.myform.value.name = params['name'];
-          this.myform.value.color = params['color'];
-          this.myform.value.hourly = params['hourly'];
-          console.log("form name " + this.myform.value.name);
-          console.log("form color " + this.myform.value.color);
-          console.log("form hourly " + this.myform.value.hourly);
           
           this.title = this.coId ? " Edit "+this.coName+ " Details" : " New Business";
           
           // if (!this.coId) {
           //   return
           
-          this._companyService.getCompany(this.coId)
-              .subscribe(company => this.company= company[0],
-              response => {
-                  if (response.status === 404){
-                    this._router.navigate(['NotFound']);
-              }
-          });
+          
       });
 
       

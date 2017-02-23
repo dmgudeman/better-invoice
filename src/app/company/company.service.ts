@@ -25,10 +25,10 @@ export class CompanyService {
 	}
     
     getCompany(id:number){
-        var modId = id-1;
-        return this._http.get(this._url + '/companies')
-                   .map((res:Response) => <Company[]>res.json().companies[id].id)
-                   .do(data => console.log("DATA " + data));
+       
+        return this._http.get(this.getCompanyUrl(id) )
+                   .map((res:Response) => <Company>res.json())
+                   .do(data => console.log("DATA " + data.));
        }  
    
     
@@ -49,7 +49,7 @@ export class CompanyService {
 	}
     
     private getCompanyUrl(companyId){
-		return this._url + "/" + companyId;
+		return this._url + "/company/" + companyId;
 	}
     
     private extractData(res: Response) {
