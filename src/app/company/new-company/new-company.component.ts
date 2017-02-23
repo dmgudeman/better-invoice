@@ -19,6 +19,12 @@ export class NewCompanyComponent implements OnInit {
   private coName:string;
   private title:string;
   myform : FormGroup;
+  name = new FormControl;
+  color = new FormControl;
+  hourly= new FormControl;
+  paymentTerms= new FormControl;
+  active= new FormControl;
+  
   
   constructor(
            private _companyService: CompanyService,
@@ -27,27 +33,31 @@ export class NewCompanyComponent implements OnInit {
            private _fb:FormBuilder) { }
   ngOnInit(){
       this.myform = this._fb.group({
-          name:[null],
-          color:[null],
-          hourly: [null],
-          paymentTerms: [null],
-          active: [null],
+          "name":this.name,
+          "color":this.color,
+          "hourly": this.hourly,
+          "paymentTerms": this.paymentTerms,
+          "active": this.active,
       });
-      this._route.params.subscribe(params => {
-          this.coId =params['id'];
-          this.coName = params['name'];
-          this.title = this.coId ? " Edit "+this.coName+ " Details" : " New Business";
-          if (!this.coId) {
-            return
-          }
-          this._companyService.getCompany(this.coId)
-              .subscribe(company => this.company = company,
-              response => {
-                  if (response.status === 404){
-                    this._router.navigate(['NotFound']);
-              }
-          });
-      });
+
+      this.myform.valueChanges
+                  .subscribe( data => console.log(JSON.stringify(data)));
+    //   this._route.params.subscribe(params => {
+    //       this.coId =params['id'];
+    //       this.coName = params['name'];
+    //       this.title = this.coId ? " Edit "+this.coName+ " Details" : " New Business";
+          
+    //       // if (!this.coId) {
+    //       //   return
+          
+    //       this._companyService.getCompany(this.coId)
+    //           .subscribe(company => this.company= company[0],
+    //           response => {
+    //               if (response.status === 404){
+    //                 this._router.navigate(['NotFound']);
+    //           }
+    //       });
+    //   });
   }
  
   onSubmit() {

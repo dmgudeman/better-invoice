@@ -5,9 +5,11 @@ import { Observable }     from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/operator/concatMap'
 
 @Injectable()
 export class CompanyService {
+    company:Company;
     
 	private _url = "http://localhost:3000";
 
@@ -18,15 +20,15 @@ export class CompanyService {
 		return this._http
                    .get(this._url + '/companies')
 			       .map((res:Response) => <Company[]>res.json().companies)
-                //    .do(data => console.log(data + " "+ data.length))
+                   .do(data => console.log(data + " "+ data.length))
                    .catch(this.handleError);
 	}
     
     getCompany(id:number){
         return this._http.get(this._url + '/companies')
-                   .map(res => res.json())
-                   .filter(company=>company.id == id)
-    }
+                   .map((res:Response) => <Company[]>res.json().companies)
+       }  
+    
     addCompany(payload){
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });

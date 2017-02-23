@@ -33,8 +33,9 @@ export class CompanyDetailsComponent implements OnInit {
     private route: ActivatedRoute) { };
     
   ngOnInit() {
-    this.company = this.getCompany();
-    this.items = this.getItemsByInvoices(); 
+    this.getCompany();
+    this.items = this.getItemsByInvoices();
+    console.log(this.company); 
   }
   // getCompanies(): Company[] {
   //   return this._companyService.getCompanies();
@@ -99,17 +100,18 @@ export class CompanyDetailsComponent implements OnInit {
     }           
   }
   getCompany() {
-    this.route.params
-      .switchMap((params: Params) => this._companyService.getCompany(+params['id']))
-      .subscribe(company => {
-        this.company = company;
-        this.id = this.company.id;
-        this.name = this.company.name;
-        this.color = this.company.color;
-        this.hourly = this.company.hourly;
-        return this.company;
-      });
+   var stark= this.route.params
+      .switchMap((params: Params) => this._companyService.getCompany(params['id']))
+      .subscribe(company => this.company = company)
+      console.log("stark " + stark);
   }
+
+  // getCompany(id){
+  //  var stark = this._companyService.getCompany(id)
+  //       .subscribe(company=>this.company = company)
+
+        
+  // }
  
   myClasses = {xs:false, md:false}
   setClassesMd() {
