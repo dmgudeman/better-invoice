@@ -92,6 +92,7 @@ export class CompaniesComponent implements OnInit {
     this.router.navigate['new-company'];
   }
   goToEditCompany(company?:Company){
+     console.log("goToEditCompany fired")
      if (company){
         let coId = company.id;
         let coName = company.name;

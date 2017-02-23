@@ -20,15 +20,15 @@ export class CompanyService {
 		return this._http
                    .get(this._url + '/companies')
 			       .map((res:Response) => <Company[]>res.json().companies)
-                   .do(data => console.log(data + " "+ data.length))
                    .catch(this.handleError);
 	}
     
     getCompany(id:number){
-       
+        console.log("CS getCompnany() fired");
         return this._http.get(this.getCompanyUrl(id) )
-                   .map((res:Response) => <Company>res.json())
-                   .do(data => console.log("DATA " + data.));
+                   .do(data => console.log("this.getCompanyUrl(id)" + this.getCompanyUrl(id)))
+                   .map((res:Response) => <Company>res.json().company)
+                   .do(data => console.log("DATA " + data.name));
        }  
    
     

@@ -12,7 +12,6 @@ import { ReactiveFormsModule, FormGroup, FormsModule, FormControl, FormBuilder }
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NewCompanyComponent implements OnInit {
-  // private newCompany:Company;
   private company:Company;
   private errorMessage: string;
   private coId: number;
@@ -39,8 +38,14 @@ export class NewCompanyComponent implements OnInit {
             //         "paymentTerms": this.paymentTerms,
             //         "active": this.active,
             //     });
-            this._companyService.getCompany(this.coId)
-              .subscribe(company => this.company= company,
+         this._route.params.subscribe(params => { this.coId = params['id'];
+                                 console.log("coId +++++++ " + this.coId);
+                                 });
+             console.log("coId********** " + this.coId);
+          this._companyService.getCompany(this.coId)
+              .subscribe(company => {this.company= company;
+                console.log(this.company.name + "NAME");
+              },
               response => {
                   if (response.status === 404){
                     this._router.navigate(['NotFound']);
@@ -64,26 +69,6 @@ export class NewCompanyComponent implements OnInit {
           
       });
 
-      
-
-      this.myform.valueChanges
-                  .subscribe( data => console.log(JSON.stringify(data)));
-    //   this._route.params.subscribe(params => {
-    //       this.coId =params['id'];
-    //       this.coName = params['name'];
-    //       this.title = this.coId ? " Edit "+this.coName+ " Details" : " New Business";
-          
-    //       // if (!this.coId) {
-    //       //   return
-          
-    //       this._companyService.getCompany(this.coId)
-    //           .subscribe(company => this.company= company[0],
-    //           response => {
-    //               if (response.status === 404){
-    //                 this._router.navigate(['NotFound']);
-    //           }
-    //       });
-    //   });
   }
  
   onSubmit() {
