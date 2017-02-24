@@ -5,6 +5,10 @@ import { IMyOptions, IMyDateModel } from 'mydatepicker';
 import { Tab } from '../../shared/tab';
 import { Tabs } from '../../shared/tabs';
 import { MaterialModule } from '@angular/material';
+import { CompanyService } from '../../company/company.service';
+import { ReactiveFormsModule, FormGroup, FormsModule, FormControl, FormBuilder } from '@angular/forms';
+
+
 
 
 @Component({
@@ -17,14 +21,11 @@ export class NewItemComponent implements OnInit {
     dateFormat: 'mm/dd/yyyy',
    
   };
-
   date = new Date();
   dateFormat = require('dateformat');
   fdate: Date = new Date();
   getHourly: Observable<number>
-  hourly: number;
-  hours:number;
-  companyName: string;
+  coName: string;
   coId: number;
   uId: number;
   title: string;
@@ -34,24 +35,65 @@ export class NewItemComponent implements OnInit {
   hoursArrayLimit = 25;
   hoursArray:number[] = [];
 
-  constructor(private route: ActivatedRoute) {
-  }
+  myform : FormGroup;
+  fcHours = new FormControl;
+  fcAmount = new FormControl;
+  fcDate = new FormControl;
+  fcNotes = new FormControl;
+
+  constructor(private _companyService: CompanyService,
+              private _router:Router,
+              private _route:ActivatedRoute,
+              private _fb:FormBuilder) { }
 
   ngOnInit() {
-      this.route.params.subscribe(params => {
-      this.id =params['id'];
-      this.title = "New Item";
-      this.hourly = params['hourly'];
-      this.companyName = params['companyName'];
-      this.coId = params['coId'];
-      this.uId = params['uId'];
-      // this.title = params['title'];
-      this.makeHoursArray(this.hoursArrayLimit); 
+      this.myform = this._fb.group({
+                // "id":this.id,
+                "hours":this.fcHours,
+                "amount":this.fcAmount,
+                "date": this.fcDate,
+                "notes": this.fcNotes,
+            });
+      this._route.params.subscribe(params => {
+      this.coId =params['id'];
+      this.coName =params['coName'];
+      this.title = "New Item for " + this.coName;
     })
+    this.makeHoursArray(41);
   }
-
+/*
+this.myform = this._fb.group({
+                // "id":this.id,
+                "name":this.name,
+                "color":this.color,
+                "hourly": this.hourly,
+                "paymentTerms": this.paymentTerms,
+                "active": this.active,
+            });
+        this._route.params
+                   .subscribe(params => { this.coId = params['id'];
+                                          this.title = params['name']});
+                                                  
+        this.title = this.coId ? " Edit "+ this.title + " Details" : " New Business";
+                                  
+        if(this.coId){
+            this._companyService.getCompany(this.coId)
+                .subscribe(company => {this.company= company;
+                    // this.id.setValue(this.company.id);
+                    this.name.setValue(this.company.name);
+                    this.color.setValue(this.company.color);
+                    this.hourly.setValue(this.company.hourly);
+                    this.paymentTerms.setValue(this.company.paymentTerms);
+                    this.active.setValue(this.company.active);
+                    return this.company;
+                },
+                response => {
+                    if (response.status === 404){
+                        this._router.navigate(['NotFound']);
+                }
+            });
+        }*/
   onDateChanged(event: IMyDateModel){
-
   }
 
   onClickCanSave() {
@@ -59,7 +101,6 @@ export class NewItemComponent implements OnInit {
   }
 
   inputLabelUpdate(label) {
- 
     this.inputLabel = label;
     console.log(this.inputLabel);
   }
@@ -69,5 +110,8 @@ export class NewItemComponent implements OnInit {
       this.hoursArray.push(x);
     }
     return this.hoursArray;
+  }
+  onSubmit() {
+    console.log("Form has been submitted");
   }
 }

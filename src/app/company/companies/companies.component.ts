@@ -100,4 +100,10 @@ export class CompaniesComponent implements OnInit {
      }
 
   }
+  goToNewItem(company){
+      let coId = company.id;
+      let coName = company.name;
+      
+      this.router.navigate(['/new-item', { id:coId, coName: coName }]);
+  }
 }
