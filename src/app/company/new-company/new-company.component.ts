@@ -18,7 +18,7 @@ export class NewCompanyComponent implements OnInit {
   private coName:string;
   private title:string;
   myform : FormGroup;
-  id= new FormControl;
+  // id= new FormControl;
   name = new FormControl;
   color = new FormControl;
   hourly= new FormControl;
@@ -32,8 +32,9 @@ export class NewCompanyComponent implements OnInit {
            private _route:ActivatedRoute,
            private _fb:FormBuilder) { }
   ngOnInit(){
+    
             this.myform = this._fb.group({
-                    "id":this.id,
+                    // "id":this.id,
                     "name":this.name,
                     "color":this.color,
                     "hourly": this.hourly,
@@ -42,9 +43,11 @@ export class NewCompanyComponent implements OnInit {
                 });
          this._route.params.subscribe(params => { this.coId = params['id'];
                                  });
+                                  this.title = this.coId ? " Edit "+ this.coName + " Details" : " New Business";
+        if(this.coId){
          this._companyService.getCompany(this.coId)
               .subscribe(company => {this.company= company;
-                this.id.setValue(this.company.id);
+                // this.id.setValue(this.company.id);
                 this.name.setValue(this.company.name);
                 this.color.setValue(this.company.color);
                 this.hourly.setValue(this.company.hourly);
@@ -57,46 +60,26 @@ export class NewCompanyComponent implements OnInit {
                     this._router.navigate(['NotFound']);
               }
           });
-      
-          // this._route.params.subscribe(params => {
-          
-          //     this.myform = this._fb.group({
-          //           "name":this.name = params['name'],
-          //           "color":this.color = params['color'],
-          //           "hourly": this.hourly = params['hourly'],
-          //           "paymentTerms": this.paymentTerms = params['paymentTerms'],
-          //           "active": this.active = params['active'],
-          //       });
-          
-          // console.log(this.myform.value.name + "this.myform.value.name") 
-          this.title = this.coId ? " Edit "+ this.coName + " Details" : " New Business";
-          
-          // if (!this.coId) {
-          //   return
-          
-          
-      // });
-
+        }
+         
   }
  
   onSubmit() {
-   
-    var id = this.myform.value.id;
+   let  id = this.coId;
     var payload = this.myform.value;
-    
-    // let company;
-    // this._companyService.addCompany(payload)
-    //     .subscribe(x => {company = x;
-    //     this._router.navigate(['home-app']);
-    //     });
-	
-  var result;
-        
-        if (this.id) 
-            result = this._companyService.updateCompany(payload);
-        else
+    var result;
+        console.log("coooooId " + this.coId);
+       
+        if (id) {
+            console.log("payload    " + payload);
+             console.log("coooooId " + this.coId);
+            result = this._companyService.updateCompany(payload, id);
+        }else{
+            let ID = (id) ? id : "ID NOT HERE";
+            console.log("ID + " + ID);
+            console.log("payloaddddddddddddd" + JSON.stringify(payload));
             result = this._companyService.addCompany(payload);
-            
+        }   
 		result.subscribe(x => {
             // Ideally, here we'd want:
             // this.form.markAsPristine();

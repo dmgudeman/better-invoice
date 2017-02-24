@@ -70,14 +70,7 @@ export class CompaniesComponent implements OnInit {
 
   }
 
-  goToNewItem(company:Company){
-    let title = "New Item";
-    let hourly = company.hourly;
-    let companyName = company.name;
-    let uId =4;
-    let coId = company.id;
-    this.router.navigate(['/new-item', {hourly: hourly, companyName:companyName, coId: coId, uId:uId , title: title}]);
-  }
+  
   goToCompanyDetails(company:Company){
     let hourly = company.hourly;
     let companyName = company.name;
@@ -91,6 +84,7 @@ export class CompaniesComponent implements OnInit {
   goToNewCompany(){
     this.router.navigate['new-company'];
   }
+  
   goToEditCompany(company?:Company){
      console.log("goToEditCompany fired")
      if (company){
