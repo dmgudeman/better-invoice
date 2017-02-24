@@ -9,10 +9,10 @@
     
  
 }
-/*-----------------------------------------------------*/
-/*               CO-DETAILS NAVBAR                     */
-/*-----------------------------------------------------*/
-
+/*---------------CO-DETAILS NAVBAR---------------------*/
+.ni-nav {
+    padding: 20px 0;
+}
 
 
 
@@ -94,18 +94,24 @@ label {
 
 /*screen-xs*/
 @media (max-width: 768px) { 
-  .myCol{font-size:100%;
-   box-sizing : border-box;
-   border-radius: 0px;
-    border: transparent 0px;
-    background-color: #34495e;
-    color: #f2f2f2;
-   margin-left: -15px;
-   width: 400px;
-   position: fixed;
-   bottom:0;
-   margin-bottom: 0px;
-    line-height: 2.0;}
+    .myCol{
+        font-size:80%;
+        box-sizing : border-box;
+        border-radius: 0px;
+        border: transparent 0px;
+        background-color: #34495e;
+        color: #f2f2f2;
+        margin-left: -15px;
+        width: 400px;
+        position: fixed;
+        bottom:0;
+        margin-bottom: 0px;
+        line-height: 2.0;}
+    .nc-input{
+        font-size: 90%;
+        line-height: 125%;
+        
+    }
 }
 /*screen-sm*/
 /*@media (min-width: 768px) and (max-width: 992px) { 
@@ -125,13 +131,13 @@ label {
 }*/
 /*screen-lg corresponds with col-lg*/
 @media (min-width: 1200px) {  
-  .myCol{font-size:90%;
-    max-width: 150px;
-    box-sizing : border-box;
-    border-radius: 4px;
-    border: transparent 0px;
-    background-color: #34495e;
-    color: #f2f2f2;
-    margin: 15px;
-    line-height: 2.0;}
+    .myCol{font-size:90%;
+        max-width: 150px;
+        box-sizing : border-box;
+        border-radius: 4px;
+        border: transparent 0px;
+        background-color: #34495e;
+        color: #f2f2f2;
+        margin: 15px;
+        line-height: 2.0;}
 }

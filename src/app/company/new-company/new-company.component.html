@@ -2,7 +2,7 @@
 <!-- NAVIGATION -->
 <div class="container-fluid">
   <div class="row">
-    <div class=" col-sm-12 col-md-6 ni-nav">
+    <div class=" col-sm-12 col-md-6 ni-nav" >
       <div>
         <a [routerLink]="['/home-app']" class="glyphicon glyphicon-chevron-left" aria-hidden="true"></a>
         <span>{{title}}</span>
@@ -15,12 +15,11 @@
       <!--  FORM -->
       <div class="co-details-body">
         <form [formGroup]="myform" (ngSubmit)="onSubmit()">
-         <div> <pre>{{ myform.value | json}}</pre></div>
+         <!--<div> <pre>{{ myform.value | json}}</pre></div>-->
           <div class="row">
               <div class="form-group col-xs-12 col-md-6" name="name">
                 <label for="name">Business Name</label>
-                <input class="form-control"
-                       
+                <input class="form-control nc-input"
                        formControlName="name"
                        id="name" 
                        type="text">
@@ -56,14 +55,14 @@
               </div>
               <div class="form-group col-xs-12 col-md-6">
                 <label for="hourly">Hourly pay</label>
-                <input class="form-control" 
+                <input class="form-control nc-input" 
                        formControlName="hourly"
                        id="hourly" 
                        type="text" >
               </div>
                 <div class="form-group col-xs-12 col-md-6">
                   <label for="sel1">Payment terms</label>
-                  <select class="form-control" 
+                  <select class="form-control nc-input" 
                           formControlName="paymentTerms"
                           id="sel1">
                       <option>30</option>
@@ -74,7 +73,7 @@
               <div class="form-group col-xs-12 col-md-6">
                 <div class="form-group">
                   <label for="sel1">Active company</label>
-                  <select class="form-control" 
+                  <select class="form-control nc-input" 
                           formControlName="active"
                   > 
                       <option>true</option>

@@ -17,8 +17,9 @@ export class NewCompanyComponent implements OnInit {
   private coId: number;
   private coName:string;
   private title:string;
+
+
   myform : FormGroup;
-  // id= new FormControl;
   name = new FormControl;
   color = new FormControl;
   hourly= new FormControl;
@@ -33,35 +34,37 @@ export class NewCompanyComponent implements OnInit {
            private _fb:FormBuilder) { }
   ngOnInit(){
     
-            this.myform = this._fb.group({
-                    // "id":this.id,
-                    "name":this.name,
-                    "color":this.color,
-                    "hourly": this.hourly,
-                    "paymentTerms": this.paymentTerms,
-                    "active": this.active,
-                });
-         this._route.params.subscribe(params => { this.coId = params['id'];
-                                 });
-                                  this.title = this.coId ? " Edit "+ this.coName + " Details" : " New Business";
+        this.myform = this._fb.group({
+                // "id":this.id,
+                "name":this.name,
+                "color":this.color,
+                "hourly": this.hourly,
+                "paymentTerms": this.paymentTerms,
+                "active": this.active,
+            });
+        this._route.params
+                   .subscribe(params => { this.coId = params['id'];
+                                          this.title = params['name']});
+                                                  
+        this.title = this.coId ? " Edit "+ this.title + " Details" : " New Business";
+                                  
         if(this.coId){
-         this._companyService.getCompany(this.coId)
-              .subscribe(company => {this.company= company;
-                // this.id.setValue(this.company.id);
-                this.name.setValue(this.company.name);
-                this.color.setValue(this.company.color);
-                this.hourly.setValue(this.company.hourly);
-                this.paymentTerms.setValue(this.company.paymentTerms);
-                this.active.setValue(this.company.active);
-                return this.company;
-              },
-              response => {
-                  if (response.status === 404){
-                    this._router.navigate(['NotFound']);
-              }
-          });
+            this._companyService.getCompany(this.coId)
+                .subscribe(company => {this.company= company;
+                    // this.id.setValue(this.company.id);
+                    this.name.setValue(this.company.name);
+                    this.color.setValue(this.company.color);
+                    this.hourly.setValue(this.company.hourly);
+                    this.paymentTerms.setValue(this.company.paymentTerms);
+                    this.active.setValue(this.company.active);
+                    return this.company;
+                },
+                response => {
+                    if (response.status === 404){
+                        this._router.navigate(['NotFound']);
+                }
+            });
         }
-         
   }
  
   onSubmit() {
