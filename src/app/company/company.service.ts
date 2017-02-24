@@ -39,7 +39,7 @@ export class CompanyService {
         let options = new RequestOptions({ headers: headers });
         console.log("{company:payload},   " + JSON.stringify({company:payload}));
         console.log("this.getCompanyUpdateUrl() " +this.getCompanyUpdateUrl());
-        return this._http.post( this.getCompanyUpdateUrl() , {company:payload}, options)
+        return this._http.post( this.getCompanyUpdateUrl() , JSON.stringify( {company:payload}), options)
                    .map(res => res.json())
     }
 
