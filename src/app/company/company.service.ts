@@ -24,7 +24,7 @@ export class CompanyService {
 	}
     
     getCompany(id:number){
-        console.log("CS getCompnany() fired");
+        console.log("CS getCompany() fired");
         let body;
         return this._http.get(this.getCompanyUrl(id) )
                    .do(data => console.log("this.getCompanyUrl(id)" + this.getCompanyUrl(id)))
@@ -46,7 +46,7 @@ export class CompanyService {
     updateCompany(payload, id){
         
         console.log("id " + id)
-        console.log("{company:payload},   " + {company:payload});
+        console.log("{company:payload},   " + {company:payload})
         console.log("this.getCompanyUrl(id) " + this.getCompanyUrl(id));
 		return this._http.put(this.getCompanyUrl(id), {company:payload})
                             .map((res:Response) => <Company>res.json())
@@ -59,10 +59,10 @@ export class CompanyService {
 	}
     
     private getCompanyUrl(companyId){
-		return this._url + "/company/" + companyId;
+		return this._url + "/companies/" + companyId;
 	}
     private getCompanyUpdateUrl(){
-        return this._url +"/company";
+        return this._url +"/companies";
     }
     
     private extractData(res: Response) {

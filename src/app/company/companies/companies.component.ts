@@ -86,24 +86,30 @@ export class CompaniesComponent implements OnInit {
   }
   
   goToEditCompany(company?:Company){
-     console.log("goToEditCompany fired")
+    if(company){
+     console.log("IN COMPANIES.COMPONENT goToEditCompany fired. Company Id = " + company.id);
+    } else {
+     console.log("IN COMPANIES.COMPONENT goToEditCompany fired. No company has been passed in");
+
+    }
      if (company){
         let coId = company.id;
+        console.log('/new-company/' + coId);
         let coName = company.name;
         let color = company.color;
         let hourly = company.hourly;
         let paymentTerms = company.paymentTerms;
         let active = company.active;
-        this.router.navigate(['/new-company', {id:coId, name: coName, color: color, hourly: hourly, paymentTerms:paymentTerms, active: active} ]);
+        this.router.navigate(['/new-company/' + coId, {id:coId, name:coName, color:color}]);
      } else {
         this.router.navigate(['/new-company']);
      }
 
   }
   goToNewItem(company){
-      let coId = company.id;
+    
       let coName = company.name;
       
-      this.router.navigate(['/new-item', { id:coId, coName: coName }]);
+      this.router.navigate(['/new-item', {coName: coName }]);
   }
 }

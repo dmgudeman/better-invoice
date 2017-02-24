@@ -17,6 +17,7 @@ export class NewCompanyComponent implements OnInit {
   private coId: number;
   private coName:string;
   private title:string;
+  private itemId: number;
 
 
   myform : FormGroup;
@@ -33,7 +34,6 @@ export class NewCompanyComponent implements OnInit {
            private _route:ActivatedRoute,
            private _fb:FormBuilder) { }
   ngOnInit(){
-    
         this.myform = this._fb.group({
                 // "id":this.id,
                 "name":this.name,
@@ -43,8 +43,10 @@ export class NewCompanyComponent implements OnInit {
                 "active": this.active,
             });
         this._route.params
-                   .subscribe(params => { this.coId = params['id'];
-                                          this.title = params['name']});
+                   .subscribe(params => { 
+                                          this.coId = params['id']
+                                          this.title = params['name']
+                                        });
                                                   
         this.title = this.coId ? " Edit "+ this.title + " Details" : " New Business";
                                   

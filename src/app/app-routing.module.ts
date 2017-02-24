@@ -20,6 +20,7 @@ const appRoutes: Routes = [
   { path: 'invoice/:id', component: InvoiceComponent },
   { path: 'invoice', component: InvoiceComponent },
   { path: 'new-company', component:NewCompanyComponent },
+  { path: 'new-company/:id', component:NewCompanyComponent},
   { path: 'company-details', component:CompanyDetailsComponent },
   { path: '**', component: NotFoundComponent}
 ];

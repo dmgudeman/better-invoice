@@ -5,7 +5,8 @@ import { IMyOptions, IMyDateModel } from 'mydatepicker';
 import { Tab } from '../../shared/tab';
 import { Tabs } from '../../shared/tabs';
 import { MaterialModule } from '@angular/material';
-import { CompanyService } from '../../company/company.service';
+import { ItemService } from '../item.service';
+import { Item } from '../item';
 import { ReactiveFormsModule, FormGroup, FormsModule, FormControl, FormBuilder } from '@angular/forms';
 
 
@@ -17,23 +18,30 @@ import { ReactiveFormsModule, FormGroup, FormsModule, FormControl, FormBuilder }
   styleUrls: ['./new-item.component.css']
 })
 export class NewItemComponent implements OnInit {
+  
   private myDatePickerOptions: IMyOptions = {
     dateFormat: 'mm/dd/yyyy',
-   
   };
   date = new Date();
   dateFormat = require('dateformat');
   fdate: Date = new Date();
+  
   getHourly: Observable<number>
+  
   coName: string;
   coId: number;
   uId: number;
   title: string;
-  canSave = true;
   id;
+  itemId:number;
+  
+  canSave = true;
+
   inputLabel:string;
   hoursArrayLimit = 25;
   hoursArray:number[] = [];
+
+  item: Item;
 
   myform : FormGroup;
   fcHours = new FormControl;
@@ -41,7 +49,7 @@ export class NewItemComponent implements OnInit {
   fcDate = new FormControl;
   fcNotes = new FormControl;
 
-  constructor(private _companyService: CompanyService,
+  constructor(private _itemService: ItemService,
               private _router:Router,
               private _route:ActivatedRoute,
               private _fb:FormBuilder) { }
@@ -55,44 +63,30 @@ export class NewItemComponent implements OnInit {
                 "notes": this.fcNotes,
             });
       this._route.params.subscribe(params => {
-      this.coId =params['id'];
-      this.coName =params['coName'];
-      this.title = "New Item for " + this.coName;
-    })
-    this.makeHoursArray(41);
-  }
-/*
-this.myform = this._fb.group({
-                // "id":this.id,
-                "name":this.name,
-                "color":this.color,
-                "hourly": this.hourly,
-                "paymentTerms": this.paymentTerms,
-                "active": this.active,
-            });
-        this._route.params
-                   .subscribe(params => { this.coId = params['id'];
-                                          this.title = params['name']});
-                                                  
-        this.title = this.coId ? " Edit "+ this.title + " Details" : " New Business";
-                                  
-        if(this.coId){
-            this._companyService.getCompany(this.coId)
-                .subscribe(company => {this.company= company;
+      this.itemId = params['id'];
+      this.coName = params['coName'];
+      this.title = this.itemId ? " New Item for " + this.coName : "Edit Item for " + this.coName;
+      
+      if(this.itemId){
+            this._itemService.getItem(this.itemId)
+                .subscribe( item => {this.item = item;
                     // this.id.setValue(this.company.id);
-                    this.name.setValue(this.company.name);
-                    this.color.setValue(this.company.color);
-                    this.hourly.setValue(this.company.hourly);
-                    this.paymentTerms.setValue(this.company.paymentTerms);
-                    this.active.setValue(this.company.active);
-                    return this.company;
+                    this.fcHours.setValue(this.item.hours);
+                    this.fcAmount.setValue(this.item.amount);
+                    this.fcDate.setValue(this.item.date);
+                    this.fcNotes.setValue(this.item.description);
+                    return this.item;
                 },
                 response => {
                     if (response.status === 404){
                         this._router.navigate(['NotFound']);
                 }
-            });
-        }*/
+            });      
+        }
+    })
+    this.makeHoursArray(41);
+  }
+
   onDateChanged(event: IMyDateModel){
   }
 
@@ -112,6 +106,28 @@ this.myform = this._fb.group({
     return this.hoursArray;
   }
   onSubmit() {
-    console.log("Form has been submitted");
-  }
+
+    let  id = this.itemId;
+    var payload = this.myform.value;
+    var result;
+        console.log("itemId " + this.itemId);
+       
+        if (id) {
+            console.log("payload    " + payload);
+             console.log("coooooId " + this.coId);
+            // result = this._itemService.updateItem(payload, id);
+        }else{
+            let ID = (id) ? id : "ID NOT HERE";
+            console.log("ID + " + ID);
+            console.log("payloaddddddddddddd" + JSON.stringify(payload));
+            result = this._itemService.addItem(payload);
+        }   
+		result.subscribe(x => {
+            // Ideally, here we'd want:
+            // this.form.markAsPristine();
+            this._router.navigate(['companies']);
+        });
+	}
+    
+  
 }
