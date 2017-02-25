@@ -6,9 +6,11 @@
     font-family: 'Open Sans', Arial, sans-serif;
     font-weight:300;
 }
-/* -------------------------------------------*/
-/*                NAVBAR                      */
-/* -------------------------------------------*/
+
+.outer {
+    margin: 0 auto;
+}
+/* -------------- NAVBAR ---------------------*/
 .co-navbar {
        
     background-color: black;
