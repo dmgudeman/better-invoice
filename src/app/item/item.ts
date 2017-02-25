@@ -1,22 +1,20 @@
-import { Company } from '../company/company';
+import { ItemInterface } from "./item.interface";
 
-export class Item {
-    id?: number;
-    // company: Company;
-    // date: Date;
-    // hours: number;
-    // hourly: number;
-    // description: string;
-    constructor(
-        id: number,
-        public date: Date,
-        public hours: number,
-        public amount: number,
-        public description: string,
-        public coId?:number) {
-        if (id) {
-            this.id = id;
+
+export class Item implements ItemInterface {
+    id: number;
+    date: Date;
+    description: string;  
+    amount: number;
+    hours: number;
+    companyId: number;
+
+    constructor(id?, date?, description?, amount?, hours?, companyId?){
+        this.id = id || null;
+        this.date = date || null;
+        this.description = description || null;
+        this.amount = amount || 0;
+        this.hours = hours || 0;
         }
     }
 
-}

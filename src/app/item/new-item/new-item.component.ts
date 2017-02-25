@@ -31,7 +31,7 @@ export class NewItemComponent implements OnInit {
     hoursArrayLimit = 25;
     hoursArray:number[] = [];
 
-    item: Item;
+    item = new Item();
 
     myform : FormGroup;
     fcHours = new FormControl(0);
@@ -56,8 +56,9 @@ export class NewItemComponent implements OnInit {
             "companyId": this.fcCompanyId
             
         });
-
+     
         this._route.params.subscribe(params => {
+            this.item.id = params['id'];
             this.coId = +params['coId'];
             this.coName = params['coName'];
             this.title = " New Item for " + this.coName;

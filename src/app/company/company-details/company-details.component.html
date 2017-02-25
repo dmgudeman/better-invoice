@@ -4,12 +4,12 @@
     <div class="flex-item" fxFlex="70%" fxLayoutAlign="center center">{{coName + " Details"}}</div>
     <div class="flex-item" fxFlex="10%"></div>
     <div class="flex-item" fxFlex="5%">
-        <a [routerLink]="['/new-company']" class="co-navbar-plus" aria-hidden="true">+</a></div>
+        <a [routerLink]="['/new-item']" class="co-navbar-plus" aria-hidden="true">+</a></div>
 </div>
 <div class="spacer">address goes here</div>
 <div class="flex-container cd-midbar" fxLayout="row" [ngClass]="setColor(coColor)" fxLayoutAlign="center center">
     <div class="flex-item" fxFlex="5%" fxFlex.xs="0%" fxLayoutAlign="center center"></div>
-    <!--<div class="flex-item" fxFlex="10%" fxLayoutAlign="center center">id</div>-->
+    <div class="flex-item" fxFlex="10%" fxLayoutAlign="center center">id</div>
     <div class="flex-item" fxFlex="10%" fxFlex.xs="15%" fxLayoutAlign="center center">date</div>
     <div class="flex-item" fxFlex="40%" fxLayoutAlign="center center">Description</div>
     <div class="flex-item" fxFlex="10%" fxLayoutAlign="center center">amt</div>
@@ -20,13 +20,13 @@
 <div *ngFor="let item of items">
     <div class="cd-row" fxLayout="row" fxLayoutAlign="center center">
         <div class="flex-item" fxFlex="5%" fxFlex.xs="0%" fxLayoutAlign="center center"></div>
-        <!--<div class="flex-item" fxFlex="10%" fxLayoutAlign="center center">{{item.id}}</div>-->
+        <div class="flex-item" fxFlex="10%" fxLayoutAlign="center center">{{item.id}}</div>
         <div  
             class="flex-item" 
             fxFlex="10%" 
             fxFlex.xs="15%" 
-            fxLayoutAlign="center center"
-        >   {{item.date | date:'M/d/yy'}}
+            fxLayoutAlign="center center">   
+                {{item.date | date:'M/d/yy'}}
         </div>
        
         <div 
@@ -34,16 +34,16 @@
             class="flex-item small" 
             fxFlex="40%" 
             fx LayoutAlign="center center" 
-            (click)="goToNewItem(company, item)"
-        >   {{item.description | truncate:22}}
+            (click)="goToEditItem(company, item)">
+               {{item.description | truncate:5}}
         </div>
         <div 
             [ngClass]="{'med':true}" 
             class="flex-item med" 
             fxFlex="40%"  
             fxLayoutAlign="center center" 
-            (click)="goToNewItem(company, item)"
-        >   {{item.description }}
+            (click)="goEditItem(company, item)">   
+                {{item.description | truncate:5 }}
         </div>
         
         <div class="flex-item" fxFlex="10%" fxLayoutAlign="center center">{{"$ "+item.amount}}</div>
@@ -51,12 +51,8 @@
         <div 
             class="flex-item" 
             fxFlex="10%" 
-            fxLayoutAlign="center center"
-        >
-            <i 
-                (click)="deleteUser()" 
-                class="glyphicon glyphicon-remove clickable">
-            </i>
+            fxLayoutAlign="center center">
+            <i (click)="deleteUser()" class="glyphicon glyphicon-remove clickable"></i>
         </div>
         <div class="flex-item" fxFlex="5%" fxFlex.xs="0%" fxLayoutAlign="center center"></div>
     </div>

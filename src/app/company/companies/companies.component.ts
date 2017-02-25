@@ -77,6 +77,10 @@ export class CompaniesComponent implements OnInit {
     let coHourly = company.hourly;
     let coColor= company.color
     let uId = 4
+    // console.log("coId:" + coId + " coColor:" + coColor  
+    //                                           + " coHourly:" + coHourly 
+    //                                           + " coName:" +coName 
+    //                                           + " uId:" + uId)
     this.router.navigate(['/company-details', {
                                                coId:coId,
                                                coColor:coColor,
