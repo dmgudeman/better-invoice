@@ -35,7 +35,7 @@
             fxFlex="40%" 
             fx LayoutAlign="center center" 
             (click)="goToEditItem(company, item)">
-               {{item.description | truncate:5}}
+               {{item.description | truncate:22}}
         </div>
         <div 
             [ngClass]="{'med':true}" 
@@ -43,7 +43,7 @@
             fxFlex="40%"  
             fxLayoutAlign="center center" 
             (click)="goEditItem(company, item)">   
-                {{item.description | truncate:5 }}
+                {{item.description }}
         </div>
         
         <div class="flex-item" fxFlex="10%" fxLayoutAlign="center center">{{"$ "+item.amount}}</div>

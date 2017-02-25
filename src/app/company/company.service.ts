@@ -1,6 +1,7 @@
 import { Company }        from './company';
 import { Injectable }     from '@angular/core';
 import { Http, Response, Headers, RequestOptions} from '@angular/http';
+import { Item } from '../item/item';
 import { Observable }     from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
@@ -10,6 +11,7 @@ import 'rxjs/add/operator/concatMap'
 @Injectable()
 export class CompanyService {
     company:Company;
+    items: Item[];
     
 	private _url = "http://localhost:3000";
 
@@ -30,8 +32,15 @@ export class CompanyService {
                    .do(data => console.log("this.getCompanyUrl(id)" + this.getCompanyUrl(id)))
                    .map((res:Response) => { body = <Company>res.json().company;
                                             return body;})
-                   .do(data => console.log("DATA " + JSON.stringify(body) ));
-       }  
+                   .do(data => console.log("body" + JSON.stringify(body)));
+       } 
+    getItemsByCompany(id:number){
+        let body;
+        return this._http.get(this.getCompanyUrl(id))
+                   .map((res:Response) => {body = <Company>res.json().company.Items;
+                                                return body;})
+                   .do(data => console.log("HI THERE body " + JSON.stringify(body)));
+    }    
    
     
     addCompany(payload){

@@ -25,6 +25,7 @@ export class CompanyDetailsComponent implements OnInit {
   items: Item[] = [];
   xsClassBool =false;
   mdClassBool =true;
+  errorMessage: string;
 
   constructor(
     private _companyService: CompanyService,
@@ -40,13 +41,10 @@ export class CompanyDetailsComponent implements OnInit {
                                           this.coName = params['coName'];
                                           this.coColor = params['coColor'];
                                         });
-    console.log("coId:" + this.coId + " coColor:" + this.coColor  
-                                              // + " coHourly:" + coHourly 
-                                              + " coName:" + this.coName )
-                                              // + " uId:" + uId)
-    this.getCompany();
-    this.items = this.getItemsByInvoices();
-    console.log(this.company); 
+   console.log("coId " + this.coId)
+    // this.company = this.getCompany();
+     let yunky = this.getItemsByCompany(this.coId);
+     console.log("YUNKY " + yunky);
   }
   // getCompanies(): Company[] {
   //   return this._companyService.getCompanies();
@@ -62,27 +60,37 @@ export class CompanyDetailsComponent implements OnInit {
   setColor(color) {
     return color
   }
-  getItemsByInvoices() {
-    let coId = this.coId;
-    let items: Item[];
-    let invoices = this._invoiceService.getInvoices();
 
-    for (let i = 0, len = invoices.length; i < len; i++){
-         this.getItemsByInvoiceHelper(invoices[i]);
+   getItemsByCompany(coId){
+       let stark =   this._companyService.getItemsByCompany(coId)
+          .subscribe( (items) => 
+           this.items = items,
+           error=> this.errorMessage = <any>error );
+           return stark;
+   }
+  // getItemsByInvoices() {
+  //   let coId = this.coId;
+  //   let items: Item[];
+  //   let invoices = this._invoiceService.getInvoices();
 
-    }
-    return this.items;
-  }
-  getItemsByInvoiceHelper(invoice:Invoice) {
-    let newItems = invoice.ivItems;
+  //   for (let i = 0, len = invoices.length; i < len; i++){
+  //        this.getItemsByInvoiceHelper(invoices[i]);
+
+  //   }
+  //   return this.items;
+  // }
+
+ 
+  // getItemsByInvoiceHelper(invoice:Invoice) {
+  //   let newItems = invoice.ivItems;
   
-    for( let i = 0; i < newItems.length ; i++){
-      if (newItems[i]){
-       
-        this.items.push(newItems[i]);
-      }
-    }
-  }
+  //   for( let i = 0; i < newItems.length ; i++){
+  //     if (newItems[i]){
+  //       console.log("newItems[i] " + JSON.stringify(newItems[i]));
+  //       this.items.push(newItems[i]);
+  //     }
+  //   }
+  
  
   goToInvoice(company: Company) {
     let uId = 1;
@@ -110,12 +118,18 @@ export class CompanyDetailsComponent implements OnInit {
     // }           
   }
   getCompany() {
-   var stark= this._route.params
-      .switchMap((params: Params) => this._companyService.getCompany(params['coId']))
-      .subscribe(company => this.company = company)
-      console.log("stark " + stark);
-  }
+   var stark = this._companyService.getCompany(this.coId)
+                    .do(data =>{ console.log("this.coId " + this.coId)})
+                    .subscribe(company => this.company = company)
 
+
+  return stark;
+  //  = this._route.params
+  //     .switchMap((params: Params) => this._companyService.getCompany(params['coId']))
+  //     .subscribe(company => this.company = company)
+           
+      
+  }
   // getCompany(id){
   //  var stark = this._companyService.getCompany(id)
   //       .subscribe(company=>this.company = company)
