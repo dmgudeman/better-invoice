@@ -79,6 +79,7 @@ export class CompaniesComponent implements OnInit {
     let uId = 4
     this.router.navigate(['/company-details', {
                                                coId:coId,
+                                               coColor:coColor,
                                                coHourly:coHourly, 
                                                coName:coName, 
                                                uId:uId,

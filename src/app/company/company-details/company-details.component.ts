@@ -18,9 +18,9 @@ export class CompanyDetailsComponent implements OnInit {
   companies: Company[];
   invoice: Invoice;
   company;
-  id: number;
-  name: string;
-  color: string;
+  coId: number;
+  coName: string;
+  coColor: string;
   hourly: number;
   items: Item[] = [];
   xsClassBool =false;
@@ -29,10 +29,17 @@ export class CompanyDetailsComponent implements OnInit {
   constructor(
     private _companyService: CompanyService,
     private _invoiceService: InvoiceService,
-    private router: Router,
-    private route: ActivatedRoute) { };
+    private _router: Router,
+    private _route: ActivatedRoute) { };
     
   ngOnInit() {
+        
+        this._route.params
+                   .subscribe(params => { 
+                                          this.coId = +params['coId'];
+                                          this.coName = params['coName'];
+                                          this.coColor = params['coColor'];
+                                        });
     this.getCompany();
     this.items = this.getItemsByInvoices();
     console.log(this.company); 
@@ -53,7 +60,7 @@ export class CompanyDetailsComponent implements OnInit {
     return color
   }
   getItemsByInvoices() {
-    let coId = this.id;
+    let coId = this.coId;
     let items: Item[];
     let invoices = this._invoiceService.getInvoices();
 
@@ -78,7 +85,7 @@ export class CompanyDetailsComponent implements OnInit {
     let uId = 1;
     let coId = company.id;
     this.invoice = this._invoiceService.makeInvoice(uId, coId);
-    this.router.navigate(['/invoice', this.invoice.id]);
+    this._router.navigate(['/invoice', this.invoice.id]);
   }
 
   goToNewItem(company: Company, item?: Item) {
@@ -90,17 +97,17 @@ export class CompanyDetailsComponent implements OnInit {
     let companyName = company.name;
     let uId = 4
     if (!item){
-              this.router.navigate(['/new-item', { hourly: hourly, 
+              this._router.navigate(['/new-item', { hourly: hourly, 
                                                    companyName: companyName, 
                                                    uId: uId, 
                                                  title: title}
                                     ]);
     }else{
-       this.router.navigate(['/new-item/id' ]);
+       this._router.navigate(['/new-item/id' ]);
     }           
   }
   getCompany() {
-   var stark= this.route.params
+   var stark= this._route.params
       .switchMap((params: Params) => this._companyService.getCompany(params['id']))
       .subscribe(company => this.company = company)
       console.log("stark " + stark);
