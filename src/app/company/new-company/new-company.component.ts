@@ -69,20 +69,16 @@ export class NewCompanyComponent implements OnInit {
         }
   }
  
-  onSubmit() {
-   let  id = this.coId;
+onSubmit() {
+    let  id = this.coId;
     var payload = this.myform.value;
+    
+    console.log("PAYL " + payload);
     var result;
-        console.log("coooooId " + this.coId);
-       
         if (id) {
-            console.log("payload    " + payload);
-             console.log("coooooId " + this.coId);
             result = this._companyService.updateCompany(payload, id);
-        }else{
+        } else {
             let ID = (id) ? id : "ID NOT HERE";
-            console.log("ID + " + ID);
-            console.log("payloaddddddddddddd" + JSON.stringify(payload));
             result = this._companyService.addCompany(payload);
         }   
 		result.subscribe(x => {

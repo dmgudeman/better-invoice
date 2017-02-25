@@ -8,6 +8,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { MyDatePickerModule } from 'mydatepicker';
 import { MyDateRangePickerModule } from 'mydaterangepicker';
 
+
+
 import { AppComponent } from './app.component';
 import { ClientComponent } from './client/client.component';
 import { ClientService } from './client.service';
@@ -46,6 +48,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     NewCompanyComponent,
     TruncatePipe,
     NotFoundComponent,
+        
     
   ],
   imports: [
@@ -58,14 +61,16 @@ import { NotFoundComponent } from './not-found/not-found.component';
     // TabsModule.forRoot(),
     MyDatePickerModule,
     MyDateRangePickerModule,
-    MaterialModule
+    MaterialModule,
+
 
   ],
   providers: [
     ClientService,
     CompanyService,
     InvoiceService,
-    ItemService
+    ItemService,
+   
   ],
   bootstrap: [AppComponent]
 })

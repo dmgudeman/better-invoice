@@ -81,35 +81,27 @@ export class CompaniesComponent implements OnInit {
                                                uId:uId,
                                                id:coId}]);
   }
-  goToNewCompany(){
-    this.router.navigate['new-company'];
-  }
+  // goToNewCompany(){
+  //     this.router.navigate['new-company'];
+  // }
   
   goToEditCompany(company?:Company){
-    if(company){
-     console.log("IN COMPANIES.COMPONENT goToEditCompany fired. Company Id = " + company.id);
-    } else {
-     console.log("IN COMPANIES.COMPONENT goToEditCompany fired. No company has been passed in");
-
-    }
-     if (company){
-        let coId = company.id;
-        console.log('/new-company/' + coId);
-        let coName = company.name;
-        let color = company.color;
-        let hourly = company.hourly;
-        let paymentTerms = company.paymentTerms;
-        let active = company.active;
-        this.router.navigate(['/new-company/' + coId, {id:coId, name:coName, color:color}]);
-     } else {
-        this.router.navigate(['/new-company']);
+      if (company){
+          let coId = company.id;
+          let coName = company.name;
+          let color = company.color;
+          let hourly = company.hourly;
+          let paymentTerms = company.paymentTerms;
+          let active = company.active;
+          this.router.navigate(['/new-company/' + coId, {id:coId, name:coName, color:color}]);
+      } else {
+          this.router.navigate(['/new-company']);
      }
 
   }
   goToNewItem(company){
-    
       let coName = company.name;
-      
-      this.router.navigate(['/new-item', {coName: coName }]);
+      let coId = company.id;
+      this.router.navigate(['/new-item', {coName: coName, coId:coId }]);
   }
 }
