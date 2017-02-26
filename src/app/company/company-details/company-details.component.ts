@@ -58,7 +58,7 @@ export class CompanyDetailsComponent implements OnInit {
   }
 
   setColor(color) {
-    return color
+      return color
   }
 
    getItemsByCompany(coId){
@@ -68,75 +68,27 @@ export class CompanyDetailsComponent implements OnInit {
            error=> this.errorMessage = <any>error );
            return stark;
    }
-  // getItemsByInvoices() {
-  //   let coId = this.coId;
-  //   let items: Item[];
-  //   let invoices = this._invoiceService.getInvoices();
-
-  //   for (let i = 0, len = invoices.length; i < len; i++){
-  //        this.getItemsByInvoiceHelper(invoices[i]);
-
-  //   }
-  //   return this.items;
-  // }
-
- 
-  // getItemsByInvoiceHelper(invoice:Invoice) {
-  //   let newItems = invoice.ivItems;
-  
-  //   for( let i = 0; i < newItems.length ; i++){
-  //     if (newItems[i]){
-  //       console.log("newItems[i] " + JSON.stringify(newItems[i]));
-  //       this.items.push(newItems[i]);
-  //     }
-  //   }
-  
  
   goToInvoice(company: Company) {
-    let uId = 1;
-    let coId = company.id;
-    this.invoice = this._invoiceService.makeInvoice(uId, coId);
-    this._router.navigate(['/invoice', this.invoice.id]);
+      let uId = 1;
+      let coId = company.id;
+      this.invoice = this._invoiceService.makeInvoice(uId, coId);
+      this._router.navigate(['/invoice', this.invoice.id]);
   }
 
   goToEditItem( itemId?: number, companyId?: number  ) {
-    if(itemId){
-       this._router.navigate(['/new-item', {id:itemId, companyId: companyId} ]);
-    }
-    // let title= "Edit Item"
-    // let hourly = company.hourly;
-    // let companyName = company.name;
-    // let uId = 4
-    // if (!item){
-    //           this._router.navigate(['/new-item', { hourly: hourly, 
-    //                                                companyName: companyName, 
-    //                                                uId: uId, 
-    //                                              title: title}
-    //                                 ]);
-    // }else{
-      
-    // }           
+      if(itemId){
+        this._router.navigate(['/new-item', {id:itemId, companyId: companyId} ]);
+      }
   }
+
   getCompany() {
-   var stark = this._companyService.getCompany(this.coId)
-                    .do(data =>{ console.log("this.coId " + this.coId)})
-                    .subscribe(company => this.company = company)
+      var stark = this._companyService.getCompany(this.coId)
+                        .do(data =>{ console.log("this.coId " + this.coId)})
+                        .subscribe(company => this.company = company)
+      return stark;
+  } 
 
-
-  return stark;
-  //  = this._route.params
-  //     .switchMap((params: Params) => this._companyService.getCompany(params['coId']))
-  //     .subscribe(company => this.company = company)
-           
-      
-  }
-  // getCompany(id){
-  //  var stark = this._companyService.getCompany(id)
-  //       .subscribe(company=>this.company = company)
-
-        
-  // }
- 
   myClasses = {xs:false, md:false}
   setClassesMd() {
     this.myClasses.md =true;
@@ -144,8 +96,8 @@ export class CompanyDetailsComponent implements OnInit {
   setClassesXs() {
     this.myClasses.xs =true;
   }
-  getNothing() {
+  // getNothing() {
 
-  }
-  deleteUser(){}
+  // }
+  // deleteUser(){}
 }
