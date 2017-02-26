@@ -32,7 +32,7 @@ export class NewItemComponent implements OnInit {
     hoursArray:number[] = [];
 
     item = new Item();
-
+    id:number;
     myform : FormGroup;
     fcHours = new FormControl(0);
     fcAmount = new FormControl(0);
@@ -54,26 +54,41 @@ export class NewItemComponent implements OnInit {
             "amount":this.fcAmount,
             "hours":this.fcHours,
             "companyId": this.fcCompanyId
-            
         });
      
         this._route.params.subscribe(params => {
-            this.item.id = params['id'];
+            this.id = params['id'];
             this.coId = +params['coId'];
             this.coName = params['coName'];
-            this.title = " New Item for " + this.coName;
-            this.fcCompanyId.setValue(this.coId);
-    });
-       
-    this.makeHoursArray(41);
-    }
 
+            this.makeTitle(this.coName, this.id);
+            this.fcCompanyId.setValue(this.coId);
+        });
+
+        console.log("TTTTTHHHHHHHIS id " + this.id);
+        if(this.id){
+            let YUNKY = this._itemService.getItem(this.id);
+            console.log("YUNKY " + JSON.stringify(YUNKY));
+            this.item = YUNKY[0];
+        }
+            
+        console.log("this.item " + this.item);
+        
+       
+        this.makeHoursArray(41);
+    }
+    makeTitle(coName:string, itemId?:number){
+        this.title = (itemId) ? " Edit Item" : " New Item for " + this.coName;
+    }
     makeHoursArray(hoursArrayLimit):number[]{
         for (let i =0; i < hoursArrayLimit; i++){
         let x = 0.25 * i;
         this.hoursArray.push(x);
         }
         return this.hoursArray;
+    }
+    getItem(itemId:number, companyId){
+
     }
     onSubmit() {
         this.fcDate.setValue(this.myform.value.date.formatted);

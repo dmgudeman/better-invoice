@@ -39,7 +39,7 @@ export class CompanyService {
         return this._http.get(this.getCompanyUrl(id))
                    .map((res:Response) => {body = <Company>res.json().company.Items;
                                                 return body;})
-                   .do(data => console.log("HI THERE body " + JSON.stringify(body)));
+                //    .do(data => console.log("CS getItemsByCompany => JSONstringify(body) " + JSON.stringify(body)));
     }    
    
     

@@ -43,8 +43,8 @@ export class CompanyDetailsComponent implements OnInit {
                                         });
    console.log("coId " + this.coId)
     // this.company = this.getCompany();
-     let yunky = this.getItemsByCompany(this.coId);
-     console.log("YUNKY " + yunky);
+     let coDetails = this.getItemsByCompany(this.coId);
+     console.log("CODETAILS " + coDetails);
   }
   // getCompanies(): Company[] {
   //   return this._companyService.getCompanies();
@@ -76,9 +76,12 @@ export class CompanyDetailsComponent implements OnInit {
       this._router.navigate(['/invoice', this.invoice.id]);
   }
 
-  goToEditItem( itemId?: number, companyId?: number  ) {
-      if(itemId){
-        this._router.navigate(['/new-item', {id:itemId, companyId: companyId} ]);
+  goToEditItem( item?: Item , company?: Company ) {
+      let id = item.id;
+      let coId = item.companyId;
+      
+      if(item){
+        this._router.navigate(['/new-item', {id:id, coId: coId} ]);
       }
   }
 

@@ -15,7 +15,9 @@ export class ItemService {
 	}
     
     getItem(itemId){
+		 console.log("this.getItemUrl(itemId)" + this.getItemUrl(itemId))
 		return this._http.get(this.getItemUrl(itemId))
+		    .do(data => console.log("IS getItem " + JSON.stringify(data)))
 			.map(res => res.json());
 	}
     
@@ -26,6 +28,7 @@ export class ItemService {
 
     updateItem(item){
 		return this._http.put(this.getItemUrl(item.id), JSON.stringify(item))
+		    .do(data => console.log("IS updateItem  " + data))
 			.map(res => res.json());
 	}
     
