@@ -14,8 +14,9 @@ export class ItemService {
 	}
 
 	getItems(){
-		return this._http.get(this._url)
-			.map(res => res.json());
+		return this._http
+		           .get(this._url)
+			       .map(res => res.json());
 	}
    /*
      get(url: string, options?: RequestOptionsArgs) : Observable<Response>
@@ -25,22 +26,25 @@ export class ItemService {
     getItem(itemId){
 		console.log("this.getItemUrl(itemId)  " + this.getItemUrl(itemId))
 		let body:Item;
-		let   yunkers = this._http.get(this.getItemUrl(itemId))
+		let   yunkers = this._http
+		                    .get(this.getItemUrl(itemId))
 							.map((res:Response) => {body = <Item>res.json().item; return body})
-			            return yunkers;
+			                return yunkers;
 	}
     
     addItem(payload){
-			return this._http.post(this._url, {item:payload})
-				.map(res => res.json());
+		return this._http
+		           .post(this._url, {item:payload})
+				   .map(res => res.json());
 	}
 
     updateItem(payload, id){
 		console.log("id " + id)
         console.log("{item:payload},   " + {item:payload})
-		return this._http.put(this.getItemUrl(id), {item:payload})
-		    .map((res:Response) => <Item>res.json())
-                            .catch(this.shared.handleError);
+		return this._http
+		           .put(this.getItemUrl(id), {item:payload})
+		           .map((res:Response) => <Item>res.json())
+                   .catch(this.shared.handleError);
 	}
 	/*
 	 updateCompany(payload, id){
@@ -54,12 +58,14 @@ export class ItemService {
         }
     */
     deleteItem(itemId){
-		return this._http.delete(this.getItemUrl(itemId))
-			.map(res => res.json());
+		return this._http
+		           .delete(this.getItemUrl(itemId))
+			       .map(res => res.json());
 	}
     
-    private getItemUrl(itemId){
+    getItemUrl(itemId){
 		return this._url + "/" + itemId;
 	}
+	
 	
 }

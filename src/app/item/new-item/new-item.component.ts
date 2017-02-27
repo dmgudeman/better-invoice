@@ -21,7 +21,7 @@ export class NewItemComponent implements OnInit {
     private myDatePickerOptions: IMyOptions = {
         dateFormat: 'yyyy-mm-dd',
     };
-    date = new Date();
+    date:Date;
   
   
     
@@ -48,8 +48,7 @@ export class NewItemComponent implements OnInit {
                 private _fb:FormBuilder) { }
 
     ngOnInit() {
-this.date = this.moment().format('YYYY-MM-DD');
-        console.log("DATTTTTTTTTTT " + this.date);
+       
        
         this.myform = this._fb.group({
             // "id":this.id,
@@ -72,15 +71,18 @@ this.date = this.moment().format('YYYY-MM-DD');
             // if(this.id){ 
                 this._itemService.getItem(this.id)
                        .subscribe(item => {this.item = item;
-                                 
+                                    
+                                    this.date = this.item.date;
                                     console.log("this.item.date " + this.item.date);
-                                   
-                                    this.fcDate.setValue(this.item.date);
-                                    console.log("this.fcDate.value " + this.fcDate.value);
+                                    console.log("this.date " + this.date);
+      
+                                    this.fcDate.setValue(this.date);
                                     this.fcNotes.setValue(this.item.description);
                                     this.fcAmount.setValue(this.item.amount);
                                     this.fcHours.setValue(this.item.hours);
                                     this.fcCompanyId.setValue(this.item.companyId);
+                                   
+                                    console.log("this.fcDate.value " + this.fcDate.value);
                                     return this.item;
                 },
                 response => {
@@ -124,26 +126,26 @@ this.date = this.moment().format('YYYY-MM-DD');
             });
        
     }
+    // from github.com/kekeh/mydatepicker
+    setDate(date): void {
+        // Set today date using the setValue function
+        console.log("In setDate date " + date);
+        console.log("date.getFullYear() " + date.getFullYear() );
+        // this.fcDate.setValue(date
+        // //     {
+        // // date: {
+        // //     year: date.getFullYear(),
+        // //     month: date.getMonth() + 1,
+        // //     day: date.getDate() + 1}
+        // // }
+        // )
+    }
+     // from github.com/kekeh/mydatepicker
+    clearDate(): void {
+        // Clear the date using the setValue function
+        this.myform.setValue({fcDate: ''});
+    }
     
 }
-    /*
-    onSubmit() {
-    let  id = this.coId;
-    var payload = this.myform.value;
     
-    console.log("PAYL " + payload);
-    var result;
-        if (id) {
-            result = this._companyService.updateCompany(payload, id);
-        } else {
-            let ID = (id) ? id : "ID NOT HERE";
-            result = this._companyService.addCompany(payload);
-        }   
-		result.subscribe(x => {
-            // Ideally, here we'd want:
-            // this.form.markAsPristine();
-            this._router.navigate(['companies']);
-        });
-	}
-    */
 

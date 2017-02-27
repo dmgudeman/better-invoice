@@ -29,8 +29,8 @@ export class InvoiceService {
     
     getInvoiceById(invoiceId: number): Promise<Invoice>{
          let foundInvoice = this.getInvoices().find(item =>(item.id === invoiceId));
-         console.log("getInvoiceById invoiceId = " + invoiceId);
-         console.log("getInvoiceById this.invoices.length = " +this.invoices.length)
+          console.log("getInvoiceById invoiceId = " + invoiceId);
+          console.log("getInvoiceById this.invoices.length = " +this.invoices.length)
           console.log ("getInvoiceById JSON.stringify(foundInvoice) = "+JSON.stringify(foundInvoice));
        return Promise.resolve(foundInvoice);
     };

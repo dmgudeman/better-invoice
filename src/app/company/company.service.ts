@@ -11,6 +11,7 @@ import { Shared } from '../shared/shared'
 ;
 @Injectable()
 export class CompanyService {
+    
     company:Company;
     items: Item[];
     shared: Shared;
@@ -40,9 +41,8 @@ export class CompanyService {
     getItemsByCompany(id:number){
         let body;
         return this._http.get(this.getCompanyUrl(id))
-                   .map((res:Response) => {body = <Company>res.json().company.Items;
+                         .map((res:Response) => {body = <Company>res.json().company.Items;
                                                 return body;})
-                //    .do(data => console.log("CS getItemsByCompany => JSONstringify(body) " + JSON.stringify(body)));
     }    
    
     

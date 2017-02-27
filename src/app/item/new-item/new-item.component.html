@@ -27,12 +27,15 @@
                         </div>
                         <div class="form-group col-xs-12 col-md-6">
                             <label for="date">Date</label><br>
-                            <my-date-picker 
-                                 name="mydate" 
-                                 [options]="myDatePickerOptions"
+                           
+                            <my-date-picker
+                                 name="date" 
                                  formControlName="date"
-                                 id="date" >
+                                 id="date" 
+                                 [options]="myDatePickerOptions"
+                                 >
                             </my-date-picker>
+                            
                         </div>
                         <div class="form-group col-xs-12">
                             <label for="description">Description/notes</label>

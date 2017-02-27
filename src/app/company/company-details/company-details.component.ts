@@ -36,26 +36,21 @@ export class CompanyDetailsComponent implements OnInit {
     
   ngOnInit() {
         
-        this._route.params
-                   .subscribe(params => { 
-                                          this.coId = +params['coId'];
-                                          this.coName = params['coName'];
-                                          this.coColor = params['coColor'];
-                                        });
-   console.log("coId " + this.coId)
-    // this.company = this.getCompany();
+      this._route.params
+                .subscribe(params => { 
+                                      this.coId = +params['coId'];
+                                      this.coName = params['coName'];
+                                      this.coColor = params['coColor'];
+                                      });
      let coDetails = this.getItemsByCompany(this.coId);
-     console.log("CODETAILS " + coDetails);
   }
-  // getCompanies(): Company[] {
-  //   return this._companyService.getCompanies();
-  // }
   getCompanies(){
-   this._companyService.getCompanies()
-      .subscribe(companies => {
-        this.companies = companies;
-        return this.companies;
-      });
+      this._companyService
+          .getCompanies()
+          .subscribe(companies => {
+                                   this.companies = companies;
+                                   return this.companies;
+                                  });
   }
 
   setColor(color) {
@@ -63,11 +58,11 @@ export class CompanyDetailsComponent implements OnInit {
   }
 
    getItemsByCompany(coId){
-       let stark =   this._companyService.getItemsByCompany(coId)
-          .subscribe( (items) => 
-           this.items = items,
-           error=> this.errorMessage = <any>error );
-           return stark;
+       let stark = this._companyService
+                       .getItemsByCompany(coId)
+                       .subscribe( items => this.items = items,
+                                   error => this.errorMessage = <any>error );
+       return stark;
    }
  
   goToInvoice(company: Company) {
@@ -80,27 +75,23 @@ export class CompanyDetailsComponent implements OnInit {
   goToEditItem( item?: Item , company?: Company ) {
       let id = item.id;
       let coId = item.companyId;
-      
-      // if(item && company){
-          
-        this._router.navigate(['/new-item/' + id, {id:id, coId: coId} ]);
-      // }
+      this._router.navigate(['/new-item/' + id, {id:id, coId: coId} ]);
   }
  
 
   getCompany() {
-      var stark = this._companyService.getCompany(this.coId)
-                        .do(data =>{ console.log("this.coId " + this.coId)})
-                        .subscribe(company => this.company = company)
-      return stark;
+      var stark = this._companyService
+                      .getCompany(this.coId)
+                      .subscribe(company => this.company = company)
+                      return stark;
   } 
 
   myClasses = {xs:false, md:false}
-  setClassesMd() {
-    this.myClasses.md =true;
+      setClassesMd() {
+      this.myClasses.md =true;
   }
   setClassesXs() {
-    this.myClasses.xs =true;
+      this.myClasses.xs =true;
   }
   // getNothing() {
 
