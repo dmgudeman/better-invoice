@@ -64,15 +64,25 @@ export class NewItemComponent implements OnInit {
             this.makeTitle(this.coName, this.id);
             this.fcCompanyId.setValue(this.coId);
         });
-
-        console.log("TTTTTHHHHHHHIS id " + this.id);
-        if(this.id){
-            let YUNKY = this._itemService.getItem(this.id);
-            console.log("YUNKY " + JSON.stringify(YUNKY));
-            this.item = YUNKY[0];
-        }
-            
-        console.log("this.item " + this.item);
+            console.log("iddddddd " + this.id);
+            // if(this.id){ 
+                this._itemService.getItem(this.id)
+                       .subscribe(item => {this.item = item;
+                                    console.log("THISITEMDATE " + this.item.date);
+                                    // this.id.setValue(this.item.id);
+                                    this.fcDate.setValue(this.item.date);
+                                    this.fcNotes.setValue(this.item.description);
+                                    this.fcAmount.setValue(this.item.amount);
+                                    this.fcHours.setValue(this.item.hours);
+                                    this.fcCompanyId.setValue(this.item.companyId);
+                                    return this.item;
+                },
+                response => {
+                    if (response.status === 404){
+                        this._router.navigate(['NotFound']);
+                }
+            });
+        //  }
         
        
         this.makeHoursArray(41);

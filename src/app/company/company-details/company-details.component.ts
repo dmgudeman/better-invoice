@@ -26,6 +26,7 @@ export class CompanyDetailsComponent implements OnInit {
   xsClassBool =false;
   mdClassBool =true;
   errorMessage: string;
+  id: number;
 
   constructor(
     private _companyService: CompanyService,
@@ -80,10 +81,12 @@ export class CompanyDetailsComponent implements OnInit {
       let id = item.id;
       let coId = item.companyId;
       
-      if(item){
-        this._router.navigate(['/new-item', {id:id, coId: coId} ]);
-      }
+      // if(item && company){
+          
+        this._router.navigate(['/new-item/' + id, {id:id, coId: coId} ]);
+      // }
   }
+ 
 
   getCompany() {
       var stark = this._companyService.getCompany(this.coId)

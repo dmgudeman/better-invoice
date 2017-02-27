@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Http }       from '@angular/http';
+import { Http,  Response, Headers, RequestOptions }from '@angular/http';
 import 'rxjs/add/operator/map';
+import { Item } from './item';
 
 @Injectable()
 export class ItemService {
@@ -13,12 +14,22 @@ export class ItemService {
 		return this._http.get(this._url)
 			.map(res => res.json());
 	}
+   /*
+     get(url: string, options?: RequestOptionsArgs) : Observable<Response>
+         Performs a request with get http method.
+		 */
     
     getItem(itemId){
-		 console.log("this.getItemUrl(itemId)" + this.getItemUrl(itemId))
-		return this._http.get(this.getItemUrl(itemId))
-		    .do(data => console.log("IS getItem " + JSON.stringify(data)))
-			.map(res => res.json());
+		    console.log("this.getItemUrl(itemId)  " + this.getItemUrl(itemId))
+		    let body:Item;
+		let   yunkers = this._http.get(this.getItemUrl(itemId))
+			.map((res:Response) => { body = <Item>res.json().item;
+
+				                     console.log("Im here");
+			                            return body})
+			// .subscribe(value => console.log("VALUE " + value))
+			//.do(data => console.log("bodyyyy " + body));
+			return yunkers;
 	}
     
     addItem(payload){
