@@ -7,22 +7,25 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/concatMap'
-
+import { Shared } from '../shared/shared'
+;
 @Injectable()
 export class CompanyService {
     company:Company;
     items: Item[];
+    shared: Shared;
     
 	private _url = "http://localhost:3000";
 
 	constructor(private _http: Http){
+        this.shared = new Shared();
 	}
 
 	getCompanies():Observable<Company[]>{
 		return this._http
                    .get(this._url + '/companies')
 			       .map((res:Response) => <Company[]>res.json().companies)
-                   .catch(this.handleError);
+                   .catch(this.shared.handleError);
 	}
     
     getCompany(id:number){
@@ -59,7 +62,7 @@ export class CompanyService {
         console.log("this.getCompanyUrl(id) " + this.getCompanyUrl(id));
 		return this._http.put(this.getCompanyUrl(id), {company:payload})
                             .map((res:Response) => <Company>res.json())
-                            .catch(this.handleError);
+                            .catch(this.shared.handleError);
         }
     
     deleteCompany(companyId){
@@ -78,9 +81,5 @@ export class CompanyService {
         let body = res.json();
         return body.data || { };
     }
-    private handleError(error:Response){
-        console.error(error);
-        let message = `Error status code ${error.status} at ${error.url}`;
-        return Observable.throw(message);
-    }
+    
 }

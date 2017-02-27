@@ -16,12 +16,14 @@ import { ReactiveFormsModule, FormGroup, FormsModule, FormControl, FormBuilder }
 })
 export class NewItemComponent implements OnInit {
     moment = require('moment');
+    dateFormat = require('dateformat');
    
     private myDatePickerOptions: IMyOptions = {
-        // dateFormat: 'mm/dd/yyyy',
+        dateFormat: 'yyyy-mm-dd',
     };
     date = new Date();
-    dateFormat = require('dateformat');
+  
+  
     
     coName: string;
     coId: number;
@@ -46,6 +48,8 @@ export class NewItemComponent implements OnInit {
                 private _fb:FormBuilder) { }
 
     ngOnInit() {
+this.date = this.moment().format('YYYY-MM-DD');
+        console.log("DATTTTTTTTTTT " + this.date);
        
         this.myform = this._fb.group({
             // "id":this.id,
@@ -68,9 +72,11 @@ export class NewItemComponent implements OnInit {
             // if(this.id){ 
                 this._itemService.getItem(this.id)
                        .subscribe(item => {this.item = item;
-                                    console.log("THISITEMDATE " + this.item.date);
-                                    // this.id.setValue(this.item.id);
+                                 
+                                    console.log("this.item.date " + this.item.date);
+                                   
                                     this.fcDate.setValue(this.item.date);
+                                    console.log("this.fcDate.value " + this.fcDate.value);
                                     this.fcNotes.setValue(this.item.description);
                                     this.fcAmount.setValue(this.item.amount);
                                     this.fcHours.setValue(this.item.hours);
@@ -101,14 +107,43 @@ export class NewItemComponent implements OnInit {
 
     }
     onSubmit() {
+        let  id = this.id;
         this.fcDate.setValue(this.myform.value.date.formatted);
         var payload = this.myform.value;
         var result;
-        result = this._itemService.addItem(payload);
-        result.subscribe(x => {
-                // Ideally, here we'd want:
-                // this.form.markAsPristine();
-                this._router.navigate(['companies']);
-        });
+
+        if (id) {
+            result = this._itemService.updateItem(payload, id);
+        } else {    
+            result = this._itemService.addItem(payload);
+        }
+            result.subscribe(x => {
+                    // Ideally, here we'd want:
+                    // this.form.markAsPristine();
+                    this._router.navigate(['companies']);
+            });
+       
     }
+    
 }
+    /*
+    onSubmit() {
+    let  id = this.coId;
+    var payload = this.myform.value;
+    
+    console.log("PAYL " + payload);
+    var result;
+        if (id) {
+            result = this._companyService.updateCompany(payload, id);
+        } else {
+            let ID = (id) ? id : "ID NOT HERE";
+            result = this._companyService.addCompany(payload);
+        }   
+		result.subscribe(x => {
+            // Ideally, here we'd want:
+            // this.form.markAsPristine();
+            this._router.navigate(['companies']);
+        });
+	}
+    */
+
