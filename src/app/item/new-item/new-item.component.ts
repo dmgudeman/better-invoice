@@ -39,7 +39,7 @@ export class NewItemComponent implements OnInit {
     fcHours = new FormControl(0);
     fcAmount = new FormControl(0);
     fcDate = new FormControl({date: {year: 2018, month: 10, day: 9}}, Validators.required);
-    fcNotes = new FormControl();
+    fcNotes = new FormControl('');
     fcCompanyId = new FormControl();
 
     constructor(private _itemService: ItemService,
@@ -68,27 +68,21 @@ export class NewItemComponent implements OnInit {
             this.makeTitle(this.coName, this.id);
             this.fcCompanyId.setValue(this.coId);
         });
-           
-            console.log("iddddddd " + this.id);
-            // if(this.id){ 
+          if(this.id) {
                 this._itemService.getItem(this.id)
                        .subscribe(item => {this.item = item;
+                                    // this.date = this.item.date;
+                                    // let newDate = new Date(this.item.date);
+                                    // let yearr = newDate.getFullYear();
+                                    // let monthh = newDate.getMonth() + 1;
+                                    // let datee = newDate.getDate();
                                     
-                                    this.date = this.item.date;
-                                    console.log("this.item.date " + this.item.date);
-                                   let newDate = new Date(this.item.date);
-                                    console.log("this.newDate.getFullYear() = " + newDate.getFullYear())
-                                    let yearr = newDate.getFullYear();
-                                    let monthh = newDate.getMonth() + 1;
-                                    let datee = newDate.getDate();
-                                    
-                                    this.fcDate.setValue({date: {year: yearr, month: monthh, day: datee}});
+                                    // this.fcDate.setValue({date: {year: yearr, month: monthh, day: datee}});
+                                    this.setDate(this.item.date);
                                     this.fcNotes.setValue(this.item.description);
                                     this.fcAmount.setValue(this.item.amount);
                                     this.fcHours.setValue(this.item.hours);
                                     this.fcCompanyId.setValue(this.item.companyId);
-                                   
-                                    console.log("this.fcDate.value " + this.fcDate.value);
                                     return this.item;
                 },
                 response => {
@@ -96,7 +90,10 @@ export class NewItemComponent implements OnInit {
                         this._router.navigate(['NotFound']);
                 }
             });
-        //  }
+         } else {
+             let date = new Date();
+             this.setDate(date);
+         }
         
        
         this.makeHoursArray(41);
@@ -133,10 +130,16 @@ export class NewItemComponent implements OnInit {
        
     }
     // from github.com/kekeh/mydatepicker
-    setDate(date): void {
-        // Set today date using the setValue function
-        console.log("In setDate date " + date);
-        console.log("date.getFullYear() " + date.getFullYear() );
+    setDate(date?): void {
+        let newDate;
+        date ? newDate = new Date(date) : newDate = new Date();
+
+        let yearr = newDate.getFullYear();
+        let monthh = newDate.getMonth() + 1;
+        let datee = newDate.getDate();
+        
+        this.fcDate.setValue({date: {year: yearr, month: monthh, day: datee}});
+        
         // this.fcDate.setValue(date
         // //     {
         // // date: {
