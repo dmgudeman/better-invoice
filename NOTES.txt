@@ -1,0 +1,2 @@
+the code syntax to update the datepicker:
+    myDate: [{date: {year: 2018, month: 10, day: 9}}, Validators.required]}}
