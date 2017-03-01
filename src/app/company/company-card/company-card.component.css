@@ -1,0 +1,82 @@
+
+/*-------------- over-all --------------*/
+.my-card {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 125px;
+    margin: 25px auto;
+    border-radius: 8px;
+    padding: 12px;
+}
+
+
+section {
+    display: flex;
+    width: 275px;
+    height: 51px;
+    padding: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.column {
+    margin: 10px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0;
+    text-align: center;
+}
+
+
+.top-line {
+    flex-grow:2;
+    flex-shrink:2;
+    flex-basis: 0;
+}
+#co-name {
+        font-size: 115%;
+}
+#edit {
+        font-size: 80%;
+        padding-bottom:12%;
+}
+.bottom-line {
+    flex-grow:1;
+    flex-shrink:1;
+    flex-basis: 5px;
+}
+
+section:first-of-type .column:first-of-type {
+    flex-grow: 11;
+    flex-shrink: 11;
+    flex-basis: 0px;
+}
+
+/*first {
+    flex-basis: 22px;
+}*/
+
+.blue {
+    background-color: #3498db;
+}
+
+.green {
+    background-color: #00C853;
+}
+
+.yellow {
+    background-color: #f1c40f;
+}
+
+.red {
+    background-color: #e74c3c;
+}
+
+.purple {
+    background-color: #9b59b6;
+}
+
+.brown {
+    background-color: #8D6E63;
+}
