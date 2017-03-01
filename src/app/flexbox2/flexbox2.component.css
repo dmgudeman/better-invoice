@@ -1,0 +1,22 @@
+
+section {
+        background-color: mediumaquamarine;
+        max-width: 740px;
+        margin: 0 auto;
+        display: flex;
+        text-align: center;
+}
+
+.column {
+        background-color: lightblue;
+        margin: 10px; 
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 0;
+}
+
+section:first-of-type .column:first-of-type {
+        flex-grow: 2;
+        flex-shrink: 2;
+        flex-basis: 22px;
+}

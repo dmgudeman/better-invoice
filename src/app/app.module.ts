@@ -30,6 +30,7 @@ import { CompanyDetailsComponent } from './company/company-details/company-detai
 import { NewCompanyComponent } from './company/new-company/new-company.component';
 import { TruncatePipe } from './shared/truncate.pipe';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { CompanyCardComponent } from './company/company-card/company-card.component';
 
 
 
@@ -48,6 +49,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     NewCompanyComponent,
     TruncatePipe,
     NotFoundComponent,
+    CompanyCardComponent,
         
     
   ],
