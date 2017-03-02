@@ -25,14 +25,19 @@ export class CompanysComponent implements OnInit {
   paymentTerms:number;
   active:boolean;
   editing:boolean = false;
+ 
   
   constructor(
               private _companyService: CompanyService,
               private _invoiceService: InvoiceService,
-              private router:Router) { };
+              private router:Router) { 
+             
+              };
 
   ngOnInit() { 
+    // this.myCard = this.TESTmakeCompanyCard(this.company);
     this.getCompanies();
+
   }
   
   getCompanies(){
@@ -41,11 +46,12 @@ export class CompanysComponent implements OnInit {
   // makeCompanyCard(company){
   //   let coCard = new CompanyCardComponent(company);
   // }
-  TESTmakeCompanyCard(){
-    // no company parameter in this testing state
-    let coCard = new CompanyCardComponent();
+  // TESTmakeCompanyCard(company){
+  //   // no company parameter in this testing state
+  //   let coCard = new CompanyCardComponent(company);
+  //    return coCard;
 
-  }
+  // }
   // setClasses(company: Company) {
   //   let red: boolean = (company.color === 'red');
   //   let green = (company.color === 'green');

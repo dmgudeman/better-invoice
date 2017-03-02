@@ -92,7 +92,11 @@ export class CompaniesComponent implements OnInit {
                                                }]);
   }
   goToCompanys(){
-      this.router.navigate['companys'];
+    console.log("goToCompanys fired");
+      this.router.navigate(['/companys']);
+  }
+  goToCompanyCard(){
+       this.router.navigate(['/company-card']);
   }
   
   goToEditCompany(company?:Company){

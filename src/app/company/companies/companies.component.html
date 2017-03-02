@@ -42,7 +42,7 @@
                 [ngClass]="setClasses(company)"
                 >
                 <a class="co-button" 
-                   (click)="goToNewItem(company)"  
+                   (click)="goToCompanyCard()"  
                    aria-hidden="true"
                    >
                    +Add
@@ -50,8 +50,14 @@
            </div>
         </div>
      </div>
+     <div>
+   
+</div>
   </div>
 </div> 
+ <button class="col-xs-12 col-md-4 iv-submit myCol" (click)=" goToCompanys()">
+         Submit
+    </button>
 <!-- goToEditCompany(company) -->
 <!-- goToCompanyDetails(company) -->
 

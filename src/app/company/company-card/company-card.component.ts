@@ -15,6 +15,7 @@ export class CompanyCardComponent implements OnInit {
   testFlag:boolean;
 
   constructor() {
+   
       // this.company = company;
       // if(company){this.testFlag= false};
    }
@@ -30,7 +31,7 @@ export class CompanyCardComponent implements OnInit {
       //     this.color = this.company.color;
       // }
   }
-  setClassColor(company:Company) {
-    return this.shared.setClassColor(company);
+  setClassColor() {
+    return this.shared.setClassColor(this.company);
   }
 }
