@@ -25,13 +25,13 @@ export class CompanyCardComponent implements OnInit {
       // this.color = this.company.color;
       // if(this.testFlag){
           this.name = "Test Company";
-          this.color = "red";
+          this.color = "green";
       // } else {
       //     this.name = this.company.name;
       //     this.color = this.company.color;
       // }
   }
   setClassColor() {
-    return this.shared.setClassColor(this.company);
+    return this.shared.setClassColor(null, this.color);
   }
 }

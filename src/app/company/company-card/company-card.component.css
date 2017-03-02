@@ -103,22 +103,22 @@ section {
 .brown {
     background-color: #8D6E63;
 }
-.green.bottom-line{
+#my-card-bottom.green{
      background-color: #00d95a;
     
 }
-.brown.bottom-line{
+#my-card-bottom.brown{
      background-color: #795548;
 }
 
- .red.bottom-line{
+#my-card-bottom.red{
      background-color: #eb685a;
 }
 
-.blue.bottom-line{
+#my-card-bottom.blue {
      background-color: #2487c9;
 }
-.yellow.bottom-line {
+#my-card-bottom.yellow{
     background-color: #e2b70d;
 }
 #my-card-bottom.purple{

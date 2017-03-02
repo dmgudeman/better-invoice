@@ -1,11 +1,11 @@
 <div class="my-card">
-    <div class=" purple" id="my-card-top">
+    <div [ngClass]="setClassColor()" id="my-card-top">
         <section class="top-line transparent">
-            <div class="column " id="co-name">Company Name</div>
+            <div class="column " id="co-name">{{name}}</div>
             <div class="column " id="edit">edit</div>
         </section>
     </div>
-    <div class=" purple" id="my-card-bottom">
+    <div [ngClass]="setClassColor()" id="my-card-bottom">
         <section class="bottom-line">
             <div class="column">Export Invoice</div>
             <div class="column">Add</div>
