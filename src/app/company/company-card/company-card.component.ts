@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Company } from '../company';
 import { CompanyService } from '../company.service';
+import { InvoiceService } from "../../invoice/invoice.service";
+import { Invoice } from "../../invoice/invoice";
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Shared } from '../../shared/shared';
 
@@ -15,8 +17,10 @@ export class CompanyCardComponent implements OnInit {
   @Input() company:Company;
   name:string;
   color:string;
+  invoice: Invoice;
 
   constructor(private _companyService: CompanyService,
+              private _invoiceService: InvoiceService,
               private _router: Router,
               private _route: ActivatedRoute,
               ) { }
@@ -53,5 +57,33 @@ export class CompanyCardComponent implements OnInit {
                                                coName:coName, 
                                                uId:uId,
                                                }]);
+  }
+
+  goToInvoice(company:Company) {
+    let uId = 1;
+    let coId = company.id;
+    this.invoice = this._invoiceService.makeInvoice(uId,coId);
+    this._router.navigate(['/invoice', this.invoice.id ]);
+
+  }
+
+  goToEditCompany(company?:Company){
+      if (company){
+          let coId = company.id;
+          let coName = company.name;
+          let color = company.color;
+          let hourly = company.hourly;
+          let paymentTerms = company.paymentTerms;
+          let active = company.active;
+          this._router.navigate(['/new-company/' + coId, {id:coId, name:coName, color:color}]);
+      } else {
+          this._router.navigate(['/new-company']);
+     }
+
+  }
+  goToNewItem(company){
+      let coName = company.name;
+      let coId = company.id;
+      this._router.navigate(['/new-item', {coName: coName, coId:coId }]);
   }
 }
