@@ -12,15 +12,23 @@ export class CompanyCardComponent implements OnInit {
   name:string;
   color:string;
   shared:Shared = new Shared();
+  testFlag:boolean;
 
-  constructor(company) {
-    this.company = company;
-
+  constructor() {
+      // this.company = company;
+      // if(company){this.testFlag= false};
    }
 
   ngOnInit() {
-      this.name= this.company.name;
-      this.color = this.company.color;
+      // this.name= this.company.name;
+      // this.color = this.company.color;
+      // if(this.testFlag){
+          this.name = "Test Company";
+          this.color = "red";
+      // } else {
+      //     this.name = this.company.name;
+      //     this.color = this.company.color;
+      // }
   }
   setClassColor(company:Company) {
     return this.shared.setClassColor(company);

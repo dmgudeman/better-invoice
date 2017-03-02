@@ -2,6 +2,7 @@ import { NgModule }              from '@angular/core';
 import { RouterModule, Routes }  from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { CompaniesComponent } from './company/companies/companies.component';
+import { CompanysComponent } from './company/companys/companys.component';
 import { CompanyDetailsComponent } from './company/company-details/company-details.component';
 import { NewCompanyComponent } from './company/new-company/new-company.component';
 import { NewItemComponent } from './item/new-item/new-item.component';
@@ -15,6 +16,7 @@ const appRoutes: Routes = [
   { path: '', redirectTo: '/home-app', pathMatch: 'full'},
   { path: 'home-app', component: HomeComponent },
   { path: 'companies', component: CompaniesComponent },
+  { path: 'companys', component: CompanysComponent },
   { path: 'new-item/:id', component: NewItemComponent},
   { path: 'new-item', component: NewItemComponent },
   { path: 'invoice/:id', component: InvoiceComponent },

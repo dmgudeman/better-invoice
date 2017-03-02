@@ -19,6 +19,7 @@ import { ItemService } from './item/item.service';
 
 import { HomeComponent } from './home/home.component';
 import { CompaniesComponent } from './company/companies/companies.component';
+import { CompanysComponent } from './company/companys/companys.component';
 
 import { Tab } from './shared/tab';
 import { Tabs } from './shared/tabs';
@@ -42,6 +43,7 @@ import { CompanyCardComponent } from './company/company-card/company-card.compon
     ClientComponent,
     HomeComponent,
     CompaniesComponent,
+    CompanysComponent,
     NewItemComponent,
     ItemComponent,
     InvoiceComponent,
