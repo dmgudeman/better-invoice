@@ -42,28 +42,6 @@ export class CompanysComponent implements OnInit {
   getCompanies(){
     this.companies = this._companyService.getCompanies();
   }
-   goToInvoice(company:Company) {
-    let uId = 1;
-    let coId = company.id;
-    this.invoice = this._invoiceService.makeInvoice(uId,coId);
-    this.router.navigate(['/invoice', this.invoice.id ]);
-  }
-  
-  goToCompanyDetails(company:Company){
-    let coId = company.id;
-    let coName = company.name;
-    let coHourly = company.hourly;
-    let coColor= company.color
-    let uId = 4
-
-    this.router.navigate(['/company-details', {
-                                               coId:coId,
-                                               coColor:coColor,
-                                               coHourly:coHourly, 
-                                               coName:coName, 
-                                               uId:uId,
-                                               }]);
-  }
   
   goToEditCompany(company?:Company){
       if (company){
@@ -77,11 +55,5 @@ export class CompanysComponent implements OnInit {
       } else {
           this.router.navigate(['/new-company']);
      }
-  }
-
-  goToNewItem(company){
-      let coName = company.name;
-      let coId = company.id;
-      this.router.navigate(['/new-item', {coName: coName, coId:coId }]);
   }
 }

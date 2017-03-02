@@ -9,7 +9,7 @@
   <div class="flex-item" fxFlex="5%">
    <a (click)="goToEditCompany(company)"  class="co-navbar-plus" aria-hidden="true">+</a></div>
 </div>
-<div class="outer">
+<div class="co-card">
     <app-company-card 
         *ngFor="let company of companies | async" 
         [company]= "company">

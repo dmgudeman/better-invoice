@@ -1,23 +1,24 @@
 .top {
- max-width: 700px;
-        margin: 0 auto;
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 20px;
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-weight: 300;
 }
-
 
 .co-navbar {
     background-color: black;
     color: white;
     height: 45px;
-    }
-.co-navbar-plus{
+}
+
+.co-navbar-plus {
     color: #f2f2f2;
 }
-.outer {
-       
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
+
+.co-card {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
-
-
