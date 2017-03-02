@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { CompanyService } from '../company.service';
 import { Company } from '../company';
 import { InvoiceService } from 'app/invoice/invoice.service';
@@ -31,6 +32,7 @@ export class CompanyDetailsComponent implements OnInit {
   constructor(
     private _companyService: CompanyService,
     private _invoiceService: InvoiceService,
+    private _location: Location,
     private _router: Router,
     private _route: ActivatedRoute) { };
     
@@ -64,7 +66,9 @@ export class CompanyDetailsComponent implements OnInit {
                                    error => this.errorMessage = <any>error );
        return stark;
    }
- 
+  goBack() {
+      this._location.back();
+  }
   goToInvoice(company: Company) {
       let uId = 1;
       let coId = company.id;
@@ -93,8 +97,4 @@ export class CompanyDetailsComponent implements OnInit {
   setClassesXs() {
       this.myClasses.xs =true;
   }
-  // getNothing() {
-
-  // }
-  // deleteUser(){}
 }
