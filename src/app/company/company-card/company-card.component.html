@@ -1,8 +1,13 @@
 <div class="my-card">
     <div [ngClass]="setClassColor()" id="my-card-top">
         <section class="top-line transparent">
-            <div class="column " id="co-name">{{name}}</div>
-            <div class="column " id="edit">edit</div>
+            <div class="column" id="co-name"><a 
+                   (click)="goToCompanyDetails(company)"  
+                   
+                   >
+                   {{name}}
+                </a></div>
+            <div class="column" id="edit">edit</div>
         </section>
     </div>
     <div [ngClass]="setClassColor()" id="my-card-bottom">

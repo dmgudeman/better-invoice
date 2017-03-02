@@ -40,4 +40,18 @@ export class CompanyCardComponent implements OnInit {
   setClassColor() {
       return this.shared.setClassColor(null, this.color);
   }
+  goToCompanyDetails(company:Company){
+    let coId = company.id;
+    let coName = company.name;
+    let coHourly = company.hourly;
+    let coColor= company.color
+    let uId = 4
+    this._router.navigate(['/company-details', {
+                                               coId:coId,
+                                               coColor:coColor,
+                                               coHourly:coHourly, 
+                                               coName:coName, 
+                                               uId:uId,
+                                               }]);
+  }
 }
