@@ -30,13 +30,9 @@ export class CompanyService {
 	}
     
     getCompany(id:number){
-        console.log("CS getCompany() fired");
-        let body;
         return this._http.get(this.getCompanyUrl(id) )
-                   .do(data => console.log("this.getCompanyUrl(id)" + this.getCompanyUrl(id)))
-                   .map((res:Response) => { body = <Company>res.json().company;
-                                            return body;})
-                   .do(data => console.log("body" + JSON.stringify(body)));
+                   .map ((res:Response) => res.json().company)
+                   .do(data=>console.log("getCompany in CS " + JSON.stringify(data)))
        } 
     getItemsByCompany(id:number){
         let body;

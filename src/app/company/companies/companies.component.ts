@@ -95,8 +95,9 @@ export class CompaniesComponent implements OnInit {
     console.log("goToCompanys fired");
       this.router.navigate(['/companys']);
   }
-  goToCompanyCard(){
-       this.router.navigate(['/company-card']);
+  goToCompanyCard(company){
+       let id = company.id;
+       this.router.navigate(['/company-card/ + id']);
   }
   
   goToEditCompany(company?:Company){

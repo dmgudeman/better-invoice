@@ -18,7 +18,7 @@ const appRoutes: Routes = [
   { path: 'home-app', component: HomeComponent },
   { path: 'companies', component: CompaniesComponent },
   { path: 'companys', component: CompanysComponent },
-  { path: 'company-card', component: CompanyCardComponent },
+  { path: 'company-card/:id', component: CompanyCardComponent },
   { path: 'new-item/:id', component: NewItemComponent},
   { path: 'new-item', component: NewItemComponent },
   { path: 'invoice/:id', component: InvoiceComponent },
@@ -26,7 +26,8 @@ const appRoutes: Routes = [
   { path: 'new-company', component:NewCompanyComponent },
   { path: 'new-company/:id', component:NewCompanyComponent},
   { path: 'company-details', component:CompanyDetailsComponent },
-  { path: '**', component: NotFoundComponent}
+  { path: 'not-found', component: NotFoundComponent },
+  { path: '**', redirectTo: 'not-found' }
 ];
 
 
