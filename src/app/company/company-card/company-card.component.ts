@@ -19,28 +19,11 @@ export class CompanyCardComponent implements OnInit {
   constructor(private _companyService: CompanyService,
               private _router: Router,
               private _route: ActivatedRoute,
-              
-              ) {
-              // this.company = compan;
-   }
+              ) { }
 
   ngOnInit() {
-    
-      //  this._route.params
-      //      .subscribe(params => { 
-      //                             this.coId = +params['id'];
-      //                           });
-      //  this.getCompany(this.coId);
       this.name = this.company.name;
       this.color = this.company.color;
-      
-      //  if (this.company){
-      //       this.name = this.company.name;
-      //       this.color = this.company.color;
-      //  } else {
-      //       this.name = "Test Company";
-      //       this.color = "red";
-      //  }
   }
   getCompany(id) {
      return this._companyService
