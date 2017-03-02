@@ -35,43 +35,14 @@ export class CompanysComponent implements OnInit {
               };
 
   ngOnInit() { 
-    // this.myCard = this.TESTmakeCompanyCard(this.company);
     this.getCompanies();
-
+      
   }
   
   getCompanies(){
     this.companies = this._companyService.getCompanies();
   }
-  // makeCompanyCard(company){
-  //   let coCard = new CompanyCardComponent(company);
-  // }
-  // TESTmakeCompanyCard(company){
-  //   // no company parameter in this testing state
-  //   let coCard = new CompanyCardComponent(company);
-  //    return coCard;
-
-  // }
-  // setClasses(company: Company) {
-  //   let red: boolean = (company.color === 'red');
-  //   let green = (company.color === 'green');
-  //   let blue = (company.color === 'blue');
-  //   let brown = (company.color === 'brown');
-  //   let yellow = (company.color === 'yellow');
-  //   let purple = (company.color === 'purple');
-
-  //   let classes = {
-  //     red: red,
-  //     green: green,
-  //     blue: blue,
-  //     brown: brown,
-  //     yellow: yellow,
-  //     purple: purple
-  //   };
-  //   return classes
-  // }
-  
-  goToInvoice(company:Company) {
+   goToInvoice(company:Company) {
     let uId = 1;
     let coId = company.id;
     this.invoice = this._invoiceService.makeInvoice(uId,coId);

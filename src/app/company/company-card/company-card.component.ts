@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Company } from '../company';
 import { CompanyService } from '../company.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
@@ -10,55 +10,51 @@ import { Shared } from '../../shared/shared';
   styleUrls: ['./company-card.component.css']
 })
 export class CompanyCardComponent implements OnInit {
-  company:Company;
+  shared:Shared = new Shared();
   coId: number;
+  @Input() company:Company;
   name:string;
   color:string;
-  shared:Shared = new Shared();
-  testFlag:boolean;
 
   constructor(private _companyService: CompanyService,
               private _router: Router,
               private _route: ActivatedRoute,
+              
               ) {
-   
-      // if(company){this.testFlag= false};
+              // this.company = compan;
    }
 
   ngOnInit() {
-    this._route.params
-                .subscribe(params => { 
-                                     
-                                      this.coId = +params['id'];
-                                       console.log("this.coId in ngOnInit = " + this.coId )
-                                    });
-       this.getCompany(this.coId);
-      console.log( "this.getCompany() "  + this.company   );
-       if (this.company){
-         this.name = this.company.name;
-         this.color = this.company.color;
-       } else {
-          this.name = "Test Company";
-          this.color = "red";
-       }
+    
+      //  this._route.params
+      //      .subscribe(params => { 
+      //                             this.coId = +params['id'];
+      //                           });
+      //  this.getCompany(this.coId);
+      this.name = this.company.name;
+      this.color = this.company.color;
+      
+      //  if (this.company){
+      //       this.name = this.company.name;
+      //       this.color = this.company.color;
+      //  } else {
+      //       this.name = "Test Company";
+      //       this.color = "red";
+      //  }
   }
   getCompany(id) {
      return this._companyService
-                      .getCompany(id)
-                      .subscribe(
-                          company => {this.company = company,
-console.log("this.company in getCompany(id) in coCard = " + this.company.name)
-                          this.name = this.company.name;
-                          this.color = this.company.color;
-}),
-                          response => {
-                            if(response.status = 404) {
-                              this._router.navigate(['not-found']);
-                            }
-                          }
-                      ;
-  } 
+                .getCompany(id)
+                .subscribe(
+                    company => {this.company = company,
+                                this.name = this.company.name;
+                                this.color = this.company.color;},
+                    response => { if (response.status = 404) {
+                                        this._router.navigate(['not-found']);}
+                                }
+                );
+  }
   setClassColor() {
-    return this.shared.setClassColor(null, this.color);
+      return this.shared.setClassColor(null, this.color);
   }
 }

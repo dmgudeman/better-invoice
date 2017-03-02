@@ -1,7 +1,9 @@
 <p>
   companys works!
 </p>
-<!--<app-company-card></app-company-card>-->
-<!--<div *ngFor="let company of companies | async" [ngModel]="makeCard(company)" class="outer-div">
-     <div>
- </div>-->
+<app-company-card *ngFor="let company of companies | async" [company]= "company" class="outer-div">
+           
+           
+           </app-company-card>
+     
+ 
