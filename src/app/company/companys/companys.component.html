@@ -1,9 +1,10 @@
 <p>
   companys works!
 </p>
-<app-company-card *ngFor="let company of companies | async" [company]= "company" class="outer-div">
-           
-           
-           </app-company-card>
-     
- 
+
+<div class="outer">
+    <app-company-card 
+        *ngFor="let company of companies | async" 
+        [company]= "company">
+    </app-company-card>
+</div>
