@@ -6,6 +6,7 @@ import { Invoice } from 'app/invoice/invoice';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { Observable } from 'RXJS/Observable';
+import { CompanyCardComponent } from '../company-card/company-card.component';
 
 @Component({
   selector: 'companies',
