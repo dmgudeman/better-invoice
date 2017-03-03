@@ -36,8 +36,9 @@ private model: Object = {beginDate: {year: this.newYear, month: this.newMonth, d
   invoice: Invoice;
 
   constructor(private _invoiceService: InvoiceService,
-    private route: ActivatedRoute,
-    private router: Router) { }
+              private _location: Location,
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit() {
     this.getInvoice();
@@ -51,12 +52,12 @@ private model: Object = {beginDate: {year: this.newYear, month: this.newMonth, d
         // event.beginEpoc and event.endEpoc
     }
   
-  updateDiscountAmount(newDiscountAmount: number) {
-    this.discountAmount = newDiscountAmount;
-  }
-  updateDiscountPercent(){
+  // updateDiscountAmount(newDiscountAmount: number) {
+  //   this.discountAmount = newDiscountAmount;
+  // }
+  // updateDiscountPercent(){
 
-  }
+  // }
   toggle = true;
   toggleIt(){
     this.toggle = !this.toggle;
@@ -80,6 +81,10 @@ private model: Object = {beginDate: {year: this.newYear, month: this.newMonth, d
         this.description = this.invoice.ivDescription;
         return this.invoice;
       });
+  }
+
+  goBack() {
+      this._location.back();
   }
   setClasses() {
 

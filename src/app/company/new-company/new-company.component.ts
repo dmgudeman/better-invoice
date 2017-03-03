@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
+import { Location } from '@angular/common';
 import { CompanyService } from 'app/company/company.service';
 import { Company } from '../company';
 import { Router, ActivatedRoute, Params } from '@angular/router';
@@ -30,6 +31,7 @@ export class NewCompanyComponent implements OnInit {
   
   constructor(
            private _companyService: CompanyService,
+           private _location:Location,
            private _router:Router,
            private _route:ActivatedRoute,
            private _fb:FormBuilder) { }
@@ -87,5 +89,8 @@ onSubmit() {
             this._router.navigate(['companies']);
         });
 	}
+    goBack(): void {
+        this._location.back();
+    }
     
 }

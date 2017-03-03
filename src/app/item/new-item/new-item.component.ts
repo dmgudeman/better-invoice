@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { IMyOptions, IMyDateModel } from 'mydatepicker';
@@ -43,6 +44,7 @@ export class NewItemComponent implements OnInit {
     fcCompanyId = new FormControl();
 
     constructor(private _itemService: ItemService,
+                private _location: Location,
                 private _router:Router,
                 private _route:ActivatedRoute,
                 private _fb:FormBuilder) { }
@@ -71,13 +73,7 @@ export class NewItemComponent implements OnInit {
           if(this.id) {
                 this._itemService.getItem(this.id)
                        .subscribe(item => {this.item = item;
-                                    // this.date = this.item.date;
-                                    // let newDate = new Date(this.item.date);
-                                    // let yearr = newDate.getFullYear();
-                                    // let monthh = newDate.getMonth() + 1;
-                                    // let datee = newDate.getDate();
                                     
-                                    // this.fcDate.setValue({date: {year: yearr, month: monthh, day: datee}});
                                     this.setDate(this.item.date);
                                     this.fcNotes.setValue(this.item.description);
                                     this.fcAmount.setValue(this.item.amount);
@@ -140,21 +136,17 @@ export class NewItemComponent implements OnInit {
         
         this.fcDate.setValue({date: {year: yearr, month: monthh, day: datee}});
         
-        // this.fcDate.setValue(date
-        // //     {
-        // // date: {
-        // //     year: date.getFullYear(),
-        // //     month: date.getMonth() + 1,
-        // //     day: date.getDate() + 1}
-        // // }
-        // )
+       
     }
      // from github.com/kekeh/mydatepicker
     clearDate(): void {
         // Clear the date using the setValue function
         this.myform.setValue({fcDate: ''});
     }
-    
+
+    goBack(): void {
+        this._location.back();
+    }
 }
     
 

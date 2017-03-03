@@ -3,7 +3,7 @@
     <div class="row">
         <div class=" col-sm-12 col-md-6 ni-nav">
             <div>
-                <a [routerLink]="['/home-app']" class="glyphicon glyphicon-chevron-left" aria-hidden="true"></a>
+                <a (click)="goBack()" class="glyphicon glyphicon-chevron-left" aria-hidden="true"></a>
                 <span>{{title}}</span>
             </div>
         </div>
