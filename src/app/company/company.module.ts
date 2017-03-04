@@ -12,6 +12,7 @@ import { NewCompanyComponent } from './new-company/new-company.component';
 import { CompanyCardComponent } from './company-card/company-card.component';
 import { CompanyService } from './company.service';
 import { TruncatePipe } from '../shared/truncate.pipe';
+import { EditCompanyComponent } from './edit-company/edit-company.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { TruncatePipe } from '../shared/truncate.pipe';
     NewCompanyComponent,
     CompanyCardComponent,
     TruncatePipe,
+    EditCompanyComponent,
   ],
   imports: [
     CommonModule,

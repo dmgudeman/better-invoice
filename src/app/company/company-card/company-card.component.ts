@@ -75,9 +75,9 @@ export class CompanyCardComponent implements OnInit {
           let hourly = company.hourly;
           let paymentTerms = company.paymentTerms;
           let active = company.active;
-          this._router.navigate(['/new-company/' + coId, {id:coId, name:coName, color:color}]);
+          this._router.navigate(['/edit-company/' + coId, {id:coId, name:coName, color:color}]);
       } else {
-          this._router.navigate(['/new-company']);
+          this._router.navigate(['/edit-company']);
      }
 
   }

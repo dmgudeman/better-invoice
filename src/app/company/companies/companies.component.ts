@@ -25,18 +25,15 @@ export class CompaniesComponent implements OnInit {
   paymentTerms:number;
   active:boolean;
   editing:boolean = false;
- 
   
   constructor(
               private _companyService: CompanyService,
               private _invoiceService: InvoiceService,
               private router:Router) { 
-             
               };
 
   ngOnInit() { 
     this.getCompanies();
-      
   }
   
   getCompanies(){
@@ -51,9 +48,13 @@ export class CompaniesComponent implements OnInit {
           let hourly = company.hourly;
           let paymentTerms = company.paymentTerms;
           let active = company.active;
-          this.router.navigate(['/new-company/' + coId, {id:coId, name:coName, color:color}]);
+          this.router.navigate(['/edit-company/' + coId, {id:coId, name:coName, color:color}]);
       } else {
-          this.router.navigate(['/new-company']);
+          this.router.navigate(['/edit-company']);
      }
+  }
+
+  goToNowhere () {
+    
   }
 }

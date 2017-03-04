@@ -1,0 +1,215 @@
+@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css");
+
+*{
+  font-size: 20px;
+  max-width: 1200px;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-weight:300;
+  
+}
+nav .over-form footer {
+        flex: 1 100%;
+}
+
+/*.overall {
+        display: flex;
+        margin: 0 auto;
+}*/
+/*-----------------------------------------------------*/
+/*               EDIT-COMPANY NAVBAR                     */
+/*-----------------------------------------------------*/
+nav {
+    padding: 10px 0;;
+    background-color: yellow;
+}
+
+/*-----------------------------------------------------*/
+/*               EDIT-COMPANY FORM                     */
+/*-----------------------------------------------------*/
+
+.over-form {
+        display: flex;
+        flex-direction: column;
+        max-width: 740px;
+        margin: 0 auto;
+        background-color:saddlebrown;
+}
+
+label {
+   font-size: 75%;
+   line-height: 1.0em;
+   margin-bottom: 10px;
+}
+.subtitle {
+        font-size: 80%;
+        line-height: 1.0em;
+}
+.form-control {
+  font-size: 100%;
+}
+
+.form-row {
+        margin: 0 0;
+        padding: 0px;
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+}
+.form-row > .form-col {
+        padding: 0 10px;
+        flex: 1 100%;
+        flex-direction: column;
+}
+.tmp-name{
+        background-color: mediumpurple;
+
+}
+.tmp-hour {
+        background-color: yellow;
+}
+/*------------ CE COLOR RADIO BUTTONS --------------*/
+/*input[type=radio] + label*/
+.ec-radio {
+    /*display:inline-block;*/
+    margin-right:10px;
+    padding:15px;
+    border-radius:35px;
+    color: white;
+    border: transparent 0px;;
+    width:40px;
+    height:40px;
+}
+.ec-radio:first-of-type {
+        margin-left: 20px
+}
+input[type=radio]{
+   display:none;
+   /*margin: 10px;*/
+}
+input[type=radio]:checked + label { 
+  border-color: black;
+  border-style: solid;
+  border-width: 3px;
+  
+}
+
+/*.cd-radio {
+   border-radius:200px;
+   margin: 5px;
+   height: 10px;
+   width: 10px;
+}*/
+
+/*-----------------------------------------------------*/
+/*              COLORS                                 */
+/*-----------------------------------------------------*/
+
+.brown{
+    background-color: #8D6E63;
+}
+.blue{
+    background-color: #3498db;
+}
+.green{
+    background-color: #00C853;
+}
+.yellow {
+    background-color: #f1c40f;
+}
+.red{
+    background-color: #e74c3c;
+}
+.purple {
+    background-color: #9b59b6;
+}
+
+/*-----------------------------------------------------*/
+/*             COMPANY_EDIT SUBMIT BUTTON              */
+/*-----------------------------------------------------*/
+/*screen-xs*/
+@media (max-width: 768px) { 
+    .myCol{
+        font-size:80%;
+        box-sizing : border-box;
+        border-radius: 0px;
+        border: transparent 0px;
+        background-color: #34495e;
+        color: #f2f2f2;
+        width: 400px;
+        position: fixed;
+        bottom:0;
+        margin-bottom: 0px;
+        margin-left: -15px;
+        line-height: 2.0;
+     }
+      .footer-col {
+        display: flex;
+        margin: 20px 10px 10px 10px;
+        padding-left: 160px;
+        flex: 1 100%;
+        flex-direction: column;
+        border-radius: 4px;
+        border: transparent 0px;
+        background-color: #34495e;
+        color: #f2f2f2;
+        min-width: 400px !important;
+        max-width: 400px;
+        position: fixed;
+        bottom:0;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        line-height: 2.0;
+}
+    .ec-input{
+        font-size: 80%;
+        line-height: 125%;
+       min-width: 360px;
+    }
+    .form-row {
+         flex-direction: column; 
+          
+    }
+}
+/*screen-sm*/
+/*@media (min-width: 768px) and (max-width: 992px) { 
+  .myCol{background-color:green;}
+}*/
+/*screen-md*/
+/*@media (min-width: 992px) and (max-width: 1200px) { 
+  .myCol{font-size:90%;
+    max-width: 150px;
+    box-sizing : border-box;
+    border-radius: 4px;
+    border: transparent 0px;
+    background-color: #34495e;
+    color: #f2f2f2;
+    margin: 15px;
+    line-height: 2.0;}
+}*/
+/*screen-lg corresponds with col-lg*/
+@media (min-width: 1200px) {  
+    /*.myCol{font-size:90%;
+        max-width: 150px;
+        box-sizing : border-box;
+        border-radius: 4px;
+        border: transparent 0px;
+        background-color: #34495e;
+        color: #f2f2f2;
+        margin: 15px;
+        line-height: 2.0;}*/
+    .footer-row {
+         flex-direction: column;   
+    }
+    .footer-row > .footer-col {
+        margin: 20px 10px 10px 10px;
+        padding: 0px 60px;
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-direction: column;
+        border-radius: 4px;
+        border: transparent 0px;
+        background-color: #34495e;
+        color: #f2f2f2;
+        line-height: 2.5em;
+}
+}
