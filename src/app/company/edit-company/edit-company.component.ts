@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/
 import { Location } from '@angular/common';
 import { CompanyService } from 'app/company/company.service';
 import { Company } from '../company';
+import { InputComponent } from '../../shared/input/input.component';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { ReactiveFormsModule, FormGroup, FormsModule, FormControl, FormBuilder } from '@angular/forms';

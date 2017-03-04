@@ -11,6 +11,7 @@ import { CompanyDetailsComponent } from './company-details/company-details.compo
 import { NewCompanyComponent } from './new-company/new-company.component';
 import { CompanyCardComponent } from './company-card/company-card.component';
 import { CompanyService } from './company.service';
+import { InputComponent }       from '../shared/input/input.component';
 import { TruncatePipe } from '../shared/truncate.pipe';
 import { EditCompanyComponent } from './edit-company/edit-company.component';
 
@@ -18,6 +19,7 @@ import { EditCompanyComponent } from './edit-company/edit-company.component';
   declarations: [
     CompaniesComponent,
     CompanyDetailsComponent,
+    InputComponent,
     NewCompanyComponent,
     CompanyCardComponent,
     TruncatePipe,
