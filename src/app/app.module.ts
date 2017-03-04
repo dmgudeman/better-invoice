@@ -13,12 +13,8 @@ import { MyDateRangePickerModule } from 'mydaterangepicker';
 import { CompanyModule }        from './company/company.module';
 
 import { AppComponent } from './app.component';
-import { ClientComponent } from './client/client.component';
-import { ClientService } from './client.service';
 import { InvoiceService } from './invoice/invoice.service';
 import { ItemService } from './item/item.service';
-
-// import { HomeComponent } from './home/home.component';
 
 import { Tab } from './shared/tab';
 import { Tabs } from './shared/tabs';
@@ -26,18 +22,18 @@ import { NewItemComponent } from './item/new-item/new-item.component';
 import { ItemComponent } from './item/item/item.component';
 import { InvoiceComponent } from './invoice/invoice.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { InputComponent } from './shared/input/input.component';
 
 @NgModule({
   declarations: [
     Tab,
     Tabs,
     AppComponent,
-    ClientComponent,
-    // HomeComponent,
     NewItemComponent,
     ItemComponent,
     InvoiceComponent,
     NotFoundComponent,
+    InputComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,7 +49,6 @@ import { NotFoundComponent } from './not-found/not-found.component';
     AppRoutingModule,
   ],
   providers: [
-    ClientService,
     InvoiceService,
     ItemService,
   ],

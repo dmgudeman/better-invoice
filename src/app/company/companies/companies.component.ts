@@ -1,12 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { CompanyService } from 'app/company/company.service';
-import { Company } from '../company';
-import { InvoiceService } from 'app/invoice/invoice.service';
-import { Invoice } from 'app/invoice/invoice';
-import { Router, ActivatedRoute, Params } from '@angular/router';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { Observable } from 'RXJS/Observable';
+import { Component, OnInit }    from '@angular/core';
+import { FlexLayoutModule }     from '@angular/flex-layout';
+import { Router, 
+         ActivatedRoute, 
+         Params }               from '@angular/router';
+import { Observable }           from 'RXJS/Observable';
+import { Company }              from '../company';
 import { CompanyCardComponent } from '../company-card/company-card.component';
+import { CompanyService }       from '../company.service';
+import { InputComponent }       from '../../shared/input/input.component';
+import { InvoiceService }       from '../../invoice/invoice.service';
+import { Invoice }              from '../../invoice/invoice';
 
 @Component({
   selector: 'app-companies',
