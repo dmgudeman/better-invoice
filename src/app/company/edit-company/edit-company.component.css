@@ -5,7 +5,9 @@
     font-family: 'Open Sans', Arial, sans-serif;
     font-weight: 300;
 }
-
+.my-container {
+    margin: 0 auto;
+}
 nav .over-form footer {
     flex: 1 100%;
 }
