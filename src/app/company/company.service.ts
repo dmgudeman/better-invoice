@@ -32,7 +32,6 @@ export class CompanyService {
     getCompany(id:number){
         return this._http.get(this.getCompanyUrl(id) )
                    .map ((res:Response) => res.json().company)
-                   .do(data=>console.log("getCompany in CS " + JSON.stringify(data)))
        } 
     getItemsByCompany(id:number){
         let body;
@@ -45,17 +44,11 @@ export class CompanyService {
     addCompany(payload){
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
-        console.log("{company:payload},   " + JSON.stringify({company:payload}));
-        console.log("this.getCompanyUpdateUrl() " +this.getCompanyUpdateUrl());
         return this._http.post( this.getCompanyUpdateUrl() , JSON.stringify( {company:payload}), options)
                    .map(res => res.json())
     }
 
     updateCompany(payload, id){
-        
-        console.log("id " + id)
-        console.log("{company:payload},   " + {company:payload})
-        console.log("this.getCompanyUrl(id) " + this.getCompanyUrl(id));
 		return this._http.put(this.getCompanyUrl(id), {company:payload})
                             .map((res:Response) => <Company>res.json())
                             .catch(this.shared.handleError);

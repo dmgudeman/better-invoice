@@ -23,12 +23,7 @@ nav {
 /*               EDIT-COMPANY FORM                     */
 /*-----------------------------------------------------*/
 
-.over-form {
-        display: flex;
-        flex-direction: column;
-        max-width: 740px;
-        margin: 0 auto;
-}
+
 
 label {
    font-size: 75%;
@@ -122,6 +117,11 @@ input[type=radio]:checked + label {
 /*-----------------------------------------------------*/
 /*screen-xs*/
 @media (max-width: 768px) { 
+      .over-form {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+}
       .footer-col {
         display: flex;
         margin: 20px 10px 10px 10px;
@@ -168,9 +168,14 @@ input[type=radio]:checked + label {
 }*/
 /*screen-lg corresponds with col-lg*/
 @media (min-width: 1200px) {  
-    
+    .over-form {
+        display: flex;
+        flex-direction: column;
+        max-width: 740px;
+        margin: 0 0 0 auto;
+} 
     .footer-row {
-         flex-direction: column;   
+         flex-direction: column; 
     }
     .footer-row > .footer-col {
         margin: 20px 10px 10px 10px;
