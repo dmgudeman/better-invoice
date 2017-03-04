@@ -7,7 +7,7 @@ import { InvoiceComponent } from './invoice/invoice.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 export const routes: Routes = [
-  // { path: '', redirectTo: '/companies', pathMatch: 'full'},
+  { path: '', redirectTo: '/companies', pathMatch: 'full'},
   // { path: 'home-app', component: HomeComponent },
   { path: 'new-item/:id', component: NewItemComponent},
   { path: 'new-item', component: NewItemComponent },
