@@ -7,9 +7,6 @@
             <span>{{title}}</span>
         </div>
     </nav>
-    <!-- HEADER -->
-    <!--<div class="form-row">-->
-    <!--<div class="form-col">-->
     <!--  FORM -->
     <div class="over-form tmp-form">
         <form [formGroup]="myform" (ngSubmit)="onSubmit()">
@@ -43,7 +40,12 @@
                     <input class="form-control ec-input" formControlName="hourly" type="text">
                 </div>
                 <div class="form-group form-col">
-                    <label>Payment terms<br><span class="subtitle">(Used to calculate due date from invoice date)</span></label>
+                    <label>Payment terms
+                        <br>
+                        <span class="subtitle">
+                            (Used to calculate due date from invoice date)
+                        </span>
+                    </label>
                     <select class="form-control ec-input" formControlName="paymentTerms">
                             <option>30</option>
                             <option>15</option>
@@ -51,7 +53,6 @@
                         </select>
                 </div>
             </div>
-            <!--<div class="form-group">-->
             <div class="form-row">
                 <div class="form-group form-col">
                     <label>Active company
@@ -65,21 +66,15 @@
                                 <option>false</option>
                             </select>
                 </div>
-                <!--</div>-->
                 <div class="form-group form-col">
-                    <!--<label></label>
-                            <select class="form-control ec-input" formControlName="active"> 
-                                <option>true</option>
-                                <option>false</option>
-                            </select>-->
                 </div>
             </div>
+        <!-- FOOTER -->    
             <footer>
                 <div class="footer-row">
                     <button class="footer-col" (click)="onSubmit()" type="submit"> 
                         Submit
                     </button>
-
                 </div>
             </footer>
         </form>
