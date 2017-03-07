@@ -202,6 +202,7 @@ input[type=radio]:checked+label {
 
 
 #label4, #label5 {
+    
     padding-top:4%;
     line-height: 1em;
     background-color: dodgerblue;
