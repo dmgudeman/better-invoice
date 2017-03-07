@@ -2,14 +2,42 @@
 
 *{
   font-size: 20px;
-  max-width: 1200px;
+  /*max-width: 1200px;*/
   font-family: 'Open Sans', Arial, sans-serif;
   font-weight:300;
   
 }
-nav .over-form footer {
-        flex: 1 100%;
+.my-container{
+    display: flex;
+    background: mediumpurple;
+    flex-direction: column;
+    width: 100vw;
+    min-height: 400px;
+    max-height: 100vh;
+
 }
+#section1{
+    display: flex;
+    flex-direction: row;
+    background-color: aqua;
+    flex: 1 1 0px;
+    margin: 0px 0px;
+    min-height: 2.5em;
+    max-height: 2.5em;
+
+}
+#col1{
+    background-color: red;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0px;
+    min-height: 1.25em;
+    max-height: 2em;
+    margin: auto 1%;
+}
+/*nav .over-form footer {
+        flex: 1 100%;
+}*/
 
 /*-----------------------------------------------------*/
 /*               EDIT-COMPANY NAVBAR                     */
