@@ -12,6 +12,7 @@
 .my-container {
     display: flex;
     background: mediumpurple;
+    background: transparent;
     flex-direction: column;
     width: 100vw;
     min-height: 400px;
