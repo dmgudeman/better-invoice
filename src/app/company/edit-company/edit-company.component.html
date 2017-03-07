@@ -36,40 +36,37 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-row tmp-hour">
-                    <div class="form-group form-col">
-                        <label for="hourly">Hourly pay</label>
-                        <input class="form-control ec-input" formControlName="hourly" type="text">
+                <div class="row" id="row2">
+                    <div id="input-box3" class="input-box" >
+                        <label id="label3" class="input" for="hourly">Hourly pay</label>
+                        <input id="input3" class="input ec-input" formControlName="hourly" type="text">
                     </div>
-                    <div class="form-group form-col">
-                        <label>Payment terms
-                        <br>
-                        <span class="subtitle">
+                    <div id="input-box4" class="input-box">
+                        <label id="label4" class="input">Payment terms
+                        <small class="subtitle">
                             (Used to calculate due date from invoice date)
-                        </span>
+                        </small>
                     </label>
-                        <select class="form-control ec-input" formControlName="paymentTerms">
+                        <select id="input4" class="input ec-input" formControlName="paymentTerms">
                             <option>30</option>
                             <option>15</option>
                             <option>7</option>
                         </select>
                     </div>
                 </div>
-                <div class="form-row">
-                    <div class="form-group form-col">
-                        <label>Active company
-                        <br>
+                <div id="row3" class="row">
+                    <div id="input-box4" class="input-box">
+                        <label id="label5" class="input">Active company
                         <span class="subtitle">
                             (will appear at the top of your list)
                         </span>
                     </label>
-                        <select class="form-control ec-input" formControlName="active"> 
+                        <select id="input5" class="input" formControlName="active"> 
                                 <option>true</option>
                                 <option>false</option>
                             </select>
                     </div>
-                    <div class="form-group form-col">
-                    </div>
+                    <div id="input-box6" class="input-box"></div>
                 </div>
                 <!-- FOOTER -->
                 <footer>
