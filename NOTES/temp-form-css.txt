@@ -1,0 +1,264 @@
+* {
+    font-size: 20px;
+}
+
+.container {
+    display: flex;
+    background-color: mediumpurple;
+    flex-direction: column;
+    width: 100vw;
+    min-height: 400px;
+    max-height: 100vh;
+}
+
+#section1 {
+    display: flex;
+    flex-direction: row;
+    background-color: aqua;
+    flex: 1 1 0px;
+    margin: 0px -15px;
+    min-height: 50px;
+    max-height: 50px;
+}
+
+#col1 {
+    background-color: red;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0px;
+    min-height: 30px;
+    max-height: 30px;
+    margin: 10px 10px;
+}
+
+#section2 {
+    display: flex;
+    margin: 0 -15px;
+    min-height: 600px;
+    max-height: 100%;
+    background-color: pink;
+}
+
+#col2 {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0px;
+    min-height: 50px;
+    max-height: 100%;
+    margin: 10px;
+    background-color: orange;
+}
+
+#col3 {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 11;
+    flex-shrink: 11;
+    flex-basis: 0px;
+    min-height: 50px;
+    max-height: 100%;
+    margin: 10px;
+    background-color: yellow;
+    /*background: transparent;*/
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 0px;
+    min-height: 50px;
+    max-height: 100%;
+    margin: 10px;
+    background-color: darkblue;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0px;
+    background-color: saddlebrown;
+    min-height: 50px;
+    max-height: 100%;
+    margin: 10px;
+}
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 0;
+    min-height: 25px;
+    max-height: 100%;
+    margin: 10px;
+    background-color: yellowgreen;
+}
+
+.input {
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 0;
+    min-height: 1em;
+    max-height: 100%;
+    margin: 5px;
+}
+
+#input5 {
+    max-width: 50%;
+    min-width: 50%;
+    max-height: 50%;
+    min-height: 50%;
+    background-color: cadetblue;
+}
+
+#label1 {
+    background-color: cadetblue;
+}
+
+#input1 {
+    background-color: cornflowerblue;
+}
+
+#label2 {
+    background-color: dodgerblue;
+}
+
+#input2 {
+    background-color: cadetblue;
+}
+
+#label3 {
+    background-color: cadetblue;
+}
+
+#input3 {
+    background-color: cornflowerblue;
+}
+
+#label4 {
+    background-color: dodgerblue;
+}
+
+#input4 {
+    background-color: cadetblue;
+}
+
+#label5 {
+    background-color: dodgerblue;
+}
+
+#header {
+    display: none;
+}
+
+#footer {
+    display: none;
+}
+
+#input2 {
+    display: flex;
+}
+
+.ec-radio {
+    display: flex;
+    flex-direction: row;
+    padding: 5%;
+    border-radius: 200px;
+    color: white;
+    border: transparent 0px;
+    margin: 1% 2%;
+    width: 10%;
+    height: 10%;
+}
+
+.ec-radio:first-of-type {
+    margin-left: 8%;
+}
+
+input[type=radio] {
+    display: none;
+}
+
+input[type=radio]:checked+label {
+    border-color: black;
+    border-style: solid;
+    border-width: 3px;
+}
+
+
+/*--------------COLORS---------------------------------*/
+
+.brown {
+    background-color: #8D6E63;
+}
+
+.blue {
+    background-color: #3498db;
+}
+
+.green {
+    background-color: #00C853;
+}
+
+.yellow {
+    background-color: #f1c40f;
+}
+
+.red {
+    background-color: #e74c3c;
+}
+
+.purple {
+    background-color: #9b59b6;
+}
+
+
+/*screen-xs*/
+
+@media (max-width: 415px) {
+    #col1 {
+        display: none
+    }
+    #col2 {
+        display: none;
+    }
+    .row {
+        flex-direction: column;
+    }
+    .input {
+        font-size: 80%;
+        min-height: 35%
+    }
+    #header {
+        display: flex;
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        height: 50px;
+        width: 100%;
+        background-color: red;
+        z-index: 2;
+    }
+    #footer {
+        display: flex;
+        position: fixed;
+        left: 0px;
+        bottom: 0px;
+        height: 50px;
+        width: 100%;
+        background: #999;
+        z-index: 2;
+    }
+    .ec-radio {
+        margin: 0% 2%;
+        width: 10%;
+        height: 10%;
+    }
+    input[type=radio]:checked+label {
+        border-width: 2px;
+    }
+}

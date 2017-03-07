@@ -1,0 +1,32 @@
+import { Component, OnInit }     from '@angular/core';
+import { FormBuilder,
+         FormControl,
+         FormGroup,
+         ReactiveFormsModule }   from '@angular/forms';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-temp-form',
+  templateUrl: './temp-form.component.html',
+  styleUrls: ['./temp-form.component.css']
+})
+export class TempFormComponent implements OnInit {
+
+  private form1:FormGroup;
+  
+  constructor( private _fb: FormBuilder,
+               private _router:Router,) {}
+
+  ngOnInit() {
+      this.form1 = this._fb.group({
+          input1:[''],
+          input2:['yellow'],
+          input3:[''],
+          input4:[''],
+          input5:[''],
+      }) ;
+  }
+  goToTempCompany() {
+      this._router.navigate(['temp-company']);
+  }
+}
