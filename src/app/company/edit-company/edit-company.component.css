@@ -37,31 +37,108 @@
     max-height: 2em;
     margin: auto 1%;
 }
+#section2 {
+    display: flex;
+    flex-direction: row;
+    margin: 0px;
+    min-height: 600px;
+    max-height: 100%;
+    min-width: 100vw;
+    background-color: pink;
+}
+
+#col2 {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0px;
+    min-height: 50px;
+    max-height: 100%;
+    margin: 10px;
+    background-color: orange;
+}
+
+#col3 {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 11;
+    flex-shrink: 11;
+    flex-basis: 0px;
+    min-height: 50px;
+    max-height: 100%;
+    margin: 10px;
+    background-color: yellow;
+    /*background: transparent;*/
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 0px;
+    min-height: 50px;
+    max-height: 100%;
+    margin: 10px;
+    background-color: darkblue;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0px;
+    background-color: saddlebrown;
+    min-height: 50px;
+    max-height: 20%;
+    margin: 10px;
+}
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 0;
+    min-height: 80%;
+    max-height: 100%;
+    margin: 10px;
+    background-color: yellowgreen;
+}
+
+.input {
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 0;
+    min-height: 1em;
+    max-height: 100%;
+    margin: 5px;
+}
+
 /*nav .over-form footer {
         flex: 1 100%;
 }*/
 
 /*----------------EDIT-COMPANY NAVBAR-------------------*/
 
-nav {
+/*nav {
     padding: 10px 0;
-    /*background-color: greenyellow;*/
-}
+}*/
 
 /*---------------EDIT-COMPANY FORM---------------------*/
 
-label {
+/*label {
     font-size: 75%;
     line-height: 1.0em;
     margin-bottom: 10px;
-}
+}*/
 
 .subtitle {
     font-size: 80%;
     line-height: 1.0em;
 }
 
-.form-control {
+/*.form-control {
     font-size: 100%;
 }
 
@@ -71,13 +148,13 @@ label {
     display: flex;
     flex-direction: row;
     align-items: baseline;
-}
+}*/
 
-.form-row>.form-col {
+/*.form-row>.form-col {
     padding: 0 10px;
     flex: 1 100%;
     flex-direction: column;
-}
+}*/
 
 
 /*-----------------TESTING------------------------*/
@@ -198,90 +275,3 @@ input[type=radio]:checked+label {
 }
 
 
-/*screen-sm*/
-
-@media (min-width: 400px) and (max-width: 800px) {
-    .over-form {
-        display: flex;
-        flex-direction: column;
-        min-width: 500px;
-        margin: 0 20%;
-        /*background-color: green;*/
-    }
-    .footer-col {
-        display: flex;
-        /*margin: 20px 10px 10px 10px;*/
-        flex: 1 100%;
-        flex-direction: column;
-        justify-content: center;
-        text-justify: center;
-        border: transparent 0px;
-        background-color: #34495e;
-        color: #f2f2f2;
-        min-width: 800px !important;
-        max-width: 800px;
-        position: fixed;
-        bottom: 0;
-        padding-left: 50%;
-        margin-bottom: 0px;
-        margin-left: -25%;
-        line-height: 2.0;
-    }
-    .ec-input {
-        font-size: 75%;
-        line-height: 125%;
-        min-width: 400px;
-        max-width: 700px;
-        margin: 0px 0px;
-    }
-    .form-row {
-        flex-direction: column;
-    }
-}
-
-
-/*screen-md*/
-
-
-/*@media (min-width: 992px) and (max-width: 1200px) { 
-  .myCol{font-size:90%;
-    max-width: 150px;
-    box-sizing : border-box;
-    border-radius: 4px;
-    border: transparent 0px;
-    background-color: #34495e;
-    color: #f2f2f2
-    margin: 15px;
-    line-height: 2.0;}
-}*/
-
-
-/*screen-lg corresponds with col-lg*/
-
-@media (min-width: 801px) {
-    .over-form {
-        display: flex;
-        flex-direction: column;
-        max-width: 740px;
-        margin: 0 auto 0 auto;
-    }
-    .footer-row {
-        flex-direction: column;
-    }
-    .footer-row>.footer-col {
-        margin: 20px 10px 10px 10px;
-        padding: 0px 60px;
-        flex-grow: 1;
-        flex-shrink: 1;
-        flex-direction: column;
-        border-radius: 4px;
-        border: transparent 0px;
-        background-color: #34495e;
-        color: #f2f2f2;
-        line-height: 2.5em;
-    }
-    .ec-input {
-        font-size: 80%;
-        line-height: 125%;
-    }
-}

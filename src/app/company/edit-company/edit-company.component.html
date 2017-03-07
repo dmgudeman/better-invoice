@@ -8,76 +8,78 @@
         </div>
     </nav>
     <!--  FORM -->
-    <div class="over-form tmp-form">
-        <form [formGroup]="myform" (ngSubmit)="onSubmit()">
-            <!--<div> <pre>{{ myform.value | json}}</pre></div>-->
-            <div class="form-row tmp-name">
-                <div class="form-group form-col" name="name">
-                    <label for="name">Business Name</label>
-                    <input class="form-control ec-input" formControlName="name" id="name" type="text">
-                </div>
-                <div class="form-group form-col">
-                    <label for="color">Color tag</label>
-                    <div id="color">
-                        <input type="radio" id="tag1" value="brown" class="form-control" formControlName="color" name="color" [checked]="myform.controls.color.value === 'brown'">
-                        <label class=" ec-radio brown" for="tag1"></label>
-                        <input type="radio" id="tag2" value="blue" class="form-control" formControlName="color" name="color" [checked]="myform.controls.color.value === 'blue'">
-                        <label class=" ec-radio blue" for="tag2"></label>
-                        <input type="radio" id="tag3" value="green" class="form-control" formControlName="color" name="color" [checked]="myform.controls.color.value === 'green'">
-                        <label class=" ec-radio green" for="tag3"></label>
-                        <input type="radio" id="tag4" value="yellow" class="form-control" formControlName="color" name="color" [checked]="myform.controls.color.value === 'yellow'">
-                        <label class=" ec-radio yellow" for="tag4"></label>
-                        <input type="radio" id="tag5" value="red" class="form-control" formControlName="color" name="color" [checked]="myform.controls.color.value === 'red'">
-                        <label class=" ec-radio red" for="tag5"></label>
-                        <input type="radio" id="tag6" value="purple" class="form-control" formControlName="color" name="color" [checked]="myform.controls.color.value === 'purple'">
-                        <label class=" ec-radio purple" for="tag6"></label>
+    <div id="section2" class="over-form tmp-form">
+        <div class="colum" id="col2">col2</div>
+        <div class="colum" id="col3">
+            <form [formGroup]="myform" (ngSubmit)="onSubmit()">
+                <!--<div> <pre>{{ myform.value | json}}</pre></div>-->
+                <div id="row1" class="row">
+                    <div class="input-box" name="name">
+                        <label id="label1" class="input"  for="name">Business Name</label>
+                        <input id="name" class="input ec-input" formControlName="name" type="text">
+                    </div>
+                    <div class="input-box" id="input-box2">
+                        <label class="input" for="color">Color tag</label>
+                        <div class="input" id="color">
+                            <input type="radio" id="tag1" value="brown" class="form-control" formControlName="color" name="color" [checked]="myform.controls.color.value === 'brown'">
+                            <label class=" ec-radio brown" for="tag1"></label>
+                            <input type="radio" id="tag2" value="blue" class="form-control" formControlName="color" name="color" [checked]="myform.controls.color.value === 'blue'">
+                            <label class=" ec-radio blue" for="tag2"></label>
+                            <input type="radio" id="tag3" value="green" class="form-control" formControlName="color" name="color" [checked]="myform.controls.color.value === 'green'">
+                            <label class=" ec-radio green" for="tag3"></label>
+                            <input type="radio" id="tag4" value="yellow" class="form-control" formControlName="color" name="color" [checked]="myform.controls.color.value === 'yellow'">
+                            <label class=" ec-radio yellow" for="tag4"></label>
+                            <input type="radio" id="tag5" value="red" class="form-control" formControlName="color" name="color" [checked]="myform.controls.color.value === 'red'">
+                            <label class=" ec-radio red" for="tag5"></label>
+                            <input type="radio" id="tag6" value="purple" class="form-control" formControlName="color" name="color" [checked]="myform.controls.color.value === 'purple'">
+                            <label class=" ec-radio purple" for="tag6"></label>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="form-row tmp-hour">
-                <div class="form-group form-col">
-                    <label for="hourly">Hourly pay</label>
-                    <input class="form-control ec-input" formControlName="hourly" type="text">
-                </div>
-                <div class="form-group form-col">
-                    <label>Payment terms
+                <div class="form-row tmp-hour">
+                    <div class="form-group form-col">
+                        <label for="hourly">Hourly pay</label>
+                        <input class="form-control ec-input" formControlName="hourly" type="text">
+                    </div>
+                    <div class="form-group form-col">
+                        <label>Payment terms
                         <br>
                         <span class="subtitle">
                             (Used to calculate due date from invoice date)
                         </span>
                     </label>
-                    <select class="form-control ec-input" formControlName="paymentTerms">
+                        <select class="form-control ec-input" formControlName="paymentTerms">
                             <option>30</option>
                             <option>15</option>
                             <option>7</option>
                         </select>
+                    </div>
                 </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group form-col">
-                    <label>Active company
+                <div class="form-row">
+                    <div class="form-group form-col">
+                        <label>Active company
                         <br>
                         <span class="subtitle">
                             (will appear at the top of your list)
                         </span>
                     </label>
-                    <select class="form-control ec-input" formControlName="active"> 
+                        <select class="form-control ec-input" formControlName="active"> 
                                 <option>true</option>
                                 <option>false</option>
                             </select>
+                    </div>
+                    <div class="form-group form-col">
+                    </div>
                 </div>
-                <div class="form-group form-col">
-                </div>
-            </div>
-        <!-- FOOTER --> 
-            <footer>
-                <div class="footer-row">
-                    <button class="footer-col" (click)="onSubmit()" type="submit"> 
+                <!-- FOOTER -->
+                <footer>
+                    <div class="footer-row">
+                        <button class="footer-col" (click)="onSubmit()" type="submit"> 
                         Submit
                     </button>
-                </div>
-            </footer>
-        </form>
+                    </div>
+                </footer>
+            </form>
+        </div>
     </div>
 </div>
-           
