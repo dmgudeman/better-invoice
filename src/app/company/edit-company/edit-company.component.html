@@ -15,8 +15,8 @@
             <form [formGroup]="myform" (ngSubmit)="onSubmit()">
                 <!--<div> <pre>{{ myform.value | json}}</pre></div>-->
                 <div id="row1" class="row">
-                    <div class="input-box" name="name">
-                        <label id="label1" class="input"  for="name">Business Name</label>
+                    <div id="input-box1" class="input-box" name="name">
+                        <label id="label1" class="input" for="name">Business Name</label>
                         <input id="name" class="input ec-input" formControlName="name" type="text">
                     </div>
                     <div class="input-box" id="input-box2">
@@ -38,7 +38,7 @@
                     </div>
                 </div>
                 <div class="row" id="row2">
-                    <div id="input-box3" class="input-box" >
+                    <div id="input-box3" class="input-box">
                         <label id="label3" class="input" for="hourly">Hourly pay</label>
                         <input id="input3" class="input ec-input" formControlName="hourly" type="text">
                     </div>
@@ -57,31 +57,35 @@
                     </div>
                 </div>
                 <div id="row3" class="row">
-                    <div id="input-box4" class="input-box">
+                    <div id="input-box5" class="input-box">
                         <label id="label5" class="input">Active company
-                        <span class="subtitle">
-                            <br>
-                            (will appear at the top of your list)
-                        </span>
-                    </label>
+                            <span class="subtitle">
+                                <br>
+                                (will appear at the top of your list)
+                            </span>
+                        </label>
                         <select id="input5" class="input ec-input" formControlName="active"> 
-                                <option>true</option>
-                                <option>false</option>
-                            </select>
+                            <option>true</option>
+                            <option>false</option>
+                         </select>
                     </div>
                     <div id="input-box6" class="input-box"></div>
                 </div>
                 <!-- FOOTER -->
                 <footer id="row4" class="row">
+                    <div id="input-box7" class="input-box">
+                        <label id="label7" class="input"></label>
                     <div class="footer-row">
                         <button class="footer-col" (click)="onSubmit()" type="submit"> 
                         Submit
                     </button>
                     </div>
+                    </div>
+                    <div id="input-box8" class="input-box"></div>
                 </footer>
             </form>
         </div>
-         <div class="colum" id="col4"></div>
+        <div class="colum" id="col4"></div>
     </div>
     <footer id="footer">Submit</footer>
 </div>
