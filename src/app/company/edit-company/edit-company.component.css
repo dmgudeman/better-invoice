@@ -57,8 +57,8 @@
     flex-grow: 1;
     flex-shrink: 1;
     flex-basis: 0px;
-    min-width: 10%;
-    max-width: 10%;
+    min-width: 15%;
+    max-width: 15%;
     min-height: 50px;
     max-height: 100%;
     margin: 10px;
@@ -155,7 +155,9 @@ label {
     border-color:darkgray;
     border-width: 1px;
 }
-
+#input2{
+    justify-content: space-around;
+}
 #input4, #input5{
     padding: 0px;
 }
@@ -169,7 +171,7 @@ select{
 }
 select:focus{outline: none;}
 
-/*------------ CE COLOR RADIO BUTTONS --------------*/
+/*------------ COLOR RADIO BUTTONS --------------*/
 
 .ec-radio {
     /*display:inline-block;*/
@@ -240,33 +242,15 @@ input[type=radio]:checked+label {
 
 /*--------------COLORS---------------------------------*/
 
-.brown { background-color: #8D6E63; }
+.brown  { background-color: #8D6E63; }
+.blue   { background-color: #3498db; }
+.green  { background-color: #00C853; }
+.yellow { background-color: #f1c40f; }
+.red    { background-color: #e74c3c; }
+.purple { background-color: #9b59b6; }
 
-.blue {
-    background-color: #3498db;
-}
-
-.green {
-    background-color: #00C853;
-}
-
-.yellow {
-    background-color: #f1c40f;
-}
-
-.red {
-    background-color: #e74c3c;
-}
-
-.purple {
-    background-color: #9b59b6;
-}
-
-/*-------------COMPANY_EDIT SUBMIT BUTTON--------------*/
-
-
+/*================= SMALLER SCREENS ======================*/
 /*screen-xs*/
-
 @media (max-width: 415px) {
     #col1,
     #col2,
@@ -333,11 +317,13 @@ input[type=radio]:checked+label {
     }
 }
 /*screen-sm*/
-@media (min-width: 768px) and (max-width: 992px) {
+@media (min-width: 767px) and (max-width: 1025px) {
     
     #col2,
     #col4 {
-        max-width: 5px;
+        max-width: 3%;
+        min-width: 3%;
+        background-color: orange;
     }
      .ec-radio {
         margin: 0% 2%;
