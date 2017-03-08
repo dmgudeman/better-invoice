@@ -43,43 +43,37 @@
                         <input id="input3" class="input ec-input" formControlName="hourly" type="text">
                     </div>
                     <div id="input-box4" class="input-box">
-                        <label id="label4" class="input">Payment terms
-                            <br>
-                        <small class="subtitle">
-                            (Used to calculate due date from invoice date)
-                        </small>
-                    </label>
-                        <select id="input4" class="input ec-input" formControlName="paymentTerms">
-                            <option>30</option>
-                            <option>15</option>
-                            <option>7</option>
-                        </select>
+                        <label id="label4" class="input">Payment terms</label>
+                        <div id="input4" class="input ec-input" contenteditable>
+                            <select formControlName="paymentTerms">
+                                <option>30</option>
+                                <option>15</option>
+                                <option>7</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <div id="row3" class="row">
                     <div id="input-box5" class="input-box">
-                        <label id="label5" class="input">Active company
-                            <span class="subtitle">
-                                <br>
-                                (will appear at the top of your list)
-                            </span>
-                        </label>
-                        <select id="input5" class="input ec-input" formControlName="active"> 
-                            <option>true</option>
-                            <option>false</option>
-                         </select>
-                    </div>
-                    <div id="input-box6" class="input-box"></div>
+                        <label id="label5" class="input">Active company</label>
+                         <div id="input5" class="input ec-input" contenteditable>
+                            <select formControlName="active"> 
+                                <option>true</option>
+                                <option>false</option>
+                            </select>
+                        </div>
+                        </div>
+                        <div id="input-box6" class="input-box"></div>
                 </div>
                 <!-- FOOTER -->
                 <footer id="row4" class="row">
                     <div id="input-box7" class="input-box">
                         <label id="label7" class="input"></label>
-                    <div class="footer-row">
-                        <button class="footer-col" (click)="onSubmit()" type="submit"> 
+                        <div class="footer-row">
+                            <button class="footer-col" (click)="onSubmit()" type="submit"> 
                         Submit
                     </button>
-                    </div>
+                        </div>
                     </div>
                     <div id="input-box8" class="input-box"></div>
                 </footer>
