@@ -19,7 +19,7 @@
     <div class="flex-item" fxFlex="10%" fxFlex.xs="9%" fxLayoutAlign="center center">delete</div>
     <div class="flex-item" fxFlex="5%"  fxFlex.xs="0%"  fxLayoutAlign="center center"></div>
 </div>
- <app-item-detail></app-item-detail>
+ <app-item-detail *ngFor="let i of items" [item] = "i"></app-item-detail>
 <div>
     <button class="col-xs-12 col-md-4 iv-submit myCol" (click)=" getNothing()">
          Submit

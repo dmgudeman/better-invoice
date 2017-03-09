@@ -23,9 +23,8 @@ export class ItemDetailComponent implements OnInit {
               private _itemService:ItemService ) { }
 
   ngOnInit() {
-     
-  }
-  
+        console.log("this.item.id " + this.item.id);
+  } 
 getItem(itemId){
   return this._itemService.getItem(itemId)
              .subscribe(item => this.item = item);
