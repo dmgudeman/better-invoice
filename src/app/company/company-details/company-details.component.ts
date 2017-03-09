@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { Location } from '@angular/common';
-import { CompanyService } from '../company.service';
-import { Company } from '../company';
-import { InvoiceService } from 'app/invoice/invoice.service';
-import { Invoice } from '../../invoice/invoice';
-import { Item } from '../../item/item';
-import { Router, ActivatedRoute, Params } from '@angular/router';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { Observable } from 'RXJS/Observable';
+import { Component, OnInit }  from '@angular/core';
+import { Location }           from '@angular/common';
+import { Router, 
+         ActivatedRoute, 
+         Params }             from '@angular/router';
+import { FlexLayoutModule }   from '@angular/flex-layout';
+import { Observable }         from 'RXJS/Observable';
+import { CompanyService }     from '../company.service';
+import { Company }            from '../company';
+import { InvoiceService }     from '../../invoice/invoice.service';
+import { Invoice }            from '../../invoice/invoice';
+import { Item }               from '../../item/item';
 
 @Component({
   selector: 'app-company-details',
@@ -46,7 +48,6 @@ export class CompanyDetailsComponent implements OnInit {
                                       });
      let coDetails = this.getItemsByCompany(this.coId);
      this.getCompany();
-     console.log("this.company " + this.company);
   }
   getCompanies(){
       this._companyService
