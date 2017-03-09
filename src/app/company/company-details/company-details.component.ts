@@ -30,6 +30,7 @@ export class CompanyDetailsComponent implements OnInit {
   mdClassBool =true;
   errorMessage: string;
   id: number;
+  item: Item;
 
   constructor(
     private _companyService: CompanyService,
@@ -82,11 +83,13 @@ export class CompanyDetailsComponent implements OnInit {
   goToEditItem( item?: Item , company?: Company ) {
       let id = item.id;
       let coId = item.companyId;
+      
       this._router.navigate(['/new-item/' + id, {id:id, coId: coId} ]);
   }
-  goToItemDetail (company){
-      let coId= this.company.id;
-      this._router.navigate(['/item-detail', {coId: coId} ]);
+  goToItemDetail (item){
+     this.item = item;
+      console.log( "this.item.description " + this.item.description )
+      this._router.navigate(['/item-detail' ]);
   }
   goToEditCompany(){
       if (this.coName){
