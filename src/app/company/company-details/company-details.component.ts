@@ -1,22 +1,26 @@
-import { Component, OnInit }  from '@angular/core';
-import { Location }           from '@angular/common';
+import { Component, OnInit }   from '@angular/core';
+import { Location }            from '@angular/common';
 import { Router, 
          ActivatedRoute, 
-         Params }             from '@angular/router';
-import { FlexLayoutModule }   from '@angular/flex-layout';
-import { Observable }         from 'RXJS/Observable';
-import { CompanyService }     from '../company.service';
-import { Company }            from '../company';
-import { InvoiceService }     from '../../invoice/invoice.service';
-import { Invoice }            from '../../invoice/invoice';
-import { Item }               from '../../item/item';
+         Params }              from '@angular/router';
+import { FlexLayoutModule }    from '@angular/flex-layout';
+import { Observable }          from 'RXJS/Observable';
+import { CompanyService }      from '../company.service';
+import { Company }             from '../company';
+import { InvoiceService }      from '../../invoice/invoice.service';
+import { Invoice }             from '../../invoice/invoice';
+import { Item }                from '../../item/item';
+import { ItemDetailComponent } from 'app/item/item-detail/item-detail.component';
+import { NewItemComponent } from '../../item/new-item/new-item.component';
 
 @Component({
   selector: 'app-company-details',
   templateUrl: './company-details.component.html',
-  styleUrls: ['./company-details.component.css']
+  styleUrls: ['./company-details.component.css'],
+  
 })
 export class CompanyDetailsComponent implements OnInit {
+  item: ItemDetailComponent;
   class: any;
   companies: Company[];
   invoice: Invoice;
@@ -30,7 +34,6 @@ export class CompanyDetailsComponent implements OnInit {
   mdClassBool =true;
   errorMessage: string;
   id: number;
-  item: Item;
 
   constructor(
     private _companyService: CompanyService,
@@ -88,7 +91,6 @@ export class CompanyDetailsComponent implements OnInit {
   }
   goToItemDetail (item){
      this.item = item;
-      console.log( "this.item.description " + this.item.description )
       this._router.navigate(['/item-detail' ]);
   }
   goToEditCompany(){

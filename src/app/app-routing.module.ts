@@ -8,15 +8,15 @@ import { InvoiceComponent }     from './invoice/invoice.component';
 import { NotFoundComponent }    from './not-found/not-found.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/companies', pathMatch: 'full'},
-  { path: 'new-item/:id', component: NewItemComponent},
-  { path: 'new-item',     component: NewItemComponent },
-  { path: 'item-detail',  component: ItemDetailComponent }, 
-  { path: 'app-input',    component: InputComponent },
-  { path: 'invoice/:id',  component: InvoiceComponent },
-  { path: 'invoice',      component: InvoiceComponent },
-  { path: 'not-found',    component: NotFoundComponent },
-  { path: '**', redirectTo: 'not-found' }
+  { path: '',                 redirectTo: '/companies', pathMatch: 'full'},
+  { path: 'new-item/:id',     component: NewItemComponent},
+  { path: 'new-item',         component: NewItemComponent },
+  { path: 'app-item-detail',  component: ItemDetailComponent }, 
+  { path: 'app-input',        component: InputComponent },
+  { path: 'invoice/:id',      component: InvoiceComponent },
+  { path: 'invoice',          component: InvoiceComponent },
+  { path: 'not-found',        component: NotFoundComponent },
+  { path: '**',               redirectTo: 'not-found' }
 ];
 
 @NgModule({

@@ -16,7 +16,6 @@ import { ItemService }       from '../item.service';
 })
 export class ItemDetailComponent implements OnInit {
   @Input() item:Item
-   id; date; description; amount; hours;
   constructor(
               private _router:Router,
               private _route:ActivatedRoute,
@@ -24,11 +23,7 @@ export class ItemDetailComponent implements OnInit {
               private _itemService:ItemService ) { }
 
   ngOnInit() {
-      console.log(this.item);
-      // console.log(this.item.date);
-      // console.log(this.item.description);
-      // console.log(this.item.amount);
-      // console.log(this.item.hours);
+     
   }
   
 getItem(itemId){

@@ -1,26 +1,23 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule }                from '@angular/core';
+import { CommonModule }            from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { FlexLayoutModule }     from '@angular/flex-layout';
-import { HttpModule } from '@angular/http';
-import { RouterModule, Routes } from '@angular/router';
-import { MaterialModule } from '@angular/material';
+import { FlexLayoutModule }        from '@angular/flex-layout';
+import { HttpModule }              from '@angular/http';
+import { RouterModule, Routes }    from '@angular/router';
+import { MaterialModule }          from '@angular/material';
+import { SharedModule }            from 'app/shared/shared.module';
 
-import { CompaniesComponent } from './companies/companies.component';
+import { CompaniesComponent }      from './companies/companies.component';
 import { CompanyDetailsComponent } from './company-details/company-details.component';
-import { CompanyCardComponent } from './company-card/company-card.component';
-import { CompanyService } from './company.service';
-import { InputComponent }       from '../shared/input/input.component';
-import { TruncatePipe } from '../shared/truncate.pipe';
-import { EditCompanyComponent } from './edit-company/edit-company.component';
+import { CompanyCardComponent }    from './company-card/company-card.component';
+import { CompanyService }          from './company.service';
+import { EditCompanyComponent }    from './edit-company/edit-company.component';
 
 @NgModule({
   declarations: [
     CompaniesComponent,
-    CompanyDetailsComponent,
-    InputComponent,
     CompanyCardComponent,
-    TruncatePipe,
+    CompanyDetailsComponent,
     EditCompanyComponent,
   ],
   imports: [
@@ -30,7 +27,8 @@ import { EditCompanyComponent } from './edit-company/edit-company.component';
     ReactiveFormsModule,
     HttpModule,
     MaterialModule,
-    RouterModule
+    RouterModule,
+    SharedModule
   ],
   providers: [
     CompanyService,

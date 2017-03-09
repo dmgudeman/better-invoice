@@ -6,7 +6,7 @@ import { InputComponent } from '../../shared/input/input.component';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { ReactiveFormsModule, FormGroup, FormsModule, FormControl, FormBuilder } from '@angular/forms';
-
+import { ItemDetailComponent } from 'app/item/item-detail/item-detail.component';
 @Component({
   selector: 'app-edit-company',
   templateUrl: './edit-company.component.html',
