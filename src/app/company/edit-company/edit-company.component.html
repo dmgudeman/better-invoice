@@ -1,10 +1,15 @@
 <!--<div class="overall">-->
 <!-- NAVIGATION -->
 <div class="my-container">
-    <header id="header">header</header>
-    <nav id="section1">
+    <header id="header" (click)="goBack()">
+       <div>
+            <a  class="glyphicon glyphicon-chevron-left" aria-hidden="true"></a>
+            {{title}}
+        </div> 
+    </header>
+    <nav id="section1" (click)="goBack()">
         <div class="column" id="col1">
-            <a (click)="goBack()" class="glyphicon glyphicon-chevron-left" aria-hidden="true"></a>
+            <a  class="glyphicon glyphicon-chevron-left" aria-hidden="true"></a>
             {{title}}
         </div>
     </nav>
@@ -81,5 +86,5 @@
         </div>
         <div class="colum" id="col4"></div>
     </div>
-    <footer id="footer">Submit</footer>
+    <footer id="footer" (click)="onSubmit()">Submit</footer>
 </div>

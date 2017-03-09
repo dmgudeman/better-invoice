@@ -135,7 +135,7 @@ form {
 
 label {
     padding-left: 3%;
-    padding-top: 7%;
+    padding-top: 5%;
     max-height:50%;
     min-height: 50%;
    
@@ -280,23 +280,32 @@ input[type=radio]:checked+label {
     #header {
         display: flex;
         position: fixed;
+        font-size:130%;
+        font-weight:strong;
         left: 0px;
         top: 0px;
-        height: 50px;
+        height:8%;
         width: 100%;
         background-color: red;
-        /*background: transparent;*/
+        flex-direction: column;
+        justify-content: center;
+        background: transparent;
         z-index: 2;
     }
     #footer {
         display: flex;
         position: fixed;
+        padding-top: 1%;
         left: 0px;
         bottom: 0px;
-        height: 50px;
+        height: 10%;
         width: 100%;
-        background: #999;
+        background-color: #34495e;
+        color: #f2f2f2;
         z-index: 2;
+        justify-content: center;
+        text-align: center;
+        padding-top:20px;
     }
     .ec-radio {
         margin: 0% 2%;
@@ -324,6 +333,7 @@ input[type=radio]:checked+label {
         max-width: 3%;
         min-width: 3%;
         background-color: orange;
+        background: transparent;
     }
      .ec-radio {
         margin: 0% 2%;
