@@ -247,7 +247,7 @@ input[type=radio]:checked+label {
 }*/
 
 /*================= SMALLER SCREENS ======================*/
-/*screen-xs*/
+/*------------------SMALL SCREEN__________________________*/
 @media (max-width: 415px) {
     #col1,
     #col2,
@@ -315,9 +315,8 @@ input[type=radio]:checked+label {
         justify-content: center;
         text-align: center;
     }
-    
 }
-/*screen-sm*/
+/*------------------MEDIUM SCREEN_________________________*/
 @media (min-width: 767px) and (max-width: 1025px) {
     
     #col2,
