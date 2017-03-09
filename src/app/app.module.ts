@@ -22,6 +22,7 @@ import { NewItemComponent }         from './item/new-item/new-item.component';
 import { ItemComponent }            from './item/item/item.component';
 import { InvoiceComponent }         from './invoice/invoice.component';
 import { NotFoundComponent }        from './not-found/not-found.component';
+import { ItemDetailComponent }      from './item/item-detail/item-detail.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { NotFoundComponent }        from './not-found/not-found.component';
     ItemComponent,
     InvoiceComponent,
     NotFoundComponent,
+    ItemDetailComponent,
   ],
   imports: [
     BrowserModule,

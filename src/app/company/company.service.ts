@@ -29,9 +29,12 @@ export class CompanyService {
                    .catch(this.shared.handleError);
 	}
     
-    getCompany(id:number){
+    getCompany(id:number) {
+        let body;
         return this._http.get(this.getCompanyUrl(id) )
-                   .map ((res:Response) => res.json().company)
+                   .map ((res:Response) => {body = res.json().company;
+                                             return body;})
+                   
        } 
     getItemsByCompany(id:number){
         let body;

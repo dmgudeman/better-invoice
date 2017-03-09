@@ -84,6 +84,10 @@ export class CompanyDetailsComponent implements OnInit {
       let coId = item.companyId;
       this._router.navigate(['/new-item/' + id, {id:id, coId: coId} ]);
   }
+  goToItemDetail (company){
+      let coId= this.company.id;
+      this._router.navigate(['/item-detail', {coId: coId} ]);
+  }
   goToEditCompany(){
       if (this.coName){
           let coId = this.company.id;

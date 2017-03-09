@@ -8,7 +8,6 @@ import { MaterialModule } from '@angular/material';
 
 import { CompaniesComponent } from './companies/companies.component';
 import { CompanyDetailsComponent } from './company-details/company-details.component';
-import { NewCompanyComponent } from './new-company/new-company.component';
 import { CompanyCardComponent } from './company-card/company-card.component';
 import { CompanyService } from './company.service';
 import { InputComponent }       from '../shared/input/input.component';
@@ -20,7 +19,6 @@ import { EditCompanyComponent } from './edit-company/edit-company.component';
     CompaniesComponent,
     CompanyDetailsComponent,
     InputComponent,
-    NewCompanyComponent,
     CompanyCardComponent,
     TruncatePipe,
     EditCompanyComponent,
