@@ -7,7 +7,8 @@
     <div class="flex-item" fxFlex="5%">
         <a [routerLink]="['/new-item']" class="co-navbar-plus" aria-hidden="true">+</a></div>
 </div>
-<div class="spacer">address goes here</div>
+<div class="spacer" (click)="goToEditCompany()" >address goes here
+</div>
 <div class="flex-container cd-midbar" fxLayout="row" [ngClass]="setColor(coColor)" fxLayoutAlign="center center">
     <div class="flex-item" fxFlex="5%" fxFlex.xs="0%" fxLayoutAlign="center center"></div>
     <div class="flex-item" fxFlex="10%" fxLayoutAlign="center center">id</div>

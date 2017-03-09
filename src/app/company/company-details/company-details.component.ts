@@ -45,6 +45,8 @@ export class CompanyDetailsComponent implements OnInit {
                                       this.coColor = params['coColor'];
                                       });
      let coDetails = this.getItemsByCompany(this.coId);
+     this.getCompany();
+     console.log("this.company " + this.company);
   }
   getCompanies(){
       this._companyService
@@ -81,7 +83,19 @@ export class CompanyDetailsComponent implements OnInit {
       let coId = item.companyId;
       this._router.navigate(['/new-item/' + id, {id:id, coId: coId} ]);
   }
- 
+  goToEditCompany(){
+      if (this.coName){
+          let coId = this.company.id;
+          let coName = this.company.name;
+          let color = this.company.color;
+          let hourly = this.company.hourly;
+          let paymentTerms = this.company.paymentTerms;
+          let active = this.company.active;
+          this._router.navigate(['/edit-company/' + coId, {id:coId, name:coName, color:color}]);
+      } else {
+          this._router.navigate(['/edit-company']);
+     }
+  }  
 
   getCompany() {
       var stark = this._companyService
