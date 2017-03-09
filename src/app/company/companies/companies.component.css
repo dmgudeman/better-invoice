@@ -20,6 +20,10 @@
     font-size: 1.25em;
     font-weight: 300;
 }
+#edit {
+    font-size: 1.0em;
+    font-weight: 300;
+}
 
 .co-card {
     display: flex;
