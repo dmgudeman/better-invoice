@@ -24,7 +24,8 @@
                          name="description" 
                          class="input" 
                          type="textarea" 
-                         contenteditable>{{item.description }}
+                         contenteditable
+                         (click)= "goToEditItem( item)">{{item.description }}
                     </div>
                 </div>
             </div>

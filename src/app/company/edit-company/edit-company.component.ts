@@ -77,7 +77,6 @@ onSubmit() {
     let  id = this.coId;
     var payload = this.myform.value;
     
-    console.log("PAYL " + payload);
     var result;
         if (id) {
             result = this._companyService.updateCompany(payload, id);

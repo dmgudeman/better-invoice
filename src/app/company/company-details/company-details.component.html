@@ -8,7 +8,7 @@
             <div class="flex-item" fxFlex="70%" fxLayoutAlign="center center">{{coName + " Details"}}</div>
             <div class="flex-item" fxFlex="10%"></div>
             <div class="flex-item" fxFlex="5%">
-                <a [routerLink]="['/new-item']" class="cd-navbar-plus" aria-hidden="true">+</a></div>
+                <a (click)="goToNewItem()" class="cd-navbar-plus" aria-hidden="true">+</a></div>
         </div>
         <div class="spacer" (click)="goToEditCompany()">address goes here
         </div>

@@ -23,9 +23,6 @@ export class NewItemComponent implements OnInit {
         dateFormat: 'yyyy-mm-dd',
     };
     date:Date;
-  
-  
-    
     coName: string;
     coId: number;
     uId: number;
@@ -37,6 +34,7 @@ export class NewItemComponent implements OnInit {
     item = new Item();
     id:number;
     myform : FormGroup;
+    fcId = new FormControl(0);
     fcHours = new FormControl(0);
     fcAmount = new FormControl(0);
     fcDate = new FormControl({date: {year: 2018, month: 10, day: 9}}, Validators.required);
@@ -53,7 +51,7 @@ export class NewItemComponent implements OnInit {
         // myDate: [{date: {year: 2018, month: 10, day: 9}}, Validators.required]
        
         this.myform = this._fb.group({
-            // "id":this.id,
+            "id":this.fcId,
             "date": this.fcDate,
             "description": this.fcNotes,
             "amount":this.fcAmount,
@@ -69,12 +67,13 @@ export class NewItemComponent implements OnInit {
 
             this.makeTitle(this.coName, this.id);
             this.fcCompanyId.setValue(this.coId);
+            this.fcId.setValue(this.id);
         });
           if(this.id) {
                 this._itemService.getItem(this.id)
                        .subscribe(item => {this.item = item;
-                                    
-                                    this.setDate(this.item.date);
+                                    console.log("this.item.date " + this.item.date)
+                                    this.fcDate.setValue(this.item.date);
                                     this.fcNotes.setValue(this.item.description);
                                     this.fcAmount.setValue(this.item.amount);
                                     this.fcHours.setValue(this.item.hours);
@@ -88,10 +87,12 @@ export class NewItemComponent implements OnInit {
             });
          } else {
              let date = new Date();
-             this.setDate(date);
+             
+            this.fcDate.setValue(date);
+            this.setDate(date);
+
+             
          }
-        
-       
         this.makeHoursArray(41);
     }
     makeTitle(coName:string, itemId?:number){
@@ -108,33 +109,41 @@ export class NewItemComponent implements OnInit {
 
     }
     onSubmit() {
+        let y = new Date();
+        console.log("y  =   " + y);
         let  id = this.id;
-        this.fcDate.setValue(this.myform.value.date.formatted);
+        let x = this.myform.value.date.jsdate;
+        console.log("this.myform.value.date.date" + JSON.stringify(this.myform.value.date));
+        console.log("x" + JSON.stringify(x));
+       
         var payload = this.myform.value;
-        var result;
 
+        var result;
         if (id) {
-            result = this._itemService.updateItem(payload, id);
+           result = this._itemService.updateItem(payload, id);
+
         } else {    
-            result = this._itemService.addItem(payload);
+             result = this._itemService.addItem(payload);
+            
         }
             result.subscribe(x => {
                     // Ideally, here we'd want:
                     // this.form.markAsPristine();
                     this._router.navigate(['companies']);
             });
-       
     }
     // from github.com/kekeh/mydatepicker
     setDate(date?): void {
+        console.log (date);
         let newDate;
         date ? newDate = new Date(date) : newDate = new Date();
 
         let yearr = newDate.getFullYear();
         let monthh = newDate.getMonth() + 1;
-        let datee = newDate.getDate();
+        let datee = newDate.getDate() + 1;
+        console.log("date" + date);
         
-        this.fcDate.setValue({date: {year: yearr, month: monthh, day: datee}});
+        this.fcDate.setValue({date:{year: yearr, month: monthh, day: datee}, jsdate:date, formatted:date});
         
        
     }
@@ -143,6 +152,12 @@ export class NewItemComponent implements OnInit {
         // Clear the date using the setValue function
         this.myform.setValue({fcDate: ''});
     }
+     goToCompanyDetails() {
+        this._router.navigate(['/company-details']);
+  } 
+  goToCompanies() {
+      this._router.navigate(['/companies']);
+  }
 
     goBack(): void {
         this._location.back();

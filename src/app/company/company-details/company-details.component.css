@@ -132,6 +132,9 @@ cd-description{
   .med{display: none !important;}
   .small{margin-left:10px;}
   
+  #header {
+      margin: 0px;
+  }
    
 
 }

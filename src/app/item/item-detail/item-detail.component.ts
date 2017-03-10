@@ -30,6 +30,13 @@ export class ItemDetailComponent implements OnInit {
 //   return this._itemService.getItem(itemId)
 //              .subscribe(item => this.item = item);
 // }
+goToEditItem( item?: Item) {
+      let id = item.id;
+    
+      
+      this._router.navigate(['/new-item/' + id, {id:id} ]);
+  }
+
 setColor(color){
   return color;
 }

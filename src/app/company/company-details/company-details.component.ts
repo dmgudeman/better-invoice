@@ -90,6 +90,12 @@ export class CompanyDetailsComponent implements OnInit {
       
       this._router.navigate(['/new-item/' + id, {id:id, coId: coId} ]);
   }
+  goToNewItem() {
+      let coId = this.coId;
+      let coName= this.coName;
+      
+      this._router.navigate(['/new-item/', {coId: coId, coName: coName} ]);
+  }
   goToItemDetail (item){
      this.item = item;
       this._router.navigate(['/item-detail' ]);
@@ -106,7 +112,7 @@ export class CompanyDetailsComponent implements OnInit {
       } else {
           this._router.navigate(['/edit-company']);
      }
-  }  
+  } 
 
   getCompany() {
       var stark = this._companyService

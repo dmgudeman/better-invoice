@@ -14,7 +14,7 @@ const companyRoutes = [
   // { path: 'app-item-detail',      component: ItemDetailComponent},
   { path: 'edit-company',         component: EditCompanyComponent },
   { path: 'edit-company/:id',     component: EditCompanyComponent},
-  { path: 'company-details',  component: CompanyDetailsComponent },
+  { path: 'company-details',      component: CompanyDetailsComponent },
 ];
 
 @NgModule({
