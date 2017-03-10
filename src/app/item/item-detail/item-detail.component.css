@@ -59,6 +59,7 @@
 .row:last-of-type {
         margin-bottom: 10px;
 }
+
 .input-box {
         display: flex;
         flex: 1 1 0px;
