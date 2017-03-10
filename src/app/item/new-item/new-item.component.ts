@@ -92,9 +92,9 @@ export class NewItemComponent implements OnInit {
             });
          } else {
              let date = new Date();
-             
-            this.fcDate.setValue(date);
-            this.setDate(date);
+            this.setDate(date); 
+            this.fcDate.patchValue(date);
+            
 
              
          }
@@ -114,12 +114,11 @@ export class NewItemComponent implements OnInit {
 
     }
     onSubmit() {
-        let y = new Date();
-        console.log("y  =   " + y);
+       
         let  id = this.id;
-        let x = this.myform.value.date.jsdate;
-        console.log("this.myform.value.date.date" + JSON.stringify(this.myform.value.date));
-        console.log("x" + JSON.stringify(x));
+        let x = this.myform.value.date;
+        console.log("this.myform.value.date.date" + JSON.stringify(x.date));
+        this.prepareDate(x.date);
        
         var payload = this.myform.value;
 
@@ -148,6 +147,16 @@ export class NewItemComponent implements OnInit {
         let datee = newDate.getDate() + 1;
         console.log("date" + date);
         
+        // let fdate= this.moment(date).format('YYYY-MM-DD');
+        // console.log('fdate ===== '+ fdate);
+        
+        this.myform.patchValue({
+            date:date
+        })
+        console.log("this.myform.value.dateeeeeeee" + JSON.stringify(this.myform.value.date));
+    }
+    prepareDate(date){
+        console.log("date" + date);
         let fdate= this.moment(date).format('YYYY-MM-DD');
         console.log('fdate ===== '+ fdate);
         
@@ -155,8 +164,6 @@ export class NewItemComponent implements OnInit {
             date:fdate
         })
         console.log("this.myform.value.dateeeeeeee" + JSON.stringify(this.myform.value.date));
-        
-       
     }
      // from github.com/kekeh/mydatepicker
     clearDate(): void {
