@@ -9,6 +9,7 @@ import { MaterialModule } from '@angular/material';
 import { ItemService } from '../item.service';
 import { Item } from '../item';
 import { ReactiveFormsModule, FormGroup, FormsModule, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { Moment } from 'moment';
 
 @Component({
     selector: 'app-new-item',
@@ -142,8 +143,13 @@ export class NewItemComponent implements OnInit {
         let monthh = newDate.getMonth() + 1;
         let datee = newDate.getDate() + 1;
         console.log("date" + date);
-        
-        this.fcDate.setValue({date:{year: yearr, month: monthh, day: datee}, jsdate:date, formatted:date});
+        let fdate= this.moment(date).format('YYYY-MM-DD');
+        console.log('fdate ===== '+ fdate);
+        // this.fcDate.setValue({date:{year: yearr, month: monthh, day: datee}, jsdate:date, formatted:fdate});
+        this.myform.patchValue({
+            date:fdate
+        })
+        console.log("this.myform.value.dateeeeeeee" + JSON.stringify(this.myform.value.date));
         
        
     }

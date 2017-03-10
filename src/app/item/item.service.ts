@@ -33,18 +33,18 @@ export class ItemService {
 	}
     
     addItem(payload){
-		console.log("payload " + JSON.stringify(payload))
-        console.log("{item:payload},   " + {item:payload})
-		console.log("addItem fired");
+		// console.log("payload " + JSON.stringify(payload))
+        // console.log("{item:payload},   " + {item:payload})
+		// console.log("addItem fired");
 		return this._http
 		           .post(this._url, {item:payload})
 				   .map(res => res.json());
 	}
 
     updateItem(payload, id){
-	    console.log("payload " + JSON.stringify(payload))
-        console.log("{item:payload},   " + {item:payload})
-		console.log("addItem fired");	
+	    // console.log("payload " + JSON.stringify(payload))
+        // console.log("{item:payload},   " + {item:payload})
+		// console.log("addItem fired");	
 		return this._http
 		           .put(this.getItemUrl(id), {item:payload})
 		           .map((res:Response) => <Item>res.json())
