@@ -5,6 +5,7 @@
 .container {
         display: flex;
         background-color: purple;
+        /*background: transparent;*/
         flex-direction: column;
         width: 100vw;
         min-height: 25px;
@@ -13,10 +14,11 @@
 
 #section1 {
         display: flex;
+        margin: 0px;
         /*flex: 1 1 0px;*/
         background-color: Aqua;
-        background: transparent;
-        /*flex-direction: row;*/
+        margin: 0px -15px;
+        /*background: transparent;*/
         min-height: 25px;
         max-height: 100%;
 }
@@ -25,7 +27,8 @@
         display:flex;
         flex: 1 1 0px;
         background-color: orange;
-        background: transparent;
+        margin: 0px;
+        /*background: transparent;*/
         min-width: 10px;
         max-width: 10%;
 
@@ -37,15 +40,19 @@
         flex-direction:column;
         flex: 1 1 0px;
         background-color: yellow;
+        /*background: transparent;*/
+        min-width:50%;
+        max-width:100%;
 } 
 #row1 {
         display: flex;
         flex-direction: row;
-        flex: 11 11 0px;
+        flex: 1 1 0px;
         background-color: saddlebrown;
+        /*background: transparent;*/
         min-height: 50px;
         max-height: 100%;
-        min-width:100%;
+        min-width:50%;
         max-width: 100%;
         margin: 10px;
 }
@@ -53,6 +60,7 @@
         display: flex;
         flex: 1 1 0px;
         background-color: yellowgreen;
+        background: transparent;
         flex-direction: row;
         margin: 10px;
 } 
