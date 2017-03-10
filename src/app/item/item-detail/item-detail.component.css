@@ -5,7 +5,7 @@
 .container {
         display: flex;
         background-color: purple;
-        /*background: transparent;*/
+        background: transparent;
         flex-direction: column;
         width: 100vw;
         min-height: 25px;
@@ -18,7 +18,7 @@
         /*flex: 1 1 0px;*/
         background-color: Aqua;
         margin: 0px -15px;
-        /*background: transparent;*/
+        background: transparent;
         min-height: 25px;
         max-height: 100%;
 }
@@ -28,7 +28,7 @@
         flex: 1 1 0px;
         background-color: orange;
         margin: 0px;
-        /*background: transparent;*/
+        background: transparent;
         min-width: 10px;
         max-width: 10%;
 
@@ -40,7 +40,7 @@
         flex-direction:column;
         flex: 1 1 0px;
         background-color: yellow;
-        /*background: transparent;*/
+        background: transparent;
         min-width:50%;
         max-width:100%;
 } 
@@ -49,12 +49,12 @@
         flex-direction: row;
         flex: 1 1 0px;
         background-color: saddlebrown;
-        /*background: transparent;*/
-        min-height: 50px;
+        background: transparent;
+        min-height: 25px;
         max-height: 100%;
         min-width:50%;
         max-width: 100%;
-        margin: 0px 10px;
+        margin: 0px;
 }
 .row:last-of-type {
         margin-bottom: 10px;
@@ -63,17 +63,27 @@
         display: flex;
         flex: 1 1 0px;
         background-color: yellowgreen;
-        /*background: transparent;*/
+        background: transparent;
         flex-direction: row;
-        margin: 10px;
-} 
+        margin: 0px;
+}
+.input {
+        font-size: 80%;
+}
+label {
+        font-size: 80%;
+        color: darkgray;
+
+
+}
+
 /*----------description-----------------------*/
 /*#row2 {
         display: flex;
         flex-direction: row;
         flex: 1 1 0px;
         background-color: brown;
-         max-height: 100%;
+        max-height: 100%;
         min-width:50%;
         max-width: 100%;
         margin: 10px;
@@ -81,4 +91,13 @@
         */
 #input-box22 {
         flex: 11 11 0px;
+        background-color: cadetblue;
+        background: transparent;
 }
+
+.brown  { background-color: rgba(141,110,99, 0.3) }
+.blue   { background-color: rgba(52,152,219,0.3) }
+.green  { background-color: rgba(0, 200,83,0.3) }
+.yellow { background-color: rgba(241,196,15,0.3) }
+.red    { background-color: rgba(231,76,60, 0.3) }
+.purple { background-color: rgba(155,89,182, 0.3)}

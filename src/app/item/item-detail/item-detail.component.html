@@ -2,7 +2,7 @@
     <section id="section1">
         <div id="col1" class="gutter"></div>
         <div id="col2" class="column">
-            <div id="row1" class="row">
+            <div id="row1" class="row" [ngClass]="setColor(color)">
                 <div id="input-box1" class="input-box">
                     <label for="date" id="date-label" class="label">Date: </label>
                     <div id="date-text" name="date" class="input" type="text" contenteditbale>{{item.date | date:'M/d/yy'}}</div>

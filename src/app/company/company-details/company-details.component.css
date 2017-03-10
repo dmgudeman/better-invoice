@@ -62,46 +62,20 @@ cd-description{
 /*               COMPANY COLORS                       */
 /*----------------------------------------------------*/
 
-.brown{
-    background-color: #8D6E63;
-}
-.blue{
-    background-color: #3498db;
-}
-.green{
-    background-color: #00C853;
-}
-.yellow {
-    background-color: #f1c40f;
-}
-.red{
-    background-color: #e74c3c;
-}
-.purple {
-    background-color: #9b59b6;
-}
+.brown{ background-color: #8D6E63; }
+.blue{ background-color: #3498db; }
+.green{ background-color: #00C853; }
+.yellow { background-color: #f1c40f; }
+.red{ background-color: #e74c3c; }
+.purple { background-color: #9b59b6; }
 
-.green.co-button{
-     background-color: #00d95a;
-    
-}
-.brown.co-button{
-     background-color: #795548;
-}
+.green.co-button{ background-color: #00d95a; }
+.brown.co-button{ background-color: #795548; }
+.red.co-button{ background-color: #eb685a; }
+.blue.co-button{ background-color: #2487c9; }
+.yellow.co-button { background-color: #e2b70d; }
+.purple.co-button { background-color: #a265bb; }
 
- .red.co-button{
-     background-color: #eb685a;
-}
-
-.blue.co-button{
-     background-color: #2487c9;
-}
-.yellow.co-button {
-    background-color: #e2b70d;
-}
-.purple.co-button {
-    background-color: #a265bb;
-}
 .one{
    background-color: black;
 }

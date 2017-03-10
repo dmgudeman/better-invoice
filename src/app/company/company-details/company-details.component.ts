@@ -63,6 +63,7 @@ export class CompanyDetailsComponent implements OnInit {
   }
 
   setColor(color) {
+    //   console.log("color " + color);
       return color
   }
 

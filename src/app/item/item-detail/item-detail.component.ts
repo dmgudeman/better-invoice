@@ -16,6 +16,7 @@ import { ItemService }       from '../item.service';
 })
 export class ItemDetailComponent implements OnInit {
   @Input() item:Item
+  @Input() color:string;
   constructor(
               private _router:Router,
               private _route:ActivatedRoute,
@@ -23,14 +24,14 @@ export class ItemDetailComponent implements OnInit {
               private _itemService:ItemService ) { }
 
   ngOnInit() {
-        console.log("this.item.id " + this.item.id);
+        console.log("this.color " + this.color);
   } 
-getItem(itemId){
-  return this._itemService.getItem(itemId)
-             .subscribe(item => this.item = item);
-}
-printItem(){
-  console.log(this.item);
+// getItem(itemId){
+//   return this._itemService.getItem(itemId)
+//              .subscribe(item => this.item = item);
+// }
+setColor(color){
+  return color;
 }
  
 }
