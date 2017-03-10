@@ -1,5 +1,34 @@
-<div>
-  <h2> Hi there</h2>
+<div class="container">
+    <section id="section1">
+        <div id="col1" class="gutter"></div>
+        <div id="col2" class="column">
+            <div id="row1" class="row">
+                <div id="input-box1" class="input-box">
+                    <label for="date" id="date-label" class="label">Date: </label>
+                    <div id="date-text" name="date" class="input" type="text" contenteditbale>{{item.date | date:'M/d/yy'}}</div>
+                </div>
+                <div id="input-box2" class="input-box">
+                    <label for="amount" id="amount-label" class="label">Amount: </label>
+                    <div id="amount-text" name="amount" class="input" type="text" contenteditable>{{item.amount | currency}}</div>
+                </div>
+                <div id="input-box3" class="input-box">
+                    <label for="hours" id="hours-label" class="label">Hours: </label>
+                    <div id="hours-text" name="hours" class="input" type="text" contenteditable>{{item.hours}}</div>
+                </div>
+            </div>
+        </div>
+        <div id="col3" class="gutter"></div>
+    </section>
+</div>
+
+
+
+
+
+
+
+
+<!--<div>
     <div class="cd-row" fxLayout="row" fxLayoutAlign="center center">
         <div class="flex-item" fxFlex="5%" fxFlex.xs="0%" fxLayoutAlign="center center"></div>
         <div class="flex-item" fxFlex="10%" fxLayoutAlign="center center">{{item.id}}</div>
@@ -9,9 +38,9 @@
             fxFlex.xs="15%" 
             fxLayoutAlign="center center">   
                 {{item.date | date:'M/d/yy'}}
-        </div>
-       
-        <!--<div 
+        </div>-->
+
+<!--<div 
             [ngClass]="{'med':false, 'small':true}"  
             class="flex-item small" 
             fxFlex="40%" 
@@ -19,7 +48,7 @@
             (click)="goToEditItem(item, company)">
                {{item.description | truncate:22}}
         </div>-->
-        <div 
+<!--<div 
             [ngClass]="{'med':true}" 
             class="flex-item med" 
             fxFlex="40%"  
@@ -38,4 +67,4 @@
         </div>
         <div class="flex-item" fxFlex="5%" fxFlex.xs="0%" fxLayoutAlign="center center"></div>
     </div>
-</div>
+</div>-->

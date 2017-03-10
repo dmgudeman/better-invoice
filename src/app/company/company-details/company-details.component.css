@@ -8,17 +8,18 @@
 }
 
 .outer {
-    margin: 0 auto;
+    margin: 0;
 }
 /* -------------- NAVBAR ---------------------*/
-.co-navbar {
-       
+.cd-navbar {
     background-color: black;
     color: white;
     height: 45px;
     font-size: 20px;
+    min-width: 100vw;
+    max-width: 100vw;
     }
-.co-navbar-plus{
+.cd-navbar-plus{
     color: #f2f2f2;
 }
 .cd-chevron-left{
@@ -30,6 +31,8 @@
     color: white;
     height: 25px;
     font-size: 15px;
+    min-width: 100vw;
+    max-width: 100vw;
     }
 .cd-body {
     max-width: 700px;
