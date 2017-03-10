@@ -93,9 +93,6 @@ export class NewItemComponent implements OnInit {
          } else {
              let date = new Date();
             this.setDate(date); 
-            this.fcDate.patchValue(date);
-            
-
              
          }
         this.makeHoursArray(41);
@@ -117,7 +114,7 @@ export class NewItemComponent implements OnInit {
        
         let  id = this.id;
         let x = this.myform.value.date;
-        console.log("this.myform.value.date.date" + JSON.stringify(x.date));
+        console.log("this.myform.value.date.date  " + JSON.stringify(x.date));
         this.prepareDate(x.date);
        
         var payload = this.myform.value;
@@ -128,7 +125,6 @@ export class NewItemComponent implements OnInit {
 
         } else {    
              result = this._itemService.addItem(payload);
-            
         }
             result.subscribe(x => {
                     // Ideally, here we'd want:
@@ -143,16 +139,14 @@ export class NewItemComponent implements OnInit {
         date ? newDate = new Date(date) : newDate = new Date();
 
         let yearr = newDate.getFullYear();
-        let monthh = newDate.getMonth() + 1;
-        let datee = newDate.getDate() + 1;
-        console.log("date" + date);
-        
+        let monthh = newDate.getMonth();
+        let datee = newDate.getDate();
+        // console.log("date" + date);
+          this.fcDate.setValue({date: {year: yearr, month: monthh, day: datee}});
         // let fdate= this.moment(date).format('YYYY-MM-DD');
         // console.log('fdate ===== '+ fdate);
         
-        this.myform.patchValue({
-            date:date
-        })
+         this.fcDate.setValue({date: {year: yearr, month: monthh, day: datee}});
         console.log("this.myform.value.dateeeeeeee" + JSON.stringify(this.myform.value.date));
     }
     prepareDate(date){
