@@ -74,7 +74,11 @@ export class NewItemComponent implements OnInit {
                 this._itemService.getItem(this.id)
                        .subscribe(item => {this.item = item;
                                     console.log("this.item.date " + this.item.date)
+                                    let date = this.item.date;
+                                
                                     this.fcDate.setValue(this.item.date);
+                                    this.setDate(date);
+                                    
                                     this.fcNotes.setValue(this.item.description);
                                     this.fcAmount.setValue(this.item.amount);
                                     this.fcHours.setValue(this.item.hours);
@@ -143,9 +147,10 @@ export class NewItemComponent implements OnInit {
         let monthh = newDate.getMonth() + 1;
         let datee = newDate.getDate() + 1;
         console.log("date" + date);
+        
         let fdate= this.moment(date).format('YYYY-MM-DD');
         console.log('fdate ===== '+ fdate);
-        // this.fcDate.setValue({date:{year: yearr, month: monthh, day: datee}, jsdate:date, formatted:fdate});
+        
         this.myform.patchValue({
             date:fdate
         })
