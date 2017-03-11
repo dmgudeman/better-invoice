@@ -35,19 +35,18 @@ export class ItemService {
     
     addItem(payload){
 		console.log("ADDITEM: payload " + JSON.stringify(payload))
-	
 		console.log("ADDITEM: addItem fired");
 		return this._http
 		           .post(this._url, payload)
-				   .map(res => res.json());
+				   .map(res => res.json())
+                   .catch(this.shared.handleError);
 	}
 
     updateItem(payload, id){
-	    console.log("payload " + JSON.stringify(payload))
-        console.log("{item:payload},   " + {item:payload})
-		console.log("updateItem fired");	
+	    console.log("UPDATE ITEM: payload " + JSON.stringify(payload))
+		console.log("UPDATE ITEM: updateItem fired");	
 		return this._http
-		           .put(this.getItemUrl(id), {item:payload})
+		           .put(this.getItemUrl(id), payload)
 		           .map((res:Response) => <Item>res.json())
                    .catch(this.shared.handleError);
 	}

@@ -78,7 +78,7 @@ export class NewItemComponent implements OnInit {
                                     let date = this.item.date;
                                 
                                     this.fcDate.setValue(this.item.date);
-                                    this.setDateInitial(date);
+                                    this.setDate(date);
                                     
                                     this.fcNotes.setValue(this.item.description);
                                     this.fcAmount.setValue(this.item.amount);
@@ -93,7 +93,7 @@ export class NewItemComponent implements OnInit {
             });
          } else {
              let date = new Date();
-            this.setDateInitial(date); 
+            this.setDate(date); 
              
          }
         this.makeHoursArray(41);
@@ -136,7 +136,7 @@ export class NewItemComponent implements OnInit {
             });
     }
     // from github.com/kekeh/mydatepicker
-    setDateInitial(beginDate?): void {
+    setDate(beginDate?): void {
     console.log ("BEGIN SETDATE " + beginDate);
         let date;
         // date ? newDate = new Date(date) : newDate = new Date();
