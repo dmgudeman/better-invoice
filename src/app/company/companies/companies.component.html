@@ -1,5 +1,24 @@
+<div class="my-container">
+    <header id="header" (click)="goBack()">
+       <div>
+            <a  class="glyphicon glyphicon-chevron-left" aria-hidden="true"></a>
+        hi there
+        </div> 
+    </header>
+    <nav id="section1" (click)="goBack()">
+        <div class="column" id="sec1col1">
+             <img src='src/assets/images/logo/large-press.png_48x48.png' alt="logo">
+        </div>
+        <div class="column" id="sec1col2">
+           Current Companies
+        </div>
+        <div class="column" id="sec1col3">
+           +
+        </div>
+    </nav>
+</div>
 <!-- NAVBAR -->
-<div class="flex-container co-navbar" fxLayout="row" fxLayoutAlign="center center">
+<!--<div class="flex-container co-navbar" fxLayout="row" fxLayoutAlign="center center">
   <div class="flex-item flex-item-hide" fxFlex="5%"></div>
   <div class="flex-item" fxFlex="10%">
       <img src='src/assets/images/logo/large-press.png_48x48.png' alt="logo">
@@ -9,13 +28,13 @@
   <div class="flex-item" fxFlex="5%">
    <a (click)="goToEditCompany()"  class="co-navbar-plus" aria-hidden="true">+</a></div>
 </div>
-<div class="top">
+<div class="top">-->
 
 <!-- COMPANY CARDS -->
-<div class="co-card">
+<!--<div class="co-card">
     <app-company-card 
         *ngFor="let company of companies | async" 
         [company]= "company">
     </app-company-card>
 </div>
-</div>
+</div>-->
