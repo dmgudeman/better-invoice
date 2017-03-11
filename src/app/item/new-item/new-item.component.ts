@@ -78,7 +78,7 @@ export class NewItemComponent implements OnInit {
                                     let date = this.item.date;
                                 
                                     this.fcDate.setValue(this.item.date);
-                                    this.setDate(date);
+                                    this.setDateInitial(date);
                                     
                                     this.fcNotes.setValue(this.item.description);
                                     this.fcAmount.setValue(this.item.amount);
@@ -93,7 +93,7 @@ export class NewItemComponent implements OnInit {
             });
          } else {
              let date = new Date();
-            this.setDate(date); 
+            this.setDateInitial(date); 
              
          }
         this.makeHoursArray(41);
@@ -117,7 +117,8 @@ export class NewItemComponent implements OnInit {
         let  id = this.id;
         let x = this.myform.value.date;
         console.log("ON SUBMIT 03: this.myform.value.date  " + JSON.stringify(x.date));
-        this.prepareDate(x.date);
+        console.log("ON SUBMIT 03a:  this.date " + JSON.stringify(this.date));
+        this.prepareDate(this.date);
         x = this.myform.value;
         var payload = {item:x};
         console.log("ON SUBMIT 04: JSON-payload " + JSON.stringify(payload));
@@ -135,36 +136,37 @@ export class NewItemComponent implements OnInit {
             });
     }
     // from github.com/kekeh/mydatepicker
-    setDate(date?): void {
-        console.log ("BEGIN SETDATE " + date);
-        let newDate;
+    setDateInitial(beginDate?): void {
+    console.log ("BEGIN SETDATE " + beginDate);
+        let date;
         // date ? newDate = new Date(date) : newDate = new Date();
-        if (!date) {newDate= new Date();} else {newDate = new Date(date)};
-        console.log("SETDATE 2 newDate = " + newDate);
-        let yearr = newDate.getFullYear();
-        let monthh = newDate.getMonth()+1;
-        let datee = newDate.getDate();
-        console.log("SETDATE 3 date" + date);
-         this.fcDate.setValue({date: {year: yearr, month: monthh, day: datee}});
-        console.log("SETDATE 4 - JSON-this.myform.value.date" + JSON.stringify(this.myform.value.date));
+        if (!beginDate) {date= new Date();} else {date = new Date(beginDate)};
+    console.log("SETDATE 2 date = " + date);
+        let year = date.getFullYear();
+        let month = date.getMonth()+1;
+        let day = date.getDate();
+    console.log("SETDATE 3 date" + date);
+         this.date = date;
+    console.log("SETDATE 3a - this.date " + this.date);
+         this.fcDate.setValue({date: {year: year, month: month, day: day}});
+    console.log("SETDATE 4 - JSON-this.myform.value.date" + JSON.stringify(this.myform.value.date));
+    console.log("SETDATE 5 - JSON- this.date" + JSON.stringify(this.date));
     }
     prepareDate(date){
-        console.log("PREPARE DATE 01 JSON date  " + JSON.stringify(date));
-        console.log("PREPARE DATE 01a - date.year " + date.year); 
-        // console.log(obj);
-        let year = date.year;
-        let month = date.month;
-        let day = date.day;
-        console.log("PREPARE DATE 02 year, month, day " + year + " ," + month + " ," + day);
-        this.m = this.moment([year, month -1, day]);
-         console.log("PREPARE DATE 03: this.m " + this.m);
-         console.log("PREPARE DATE 03b: this.m.toString() " + this.m.toString());
-         console.log("PREPARE DATE 03c: this.m.format('YYYY-MM-DD') " + this.m.format('YYYY-MM-DD'));
-        //  {let fdate = {date:{"year":year, "month":month, "day": day}}
-        let fdate = this.m.format('YYYY-MM-DD');
-          this.fcDate.setValue(fdate);
-       
-        console.log("PREPARE DATE 04 JSON-this.myform.value.date" + JSON.stringify(this.myform.value.date));
+    console.log("PREPARE DATE 01 JSON date " + JSON.stringify(date));
+    this.m= this.moment(date);
+    console.log("PREPARE DATE 01a - this.m " + JSON.stringify(this.m));
+        let year = this.m.year;
+        let month = this.m.month;
+        let day = this.m.day;
+    console.log("PREPARE DATE 02 year, month, day " + year + " ," + month + " ," + day );
+    console.log("PREPARE DATE 03: this.m " + this.m);
+    console.log("PREPARE DATE 03b: this.m.toString() " + this.m.toString());
+    console.log("PREPARE DATE 03c: this.m.format('YYYY-MM-DD') " + this.m.format('YYYY-MM-DD'));
+    console.log("PREPARE DATE 03d: this.m " + this.m);
+     let fdate = this.m.format('YYYY-MM-DD');
+        this.fcDate.setValue(fdate);
+    console.log("PREPARE DATE 04 JSON-this.myform.value.date" + JSON.stringify(this.myform.value.date));
     }
     preparePayload(payload){
 
