@@ -23,17 +23,17 @@
         <div class="column" id="sec2col1"></div>
         <div class="column" id="sec2col2">
 
-            <!--<div id="card-wrapper">-->
+            <div id="card-wrapper">
                     <!--COMPANY CARDS -->
-<div class="co-card">
+<div id="co-card">
     <app-company-card 
         *ngFor="let company of companies | async" 
-        [company]= "company">
+        [company]= "company" >
     </app-company-card>
 </div>
 
 
-            <!--</div>-->
+            </div>
            
          
                 <!--<div id="row1" class="row">
