@@ -29,15 +29,16 @@ export class ItemService {
 		let   yunkers = this._http
 		                    .get(this.getItemUrl(itemId))
 							.map((res:Response) => {body = <Item>res.json().item; return body})
+							.do(data => console.log("GETITEM BODY" + JSON.stringify(body)))
 			                return yunkers;
 	}
     
     addItem(payload){
-		// console.log("payload " + JSON.stringify(payload))
-        // console.log("{item:payload},   " + {item:payload})
-		// console.log("addItem fired");
+		console.log("ADDITEM: payload " + JSON.stringify(payload))
+	
+		console.log("ADDITEM: addItem fired");
 		return this._http
-		           .post(this._url, {item:payload})
+		           .post(this._url, payload)
 				   .map(res => res.json());
 	}
 
