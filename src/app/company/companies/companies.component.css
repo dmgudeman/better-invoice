@@ -24,6 +24,7 @@
     display: flex;
     flex-direction: row;
     background-color: aqua;
+    background-color: black;
     /*background: transparent;*/
     margin: 0px 0px;
     min-height: 2.5em;
@@ -32,17 +33,22 @@
 .column {
     margin: auto ;
     background-color: yellow;
+    background: transparent;
+    color: white;
 }
 .column:first-of-type {
     margin-left: 5%;
 }
 .column:last-of-type {
-    margin-right: 5%;
+    margin-right:5% ;
+    font-size: 200%;
+    font-weight: 400;
 }
 #sec1col2 {
     display: flex;
-  align-items: center;
-  justify-content: center;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 0px;
 
 } 
 
