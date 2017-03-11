@@ -19,10 +19,24 @@
         </div>
     </nav>
     <div id="section2" >
+     
         <div class="column" id="sec2col1"></div>
         <div class="column" id="sec2col2">
-                <!--<div> <pre>{{ myform.value | json}}</pre></div>-->
-                <div id="row1" class="row">
+
+            <!--<div id="card-wrapper">-->
+                    <!--COMPANY CARDS -->
+<div class="co-card">
+    <app-company-card 
+        *ngFor="let company of companies | async" 
+        [company]= "company">
+    </app-company-card>
+</div>
+
+
+            <!--</div>-->
+           
+         
+                <!--<div id="row1" class="row">
                     <div id="input-box1" class="input-box">
                         <label id="label1" class="input"></label>
                         <div id="input1" class="input"></div>
@@ -42,14 +56,13 @@
                         <div id="input4" class="input"></div>
                     </div>
                 </div>
-                <!-- FOOTER -->
                 <footer id="row3" class="row">
                     <div id="input-box5" class="input-box">
                         <label id="label5" class="input"></label>
                         <div id="input5" class="footer-row"></div>
                     </div>
                     <div id="input-box6 " class="input-box"></div>
-                </footer>
+                </footer>-->
         </div>
         <div id="sec2col3" class="column" ></div>
     </div>
@@ -67,11 +80,18 @@
 </div>
 <div class="top">-->
 
-<!-- COMPANY CARDS -->
-<!--<div class="co-card">
+ <!--COMPANY CARDS 
+<div class="co-card">
     <app-company-card 
         *ngFor="let company of companies | async" 
         [company]= "company">
     </app-company-card>
-</div>
+</div>-->
+<!--</div>-->
+      <!--COMPANY CARDS 
+<div class="co-card">
+    <app-company-card 
+        *ngFor="let company of companies | async" 
+        [company]= "company">
+    </app-company-card>
 </div>-->
