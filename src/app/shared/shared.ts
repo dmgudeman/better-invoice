@@ -33,4 +33,16 @@ export class Shared {
         };
         return classes
     }
+    setDate(beginDate?): Date {
+
+    console.log ("BEGIN SETDATE " + beginDate);
+        let date;
+        // date ? newDate = new Date(date) : newDate = new Date();
+        if (!beginDate) {date= new Date();} else {date = new Date(beginDate)};
+    console.log("SETDATE 2 date = " + date);
+        let year = date.getFullYear();
+        let month = date.getMonth()+1;
+        let day = date.getDate();
+        return date;
+    }
 }

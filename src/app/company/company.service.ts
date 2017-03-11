@@ -40,7 +40,7 @@ export class CompanyService {
         let body;
         return this._http.get(this.getCompanyUrl(id))
                          .map((res:Response) => {body = <Company>res.json().company.Items;
-                                                console.log("GIBC-CO_SERVICE " + JSON.stringify(body))
+        // console.log("CO_SERVICE: getItemsByCompany " + JSON.stringify(body))
                                                 return body;})
     }    
    

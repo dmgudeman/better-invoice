@@ -12,6 +12,7 @@ import { Invoice }             from '../../invoice/invoice';
 import { Item }                from '../../item/item';
 import { ItemDetailComponent } from 'app/item/item-detail/item-detail.component';
 import { NewItemComponent } from '../../item/new-item/new-item.component';
+import { Shared } from '../../shared/shared';
 
 @Component({
   selector: 'app-company-details',
@@ -21,6 +22,7 @@ import { NewItemComponent } from '../../item/new-item/new-item.component';
 })
 export class CompanyDetailsComponent implements OnInit {
   item: ItemDetailComponent;
+  shared:Shared = new Shared();
   class: any;
   companies: Company[];
   invoice: Invoice;
@@ -51,6 +53,7 @@ export class CompanyDetailsComponent implements OnInit {
                                       this.coColor = params['coColor'];
                                       });
      let coDetails = this.getItemsByCompany(this.coId);
+    
      this.getCompany();
   }
   getCompanies(){
@@ -63,13 +66,13 @@ export class CompanyDetailsComponent implements OnInit {
   }
 
   setColor(color) {
-    //   console.log("color " + color);
       return color
   }
 
    getItemsByCompany(coId){
        let stark = this._companyService
                        .getItemsByCompany(coId)
+//    .do(data =>{(console.log("GETITEMSBYCOMPANY data " + JSON.stringify(data)))})
                        .subscribe( items => this.items = items,
                                    error => this.errorMessage = <any>error );
        return stark;
@@ -97,7 +100,7 @@ export class CompanyDetailsComponent implements OnInit {
       this._router.navigate(['/new-item/', {coId: coId, coName: coName} ]);
   }
   goToItemDetail (item){
-     this.item = item;
+      this.item = item;
       this._router.navigate(['/item-detail' ]);
   }
   goToEditCompany(){
