@@ -23,7 +23,7 @@
         max-height: 100%;
 }
 /*--------------side gutters------------------*/
-.gutter { 
+/*.gutter { 
         display:flex;
         flex: 1 1 0px;
         background-color: orange;
@@ -32,9 +32,11 @@
         min-width: 10px;
         max-width: 10%;
 
-}  
+}  */
 /*----------date, amount, hours---------------*/
-
+#col1,#col3 {
+          display: none;
+  }
 #col2 {
         display:flex;
         flex-direction:column;

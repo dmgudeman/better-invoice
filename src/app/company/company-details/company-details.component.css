@@ -38,7 +38,7 @@
     flex-direction: column;
     max-height:100%;
     min-height: 100%;
-    color: white;
+    /*color: black;*/
     /*background-color: orange;*/
 }
 
@@ -67,6 +67,7 @@
     min-width: 100vw;
     background-color: white;
 }
+
 #sec1row1col2 {
     flex: 10 10 0px;
     /*background-color: orangered;*/
@@ -79,25 +80,30 @@
 
 
 /*--------COMPANY DETAIL COMPONENT-----------*/
-#detail-wrapper{
-    margin-top: 165px;
-    margin-bottom: 50px;
-}
 #section2 {
     flex: 1 1 auto;
     /*background-color: magenta;*/
 }
 #sec2row1 {
     flex: 1 1 auto;
-    min-height: 100%;
+   
+    /*min-height: 100%;*/
     /*background-color: sandybrown;*/
 }
-#sec2row1col1 {
+#sec1row1col1, #sec2row1col3 {
+    flex: 1 1 0px;
+}
+#sec2row1col2 {
     flex: 10 10 auto;
     min-height: 100%;
     /*background-color: orangered;*/
 }
+#detail-wrapper {
+    display: flex;
+    flex: 1 1 0px;
+    /*background-color: green;*/
 
+}
 /*.cd-navbar {
     background-color: black;
     background: transparent;
@@ -177,6 +183,9 @@
 /*==============SMALL SCREENS==================*/
 /*screen-xs*/
 @media (max-width: 480px) {
+    #sec1row1col1, #sec2row1col3 {
+        display: none;
+    }
     #section3 {
         background-color: black;
     }
@@ -193,8 +202,4 @@
         margin: auto;
         background: transparent;
     }
-    #header {
-        margin: 0px;
-    }
 }
-
