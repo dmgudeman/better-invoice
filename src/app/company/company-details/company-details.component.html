@@ -1,34 +1,29 @@
-<div class="flex-container outer">
-    <div id="header">
-        <div class="flex-container cd-navbar" fxLayout="row" [ngClass]="setColor(coColor)" fxLayoutAlign="center center">
-            <div class="flex-item" fxFlex="5%"></div>
-            <div class="flex-item" fxFlex="10%">
+<div class="my-container">
+    <div id="section1" class="section header">
+        <div id="row1" class="row cd-navbar" [ngClass]="setColor(coColor)">
+            <div id="left-arrow" class="column">
                 <a (click)="goBack()" class="glyphicon glyphicon-chevron-left cd-chevron-left"></a>
             </div>
-            <div class="flex-item" fxFlex="70%" fxLayoutAlign="center center">{{coName + " Details"}}</div>
-            <div class="flex-item" fxFlex="10%"></div>
-            <div class="flex-item" fxFlex="5%">
+            <div id="title" class="column">{{coName + " Details"}}</div>
+            <div id="plus" class="column">
                 <a (click)="goToNewItem()" class="cd-navbar-plus" aria-hidden="true">+</a></div>
         </div>
-        <div class="spacer" (click)="goToEditCompany()">address goes here
+        <div id="row2" class="row">
+            <div class="spacer" (click)="goToEditCompany()">address goes here
+            </div>
         </div>
-        <div class="flex-container cd-midbar" fxLayout="row" [ngClass]="setColor(coColor)" fxLayoutAlign="center center">
-            <div class="flex-item" fxFlex="5%" fxFlex.xs="0%" fxLayoutAlign="center center"></div>
-            <div class="flex-item" fxFlex="10%" fxLayoutAlign="center center"></div>
-            <div class="flex-item" fxFlex="10%" fxFlex.xs="15%" fxLayoutAlign="center center"></div>
-            <div class="flex-item" fxFlex="40%" fxLayoutAlign="center center"></div>
-            <div class="flex-item" fxFlex="10%" fxLayoutAlign="center center"></div>
-            <div class="flex-item" fxFlex="10%" fxFlex.xs="16%" fxLayoutAlign="center center"></div>
-            <div class="flex-item" fxFlex="10%" fxFlex.xs="9%" fxLayoutAlign="center center"></div>
-            <div class="flex-item" fxFlex="5%" fxFlex.xs="0%" fxLayoutAlign="center center"></div>
+        <div id="row3" class="row">
+            <div class="column cd-midbar" [ngClass]="setColor(coColor)"></div>
         </div>
     </div>
-    <div id="detail-wrapper">
-    <app-item-detail *ngFor="let i of items" [item]="i" [color]="coColor"></app-item-detail>
+    <div id="section2" class="section">
+        <div id="detail-wrapper">
+            <app-item-detail *ngFor="let i of items" [item]="i" [color]="coColor"></app-item-detail>
+        </div>
     </div>
-    <div id="footer">
-        <button class="col-xs-12 col-md-4 iv-submit myCol" (click)=" getNothing()">
-         Submit
-    </button>
+    <div id="section3" class="section footer">
+        <button class="myCol" (click)=" getNothing()">
+            Submit
+        </button>
     </div>
 </div>
