@@ -20,9 +20,9 @@
     min-height: 40px;
     min-width: 100%;
     max-height: 80%;
-    margin: 0px;
-    justify-content: center;
-    align-items: center;
+    /*margin: 0px;*/
+    /*justify-content: center;
+    align-items: center;*/
     background-color: yellow;
     background: transparent;
 
@@ -31,14 +31,14 @@
 .row {
     display: flex;
     flex-direction: row;
-    min-height: 40px;
+    min-height: 100%;
+    max-height: 100%;
     min-width: 100%;
-    max-height: 80%;
     margin: 0px;
-    justify-content: center;
-    align-items: center;
+    /*justify-content: center;
+    align-items: center;*/
     background-color: brown;
-    background: transparent;
+    /*background: transparent;*/
 }
 
 .column {
@@ -46,13 +46,12 @@
     flex: 1 1 0px;
     flex-direction: column;
     background-color: orange;
-    /*background: transparent;*/
+    background: transparent;
     color: white;
 }
 
 .item{
-    justify-content: center;
-    align-items: center;
+   
     margin: auto;
     color: #f2f2f2;
     background-color: magenta;
@@ -72,10 +71,12 @@
     max-width: 100%;
     z-index: 2;
 }
-#sec1col2 {
+#sec1row1col2, #sec3row1col2 {
     flex: 10 10 0px;
     background-color: orangered;
+    /*background: transparent;*/
 }
+
 
 /*#detail-wrapper{
     margin-top: 165px;
@@ -129,27 +130,49 @@
 .cd-description {
     font-size: 70%;
 }*/
+/*------------------FOOTER-------------------------------*/
 
-#footer {
+#section3{
     /*display: flex;*/
     position: fixed;
-    /*padding-top: 4%;*/
     left: 0px;
     bottom: 0px;
-    height: 60px;
+    max-height: 65px;
     width: 100%;
-    background-color: white;
-    background: transparent;
+    /*background: transparent;*/
     /*background-color: #34495e;*/
     /*color: #f2f2f2;*/
     z-index: 2;
     /*justify-content: center;*/
     /*text-align: center;*/
 }
+#sec3row1 {
+    margin: 0px;
+    min-height: 65px;
+    max-height: 100%;
+    min-width: 100%;
+    max-width: 100%;
+}
+#sec3row1col2 {
+    /*margin: 0px;*/
+    /*justify-content: flex-start;*/
+}
 
+#cd-submit {
+    font-size: 90%;
+    border-radius: 4px;
+    border: transparent 0px;
+    background-color: #34495e;
+    /*background: transparent;*/
+    color: #f2f2f2;
+    max-width: 25%;
+    min-width: 25%;
+    max-height:100%;
+    min-height: 50px;
+    margin: auto 0;
+}
 
 /*-------------- COMPANY COLORS ----------------------*/
-
 .blue   { background-color: #3498db; }
 .green  { background-color: #00C853; }
 .yellow { background-color: #f1c40f; }
@@ -157,84 +180,27 @@
 .purple { background-color: #9b59b6; }
 .brown  { background-color: #8D6E63; }
 
-.myCol {
-    font-size: 90%;
-    box-sizing: border-box;
-    border-radius: 4px;
-    border: transparent 0px;
-    background-color: #34495e;
-    color: #f2f2f2;
-    max-width: 25%;
-    min-width: 25%;
-    margin: 10px 5px 10px 125px;
-    line-height: 3.0;
-}
-
-
-
-
 /*==============SMALL SCREENS==================*/
-
-
 /*screen-xs*/
-
 @media (max-width: 480px) {
-    .myCol {
+    #section3 {
+        background-color: black;
+        background: transparent;
+    }
+    #sec3row1col2 {
+        flex: 1 1 0px;
+        justify-content: center;
+    }
+    #sec3row1col1, #sec3row1col3 {
+        display: none;
+    }
+    #cd-submit {
         font-size: 120%;
         border-radius: 0px;
-        margin-left: -10px;
+        margin: auto;
     }
     #header {
         margin: 0px;
     }
 }
 
-
-/*screen-sm*/
-
-
-/*@media (min-width: 768px) and (max-width: 992px) { 
-  .myCol{background-color:green;}
-    .med{display: none;
-    background-color:green;}
-    .small{background-color: green}
-}*/
-
-
-/*screen-md*/
-
-
-/*@media (min-width: 992px) and (max-width: 1200px) { 
-  .myCol{font-size:90%;
-    max-width: 150px;
-    box-sizing : border-box;
-    border-radius: 4px;
-    border: transparent 0px;
-    background-color: #34495e;
-    color: #f2f2f2;
-    margin: 15px;
-    line-height: 2.0;}
-      .med{display: none;
-       background-color: blue;}
-
-}*/
-
-
-/*screen-lg corresponds with col-lg*/
-
-/*@media (min-width: 1200px) {
-    .myCol {
-        font-size: 90%;
-        max-width: 200px;
-        box-sizing: border-box;
-        border-radius: 4px;
-        border: transparent 0px;
-        background-color: #34495e;
-        color: #f2f2f2;
-        margin: 10px 5px 10px 125px;
-        line-height: 3.0;
-    }
-    .small {
-        display: none;
-    }
-}*/

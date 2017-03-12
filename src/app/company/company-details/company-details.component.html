@@ -1,35 +1,45 @@
 <div class="my-container">
     <div id="section1" class="section header">
-        <div id="row1" class="row" [ngClass]="setColor(coColor)">
-            <div id="sec1col1" class="column">
+        <div id="sec1row1" class="row" [ngClass]="setColor(coColor)">
+            <div id="sec1row1col1" class="column">
                 <div id="left-arrow" class="item">
                     <a (click)="goBack()" class="glyphicon glyphicon-chevron-left"></a>
                 </div>
             </div>
-            <div id="sec1col2" class="column">
+            <div id="sec1row1col2" class="column">
                 <div id="title" class="item">{{coName + " Details"}}</div>
             </div>
-            <div id="sec1col3" class="column">
+            <div id="sec1row1col3" class="column">
                 <div id="plus" class="item">
                     <a (click)="goToNewItem()" aria-hidden="true">+</a></div>
             </div>
         </div>
-        <div id="row2" class="row">
+        <div id="sec1row2" class="row">
             <div class="spacer" (click)="goToEditCompany()">address goes here
             </div>
         </div>
-        <div id="row3" class="row">
+        <div id="sec1row3" class="row">
             <div class="column cd-midbar" [ngClass]="setColor(coColor)"></div>
         </div>
     </div>
     <div id="section2" class="section">
-        <div id="detail-wrapper">
-            <app-item-detail *ngFor="let i of items" [item]="i" [color]="coColor"></app-item-detail>
+        <div id="sec2row1" class="row">
+            <div id="sec2row1col1">
+                <div id="detail-wrapper">
+                    <app-item-detail *ngFor="let i of items" [item]="i" [color]="coColor"></app-item-detail>
+                </div>
+            </div>
         </div>
     </div>
-    <div id="section3" class="section footer">
-        <button class="myCol" (click)=" getNothing()">
-            Submit
-        </button>
+    <div id="section3" class="section">
+        <div id="sec3row1" class="row">
+            <div id="sec3row1col1" class="column"></div>
+            <div id="sec3row1col2" class="column">
+                <button id="cd-submit" class=" item" (click)=" getNothing()">
+                Submit
+            </button>
+            </div>
+            <div id="sec3row1col3" class="column"></div>
+        </div>
     </div>
 </div>
