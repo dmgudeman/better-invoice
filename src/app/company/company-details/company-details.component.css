@@ -53,7 +53,7 @@
 
 /* -------------- NAVBAR ---------------------*/
 /* not using this now but save*/
-#header {
+.header {
     position: fixed;
     left: 0px;
     top: 0px;
@@ -86,9 +86,9 @@
 /*--------COMPANY DETAIL COMPONENT-----------*/
 #section2 {
     flex: 1 1 auto;
-margin-top: 150px;
-        margin-bottom: 60px;
-    background-color: magenta;
+    margin-top: 125px;
+    margin-bottom: 60px;
+    /*background-color: magenta;*/
 }
 #sec2row1 {
     flex: 1 1 auto;
@@ -96,10 +96,10 @@ margin-top: 150px;
     /*min-height: 100%;*/
     /*background-color: sandybrown;*/
 }
-#section2>#sec2row1>#sec2row1col1,
-#section2>#sec2row1>#sec2row1col3 {
+#sec2row1col1,
+#sec2row1col3 {
     flex: 1 1 auto;
-    max-width: 15%;
+    max-width: 20%;
     min-width: 20px;
     background-color: pink;
 }
@@ -196,6 +196,9 @@ margin-top: 150px;
 /*==============SMALL SCREENS==================*/
 /*screen-xs*/
 @media (max-width: 480px) {
+    #section2 {
+        flex: 1 1 0;
+    }
     #sec2row1col1, #sec2row1col3 {
         display: none;
     }

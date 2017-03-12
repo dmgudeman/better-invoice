@@ -9,7 +9,7 @@
         min-width: 20%;
         min-height: 25px;
         max-height: 100%;
-        /*background-color: purple;*/
+        background-color: purple;
         
 }
 
@@ -17,11 +17,11 @@
         display: flex;
         flex-direction: row;
         max-width: 100%;
-        min-width: 600px;
+        min-width: 100%;
         min-height: 25px;
         max-height: 100%;
         margin: 0px;
-        background-color: Aqua;
+        /*background-color: Aqua;*/
 }
 .column {
         display: flex;
