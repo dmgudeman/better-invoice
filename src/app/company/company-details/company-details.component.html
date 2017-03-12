@@ -1,4 +1,5 @@
 <div class="my-container">
+     <!-- SECTION 1 the Header -->
     <div id="section1" class="section header">
         <div id="sec1row1" class="row" [ngClass]="setColor(coColor)">
             <div id="sec1row1col1" class="column">
@@ -22,17 +23,19 @@
             <div class="column cd-midbar" [ngClass]="setColor(coColor)"></div>
         </div>
     </div>
+     <!-- SECTION 2 the Body -->
     <div id="section2" class="section">
         <div id="sec2row1" class="row">
-            <div id="sec2row1col1" class="column" ></div>
-            <div id="sec2row1col2" class="column" >
-                <div id="detail-wrapper">Hi there
+            <div id="sec2row1col1" class="column"></div>
+            <div id="sec2row1col2" class="column">
+                <div id="detail-wrapper">
                     <app-item-detail *ngFor="let i of items" [item]="i" [color]="coColor"></app-item-detail>
                 </div>
             </div>
-            <div id="sec2row1col3" class="column" ></div>
+            <div id="sec2row1col3" class="column"></div>
         </div>
     </div>
+    <!-- SECTION 3 the Footer -->
     <div id="section3" class="section">
         <div id="sec3row1" class="row">
             <div id="sec3row1col1" class="column"></div>

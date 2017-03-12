@@ -9,14 +9,15 @@
     display: flex;
     flex-direction: column;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     /*background: mediumpurple;*/
 }
 
 .section {
     display: flex;
     flex-direction: column;
-    min-width: 100%;
+    min-width: 80%;
+    max-width: 100%;
     min-height: 40px;
     max-height: 100%;
     /*background-color: yellow;*/
@@ -34,11 +35,12 @@
 
 .column {
     display: flex;
-    flex: 1 1 0px;
+    /*flex: 1 1 0px;*/
     flex-direction: column;
+    max-width: 100%;
+    min-width: 10%;
     max-height:100%;
-    min-height: 100%;
-    /*color: black;*/
+    min-height: 80%;
     /*background-color: orange;*/
 }
 
@@ -75,6 +77,8 @@
 .cd-midbar {
     background-color: black;
     color: white;
+    width: 100%;
+
     height: 25px;
 }
 
@@ -82,7 +86,9 @@
 /*--------COMPANY DETAIL COMPONENT-----------*/
 #section2 {
     flex: 1 1 auto;
-    /*background-color: magenta;*/
+margin-top: 150px;
+        margin-bottom: 60px;
+    background-color: magenta;
 }
 #sec2row1 {
     flex: 1 1 auto;
@@ -90,20 +96,21 @@
     /*min-height: 100%;*/
     /*background-color: sandybrown;*/
 }
-#sec1row1col1, #sec2row1col3 {
-    flex: 1 1 0px;
+#section2>#sec2row1>#sec2row1col1,
+#section2>#sec2row1>#sec2row1col3 {
+    flex: 1 1 auto;
+    max-width: 15%;
+    min-width: 20px;
+    background-color: pink;
 }
 #sec2row1col2 {
-    flex: 10 10 auto;
+    flex: 1 1 auto;
+    max-width: 1000px;
+    min-width: 700px;
     min-height: 100%;
     /*background-color: orangered;*/
 }
-#detail-wrapper {
-    display: flex;
-    flex: 1 1 0px;
-    /*background-color: green;*/
 
-}
 /*.cd-navbar {
     background-color: black;
     background: transparent;
@@ -145,17 +152,23 @@
     max-height: 65px;
     width: 100%;
     z-index: 2;
-    /*background-color: #34495e;*/
+    /*background-color: white;*/
 }
 #sec3row1 {
-    margin: 0px;
-    min-height: 65px;
-    max-height: 100%;
-    min-width: 100%;
-    max-width: 100%;
+    flex: 1 1 auto;
+    /*background-color: brown;*/
 }
-#sec3row1col2{
-    flex: 10 10 0px;
+
+#sec3row1col1, #sec3row1col3 {
+    flex: 1 1 0px;
+    max-width: 15%;
+    min-width: 20px;
+    background-color: orangered;
+
+}
+#sec3row1col2 {
+    flex: 3 3 auto;
+    min-height: 100%;
     /*background-color: orangered;*/
 }
 
@@ -183,7 +196,7 @@
 /*==============SMALL SCREENS==================*/
 /*screen-xs*/
 @media (max-width: 480px) {
-    #sec1row1col1, #sec2row1col3 {
+    #sec2row1col1, #sec2row1col3 {
         display: none;
     }
     #section3 {

@@ -4,23 +4,67 @@
 
 .container {
         display: flex;
-        background-color: purple;
-        /*background: transparent;*/
         flex-direction: column;
-        width: 100%;
+        max-width: 100%;
+        min-width: 20%;
         min-height: 25px;
         max-height: 100%;
+        /*background-color: purple;*/
+        
 }
 
-#section1 {
+.section {
         display: flex;
-        margin: 0px;
-        /*flex: 1 1 0px;*/
-        background-color: Aqua;
-        margin: 0px -15px;
-        /*background: transparent;*/
+        flex-direction: row;
+        max-width: 100%;
+        min-width: 600px;
         min-height: 25px;
         max-height: 100%;
+        margin: 0px;
+        background-color: Aqua;
+}
+.column {
+        display: flex;
+        flex-direction: column;
+        min-width: 400px;
+        max-width: 100%;
+        min-height: 25px;
+        max-height: 100%;   
+        /*background-color: yellow;*/
+}
+.row {
+        display: flex;
+        flex-direction: row;
+        flex: 1 1 0px;
+        min-height: 25px;
+        max-height: 100%;
+        min-width:50%;
+        max-width: 100%;
+        margin: 0px;
+        /*background-color: saddlebrown;*/
+}
+/*.row:last-of-type {
+        margin-bottom: 10%;
+}*/
+
+.input-box {
+        display: flex;
+        flex: 1 1 0px;
+        /*background-color: yellowgreen;*/
+        flex-direction: row;
+        min-width: 100px;
+        margin: 0px;
+}
+.input {
+        font-size: 80%;
+        /*background-color:cadetblue;*/
+}
+label {
+        font-size: 80%;
+        color: darkgray;
+        /*background-color: cornflowerblue*/
+
+
 }
 /*--------------side gutters------------------*/
 /*.gutter { 
@@ -34,51 +78,18 @@
 
 }  */
 /*----------date, amount, hours---------------*/
-#col1,#col3 {
+/*#col1,#col3 {
           display: none;
-  }
+  }*/
 #col2 {
         display:flex;
         flex-direction:column;
         flex: 1 1 0px;
-        background-color: yellow;
-        /*background: transparent;*/
+        /*background-color: yellow;*/
         min-width:50%;
         max-width:100%;
 } 
-.row {
-        display: flex;
-        flex-direction: row;
-        flex: 1 1 0px;
-        background-color: saddlebrown;
-        background: transparent;
-        min-height: 25px;
-        max-height: 100%;
-        min-width:50%;
-        max-width: 100%;
-        margin: 0px;
-}
-.row:last-of-type {
-        margin-bottom: 10px;
-}
 
-.input-box {
-        display: flex;
-        flex: 1 1 0px;
-        background-color: yellowgreen;
-        background: transparent;
-        flex-direction: row;
-        margin: 0px;
-}
-.input {
-        font-size: 80%;
-}
-label {
-        font-size: 80%;
-        color: darkgray;
-
-
-}
 
 /*----------description-----------------------*/
 /*#row2 {
@@ -94,8 +105,7 @@ label {
         */
 #input-box22 {
         flex: 11 11 0px;
-        background-color: cadetblue;
-        background: transparent;
+        /*background-color: cadetblue;*/
 }
 
 .brown  { background-color: rgba(141,110,99, 0.3) }
@@ -108,8 +118,10 @@ label {
 
 /*screen-xs*/
 @media (max-width: 768px) { 
-  
-  #col1,#col3 {
+  .container {
+          max-width: 350px;
+  }
+  #col1,#col3, #input-box22 {
           display: none;
   }
    #row1 {
