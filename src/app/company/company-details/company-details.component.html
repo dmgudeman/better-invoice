@@ -1,12 +1,18 @@
 <div class="my-container">
     <div id="section1" class="section header">
-        <div id="row1" class="row cd-navbar" [ngClass]="setColor(coColor)">
-            <div id="left-arrow" class="column">
-                <a (click)="goBack()" class="glyphicon glyphicon-chevron-left cd-chevron-left"></a>
+        <div id="row1" class="row" [ngClass]="setColor(coColor)">
+            <div id="sec1col1" class="column">
+                <div id="left-arrow" class="item">
+                    <a (click)="goBack()" class="glyphicon glyphicon-chevron-left"></a>
+                </div>
             </div>
-            <div id="title" class="column">{{coName + " Details"}}</div>
-            <div id="plus" class="column">
-                <a (click)="goToNewItem()" class="cd-navbar-plus" aria-hidden="true">+</a></div>
+            <div id="sec1col2" class="column">
+                <div id="title" class="item">{{coName + " Details"}}</div>
+            </div>
+            <div id="sec1col3" class="column">
+                <div id="plus" class="item">
+                    <a (click)="goToNewItem()" aria-hidden="true">+</a></div>
+            </div>
         </div>
         <div id="row2" class="row">
             <div class="spacer" (click)="goToEditCompany()">address goes here

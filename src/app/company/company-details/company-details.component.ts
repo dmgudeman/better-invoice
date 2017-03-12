@@ -124,11 +124,11 @@ export class CompanyDetailsComponent implements OnInit {
                       return stark;
   } 
 
-  myClasses = {xs:false, md:false}
-      setClassesMd() {
-      this.myClasses.md =true;
-  }
-  setClassesXs() {
-      this.myClasses.xs =true;
-  }
+//   myClasses = {xs:false, md:false}
+//       setClassesMd() {
+//       this.myClasses.md =true;
+//   }
+//   setClassesXs() {
+//       this.myClasses.xs =true;
+//   }
 }
