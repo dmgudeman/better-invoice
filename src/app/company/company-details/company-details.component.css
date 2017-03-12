@@ -114,6 +114,7 @@ cd-description{
 .two{
    background-color: green;
 }
+/*==============SMALL SCREENS==================*/
 /*screen-xs*/
 @media (max-width: 768px) { 
   .myCol{font-size:120%;

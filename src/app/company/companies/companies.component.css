@@ -11,9 +11,9 @@
     /*background: transparent;*/
     flex-direction: column;
     width: 100vw;
-    min-height: 400px;
-    max-height: 100vh;
+    height: 100%;
 }
+
 .column {
     display: flex;
     flex: 1 1 0px;
@@ -61,7 +61,7 @@
     display: none;
 }
 
-/*------------SECTION 1--------------------------*/
+/*------------SECTION 1: NAV---------------------*/
 #section1 {
     display: flex;
     flex-direction: row;
@@ -99,31 +99,47 @@
 }
 
 /*------------SECTION 2--------------------------*/
+#section1, #section2 {
+    display: flex;
+    flex-direction:row;
+    min-height:40px;
+    min-width: 100%;
+    max-height: 80%;
+    margin: 5px;
+}
 #section2 {
     display: flex;
     flex-direction: row;
-    /*flex: 1 1 0px;*/
     background-color: yellow;
-     /*background: transparent;*/
-    margin: 0px 0px;
+     background: transparent;
+    margin: 0px;
+   
 }
+ 
+    #sec2col1,
+    #sec2col3 {
+        display: flex;
+        flex:1 1 0px;
+        background-color:brown;
+    }
 
 #sec2col2 {
     display: flex;
     align-items: flex-start;
     flex: 11 11 0px;
     flex-direction: row;
-    /*justify-content: center;*/
     flex-wrap: wrap;
     max-height: 100%;
     min-height: 700px;
     max-width: 700px;
     background-color: orangered;
+    /*background: transparent;*/
+
 
 } 
 
 .section2>.column {
-    min-height: 200px;
+    min-height: 100%;
 }
 
 /*#card-wrapper {
@@ -159,9 +175,166 @@
     max-width: 700px;
     margin: 3px;
     background-color:green;
+     background: transparent;
 }
 
+/*==============SMALLER SCREENS=======================*/
+/*--------------SMALL SCREEN--------------------------*/
+@media (max-width: 766px) {
+    
+    #section1,
+    #sec2col1,
+    #sec2col3 {
+        display: none
+    }
 
+    #header{
+        display: flex;
+        position: fixed;
+        flex-direction: row;
+        margin:  0px;
+        left: 0px;
+        top: 0px;
+        background-color: aqua;
+        background-color: black; 
+        /*background: transparent;*/
+        height:6%;
+        width: 100%;
+        justify-content: center;
+        z-index: 2;
+    
+        min-height: 2.5em;
+        max-height: 2.5em;
+    }
+   
+    #sec2col2 {
+    
+    flex-direction: column;
+   
+} 
+#co-card {
+    flex-direction: row;
+     min-width: 350px;
+    max-width: 414px;
+    margin: 0 auto;
+    /*max-height: 100%;
+    min-height: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    margin: 3px;*/
+}
+    /*#sec1col2 {
+        display: none;
+} 
+
+#sec1col1 {
+    justify-content: center;
+    align-items: center;
+    flex: 1 1 0;
+    min-width:10%;
+}
+#plus {
+    display: flex;
+    flex: 1 1 0;
+    background-color: magenta;
+    background:transparent;
+    font-size: 120%;
+    font-weight: 400;
+    justify-content: center;
+    align-items: center;
+}*/
+    /*#header {
+        display: flex;
+        position: fixed;
+        font-size:130%;
+        font-weight:strong;
+        left: 0px;
+        top: 0px;
+        height:8%;
+        width: 100%;
+        background-color: white;
+        flex-direction: column;
+        justify-content: center;
+        z-index: 3;
+    }
+
+    .ni-description {
+        width: 100%;
+        height: 270px;
+        resize: none;
+        box-sizing: border-box;
+        border-radius: 4px;
+        background-color: #fff;
+        font-size: 90%;
+        font-weight: 300;
+        color: black;
+    }
+    #footer {
+        display: flex;
+        position: fixed;
+        padding-top: 4%;
+        left: 0px;
+        bottom: 0px;
+        height: 10%;
+        width: 100%;
+        background-color: #34495e;
+        color: #f2f2f2;
+        z-index: 2;
+        justify-content: center;
+        text-align: center;
+    }*/
+}
+
+/*--------------MEDIUM SCREEN-------------------------*/
+/*@media (min-width: 416px) and (max-width: 1025px) {
+    #col1,
+    .myCol {
+        display: none
+    }
+   .myCol {
+        font-size: 90%;
+        max-width: 150px;
+        box-sizing: border-box;
+        border-radius: 4px;
+        border: transparent 0px;
+        background-color: #34495e;
+        color: #f2f2f2;
+        margin: 15px;
+        line-height: 2.0;
+    }
+    .ni-description {
+        width: 100%;
+        height: 300px;
+        resize: none;
+        box-sizing: border-box;
+        border-radius: 4px;
+        background-color: #fff;
+        font-size: 90%;
+        font-weight: 300;
+        color: black;
+    }
+}*/
+
+/*--------------LARGE SCREEN--------------------------*/
+/*screen-lg corresponds with col-lg*/
+/*@media (min-width: 767px) {
+    header,
+    footer {
+        display: none;
+    }
+    
+    .ni-description {
+        width: 100%;
+        height: 300px;
+        resize: none;
+        box-sizing: border-box;
+        border-radius: 4px;
+        background-color: #fff;
+        font-size: 90%;
+        font-weight: 300;
+        color: black;
+    }
+}*/
 
 /*------------HEADER-----------------------------*/
 

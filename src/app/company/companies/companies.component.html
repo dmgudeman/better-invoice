@@ -1,62 +1,41 @@
 <div class="my-container">
-    <header id="header" (click)="goBack()">
-       <div>
-            <a  class="glyphicon glyphicon-chevron-left" aria-hidden="true"></a>
-        hi there
-        </div> 
-    </header>
-    <nav id="section1">
+    <!--<header id="header">
+        <div class="h-column" id="h-sec1col1">
+            <img src='src/assets/images/logo/large-press.png_48x48.png' alt="logo">
+        </div>
+        <div class="h-column" id="h-sec1col2">
+            Current Companies
+        </div>
+        <div class="h-column" id="h-sec1col3">
+            <div id="h-plus" class="nav-wrapper">
+                +
+            </div>
+        </div>
+    </header>-->
+    <nav id="section1" class="section">
         <div class="column" id="sec1col1">
-             <img src='src/assets/images/logo/large-press.png_48x48.png' alt="logo">
+            <img src='src/assets/images/logo/large-press.png_48x48.png' alt="logo">
         </div>
         <div class="column" id="sec1col2">
-           Current Companies
+            Current Companies
         </div>
         <div class="column" id="sec1col3">
             <div id="plus" class="nav-wrapper">
-           +
+                +
             </div>
         </div>
     </nav>
-    <div id="section2" >
-     
+    <div id="section2" class="section">
         <div class="column" id="sec2col1"></div>
         <div class="column" id="sec2col2">
-
             <div id="card-wrapper">
-                    <!--COMPANY CARDS -->
-<div id="co-card">
-    <app-company-card 
-        *ngFor="let company of companies | async" 
-        [company]= "company" >
-    </app-company-card>
-</div>
-
-
+                <!--COMPANY CARDS -->
+                <div id="co-card">
+                    <app-company-card *ngFor="let company of companies | async" [company]="company">
+                    </app-company-card>
+                </div>
             </div>
-           
-         
-                <!--<div id="row1" class="row">
-                    <div id="input-box1" class="input-box">
-                        <label id="label1" class="input"></label>
-                        <div id="input1" class="input"></div>
-                    </div>
-                    <div id="input-box2" class="input-box">
-                        <label id="label2" class="input"></label>
-                        <div id="input2"class="input" ></div>
-                    </div>
-                </div>
-                <div class="row" id="row2">
-                    <div id="input-box3" class="input-box">
-                        <label id="label3" class="input"></label>
-                        <div id="input3" class="input"></div>
-                    </div>
-                    <div id="input-box4" class="input-box">
-                        <label id="label4" class="input"></label>
-                        <div id="input4" class="input"></div>
-                    </div>
-                </div>
-                <footer id="row3" class="row">
+            <!--<footer id="row3" class="row">
                     <div id="input-box5" class="input-box">
                         <label id="label5" class="input"></label>
                         <div id="input5" class="footer-row"></div>
@@ -64,7 +43,7 @@
                     <div id="input-box6 " class="input-box"></div>
                 </footer>-->
         </div>
-        <div id="sec2col3" class="column" ></div>
+        <div id="sec2col3" class="column"></div>
     </div>
 </div>
 <!-- NAVBAR -->
@@ -80,7 +59,7 @@
 </div>
 <div class="top">-->
 
- <!--COMPANY CARDS 
+<!--COMPANY CARDS 
 <div class="co-card">
     <app-company-card 
         *ngFor="let company of companies | async" 
@@ -88,7 +67,7 @@
     </app-company-card>
 </div>-->
 <!--</div>-->
-      <!--COMPANY CARDS 
+<!--COMPANY CARDS 
 <div class="co-card">
     <app-company-card 
         *ngFor="let company of companies | async" 
