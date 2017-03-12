@@ -7,9 +7,9 @@
 
 .my-container {
     display: flex;
-    background: mediumpurple;
-    /*background: transparent;*/
     flex-direction: column;
+    background: mediumpurple;
+    background: transparent;
     width: 100vw;
     height: 100%;
 }
@@ -26,10 +26,9 @@
     flex: 1 1 0px;
     flex-direction:column;
     background-color: orange;
-    /*background: transparent;*/
+    background: transparent;
     color: white;
 }
-
 
 /*------------SECTION 1: NAV---------------------*/
 #section1 {
@@ -38,6 +37,7 @@
     left: 0px;
     top: 0px;
     z-index: 2;
+    background-color: black;
 }
 
 #section1.column {
@@ -59,6 +59,7 @@
     justify-content: center;
     flex: 9 9 0px;
     background-color: orangered;
+    background: transparent;
 } 
 
 #plus {
@@ -75,7 +76,7 @@
     flex-direction: row;
     background-color: yellow;
     background: transparent;
-    margin: 0px;
+    margin: 55px 0px 0px 0px;
    
 }
  
@@ -84,6 +85,7 @@
     display: flex;
     flex:1 1 0px;
     background-color:brown;
+    background: transparent;
 }
 
 #sec2col2 {
@@ -96,7 +98,7 @@
     min-height: 700px;
     max-width: 700px;
     background-color: orangered;
-    /*background: transparent;*/
+    background: transparent;
 } 
 
 #co-card {
@@ -121,6 +123,9 @@
     min-width: 100%;
     max-width: 100%;
 }
+#sec1col2 {
+    flex: 3 3 0px;
+}
 
 #sec2col1,
 #sec2col3 {
@@ -129,6 +134,7 @@
    
 #sec2col2 {
     flex-direction: column;
+
 } 
 
 #co-card {
