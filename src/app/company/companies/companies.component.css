@@ -25,63 +25,20 @@
     display: flex;
     flex: 1 1 0px;
     flex-direction:column;
-    /*margin: auto ;*/
     background-color: orange;
     /*background: transparent;*/
     color: white;
 }
-/*.row {
-    display: flex;
-    flex-direction: row;
-    flex-grow: 1;
-    flex-shrink: 1;
-    flex-basis: 0px;
-    background-color: saddlebrown;
-    background: transparent;
-    min-width: 100%;
-    max-width: 100%;
-    min-height: 20%;
-    max-height: 100%;
-    margin: 3px;
-}*/
 
-.input-box {
-    display: flex;
-    flex-direction: row;
-    flex-grow: 1;
-    flex-shrink: 1;
-    flex-basis: 0;
-    width: 275px;
-    height: 100px;
-    /*min-width: 20%;
-    max-width: 100%;
-    min-height: 20%;
-    max-height: 100%;*/
-    background-color: yellowgreen;
-    /*background: transparent;*/
-    margin: 0px;
-}
-
-/*------------HEADER-----------------------------*/
-#header {
-    display: none;
-}
 
 /*------------SECTION 1: NAV---------------------*/
 #section1 {
-   display: flex;
-        position: fixed;
-        left: 0px;
-        top: 0px;
-        /*max-height:125px;
-        width: 100vw;
-        background-color: white;*/
-        /*flex-direction: column;*/
-        /*justify-content: center;*/
-        z-index: 2;
-    }
-
-
+    display: flex;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: 2;
+}
 
 #section1.column {
     display:flex;
