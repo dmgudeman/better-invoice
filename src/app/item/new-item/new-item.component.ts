@@ -68,11 +68,11 @@ export class NewItemComponent implements OnInit {
      
         this._route.params.subscribe(params => {
             this.id = params['id'];
-            // this.coId = +params['coId'];
+            this.coId = +params['coId'];
             this.coName = params['coName'];
             this.makeTitle(this.coName, this.id);
-            // this.fcCompanyId.setValue(this.coId);
-            // this.fcId.setValue(this.id);
+            this.fcCompanyId.setValue(this.coId);
+            this.fcId.setValue(this.id);
         });
           if(this.id) {
                 this._itemService.getItem(this.id)
