@@ -23,6 +23,7 @@ import { NotFoundComponent }        from './not-found/not-found.component';
 import { Tab }                      from './shared/tab';
 import { Tabs }                     from './shared/tabs';
 
+
 @NgModule({
   declarations: [
     Tab,
@@ -32,6 +33,7 @@ import { Tabs }                     from './shared/tabs';
     ItemComponent,
     NewItemComponent,
     NotFoundComponent,
+  
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,7 @@ import { Tabs }                     from './shared/tabs';
     MyDateRangePickerModule,
     ReactiveFormsModule,
     SharedModule,
-
+    
     CompanyRoutingModule,
     AppRoutingModule,
   ],

@@ -8,6 +8,7 @@ import { Company }           from '../../company/company';
 import { CompanyService }    from '../../company/company.service';
 import { Item }              from '../item';
 import { ItemService }       from '../item.service';
+import { Shared }            from '../../shared/shared';
 
 @Component({
   selector: 'app-item-detail',
@@ -17,6 +18,7 @@ import { ItemService }       from '../item.service';
 export class ItemDetailComponent implements OnInit {
   @Input() item:Item
   @Input() color:string;
+  shared = new Shared();
   constructor(
               private _router:Router,
               private _route:ActivatedRoute,
@@ -24,21 +26,23 @@ export class ItemDetailComponent implements OnInit {
               private _itemService:ItemService ) { }
 
   ngOnInit() {
-        console.log("this.color " + this.color);
+      let date;
+      console.log("this.color " + this.color);
+      console.log("ITEMDETAIL ngInit this.item.date " + this.item.date)
+      date = this.shared.setDate(this.item.date);
+      console.log("DATE AFTER SETDATE " + date);
   } 
 // getItem(itemId){
 //   return this._itemService.getItem(itemId)
 //              .subscribe(item => this.item = item);
 // }
 goToEditItem( item?: Item) {
-      let id = item.id;
-    
-      
-      this._router.navigate(['/new-item/' + id, {id:id} ]);
+    let id = item.id;
+    this._router.navigate(['/new-item/' + id, {id:id} ]);
   }
 
 setColor(color){
-  return color;
+    return color;
 }
  
 }

@@ -87,8 +87,8 @@ label {
 .red    { background-color: rgba(231,76,60, 0.3) }
 .purple { background-color: rgba(155,89,182, 0.3)}
 
-
-/*screen-xs*/
+/*===============SMALL SCREENS===================*/
+/*---------screen-xs--------------------*/
 @media (max-width: 768px) { 
   .container {
           max-width: 850px;
@@ -101,9 +101,9 @@ label {
   #col1,#col3, #input-box21 {
           display: none;
   }
-   #row1 {
+  #row1 {
            flex-direction: column;
    }
-   #section1 { min-height: 130px;}
+  #section1 { min-height: 130px;}
 
 }
