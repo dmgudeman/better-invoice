@@ -75,9 +75,7 @@ export class CompanyDetailsComponent implements OnInit {
             error => this.errorMessage = <any>error);
         return stark;
     }
-    goBack() {
-        this._location.back();
-    }
+
     goToInvoice(company: Company) {
         let uId = 1;
         let coId = company.id;
@@ -120,5 +118,13 @@ export class CompanyDetailsComponent implements OnInit {
             .getCompany(this.coId)
             .subscribe(company => this.company = company)
         return stark;
+    }
+
+    goBack() {
+        this._location.back();
+    }
+
+    getNothing() {
+
     }
 }
