@@ -51,7 +51,7 @@ export class EditCompanyComponent implements OnInit {
                                           this.coId = params['id']
                                           this.title = params['name']
                                         });
-                                                  
+          console.log("hi there");                                        
         this.title = this.coId ? " Edit "+ this.title + " Details" : " New Business";
                                   
         if(this.coId){
