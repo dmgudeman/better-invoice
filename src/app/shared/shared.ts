@@ -6,10 +6,8 @@ import * as Moment from 'moment';
 
 @Injectable()
 export class Shared {
-     currentDate:Date;
-    constructor() {
-       this.currentDate = Moment().toDate();
-    }
+
+    constructor() { }
 
     public handleError(error: Response) {
         console.error(error);
@@ -17,9 +15,9 @@ export class Shared {
         return Observable.throw(message);
     }
 
-    public setClassColor(company?:Company, colorr?:string) {
-       let  color:string;
-       if (company){ color = company.color} else {color = colorr};
+    public setClassColor(company?: Company, colorr?: string) {
+        let color: string;
+        if (company) { color = company.color } else { color = colorr };
 
         let red: boolean = (color === 'red');
         let green = (color === 'green');
@@ -29,31 +27,28 @@ export class Shared {
         let purple = (color === 'purple');
 
         let classes = {
-        red: red,
-        green: green,
-        blue: blue,
-        brown: brown,
-        yellow: yellow,
-        purple: purple
+            red: red,
+            green: green,
+            blue: blue,
+            brown: brown,
+            yellow: yellow,
+            purple: purple
         };
         return classes
     }
-    setDate(beginDate?:Date):void {
+    setDate(beginDate?: Date): Date {
+        let date: Date;
 
-    console.log ("BEGIN SETDATE " + beginDate);
-       // let date =this.m(beginDate);
-       let now = Moment().format('LLLL');
-        console.log( "BEGIN SETDATE  now = " + now);
-        // date ? newDate = new Date(date) : newDate = new Date();
-    //     if (!beginDate) {date = new Date();} else { date= new Date(beginDate);}
-
-    //     let year = date.getFullYear();
-    //     // let month = beginDate.getMonth()+1;
-    //     // let day = beginDate.getDate();
-    // // console.log("SETDATE 3 beginDate " + beginDate);
-    // console.log("SETDATE 4 date " + date);
-    //     return date;
-    //     }
-    
-}
+        if (!beginDate) {
+            date = new Date();
+        } else {
+            // need to add one day because the date is served as midnight
+            let mDate = Moment(beginDate).add(1, 'day');
+            let year = mDate.year();
+            let month = mDate.month();
+            let day = mDate.date();
+            date = new Date(year, month, day);
+        }
+        return date;
+    }
 }
