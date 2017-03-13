@@ -9,8 +9,8 @@
         min-width: 20%;
         min-height: 25px;
         max-height: 100%;
-        background-color: purple;
-        
+        /*background-color: purple;*/
+        margin: 0 -15px;
 }
 
 .section {
@@ -43,17 +43,14 @@
         margin: 0px;
         /*background-color: saddlebrown;*/
 }
-/*.row:last-of-type {
-        margin-bottom: 10%;
-}*/
 
 .input-box {
         display: flex;
         flex: 1 1 0px;
-        /*background-color: yellowgreen;*/
         flex-direction: row;
         min-width: 100px;
         margin: 0px;
+        /*background-color: yellowgreen;*/
 }
 .input {
         font-size: 80%;
@@ -63,51 +60,26 @@ label {
         font-size: 80%;
         color: darkgray;
         /*background-color: cornflowerblue*/
-
-
 }
-/*--------------side gutters------------------*/
-/*.gutter { 
-        display:flex;
-        flex: 1 1 0px;
-        background-color: orange;
-        margin: 0px;
-        background: transparent;
-        min-width: 10px;
-        max-width: 10%;
 
-}  */
-/*----------date, amount, hours---------------*/
-/*#col1,#col3 {
-          display: none;
-  }*/
 #col2 {
         display:flex;
         flex-direction:column;
         flex: 1 1 0px;
-        /*background-color: yellow;*/
         min-width:50%;
         max-width:100%;
+        /*background-color: yellow;*/
 } 
 
 
 /*----------description-----------------------*/
-/*#row2 {
-        display: flex;
-        flex-direction: row;
-        flex: 1 1 0px;
-        background-color: brown;
-        max-height: 100%;
-        min-width:50%;
-        max-width: 100%;
-        margin: 10px;
-}
-        */
+
 #input-box22 {
         flex: 11 11 0px;
         /*background-color: cadetblue;*/
 }
 
+/*--------------COLORS-----------------------*/
 .brown  { background-color: rgba(141,110,99, 0.3) }
 .blue   { background-color: rgba(52,152,219,0.3) }
 .green  { background-color: rgba(0, 200,83,0.3) }
@@ -119,9 +91,14 @@ label {
 /*screen-xs*/
 @media (max-width: 768px) { 
   .container {
-          max-width: 350px;
+          max-width: 850px;
+          min-width: 350px;
+          margin: 0 auto;
   }
-  #col1,#col3, #input-box22 {
+  .section {
+          padding-left: 15px;
+  }
+  #col1,#col3, #input-box21 {
           display: none;
   }
    #row1 {
