@@ -12,86 +12,81 @@
             </div>
         </div>
     </div>
+       <div> <pre>{{ myform.value | json}}</pre></div>
     <!-- HEADER -->
     <div class="row">
         <div class="col-xs-12 col-md-5 col-md-offset-1">
             <!--  FORM -->
             <div>
-                <form #f="ngForm" (ngSubmit)="onSubscribe(f.form)">
-                    <div class="row">
-                        <div class="col-xs-12">
-                        <div class="form-group col-md-12 ">
-                            <label 
-                                 for="mydaterange" 
-                                 class="iv-my-daterangepicker"
-                            >Date Range
-                            </label><br>
-                            <my-date-range-picker 
-                                 name="mydaterange" 
-                                 [options]="myDateRangePickerOptions"
-                                 (dateRangeChanged)="onDateRangeChanged($event)"
-                                 [(ngModel)]="model" 
-                                 class="iv-my-daterangepicker"
-                                 id="iv-my-daterangepicker"
-                             >
-                             </my-date-range-picker>
+                <form [formGroup]="invoice" (ngSubmit)="onSubscribe()" novalidate>
+                    <div class="row"  >
+                        <div class=" form-group col-xs-12 col-md-6 ">
+                            <label for="beginDate">Begin Date</label><br>
+                            <my-date-picker 
+                                 name="beginDate" 
+                                 [options]="myDatePickerOptions"
+                                 formControlName="beginDate"
+                                 id="begin-date"
+                                >
+                            </my-date-picker>
                         </div>
+                        <div class=" form-group col-xs-12 col-md-6 ">
+                            <label for="endDate">End Date</label><br>
+                            <my-date-picker 
+                                 name="endDate" 
+                                 [options]="myDatePickerOptions"
+                                 formControlName="endDate"
+                                 id="end-date"
+                                >
+                            </my-date-picker>
                         </div>
-                        </div>
-                        <div class="row"> 
-                        <div class="form-group col-md-12 iv-discount ">
-                             
+                   </div>
+                   <div class="row"> 
+                        <div class="form-group col-md-12 iv-discount "> 
                               <div [ngClass]="{'toggle':false}">
                                   <label 
-                                  for="discountAmount"
+                                  for="amount"
                                   >Discount Amount
                               </label>
                               <div class="input-group ">
-                                  <input [(ngModel)]=discountAmount 
-                                       (change)="updateDiscountAmount()" 
-                                       name="discountAmount"
-                                       #name="ngModel" 
-                                       id="discountAmount" 
-                                       type="text" 
-                                       class="form-control " 
+                                  <input class="form-control "
+                                         name="amount"
+                                         (change)="updateDiscountAmount()" 
+                                         name="amount"
+                                         formControlName="amount"
+                                         id="amount" 
+                                         type="text" 
                                   > 
                                   <span class="input-group-addon iv-group-addon" 
                                         (click)= "toggleIt()">%</span>
                               </div>
                               </div>
                               <div [ngClass]="{'toggle':true}">
-                                  <label 
-                                  for="discountPercent"
-                                  >Discount Percentage
-                              </label>
-                              <div class="input-group ">
-                                  <input [(ngModel)]=discountPercent 
-                                       (change)="updateDiscountPercent()" 
-                                       name="updateDiscountPercent"
-                                       #name="ngModel" 
-                                       id="discountPercent" 
-                                       type="text" 
-                                       class="form-control "
-                                       (click)= "toggleIt()" 
-                                  > 
-                                 
-                                  <div class="input-group-addon iv-group-addon"
-                                         >$</div>
-                              </div>
+                                    <label for="discount">
+                                        Discount Percentage
+                                    </label>
+                                <div class="input-group ">
+                                    <input class="form-control "
+                                            name="discount" 
+                                            formControlName="discount"
+                                            id="discount" 
+                                            type="text" 
+                                            (change)="updateDiscount()" 
+                                            (click)= "toggleIt()" 
+                                    > 
+                                    <div class="input-group-addon iv-group-addon">$</div>
+                                </div>
                               </div>
                         </div>
-                        </div>
-                    
-                    
+                   </div>
                     <div class="form-group col-md-12">
                         <label for="notes">Description/notes</label>
                         <textarea 
-                             [(ngModel)]= description 
-                             name="notes" 
-                             #name="ngModel" 
-                             id="notes" 
-                             type="textbox" 
                              class="form-control iv-notes" 
+                             name="description" 
+                             formControlName="description"
+                             id="description" 
+                             type="textbox" 
                              required
                              placeholder="Type Here">
                         </textarea>

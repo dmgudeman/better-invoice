@@ -74,10 +74,10 @@ export class CompanyService {
 			.map(res => res.json());
 	}
     
-    private getCompanyUrl(companyId){
+    getCompanyUrl(companyId){
 		return this._url + "/companies/" + companyId;
 	}
-    private getCompanyUpdateUrl(){
+    getCompanyUpdateUrl(){
         return this._url +"/companies";
     }
     

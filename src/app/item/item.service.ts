@@ -1,15 +1,23 @@
-import { Injectable } from '@angular/core';
-import { Http,  Response, Headers, RequestOptions }from '@angular/http';
+import { Injectable }        from '@angular/core';
+import { Http,  
+	     Response, 
+		 Headers, 
+		 RequestOptions }    from '@angular/http';
+
+import { Observable }        from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-import { Item } from './item';
-import { Observable } from 'rxjs/Observable';
-import { Shared } from '../shared/shared';
+
+import { Company }           from '../company/company';
+import { CompanyService }    from '../company/company.service';
+import { Item }              from './item';
+import { Shared }            from '../shared/shared';
 
 @Injectable()
 export class ItemService {
 	private _url = "http://localhost:3000/items";
     shared: Shared;
-	constructor(private _http: Http){
+	constructor(private _http: Http,
+	            private _companyService: CompanyService){
 		this.shared = new Shared();
 	}
 
@@ -17,6 +25,29 @@ export class ItemService {
 		return this._http
 		           .get(this._url)
 			       .map(res => res.json());
+	}
+	getItemsByCompany(id:number){
+        let body;
+        return this._http.get(this._companyService.getCompanyUrl(id))
+                         .map((res:Response) => {body = <Company>res.json().company.Items;
+        // console.log("CO_SERVICE: getItemsByCompany " + JSON.stringify(body))
+                                                return body;})
+    }    
+
+	getItemsByDateRange (coId, beginDate, endDate){
+		 this.getItemsByCompany(coId)
+		        .filter(x => x.date > beginDate)
+				.subscribe(data => console.log(data))
+
+	
+		                    
+	// 	this.getItemsByCompany(coId:number){
+    //          let body;
+    //           return this._http.get(this.getCompanyUrl(id))
+    //                      .map((res:Response) => {body = <Company>res.json().company.Items;
+    //     // console.log("CO_SERVICE: getItemsByCompany " + JSON.stringify(body))
+    //                                             return body;})
+    // }    
 	}
    /*
      get(url: string, options?: RequestOptionsArgs) : Observable<Response>
