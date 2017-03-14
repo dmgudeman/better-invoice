@@ -97,18 +97,18 @@ export class InvoiceComponent implements OnInit {
   }
 
   getInvoice() {
-    this._route.params
-      .switchMap((params: Params) => this._invoiceService.getInvoiceById(+params['id']))
-      .subscribe(invoice => {
-        // this.invoice = invoice;
-        // this.title = this.invoice.ivTitle;
-        this.beginDate = this.beginDate;
-        this.endDate = this.endDate;
-        this.amount = this.amount;
-        this.discount = this.discount;
-        this.description = this.description;
-        return this.invoice;
-      });
+    // this._route.params
+    //   .switchMap((params: Params) => this._invoiceService.getInvoiceById(+params['id']))
+    //   .subscribe(invoice => {
+    //     // this.invoice = invoice;
+    //     // this.title = this.invoice.ivTitle;
+    //     this.beginDate = this.beginDate;
+    //     this.endDate = this.endDate;
+    //     this.amount = this.amount;
+    //     this.discount = this.discount;
+    //     this.description = this.description;
+    //     return this.invoice;
+    //   });
   }
 
   goBack() {
@@ -116,6 +116,6 @@ export class InvoiceComponent implements OnInit {
   }
   setClasses() {
 
-    console.log("this.invoice.ivTitle " + this.invoice.ivTitle);
+    // console.log("this.invoice.ivTitle " + this.invoice.ivTitle);
   }
 }
