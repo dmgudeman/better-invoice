@@ -37,6 +37,7 @@ export class CompaniesComponent implements OnInit {
 
   ngOnInit() { 
     this.getCompanies();
+    
   }
   
   getCompanies(){

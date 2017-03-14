@@ -1,25 +1,34 @@
-import { Company }        from './company';
-import { Injectable }     from '@angular/core';
-import { Http, Response, Headers, RequestOptions} from '@angular/http';
-import { Item } from '../item/item';
-import { Observable }     from 'rxjs/Observable';
+import { Injectable }        from '@angular/core';
+import { Http, 
+         Response, 
+         Headers, 
+         RequestOptions}     from '@angular/http';
+import { Observable }        from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/concatMap'
-import { Shared } from '../shared/shared'
-;
+import { Company }           from './company';
+import { Item }              from '../item/item';
+import { MyGlobals }         from '../shared/myglobals';
+import { Shared }            from '../shared/shared';
 @Injectable()
 export class CompanyService {
     
     company:Company;
     items: Item[];
     shared: Shared;
+    myglobals: MyGlobals;
     
-	private _url = "http://localhost:3000";
+	// private _url = "http://localhost:3000";
+	private _url = "http://192.168.1.3:3000";
+
 
 	constructor(private _http: Http){
         this.shared = new Shared();
+        this.myglobals = new MyGlobals();
+        console.log ("this.myglobals.url " + this.myglobals.url);
+        
 	}
 
 	getCompanies():Observable<Company[]>{

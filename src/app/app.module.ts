@@ -33,14 +33,13 @@ import { MyGlobals }                from './shared/myglobals';
 
 @NgModule({
   declarations: [
-    Tab,
-    Tabs,
     AppComponent,
     InvoiceComponent,
     ItemComponent,
     NewItemComponent,
     NotFoundComponent,
-  
+    Tab,
+    Tabs,
   ],
   imports: [
     BrowserModule,
@@ -54,6 +53,7 @@ import { MyGlobals }                from './shared/myglobals';
     ReactiveFormsModule,
     SharedModule,
     
+    // Routing Modules
     CompanyRoutingModule,
     AppRoutingModule,
   ],
