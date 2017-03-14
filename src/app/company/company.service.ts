@@ -21,14 +21,16 @@ export class CompanyService {
     myglobals: MyGlobals;
     
 	// private _url = "http://localhost:3000";
-	private _url = "http://192.168.1.3:3000";
+	private _url ;
+    // = "http://192.168.1.3:3000";
 
 
 	constructor(private _http: Http){
         this.shared = new Shared();
         this.myglobals = new MyGlobals();
-        console.log ("this.myglobals.url " + this.myglobals.url);
-        
+        // console.log ("this.myglobals.url " + this.myglobals.url);
+        // this._url = "http://192.168.1.3:3000";
+        this._url = this.myglobals.url;
 	}
 
 	getCompanies():Observable<Company[]>{
