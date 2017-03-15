@@ -50,13 +50,13 @@ export class InvoicePrePdfComponent implements OnInit {
                             
   }
    getItemsByCompany(coId) {
-        let stark = this._companyService
+        // let stark =
+        this._companyService
             .getItemsByCompany(coId)
             .subscribe(items => this.items = items,
             error => this.errorMessage = <any>error);
-        return stark;
+        // return stark;
     }
-
    
   goNowhere() {};
 

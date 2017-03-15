@@ -50,10 +50,11 @@ export class CompanyDetailsComponent implements OnInit {
                 this.coName = params['coName'];
                 this.coColor = params['coColor'];
             });
-        let coDetails = this.getItemsByCompany(this.coId);
-        console.log("coDetails " + coDetails);
+        // let coDetails = 
+        this.getItemsByCompany(this.coId);
+        // console.log("coDetails " + coDetails);
 
-        this.getCompany();
+        // this.getCompany();
     }
 
     getCompanies() {
@@ -70,19 +71,20 @@ export class CompanyDetailsComponent implements OnInit {
     }
 
     getItemsByCompany(coId) {
-        let stark = this._companyService
+        // let stark =
+        this._companyService
             .getItemsByCompany(coId)
             .subscribe(items => this.items = items,
             error => this.errorMessage = <any>error);
-        return stark;
+        // return stark;
     }
 
-    goToInvoice(company: Company) {
-        let uId = 1;
-        let coId = company.id;
-        this.invoice = this._invoiceService.makeInvoice(uId, coId);
-        this._router.navigate(['/invoice', this.invoice.id]);
-    }
+    // goToInvoice(company: Company) {
+    //     let uId = 1;
+    //     let coId = company.id;
+    //     this.invoice = this._invoiceService.makeInvoice(uId, coId);
+    //     this._router.navigate(['/invoice', this.invoice.id]);
+    // }
 
     goToEditItem(item?: Item, company?: Company) {
         let id = item.id;
@@ -90,12 +92,12 @@ export class CompanyDetailsComponent implements OnInit {
 
         this._router.navigate(['/new-item/' + id, { id: id, coId: coId }]);
     }
-    goToNewItem() {
-        let coId = this.coId;
-        let coName = this.coName;
+    // goToNewItem() {
+    //     let coId = this.coId;
+    //     let coName = this.coName;
 
-        this._router.navigate(['/new-item/', { coId: coId, coName: coName }]);
-    }
+    //     this._router.navigate(['/new-item/', { coId: coId, coName: coName }]);
+    // }
     goToItemDetail(item) {
         this.item = item;
         this._router.navigate(['/item-detail']);
@@ -114,12 +116,12 @@ export class CompanyDetailsComponent implements OnInit {
         }
     }
 
-    getCompany() {
-        var stark = this._companyService
-            .getCompany(this.coId)
-            .subscribe(company => this.company = company)
-        return stark;
-    }
+    // getCompany() {
+    //     var stark = this._companyService
+    //         .getCompany(this.coId)
+    //         .subscribe(company => this.company = company)
+    //     return stark;
+    // }
 
     goBack() {
         this._location.back();
