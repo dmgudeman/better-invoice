@@ -118,7 +118,9 @@ export class InvoiceEditComponent implements OnInit {
     //   });
   }
   goToPrePdf() {
-      this._router.navigate(['/invoice-pre-pdf']);
+    let id = this.coId;
+    this._router.navigate(['/invoice-pre-pdf', id]);
+
   }
 
   goBack() {
