@@ -13,9 +13,9 @@ import { Router,
 import { IMyOptions, 
          IMyDateModel }          from 'mydatepicker';
 import 'rxjs/add/operator/switchMap';
-import { Shared }                from '../shared/shared';
-import { InvoiceService }        from './invoice.service';
-import { Invoice }               from './invoice';
+import { Shared }                from '../../shared/shared';
+import { InvoiceService }        from '../invoice.service';
+import { Invoice }               from '../invoice';
 
 @Component({
   selector: 'invoice',
@@ -56,7 +56,7 @@ export class InvoiceComponent implements OnInit {
                private _invoiceService: InvoiceService,
                private _location: Location,
                private _route: ActivatedRoute,
-               private router: Router) { 
+               private _router: Router) { 
                this.shared = new Shared();
                }
 
@@ -116,6 +116,9 @@ export class InvoiceComponent implements OnInit {
     //     this.description = this.description;
     //     return this.invoice;
     //   });
+  }
+  goToPrePdf() {
+      this._router.navigate(['/invoice-pre-pdf']);
   }
 
   goBack() {
