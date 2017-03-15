@@ -13,7 +13,7 @@ export const routes: Routes = [
   { path: 'new-item',         component: NewItemComponent },
   { path: 'app-item-detail',  component: ItemDetailComponent }, 
   { path: 'app-input',        component: InputComponent },
-  { path: 'invoice/:id',      component: InvoiceComponent },
+  // { path: 'invoice/:id',      component: InvoiceComponent },
   { path: 'invoice',          component: InvoiceComponent },
   { path: 'not-found',        component: NotFoundComponent },
   { path: '**',               redirectTo: 'not-found' }

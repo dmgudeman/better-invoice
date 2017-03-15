@@ -12,12 +12,12 @@
             </div>
         </div>
     </div>
-       <div> <pre>{{ myform.value | json}}</pre></div>
+       <!--<div> <pre>{{ myform.value | json}}</pre></div>-->
     <!-- HEADER -->
     <div class="row">
         <div class="col-xs-12 col-md-5 col-md-offset-1">
             <!--  FORM -->
-            <div>
+             <div>  
                 <form [formGroup]="invoice" (ngSubmit)="onSubscribe()" novalidate>
                     <div class="row"  >
                         <div class=" form-group col-xs-12 col-md-6 ">
@@ -30,7 +30,8 @@
                                 >
                             </my-date-picker>
                         </div>
-                        <div class=" form-group col-xs-12 col-md-6 ">
+      </div>
+      <!--              <div class=" form-group col-xs-12 col-md-6 ">
                             <label for="endDate">End Date</label><br>
                             <my-date-picker 
                                  name="endDate" 
@@ -40,8 +41,8 @@
                                 >
                             </my-date-picker>
                         </div>
-                   </div>
-                   <div class="row"> 
+                   </div>-->
+ <!--              <div class="row"> 
                         <div class="form-group col-md-12 iv-discount "> 
                               <div [ngClass]="{'toggle':false}">
                                   <label 
@@ -78,8 +79,8 @@
                                 </div>
                               </div>
                         </div>
-                   </div>
-                    <div class="form-group col-md-12">
+                   </div>-->
+<!--               <div class="form-group col-md-12">
                         <label for="notes">Description/notes</label>
                         <textarea 
                              class="form-control iv-notes" 
@@ -90,7 +91,7 @@
                              required
                              placeholder="Type Here">
                         </textarea>
-                    </div>
+                    </div>-->
                     <div>
                        <button class="col-xs-12 col-md-4 myCol"
                            (click)="setClasses()"

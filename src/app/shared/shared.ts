@@ -51,4 +51,16 @@ export class Shared {
         }
         return date;
     }
+
+// used in invoice.component
+setDate2(beginDate?) {
+        let date;
+        // date ? newDate = new Date(date) : newDate = new Date();
+        if (!beginDate) {date= new Date();} else {date = new Date(beginDate)};
+        let year = date.getFullYear();
+        let month = date.getMonth()+1;
+        let day = date.getDate();
+        
+        return {date: {year: year, month: month, day: day}};
+    }
 }

@@ -13,7 +13,7 @@ import { Router,
 import { IMyOptions, 
          IMyDateModel }          from 'mydatepicker';
 import 'rxjs/add/operator/switchMap';
-
+import { Shared }                from '../shared/shared';
 import { InvoiceService }        from './invoice.service';
 import { Invoice }               from './invoice';
 
@@ -23,6 +23,7 @@ import { Invoice }               from './invoice';
   styleUrls: ['./invoice.component.css']
 })
 export class InvoiceComponent implements OnInit {
+   dateFormat = require('dateformat');
    private myDatePickerOptions: IMyOptions = {
         dateFormat: 'mm/dd/yyyy',
         
@@ -30,17 +31,16 @@ export class InvoiceComponent implements OnInit {
         selectionTxtFontSize: '15px',
         
     };
-  private newDate = new Date();
-  
-  private newYear = this.newDate.getFullYear();
-  private newDay = this.newDate.getUTCDate();
-  private newMonth = this.newDate.getMonth() + 1;
+  // private newDate = new Date();
+  // private newYear = this.newDate.getFullYear();
+  // private newDay = this.newDate.getUTCDate();
+  // private newMonth = this.newDate.getMonth() + 1;
 
-  private model: Object = {beginDate: {year: this.newYear, month: this.newMonth, day: this.newDay},
-                             endDate: {year: this.newYear, month: this.newMonth, day: this.newDay }};
+  // private model: Object = {beginDate: {year: this.newYear, month: this.newMonth, day: this.newDay},
+  //                            endDate: {year: this.newYear, month: this.newMonth, day: this.newDay }};
   title: string;
   coId: number;
-  dateFormat = require('dateformat');
+  shared: Shared;
 
   invoice: FormGroup;
     beginDate   = new FormControl(new Date());
@@ -56,7 +56,9 @@ export class InvoiceComponent implements OnInit {
                private _invoiceService: InvoiceService,
                private _location: Location,
                private _route: ActivatedRoute,
-               private router: Router) { }
+               private router: Router) { 
+               this.shared = new Shared();
+               }
 
   ngOnInit() {
      this.invoice = this._fb.group({
@@ -67,9 +69,12 @@ export class InvoiceComponent implements OnInit {
             "discount":this.discount,
             "companyId": this.companyId
         });
-     this._route.params.subscribe(params => {
+        let date = this.shared.setDate2();;
+        this.beginDate.setValue(date);
+        this._route.params.subscribe(params => {
             this.coId = params['id'];
      })
+     console.log("this.beginDate " + this.beginDate.value);
   }
   // dateRangeChanged callback function called when the user apply the date range. This is
     // mandatory callback in this option. There are also optional inputFieldChanged and

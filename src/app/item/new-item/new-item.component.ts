@@ -79,7 +79,7 @@ export class NewItemComponent implements OnInit {
                        .subscribe(item => {this.item = item;
                                     let date = this.item.date;
                                 
-            this.fcId.setValue(this.id);
+                                    this.fcId.setValue(this.id);
                                     this.fcDate.setValue(this.item.date);
                                     this.setDate(date);
                                     this.fcNotes.setValue(this.item.description);
@@ -116,12 +116,14 @@ export class NewItemComponent implements OnInit {
 
     // }
     onSubmit() {
-        let  id = this.id;
-        let x = this.myform.value.date;
+        let id      = this.id;
+        let x       = this.myform.value.date;
+        let payload = {item:x};
+        let result;
+        
         this.prepareDate(this.date);
         x = this.myform.value;
-        var payload = {item:x};
-        var result;
+        
         if (id) {
            result = this._itemService.updateItem(payload, id);
         } else {    

@@ -10,15 +10,22 @@ import 'rxjs/add/operator/map';
 import { Company }           from '../company/company';
 import { CompanyService }    from '../company/company.service';
 import { Item }              from './item';
+import { MyGlobals }         from '../shared/myglobals';
 import { Shared }            from '../shared/shared';
+
 
 @Injectable()
 export class ItemService {
-	private _url = "http://localhost:3000/items";
+	private _url;
+	//  = "http://localhost:3000/items";
     shared: Shared;
+	myglobals:MyGlobals;
+
 	constructor(private _http: Http,
 	            private _companyService: CompanyService){
 		this.shared = new Shared();
+		this.myglobals = new MyGlobals();
+        this._url = this.myglobals.url;
 	}
 
 	getItems(){

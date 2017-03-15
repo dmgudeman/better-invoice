@@ -28,6 +28,8 @@ export class CompanyCardComponent implements OnInit {
   ngOnInit() {
       this.name = this.company.name;
       this.color = this.company.color;
+    
+      console.log("this.company.name" + this.company.name);
   }
   getCompany(id) {
      return this._companyService
@@ -61,9 +63,11 @@ export class CompanyCardComponent implements OnInit {
 
   goToInvoice(company:Company) {
     let uId = 1;
-    let coId = company.id;
-    this.invoice = this._invoiceService.makeInvoice(uId,coId);
-    this._router.navigate(['/invoice', this.invoice.id ]);
+    let coId = 1;
+    
+    // company.id;
+    // this.invoice = this._invoiceService.makeInvoice(uId,coId);
+    this._router.navigate(['/invoice', {id:coId}]);
 
   }
 
