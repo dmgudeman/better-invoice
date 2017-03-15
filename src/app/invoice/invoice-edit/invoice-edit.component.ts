@@ -18,11 +18,11 @@ import { InvoiceService }        from '../invoice.service';
 import { Invoice }               from '../invoice';
 
 @Component({
-  selector: 'invoice',
-  templateUrl: './invoice.component.html',
-  styleUrls: ['./invoice.component.css']
+  selector: 'invoice-edit',
+  templateUrl: './invoice-edit.component.html',
+  styleUrls: ['./invoice-edit.component.css']
 })
-export class InvoiceComponent implements OnInit {
+export class InvoiceEditComponent implements OnInit {
    dateFormat = require('dateformat');
    private myDatePickerOptions: IMyOptions = {
         dateFormat: 'mm/dd/yyyy',
