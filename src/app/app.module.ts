@@ -20,7 +20,7 @@ import { MyDateRangePickerModule }  from 'mydaterangepicker';
 // components
 import { AppComponent }             from './app.component';
 import { ItemComponent }            from './item/item/item.component';
-import { InvoiceComponent }         from './invoice/invoice.component';
+import { InvoiceComponent }         from './invoice/invoice/invoice.component';
 import { NewItemComponent }         from './item/new-item/new-item.component';
 import { NotFoundComponent }        from './not-found/not-found.component';
 import { Tab }                      from './shared/tab';
@@ -28,12 +28,14 @@ import { Tabs }                     from './shared/tabs';
 
 // services and providers
 import { ItemService }              from './item/item.service';
+import { InvoicePrePdfComponent }   from './invoice/invoice-pre-pdf/invoice-pre-pdf.component';
 import { InvoiceService }           from './invoice/invoice.service';
 import { MyGlobals }                from './shared/myglobals';
 
 @NgModule({
   declarations: [
     AppComponent,
+    InvoicePrePdfComponent,
     InvoiceComponent,
     ItemComponent,
     NewItemComponent,

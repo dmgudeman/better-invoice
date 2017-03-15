@@ -1,11 +1,12 @@
-import { NgModule }             from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { InputComponent }       from './shared/input/input.component';
-import { NewItemComponent }     from './item/new-item/new-item.component';
-import { ItemComponent }        from './item/item/item.component';
-import { ItemDetailComponent }  from './item/item-detail/item-detail.component';
-import { InvoiceComponent }     from './invoice/invoice.component';
-import { NotFoundComponent }    from './not-found/not-found.component';
+import { NgModule }               from '@angular/core';
+import { RouterModule, Routes }   from '@angular/router';
+import { InputComponent }         from './shared/input/input.component';
+import { NewItemComponent }       from './item/new-item/new-item.component';
+import { ItemComponent }          from './item/item/item.component';
+import { ItemDetailComponent }    from './item/item-detail/item-detail.component';
+import { InvoiceComponent }       from './invoice/invoice/invoice.component';
+import { NotFoundComponent }      from './not-found/not-found.component';
+import { InvoicePrePdfComponent } from './invoice/invoice-pre-pdf/invoice-pre-pdf.component';
 
 export const routes: Routes = [
   { path: '',                 redirectTo: 'companies', pathMatch: 'full'},
@@ -15,6 +16,7 @@ export const routes: Routes = [
   { path: 'app-input',        component: InputComponent },
   // { path: 'invoice/:id',      component: InvoiceComponent },
   { path: 'invoice',          component: InvoiceComponent },
+  { path: 'invoice-pre-pdf',  component: InvoicePrePdfComponent },
   { path: 'not-found',        component: NotFoundComponent },
   { path: '**',               redirectTo: 'not-found' }
 ];
