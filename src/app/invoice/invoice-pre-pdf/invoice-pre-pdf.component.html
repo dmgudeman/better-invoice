@@ -115,5 +115,8 @@
             </tr>
         </table>
     </div>
-    <footer id="footer" (click)="onSubmit()">Submit</footer>
+    <div>
+        <app-item-detail *ngFor="let i of items" [item]="i"></app-item-detail>  
+    </div>
+    <footer id="footer" (click)="noWhere()">Submit</footer>
 </div>
