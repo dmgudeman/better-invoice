@@ -20,8 +20,8 @@ import { MyDateRangePickerModule }  from 'mydaterangepicker';
 // components
 import { AppComponent }             from './app.component';
 import { ItemComponent }            from './item/item/item.component';
-import { InvoiceComponent }         from './invoice/invoice/invoice.component';
-import { NewItemComponent }         from './item/new-item/new-item.component';
+import { InvoiceEditComponent }     from './invoice/invoice-edit/invoice-edit.component';
+import { ItemEditComponent }         from './item/item-edit/item-edit.component';
 import { NotFoundComponent }        from './not-found/not-found.component';
 import { Tab }                      from './shared/tab';
 import { Tabs }                     from './shared/tabs';
@@ -36,9 +36,9 @@ import { MyGlobals }                from './shared/myglobals';
   declarations: [
     AppComponent,
     InvoicePrePdfComponent,
-    InvoiceComponent,
+    InvoiceEditComponent,
     ItemComponent,
-    NewItemComponent,
+    ItemEditComponent,
     NotFoundComponent,
     Tab,
     Tabs,

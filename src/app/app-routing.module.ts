@@ -1,24 +1,25 @@
 import { NgModule }               from '@angular/core';
 import { RouterModule, Routes }   from '@angular/router';
 import { InputComponent }         from './shared/input/input.component';
-import { NewItemComponent }       from './item/new-item/new-item.component';
+import { ItemEditComponent }      from './item/item-edit/item-edit.component';
 import { ItemComponent }          from './item/item/item.component';
 import { ItemDetailComponent }    from './item/item-detail/item-detail.component';
-import { InvoiceComponent }       from './invoice/invoice/invoice.component';
+import { InvoiceEditComponent }   from './invoice/invoice-edit/invoice-edit.component';
 import { NotFoundComponent }      from './not-found/not-found.component';
 import { InvoicePrePdfComponent } from './invoice/invoice-pre-pdf/invoice-pre-pdf.component';
 
 export const routes: Routes = [
-  { path: '',                 redirectTo: 'companies', pathMatch: 'full'},
-  { path: 'new-item/:id',     component: NewItemComponent},
-  { path: 'new-item',         component: NewItemComponent },
-  { path: 'app-item-detail',  component: ItemDetailComponent }, 
-  { path: 'app-input',        component: InputComponent },
-  // { path: 'invoice/:id',      component: InvoiceComponent },
-  { path: 'invoice',          component: InvoiceComponent },
-  { path: 'invoice-pre-pdf',  component: InvoicePrePdfComponent },
-  { path: 'not-found',        component: NotFoundComponent },
-  { path: '**',               redirectTo: 'not-found' }
+  { path: '',                     redirectTo: 'companies', pathMatch: 'full'},
+  { path: 'item-edit/:id',         component: ItemEditComponent},
+  { path: 'item-edit',             component: ItemEditComponent },
+  { path: 'app-item-detail',      component: ItemDetailComponent }, 
+  { path: 'app-input',            component: InputComponent },
+  // { path: 'invoice/:id',       component: InvoiceComponent },
+  { path: 'invoice-edit',         component: InvoiceEditComponent },
+  { path: 'invoice-pre-pdf',      component: InvoicePrePdfComponent },
+  { path: 'invoice-pre-pdf/:id',  component: InvoicePrePdfComponent },
+  { path: 'not-found',            component: NotFoundComponent },
+  { path: '**',                   redirectTo: 'not-found' }
 ];
 
 @NgModule({

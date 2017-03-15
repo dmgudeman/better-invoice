@@ -67,7 +67,7 @@ export class CompanyCardComponent implements OnInit {
     
     // company.id;
     // this.invoice = this._invoiceService.makeInvoice(uId,coId);
-    this._router.navigate(['/invoice', {id:coId}]);
+    this._router.navigate(['/invoice-edit', {id:coId}]);
 
   }
 
