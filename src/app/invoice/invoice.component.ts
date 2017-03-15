@@ -69,11 +69,13 @@ export class InvoiceComponent implements OnInit {
             "discount":this.discount,
             "companyId": this.companyId
         });
-        let date = this.shared.setDate2();;
-        this.beginDate.setValue(date);
+
+        this.beginDate.setValue(this.shared.setDate2());
+        this.endDate.setValue(this.shared.setDate2());
+
         this._route.params.subscribe(params => {
-            this.coId = params['id'];
-     })
+                                     this.coId = params['id'];
+                                     })
      console.log("this.beginDate " + this.beginDate.value);
   }
   // dateRangeChanged callback function called when the user apply the date range. This is

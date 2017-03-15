@@ -30,8 +30,7 @@
                                 >
                             </my-date-picker>
                         </div>
-      </div>
-      <!--              <div class=" form-group col-xs-12 col-md-6 ">
+                        <div class=" form-group col-xs-12 col-md-6 ">
                             <label for="endDate">End Date</label><br>
                             <my-date-picker 
                                  name="endDate" 
@@ -41,46 +40,41 @@
                                 >
                             </my-date-picker>
                         </div>
-                   </div>-->
- <!--              <div class="row"> 
+                   </div>
+                   <div class="row"> 
                         <div class="form-group col-md-12 iv-discount "> 
                               <div [ngClass]="{'toggle':false}">
-                                  <label 
-                                  for="amount"
-                                  >Discount Amount
-                              </label>
-                              <div class="input-group ">
-                                  <input class="form-control "
-                                         name="amount"
-                                         (change)="updateDiscountAmount()" 
-                                         name="amount"
-                                         formControlName="amount"
-                                         id="amount" 
-                                         type="text" 
-                                  > 
-                                  <span class="input-group-addon iv-group-addon" 
-                                        (click)= "toggleIt()">%</span>
-                              </div>
+                                    <label for="amount">Discount Amount </label>
+                                    <div class="input-group ">
+                                        <input class="form-control "
+                                                name="amount"
+                                                (change)="updateDiscountAmount()" 
+                                                name="amount"
+                                                formControlName="amount"
+                                                id="amount" 
+                                                type="text" 
+                                        > 
+                                        <span class="input-group-addon iv-group-addon" 
+                                                (click)= "toggleIt()">%</span>
+                                    </div>
                               </div>
                               <div [ngClass]="{'toggle':true}">
-                                    <label for="discount">
-                                        Discount Percentage
-                                    </label>
-                                <div class="input-group ">
-                                    <input class="form-control "
-                                            name="discount" 
-                                            formControlName="discount"
-                                            id="discount" 
-                                            type="text" 
-                                            (change)="updateDiscount()" 
-                                            (click)= "toggleIt()" 
-                                    > 
-                                    <div class="input-group-addon iv-group-addon">$</div>
-                                </div>
+                                    <label for="discount"> Discount Percentage </label>
+                                    <div class="input-group ">
+                                        <input class="form-control "
+                                                name="discount" 
+                                                formControlName="discount"
+                                                id="discount" 
+                                                type="text" 
+                                                (change)="updateDiscount()" 
+                                                (click)= "toggleIt()" 
+                                        > 
+                                        <div class="input-group-addon iv-group-addon">$</div>
+                                    </div>
                               </div>
-                        </div>
-                   </div>-->
-<!--               <div class="form-group col-md-12">
+                         </div>
+                   </div>
+               <div class="form-group col-md-12">
                         <label for="notes">Description/notes</label>
                         <textarea 
                              class="form-control iv-notes" 
@@ -91,7 +85,7 @@
                              required
                              placeholder="Type Here">
                         </textarea>
-                    </div>-->
+                    </div>
                     <div>
                        <button class="col-xs-12 col-md-4 myCol"
                            (click)="setClasses()"
