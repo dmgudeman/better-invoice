@@ -41,12 +41,9 @@ export class ItemService {
                                                 return body;})
     }    
 
-	getItemsByDateRange (coId, beginDate, endDate){
-		 this.getItemsByCompany(coId)
-		        .filter(x => x.date > beginDate)
-				.subscribe(data => console.log(data))
-
-	
+	getItemsByDateRange (coId, beginDate){
+		 return this.getItemsByCompany(coId)
+		            .filter (data => data.date > beginDate);
 		                    
 	// 	this.getItemsByCompany(coId:number){
     //          let body;

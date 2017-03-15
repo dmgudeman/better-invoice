@@ -54,6 +54,7 @@ export class CompanyService {
         // console.log("CO_SERVICE: getItemsByCompany " + JSON.stringify(body))
                                                 return body;})
     }    
+    
    
     
     addCompany(payload){

@@ -20,6 +20,7 @@ import { Shared } from '../../shared/shared';
   styleUrls: ['./item-detail.component.css']
 })
 export class ItemDetailComponent implements OnInit {
+  // shared = require('shared');
   @Input() item: Item
   @Input() color: string;
   shared = new Shared();

@@ -13,7 +13,7 @@ import { InvoiceService }      from '../../invoice/invoice.service';
 import { Invoice }             from '../../invoice/invoice';
 import { Item }                from '../../item/item';
 import { ItemDetailComponent } from 'app/item/item-detail/item-detail.component';
-import { NewItemComponent }    from '../../item/new-item/new-item.component';
+// import { NewItemComponent }    from '../../item/new-item/new-item.component';
 import { Shared }              from '../../shared/shared';
 
 @Component({
@@ -51,6 +51,7 @@ export class CompanyDetailsComponent implements OnInit {
                 this.coColor = params['coColor'];
             });
         let coDetails = this.getItemsByCompany(this.coId);
+        console.log("coDetails " + coDetails);
 
         this.getCompany();
     }
