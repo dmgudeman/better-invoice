@@ -39,19 +39,21 @@ export class Shared {
         };
         return classes
     }
+
+    // takes a date or uses today's date and returns standard javascript date
+    // --- it uses moment to add one day --- due help because the dates 
+    // coming out of the database are midnight based
     setDate(beginDate?: Date): Date {
         let date: Date;
 
-        if (!beginDate) {
-            date = new Date();
-        } else {
+        beginDate ? date = new Date(beginDate) : date = new Date();
             // need to add one day because the date is served as midnight
             let mDate = Moment(beginDate).add(1, 'day');
             let year = mDate.year();
             let month = mDate.month();
             let day = mDate.date();
             date = new Date(year, month, day);
-        }
+        
         return date;
     }
 
@@ -68,29 +70,39 @@ export class Shared {
         return {date: {year: year, month: month, day: day}};
     }
 
+    // setDate3(beginDate?: Date): Date {
+    //     let date: Date;
+    //      beginDate ? date = new Date(beginDate) : date = new Date();
+    //         // need to add one day because the date is served as midnight
+    //         let mDate = Moment(beginDate).add(1, 'day');
+    //         let year = mDate.year();
+    //         let month = mDate.month();
+    //         let day = mDate.date();
+    //         // date = new Date(year, month, day);
+    //     return date;
+    // }
 
-    setDate3(beginDate?: Date): Date {
-        let date: Date;
-
-        if (!beginDate) {
-            date = new Date();
-        } else {
-            // need to add one day because the date is served as midnight
-            let mDate = Moment(beginDate).add(1, 'day');
-            let year = mDate.year();
-            let month = mDate.month();
-            let day = mDate.date();
-            // date = new Date(year, month, day);
-        }
-        return date;
-    }
+    // takes a date and returns a simple formatted string
     
-    prepareDate(date){
-        this.m= this.moment(date).add(1, 'day');
+    prepareDate(beginDate){
+        
+        this.m= this.moment(beginDate);
         let year = this.m.year;
         let month = this.m.month;
         let day = this.m.day;
-        let fdate = this.m.format('YYYY-MM-DD');
-        return fdate;
+        let date = this.m.format('YYYY-MM-DD');
+        return date;
+    }
+
+    // takes a date and returns a simple formatted string
+    // adding one day
+    prepareDatePlus(beginDate){
+        
+        this.m= this.moment(beginDate).add(1, 'day');
+        let year = this.m.year;
+        let month = this.m.month;
+        let day = this.m.day;
+        let date = this.m.format('YYYY-MM-DD');
+        return date;
     }
 }

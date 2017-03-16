@@ -9,10 +9,10 @@ import { Location }              from '@angular/common';
 import { Router, 
          ActivatedRoute, 
          Params }                from '@angular/router';
-
+import { CompanyService }        from '../../company/company.service';
 import { IMyOptions, 
          IMyDateModel }          from 'mydatepicker';
-import 'rxjs/add/operator/switchMap';
+import { Item }                  from '../../item/item';
 import { Shared }                from '../../shared/shared';
 import { InvoiceService }        from '../invoice.service';
 import { Invoice }               from '../invoice';
@@ -24,35 +24,29 @@ import { Invoice }               from '../invoice';
 })
 export class InvoiceEditComponent implements OnInit {
    dateFormat = require('dateformat');
-   private myDatePickerOptions: IMyOptions = {
-        dateFormat: 'mm/dd/yyyy',
-        
-        inline: false,
-        selectionTxtFontSize: '15px',
-        
-    };
-  // private newDate = new Date();
-  // private newYear = this.newDate.getFullYear();
-  // private newDay = this.newDate.getUTCDate();
-  // private newMonth = this.newDate.getMonth() + 1;
+   moment = require('moment');
 
-  // private model: Object = {beginDate: {year: this.newYear, month: this.newMonth, day: this.newDay},
-  //                            endDate: {year: this.newYear, month: this.newMonth, day: this.newDay }};
-  title: string;
-  coId: number;
-  shared: Shared;
+   myDatePickerOptions: IMyOptions = {dateFormat: 'mm/dd/yyyy', inline: false, selectionTxtFontSize: '15px' };
+   title: string;
+   coId: number;
+   errorMessage: string;
+   output
+   shared: Shared;
+   items: Item[] = [];
+   submittedForm
+   tempItems: Item[] = [];
+   
 
-  invoice: FormGroup;
-    beginDate   = new FormControl(new Date());
-    endDate     = new FormControl();
-    description = new FormControl('');
-    amount      = new FormControl(0);
-    discount    = new FormControl(0);
-    companyId   = new FormControl(0);
-    
-    
+   invoice: FormGroup;
+       beginDate   = new FormControl(new Date());
+       endDate     = new FormControl();
+       description = new FormControl('');
+       amount      = new FormControl(0);
+       discount    = new FormControl(0);
+       companyId   = new FormControl(0);
 
   constructor( private _fb: FormBuilder,
+               private _companyService: CompanyService,
                private _invoiceService: InvoiceService,
                private _location: Location,
                private _route: ActivatedRoute,
@@ -75,16 +69,17 @@ export class InvoiceEditComponent implements OnInit {
 
         this._route.params.subscribe(params => {
                                      this.coId = params['id'];
-                                     })
-     console.log("this.beginDate " + this.beginDate.value);
+                                    })
+
+        this.invoice.valueChanges.subscribe(data => {
+                                             console.log('Form changes', data)
+                                             this.output = data
+                                             });
+  
+        this.getItemsByCompany(this.coId);
+        
+        
   }
-  // dateRangeChanged callback function called when the user apply the date range. This is
-    // mandatory callback in this option. There are also optional inputFieldChanged and
-    // calendarViewChanged callbacks.
-  onDateRangeChanged(event: IMyDateModel) {
-        // event properties are: event.beginDate, event.endDate, event.formatted,
-        // event.beginEpoc and event.endEpoc
-    }
   
   // updateDiscountAmount(newDiscountAmount: number) {
   //   this.discountAmount = newDiscountAmount;
@@ -122,12 +117,38 @@ export class InvoiceEditComponent implements OnInit {
     this._router.navigate(['/invoice-pre-pdf', id]);
 
   }
+  getItemsByCompany(coId) {
+     let date = new Date ('2017-10-07');
+        this._companyService
+            .getItemsByCompany2(coId)
+            .subscribe(items => this.items = items,
+                       error => this.errorMessage = <any>error,
+                       ()=>console.log('completed')
+                       );
+    }
+  filterByStartDate(date) {
+      let  mDate = this.moment(date)
+      
+      for (let i=0;i<this.items.length; i++){
+        if (mDate.isBefore(this.items[i].date)) {
+          this.tempItems.push(this.items[i]);
+        }
+      console.log("THIS TEMPITEMS"  + this.tempItems);
+      return this.tempItems
+      }
+  }
+  beginUpdate (date) {
+    console.log("DATEEEEE " + this.shared.prepareDate(date));
+    this.filterByStartDate(date);
 
+  }
   goBack() {
       this._location.back();
   }
-  setClasses() {
-
-    // console.log("this.invoice.ivTitle " + this.invoice.ivTitle);
+  setClasses() { }
+ 
+ onSubmit() {
+    this.submittedForm = this.invoice.value
   }
+  
 }
