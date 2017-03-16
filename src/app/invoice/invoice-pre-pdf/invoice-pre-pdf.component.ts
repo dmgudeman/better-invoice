@@ -38,6 +38,9 @@ export class InvoicePrePdfComponent implements OnInit {
       
       this._route.params.subscribe(params => {this.coId = params['id']; });
        this.coDetails = this.getItemsByCompany(this.coId);
+      console.log('TESTTTT ' + this.shared.setDate2().date.month + " ")
+      console.log('TESTTTT ' + this.shared.setDate2().date.day + " ,")
+      console.log('TESTTTT ' + this.shared.setDate2().date.year)
        
   }
 

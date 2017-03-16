@@ -55,20 +55,21 @@ export class Shared {
         return date;
     }
 
-// used in invoice.component
-setDate2(beginDate?) {
+    // takes a javascript date and returns a date object
+    setDate2(beginDate?) {
         let date;
-        // date ? newDate = new Date(date) : newDate = new Date();
-        if (!beginDate) {date= new Date();} else {date = new Date(beginDate)};
-        let year = date.getFullYear();
-        let month = date.getMonth()+1;
-        let day = date.getDate();
+        beginDate ? date = new Date(beginDate) : date = new Date();
+        // need to add one month because the date is a javascript date and 0 based
+            let mDate = Moment(beginDate).add(1, 'month');
+            let year = mDate.year();
+            let month = mDate.month();
+            let day = mDate.date();
         
         return {date: {year: year, month: month, day: day}};
     }
 
 
-setDate3(beginDate?: Date): Date {
+    setDate3(beginDate?: Date): Date {
         let date: Date;
 
         if (!beginDate) {
@@ -80,12 +81,12 @@ setDate3(beginDate?: Date): Date {
             let month = mDate.month();
             let day = mDate.date();
             // date = new Date(year, month, day);
-        
         }
         return date;
     }
+    
     prepareDate(date){
-        this.m= this.moment(date);
+        this.m= this.moment(date).add(1, 'day');
         let year = this.m.year;
         let month = this.m.month;
         let day = this.m.day;
