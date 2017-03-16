@@ -97,7 +97,7 @@
                 </form>
             </div>
             <div>
-                <app-item-detail *ngFor="let i of tempItems" [item]="i"></app-item-detail>  
+                <div *ngFor="let item of tempItems">{{item.date}}</div>  
             </div>
         </div>
   </div>

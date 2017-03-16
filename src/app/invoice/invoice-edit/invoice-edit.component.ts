@@ -30,6 +30,7 @@ export class InvoiceEditComponent implements OnInit {
    title: string;
    coId: number;
    errorMessage: string;
+   item
    output
    shared: Shared;
    items: Item[] = [];
@@ -70,17 +71,13 @@ export class InvoiceEditComponent implements OnInit {
         this._route.params.subscribe(params => {
                                      this.coId = params['id'];
                                     })
-
-        this.invoice.valueChanges.subscribe(data => {
-                                             console.log('Form changes', data)
-                                             this.output = data
-                                             });
-  
         this.getItemsByCompany(this.coId);
-        
-        
-  }
-  
+        this.invoice.valueChanges.subscribe(data => {
+                                             console.log('data.beginDate', data.beginDate)
+                                             this.filterByStartDate(data.beginDate)
+                                             this.output = data})
+  }  
+    
   // updateDiscountAmount(newDiscountAmount: number) {
   //   this.discountAmount = newDiscountAmount;
   // }
@@ -127,15 +124,22 @@ export class InvoiceEditComponent implements OnInit {
                        );
     }
   filterByStartDate(date) {
-      let  mDate = this.moment(date)
+       console.log("date " + date.epoc)
+     let  mDate = this.moment.utc(date.epoc); 
       
       for (let i=0;i<this.items.length; i++){
-        if (mDate.isBefore(this.items[i].date)) {
+        let imDate = this.moment.utc(this.items[i].date)
+        console.log("imDate " + imDate)
+        console.log("mDate " + mDate)
+
+        if (mDate.isBefore(imDate)) {
+          console.log("hi there");
           this.tempItems.push(this.items[i]);
         }
       console.log("THIS TEMPITEMS"  + this.tempItems);
+    }
       return this.tempItems
-      }
+    
   }
   beginUpdate (date) {
     console.log("DATEEEEE " + this.shared.prepareDate(date));
