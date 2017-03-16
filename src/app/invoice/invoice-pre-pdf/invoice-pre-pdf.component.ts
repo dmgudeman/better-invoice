@@ -8,6 +8,7 @@ import { CompanyService }                 from '../../company/company.service';
 import { Item }                           from '../../item/item';
 import { ItemDetailComponent }            from '../../item/item-detail/item-detail.component';
 import { ItemService }                    from '../../item/item.service';
+import { Shared }                         from '../../shared/shared';
 
 @Component({
   selector: 'app-invoice-pre-pdf',
@@ -21,27 +22,40 @@ export class InvoicePrePdfComponent implements OnInit {
   errorMessage: string;
   item: ItemDetailComponent;
   items: Item[] = [];
+  items2: Item[] =[]
+  coDetails
+  shared: Shared;
 
   constructor(
                private _location:Location,
                private _companyService:CompanyService,
                private _itemService:ItemService,
-               private _route:ActivatedRoute ) { }
+               private _route:ActivatedRoute ) {
+                 this.shared = new Shared();
+                }
 
   ngOnInit() {
       
       this._route.params.subscribe(params => {this.coId = params['id']; });
-       let coDetails = this.getItemsByCompany(this.coId);
-      // this._itemService.getItemsByCompany(this.coId)
-      //                               //  .subscribe( data =>this.itemss = data);
-      //                                .subscribe( data => console.log("hi there"));
-    //  console.log( "yyyyyyyyyyyyyyyyyy " +this.itemss);
-  //  this.itemss =  this.getItemsByDateRange(this.coId, this.date);
-   
-
-  
+       this.coDetails = this.getItemsByCompany(this.coId);
+       
   }
 
+   getItemsByCompany(coId) {
+     let date = new Date ('2017-10-07');
+     date =  this.shared.prepareDate(date)
+     console.log ( "DATE " + date);
+        this._companyService
+            .getItemsByCompany2(coId)
+            // .filter(e => e[0].date === '2017-10-07')
+            .do(e=>console.log("GGGGGGGGGGG " + ((this.shared.prepareDate(e[0].date) === date))))
+          //  .map( x => x.date)
+            .subscribe(items => this.items = items,
+                       error => this.errorMessage = <any>error,
+                       ()=>console.log('completed')
+                       );
+    }
+   
   getItemsByDateRange(id, date): Object{
    let itemz;
    return itemz = this._itemService.getItemsByDateRange(id, date)
@@ -49,14 +63,6 @@ export class InvoicePrePdfComponent implements OnInit {
                                         });
                             
   }
-   getItemsByCompany(coId) {
-        // let stark =
-        this._companyService
-            .getItemsByCompany(coId)
-            .subscribe(items => this.items = items,
-            error => this.errorMessage = <any>error);
-        // return stark;
-    }
    
   goNowhere() {};
 

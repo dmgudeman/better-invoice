@@ -6,8 +6,11 @@ import * as Moment from 'moment';
 
 @Injectable()
 export class Shared {
+      moment = require('moment');
+       private m = this.moment();
 
-    constructor() { }
+    constructor() {
+     }
 
     public handleError(error: Response) {
         console.error(error);
@@ -62,5 +65,31 @@ setDate2(beginDate?) {
         let day = date.getDate();
         
         return {date: {year: year, month: month, day: day}};
+    }
+
+
+setDate3(beginDate?: Date): Date {
+        let date: Date;
+
+        if (!beginDate) {
+            date = new Date();
+        } else {
+            // need to add one day because the date is served as midnight
+            let mDate = Moment(beginDate).add(1, 'day');
+            let year = mDate.year();
+            let month = mDate.month();
+            let day = mDate.date();
+            // date = new Date(year, month, day);
+        
+        }
+        return date;
+    }
+    prepareDate(date){
+        this.m= this.moment(date);
+        let year = this.m.year;
+        let month = this.m.month;
+        let day = this.m.day;
+        let fdate = this.m.format('YYYY-MM-DD');
+        return fdate;
     }
 }
