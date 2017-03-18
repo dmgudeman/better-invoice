@@ -13,6 +13,8 @@ import { CompanyService }        from '../../company/company.service';
 import { IMyOptions, 
          IMyDateModel }          from 'mydatepicker';
 import { Item }                  from '../../item/item';
+// import { Moment }                from 'moment';
+import * as Moment from 'moment';
 import { Shared }                from '../../shared/shared';
 import { InvoiceService }        from '../invoice.service';
 import { Invoice }               from '../invoice';
@@ -24,8 +26,8 @@ import { Invoice }               from '../invoice';
 })
 export class InvoiceEditComponent implements OnInit {
    dateFormat = require('dateformat');
-   moment = require('moment');
-
+    // private m = this.moment();
+   
    myDatePickerOptions: IMyOptions = {dateFormat: 'mm/dd/yyyy', inline: false, selectionTxtFontSize: '15px' };
    title: string;
    coId: number;
@@ -35,7 +37,6 @@ export class InvoiceEditComponent implements OnInit {
    shared: Shared;
    items: Item[] = [];
    submittedForm
-   tempItems: Item[] = [];
    
 
    invoice: FormGroup;
@@ -72,10 +73,7 @@ export class InvoiceEditComponent implements OnInit {
                                      this.coId = params['id'];
                                     })
         this.getItemsByCompany(this.coId);
-        this.invoice.valueChanges.subscribe(data => {
-                                             console.log('data.beginDate', data.beginDate)
-                                             this.filterByStartDate(data.beginDate)
-                                             this.output = data})
+        this.x();
   }  
     
   // updateDiscountAmount(newDiscountAmount: number) {
@@ -84,6 +82,13 @@ export class InvoiceEditComponent implements OnInit {
   // updateDiscountPercent(){
 
   // }
+  x(){
+        this.invoice.valueChanges.subscribe(data => {
+                                             console.log('data.beginDate' + data.endDate===undefined + 'data.endDate' + data.endDate.formatted)
+                                             this.filterByDateRange(data.beginDate, data.endDate)
+                                             this.output = data})
+
+  }
   toggle = true;
   toggleIt(){
     this.toggle = !this.toggle;
@@ -123,29 +128,35 @@ export class InvoiceEditComponent implements OnInit {
                        ()=>console.log('completed')
                        );
     }
-  filterByStartDate(date) {
-       console.log("date " + date.epoc)
-     let  mDate = this.moment.utc(date.epoc); 
+  filterByDateRange(beginDate?, endDate?) {
+       console.log("date " + beginDate.epoc)
+    let tempItems: Item[] = [];
+     let  bmDate = Moment(beginDate.formatted); 
+     let  emDate = Moment(endDate.formatted); 
       
       for (let i=0;i<this.items.length; i++){
-        let imDate = this.moment.utc(this.items[i].date)
-        console.log("imDate " + imDate)
-        console.log("mDate " + mDate)
+        let imDate = Moment(this.items[i].date)
+        console.log("imDate " + imDate.format('YYYY-MM-DD'))
 
-        if (mDate.isBefore(imDate)) {
-          console.log("hi there");
-          this.tempItems.push(this.items[i]);
+        console.log("bmDate " + bmDate.format('YYYY-MM-DD'))
+        console.log("emDate " + emDate.format('YYYY-MM-DD'))
+
+        if (imDate.isAfter(bmDate) && imDate.isBefore(emDate)) {
+          console.log(imDate.isAfter(bmDate) && imDate.isBefore(emDate));
+          tempItems.push(this.items[i]);
         }
-      console.log("THIS TEMPITEMS"  + this.tempItems);
+        for(let temp of tempItems){
+           console.log("DATE" + temp.date)
+        }
+      console.log("THIS TEMPITEMS"  +  tempItems);
     }
-      return this.tempItems
-    
+    return tempItems;
   }
-  beginUpdate (date) {
-    console.log("DATEEEEE " + this.shared.prepareDate(date));
-    this.filterByStartDate(date);
+  // beginUpdate (date) {
+  //   console.log("DATEEEEE " + this.shared.prepareDate(date));
+  //   this.filterByStartDate(date);
 
-  }
+  // }
   goBack() {
       this._location.back();
   }

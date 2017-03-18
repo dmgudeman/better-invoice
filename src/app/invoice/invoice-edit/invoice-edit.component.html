@@ -24,10 +24,8 @@
                             <label for="beginDate">Begin Date</label><br>
                             <my-date-picker 
                                  name="beginDate" 
-                                 [options]="myDatePickerOptions"
                                  formControlName="beginDate"
                                  id="begin-date"
-                                 (change)="beginUpdate(beginDate)"
                                 >
                             </my-date-picker>
                         </div>
@@ -35,7 +33,6 @@
                             <label for="endDate">End Date</label><br>
                             <my-date-picker 
                                  name="endDate" 
-                                 [options]="myDatePickerOptions"
                                  formControlName="endDate"
                                  id="end-date"
                                 >
@@ -88,6 +85,9 @@
                         </textarea>
                     </div>
                     <div>
+                <div *ngFor="let item of tempItems">{{item.date}}</div>  
+            </div>
+                    <div>
                        <button class="col-xs-12 col-md-4 myCol"
                            (click)="setClasses()"
                            
@@ -96,9 +96,7 @@
                     </div>
                 </form>
             </div>
-            <div>
-                <div *ngFor="let item of tempItems">{{item.date}}</div>  
-            </div>
+            
         </div>
   </div>
 <br>
