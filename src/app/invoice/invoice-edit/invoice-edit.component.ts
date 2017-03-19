@@ -42,6 +42,7 @@ export class InvoiceEditComponent implements OnInit {
     items: Item[] = [];
     itemIds: number[] = [];
     submittedForm
+    invoices: Invoice[] = [];
 
     // Form
     invoice: FormGroup;
@@ -128,12 +129,24 @@ export class InvoiceEditComponent implements OnInit {
 
     onSubmit() {
         this.submittedForm = this.invoice.value;
-        let date1 = Moment(this.submittedForm.beginDate.date).format('YYYY-MM-DD');
-        let date2 = Moment(this.submittedForm.endDate.date).format('YYYY-MM-DD');
+        let date1 = Moment(this.submittedForm.beginDate.date).add(-1, 'month').format('YYYY-MM-DD')
+        let date2 = Moment(this.submittedForm.endDate.date).add(-1, 'month').format('YYYY-MM-DD');
         this.submittedForm.beginDate = date1;
         this.submittedForm.endDate = date2;
         this.submittedForm.companyId = this.coId;
         this.submittedForm.Items = this.itemIds;
         this._invoiceService.addInvoice(this.submittedForm);
     }
+    getInvoices() {
+        this._invoiceService.getInvoices()
+
+        .subscribe(
+                    invoices => {this.invoices = invoices,
+                                
+                    response => { if (response.status = 404) {
+                                        this._router.navigate(['not-found']);}
+                                }
+                    });
+    }
+    
 }

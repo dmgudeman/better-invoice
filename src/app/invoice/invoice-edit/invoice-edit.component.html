@@ -82,26 +82,24 @@
                         </textarea>
                     </div>
                     <div>
-                <div *ngFor="let item of tempItems">{{item.date}}</div>  
-            </div>
-                    <div>
-                       <button class="col-xs-12 col-md-4 myCol"
-                           (click)="setClasses()"
-                           
-                       >Submit
-                       </button>
+                       <button class="col-xs-12 col-md-4 myCol" >Submit </button>
                     </div>
+                   
                 </form>
+                 
             </div>
-            
         </div>
+       
   </div>
-<br>
+<!--<br>
       <h3>Form changes</h3>
       <pre><code>{{ output | json }}</code></pre>
       <h3>Subbmited form</h3>
-      <pre>{{ submittedForm | json }}</pre>
+      <pre>{{ submittedForm | json }}</pre>-->
 
 </div>
+ <div>
+                       <button class="col-xs-12 col-md-4 myCol" (click)="this.getInvoices()" >get Invoices </button>
+                    </div>
 
 <!--(click)="goToPrePdf()"-->
