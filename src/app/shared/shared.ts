@@ -82,8 +82,8 @@ export class Shared {
     //     return date;
     // }
 
-    // takes a date and returns a simple formatted string
     
+    // takes a date and returns a simple formatted string
     prepareDate(beginDate){
         
         this.m= this.moment(beginDate);

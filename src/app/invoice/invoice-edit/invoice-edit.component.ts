@@ -36,6 +36,7 @@ export class InvoiceEditComponent implements OnInit {
    output
    shared: Shared;
    items: Item[] = [];
+   itemIds: number[] = [];
    submittedForm
    
 
@@ -130,7 +131,7 @@ export class InvoiceEditComponent implements OnInit {
     }
   filterByDateRange(beginDate?, endDate?) {
        console.log("date " + beginDate.epoc)
-    let tempItems: Item[] = [];
+    // let tempItems: Item[] = [];
      let  bmDate = Moment(beginDate.formatted); 
      let  emDate = Moment(endDate.formatted); 
       
@@ -143,14 +144,15 @@ export class InvoiceEditComponent implements OnInit {
 
         if (imDate.isAfter(bmDate) && imDate.isBefore(emDate)) {
           console.log(imDate.isAfter(bmDate) && imDate.isBefore(emDate));
-          tempItems.push(this.items[i]);
+          this.itemIds.push(this.items[i].id);
         }
-        for(let temp of tempItems){
-           console.log("DATE" + temp.date)
-        }
-      console.log("THIS TEMPITEMS"  +  tempItems);
+      //   for(let temp of tempItems){
+      //      console.log("DATE " + temp.date)
+      //   }
+      // console.log("THIS TEMPITEMS"  +  );
     }
-    return tempItems;
+    // this.items = tempItems;
+    return this.itemIds;
   }
   // beginUpdate (date) {
   //   console.log("DATEEEEE " + this.shared.prepareDate(date));
@@ -163,7 +165,19 @@ export class InvoiceEditComponent implements OnInit {
   setClasses() { }
  
  onSubmit() {
-    this.submittedForm = this.invoice.value
+    console.log("comapnyId " + this.coId + " " + this.companyId)
+    
+    this.submittedForm = this.invoice.value;
+    let date1= Moment(this.submittedForm.beginDate.date).format('YYYY-MM-DD');
+    console.log("DATEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE 1 " + date1);
+    let date2= Moment(this.submittedForm.endDate.date).format('YYYY-MM-DD');
+    this.submittedForm.beginDate = date1;
+    this.submittedForm.endDate = date2;
+    this.submittedForm.companyId = this.coId;
+    // console.log("this.submittedForm.beginDate.date " + this.shared.prepareDate(this.submittedForm.beginDate.date));
+    this.submittedForm.Items = this.itemIds;
+    console.log("this.submittedForm " + JSON.stringify(this.submittedForm))
+    this._invoiceService.addInvoice(this.submittedForm);
   }
   
 }
