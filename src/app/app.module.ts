@@ -30,6 +30,7 @@ import { ItemService }              from './item/item.service';
 import { InvoicePrePdfComponent }   from './invoice/invoice-pre-pdf/invoice-pre-pdf.component';
 import { InvoiceService }           from './invoice/invoice.service';
 import { MyGlobals }                from './shared/myglobals';
+import { ItemListComponent } from './item/item-list/item-list.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { MyGlobals }                from './shared/myglobals';
     NotFoundComponent,
     Tab,
     Tabs,
+    ItemListComponent,
   ],
   imports: [
     BrowserModule,

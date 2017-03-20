@@ -32,7 +32,7 @@ export class CompaniesComponent implements OnInit {
   constructor(
               private _companyService: CompanyService,
               private _invoiceService: InvoiceService,
-              private router:Router) { 
+              private _router:Router) { 
               };
 
   ngOnInit() { 
@@ -52,9 +52,9 @@ export class CompaniesComponent implements OnInit {
           let hourly = company.hourly;
           let paymentTerms = company.paymentTerms;
           let active = company.active;
-          this.router.navigate(['/edit-company/' + coId, {id:coId, name:coName, color:color}]);
+          this._router.navigate(['/edit-company/' + coId, {id:coId, name:coName, color:color}]);
       } else {
-          this.router.navigate(['/edit-company']);
+          this._router.navigate(['/edit-company']);
      }
   }
 

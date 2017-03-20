@@ -39,6 +39,7 @@ export class InvoiceService {
                         .post(this.getInvoiceUrl(), { "invoice": payload })
                         .map((res)  => { 
                                 console.log(res.json());
+                                console.log(res.json().createdInvoice.id);
                                 console.log("in here");
                                 return res.json();
                         }).catch(this.shared.handleError);
@@ -51,9 +52,23 @@ export class InvoiceService {
                                 return response.json()
                         });
         }
+        
+        getInvoiceById(invoiceId: number): Observable<Invoice[]> {
+                let body;
+                return this._http.get(this.getInvoiceByIdUrl(invoiceId))
+                            .map ((res:Response) => {body = res.json().invoice;
+                                        console.log("Body " + body)
+                                             return body;})
+                }
+        
+
+       
 
         getInvoiceUrl() {
                 return this._url + "/invoices";
         }
+        getInvoiceByIdUrl(invoiceId){
+		return this._url + "/invoices/" + invoiceId;
+	}
 
 }

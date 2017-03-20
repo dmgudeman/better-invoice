@@ -138,11 +138,20 @@ export class InvoiceEditComponent implements OnInit {
         this.submittedForm.Items = this.itemIds;
         this._invoiceService.addInvoice(this.submittedForm)
                .subscribe(
-                    x => {console.log("Success!"),
+                    x => {console.log("Success!");
+                          console.log("ID " , x.createdInvoice.id);
+                          let id = x.createdInvoice.id;
+                          console.log( 'inovice-pre-pdf/' + id);
+                          this._router.navigate(['invoice-pre-pdf/' + id]);
+                    
+                    }
+                    , 
                     response => { if (response.status = 404) {
                                         this._router.navigate(['not-found']);}
+
+                                  
                                 }
-                    });
+                    );
     }
     
 
