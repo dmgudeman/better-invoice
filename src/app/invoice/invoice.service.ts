@@ -21,6 +21,7 @@ export class InvoiceService {
         items: Item[];
         shared: Shared;
         myglobals: MyGlobals;
+        errorMessage: string;
 
         private _url;
 
@@ -53,16 +54,20 @@ export class InvoiceService {
                         });
         }
         
-        getInvoiceById(invoiceId: number): Observable<Invoice[]> {
+        getInvoiceById(invoiceId: number): Observable<Invoice> {
                 let body;
                 return this._http.get(this.getInvoiceByIdUrl(invoiceId))
                             .map ((res:Response) => {body = res.json().invoice;
-                                        console.log("Body " + body)
+                                        // console.log("Body " + JSON.stringify(body))
                                              return body;})
-                }
+        }
         
+        getItemsByInvoiceId( invoiceId ): Observable<Item[]> {
+	   let items$;	
+	  return this.getInvoiceById(invoiceId)
+                   .map(invoice => items$ = invoice.Items)
+	}
 
-       
 
         getInvoiceUrl() {
                 return this._url + "/invoices";

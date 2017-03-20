@@ -26,13 +26,14 @@ export class InvoicePrePdfComponent implements OnInit {
   date2 = new Date("2017-1-1");
   errorMessage: string;
   item: ItemDetailComponent;
-  items: Item[] = [];
+  items: Item[];
   items2: Item[] =[]
   coDetails
   shared: Shared;
 
   invoiceId: number = 0;
-  invoice: Invoice[];
+  invoice: Invoice;
+  invoices: Invoice[];
 
   constructor(
                private _location:Location,
@@ -48,26 +49,46 @@ export class InvoicePrePdfComponent implements OnInit {
       let datee = new Date('2017-10-07')
       // let datee = new Date()
       this._route.params.subscribe(params => {this.invoiceId = params['id']; });
-      this.getInvoice(this.invoiceId);
-                         
-                         
+      this.invoice = this.getInvoice(this.invoiceId);
+      this.items = this.getItems(this.invoiceId);
   }
    
-  getInvoice(invoiceId) {
-    this._invoiceService.getInvoiceById(invoiceId)
+
+  printItems () {
+    console.log(this.invoice.Items)
+  }
+  getInvoice(invoiceId): Invoice {
+       this._invoiceService.getInvoiceById(invoiceId)
+                           .subscribe(
+                                      invoice => {this.invoice = invoice;
+                                      console.log("INVOICE  " + JSON.stringify(this.invoice))
+                               return invoice}
+                           )
+       return this.invoice;
+  }
+
+  getItems(invoiceId):Item[]{
+    let tempItems:Item[];
+  this._invoiceService.getItemsByInvoiceId(invoiceId)
+                        .map(item => tempItems =item)
                         .subscribe(
-                          invoice => {this.invoice = invoice;
-                                 console.log("INVOICE  " + this.invoice)
-                                       return invoice}
-                        )
+                                    result => {
+                                           this.items = result;
+                                            return this.items;
+                                    },
+                                    error => this.errorMessage = <any>error) ;
+                                    return this.items;
+  
   }
+
+
     
-  getItemsByDateRange(id, date): Object{
-   let itemz;
-   return itemz = this._itemService.getItemsByDateRange(id, date)
-                              .subscribe(data => { this.items = data;
-                                        });
-  }
+  // getItemsByDateRange(id, date): Object{
+  //  let itemz;
+  //  return itemz = this._itemService.getItemsByDateRange(id, date)
+  //                             .subscribe(data => { this.items = data;
+  //                                       });
+  // }
    
   goNowhere() {};
 

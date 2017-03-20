@@ -141,7 +141,7 @@ export class InvoiceEditComponent implements OnInit {
                     x => {console.log("Success!");
                           console.log("ID " , x.createdInvoice.id);
                           let id = x.createdInvoice.id;
-                          console.log( 'inovice-pre-pdf/' + id);
+                          console.log( 'invoice-pre-pdf/' + id);
                           this._router.navigate(['invoice-pre-pdf/' + id]);
                     
                     }

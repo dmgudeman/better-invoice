@@ -41,22 +41,11 @@ export class ItemService {
                                                 return body;})
     }    
 
+	
 	getItemsByDateRange (coId, beginDate){
 		 return this.getItemsByCompany(coId)
 		            .filter (data => data.date > beginDate);
-		                    
-	// 	this.getItemsByCompany(coId:number){
-    //          let body;
-    //           return this._http.get(this.getCompanyUrl(id))
-    //                      .map((res:Response) => {body = <Company>res.json().company.Items;
-    //     // console.log("CO_SERVICE: getItemsByCompany " + JSON.stringify(body))
-    //                                             return body;})
-    // }    
 	}
-   /*
-     get(url: string, options?: RequestOptionsArgs) : Observable<Response>
-         Performs a request with get http method.
-		 */
     
     getItem(itemId){
 		console.log("this.getItemUrl(itemId)  " + this.getItemUrl(itemId))

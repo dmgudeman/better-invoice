@@ -114,7 +114,12 @@
                 </td>
             </tr>
         </table>
+         <div *ngFor="let i of items">This is here{{i}}</div>
     </div>
     
+   
     <footer id="footer" (click)="noWhere()">Submit</footer>
 </div>
+<div>
+                       <button class="col-xs-12 col-md-4 myCol" (click)="this.printItems()" >get Items </button>
+                    </div>
