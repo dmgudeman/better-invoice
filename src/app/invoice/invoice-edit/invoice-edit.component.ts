@@ -137,16 +137,14 @@ export class InvoiceEditComponent implements OnInit {
         this.submittedForm.Items = this.itemIds;
         this._invoiceService.addInvoice(this.submittedForm);
     }
+
     getInvoices() {
         this._invoiceService.getInvoices()
-
-        .subscribe(
+            .subscribe(
                     invoices => {this.invoices = invoices,
-                                
                     response => { if (response.status = 404) {
                                         this._router.navigate(['not-found']);}
                                 }
                     });
     }
-    
 }
