@@ -114,9 +114,9 @@
                 </td>
             </tr>
         </table>
-         <div *ngFor="let i of items">This is here{{i}}</div>
+         <div *ngFor="let i of items">This is here{{i.id | json}}</div>
     </div>
-    
+
    
     <footer id="footer" (click)="noWhere()">Submit</footer>
 </div>
