@@ -21,6 +21,7 @@ import { MyDateRangePickerModule }  from 'mydaterangepicker';
 import { AppComponent }             from './app.component';
 import { InvoiceEditComponent }     from './invoice/invoice-edit/invoice-edit.component';
 import { ItemEditComponent }        from './item/item-edit/item-edit.component';
+import { ItemDetailOneComponent }   from './item/item-detail-one/item-detail-one.component';
 import { NotFoundComponent }        from './not-found/not-found.component';
 import { Tab }                      from './shared/tab';
 import { Tabs }                     from './shared/tabs';
@@ -38,6 +39,7 @@ import { ItemListComponent } from './item/item-list/item-list.component';
     InvoicePrePdfComponent,
     InvoiceEditComponent,
     ItemEditComponent,
+    ItemDetailOneComponent,
     NotFoundComponent,
     Tab,
     Tabs,

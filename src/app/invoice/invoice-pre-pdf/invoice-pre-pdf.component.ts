@@ -7,7 +7,7 @@ import { Observable }                     from 'rxjs/Observable';
 
 import { CompanyService }                 from '../../company/company.service';
 import { Item }                           from '../../item/item';
-import { ItemDetailComponent }            from '../../item/item-detail/item-detail.component';
+import { ItemDetailOneComponent }         from '../../item/item-detail-one/item-detail-one.component';
 import { ItemService }                    from '../../item/item.service';
 import { Invoice }                        from '../invoice'; 
 import { InvoiceService }                 from '../invoice.service';
@@ -25,7 +25,7 @@ export class InvoicePrePdfComponent implements OnInit {
   date = new Date("2017-2-11");
   date2 = new Date("2017-1-1");
   errorMessage: string;
-  item: ItemDetailComponent;
+  item: ItemDetailOneComponent;
   items: Item[];
   items2: Item[] =[]
   coDetails
