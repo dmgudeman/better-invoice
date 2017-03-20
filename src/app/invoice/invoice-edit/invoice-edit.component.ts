@@ -42,6 +42,7 @@ export class InvoiceEditComponent implements OnInit {
     items: Item[] = [];
     itemIds: number[] = [];
     submittedForm
+    invoiceRes
     invoices: Invoice[] = [];
 
     // Form
@@ -135,8 +136,15 @@ export class InvoiceEditComponent implements OnInit {
         this.submittedForm.endDate = date2;
         this.submittedForm.companyId = this.coId;
         this.submittedForm.Items = this.itemIds;
-        this._invoiceService.addInvoice(this.submittedForm);
+        this._invoiceService.addInvoice(this.submittedForm)
+               .subscribe(
+                    x => {console.log("Success!"),
+                    response => { if (response.status = 404) {
+                                        this._router.navigate(['not-found']);}
+                                }
+                    });
     }
+    
 
     getInvoices() {
         this._invoiceService.getInvoices()
