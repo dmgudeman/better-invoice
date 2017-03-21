@@ -1,4 +1,5 @@
-import { Item } from '../item/item';
+import { Company }     from '../company/company';
+import { Item }        from '../item/item';
 
 export interface InvoiceInterface {
         id?: number;
@@ -7,6 +8,6 @@ export interface InvoiceInterface {
         description: string;
         amount: number;
         discount: number;
-        companyId: number;
+        Company: Company;
         Items: Item[];
 }

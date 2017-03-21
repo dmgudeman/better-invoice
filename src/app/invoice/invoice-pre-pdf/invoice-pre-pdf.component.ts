@@ -6,6 +6,7 @@ import { Location }                       from '@angular/common';
 import { Observable }                     from 'rxjs/Observable';
 
 import { CompanyService }                 from '../../company/company.service';
+import { Company }                        from '../../company/company';
 import { Item }                           from '../../item/item';
 import { ItemDetailOneComponent }         from '../../item/item-detail-one/item-detail-one.component';
 import { ItemService }                    from '../../item/item.service';
@@ -22,8 +23,10 @@ import 'rxjs/add/operator/filter';
 export class InvoicePrePdfComponent implements OnInit {
   // existing list
   coId: number;
+  company:Company;
+  coName: string = '';
   date = new Date("2017-2-11");
-  date2 = new Date("2017-1-1");
+  date2 = new Date("2017-2-12");
   errorMessage: string;
   item: ItemDetailOneComponent;
   items: Item[];
@@ -51,6 +54,9 @@ export class InvoicePrePdfComponent implements OnInit {
       this._route.params.subscribe(params => {this.invoiceId = params['id']; });
       this.invoice = this.getInvoice(this.invoiceId);
       this.items = this.getItems(this.invoiceId);
+      // this.company = this._invoiceService.getCompanyFromInvoice(this.invoice);
+
+      
   }
    
 
@@ -61,7 +67,10 @@ export class InvoicePrePdfComponent implements OnInit {
        this._invoiceService.getInvoiceById(invoiceId)
                            .subscribe(
                                       invoice => {this.invoice = invoice;
-                                      console.log("INVOICE  " + JSON.stringify(this.invoice))
+                                        this.company = this._invoiceService.getCompanyFromInvoice(this.invoice);
+                                        this.coName = this.company.name;
+                                      console.log("COMPANY  " + JSON.stringify(this.company))
+                                      console.log("coName " + JSON.stringify(this.company.name))
                                return invoice}
                            )
        return this.invoice;

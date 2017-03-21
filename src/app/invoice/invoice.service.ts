@@ -8,6 +8,8 @@ import {
 }                           from '@angular/http';
 import { Observable }       from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+
+import { Company }          from '../company/company';
 import { MyGlobals }        from '../shared/myglobals';
 import { Invoice }          from './invoice';
 import { Item }             from '../item/item';
@@ -60,6 +62,11 @@ export class InvoiceService {
                             .map ((res:Response) => {body = res.json().invoice;
                                         // console.log("Body " + JSON.stringify(body))
                                              return body;})
+        }
+
+        getCompanyFromInvoice(invoice:Invoice){
+                console.log(JSON.stringify(invoice.Company));
+                return invoice.Company;
         }
         
         getItemsByInvoiceId( invoiceId ): Observable<Item[]> {
