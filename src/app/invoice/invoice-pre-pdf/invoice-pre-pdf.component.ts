@@ -23,6 +23,7 @@ import 'rxjs/add/operator/filter';
 export class InvoicePrePdfComponent implements OnInit {
   // existing list
   coId: number;
+  color:string = '';
   company:Company;
   coName: string = '';
   date = new Date("2017-2-11");
@@ -49,11 +50,12 @@ export class InvoicePrePdfComponent implements OnInit {
                 }
 
   ngOnInit() {
-      let datee = new Date('2017-10-07')
+      // let datee = new Date('2017-10-07')
       // let datee = new Date()
       this._route.params.subscribe(params => {this.invoiceId = params['id']; });
       this.invoice = this.getInvoice(this.invoiceId);
       this.items = this.getItems(this.invoiceId);
+      // this.setColor(this.color);
       // this.company = this._invoiceService.getCompanyFromInvoice(this.invoice);
 
       
@@ -69,8 +71,10 @@ export class InvoicePrePdfComponent implements OnInit {
                                       invoice => {this.invoice = invoice;
                                         this.company = this._invoiceService.getCompanyFromInvoice(this.invoice);
                                         this.coName = this.company.name;
+                                        this.color = this.company.color;
                                       console.log("COMPANY  " + JSON.stringify(this.company))
                                       console.log("coName " + JSON.stringify(this.company.name))
+                                      console.log("colorrrrrrrrrrrr " + this.color);
                                return invoice}
                            )
        return this.invoice;
@@ -103,6 +107,10 @@ export class InvoicePrePdfComponent implements OnInit {
 
   goBack(): void {
         this._location.back();
+    }
+  setColor(color) {
+        console.log("COLOR " + this.color);
+        return color
     }
 
 }
