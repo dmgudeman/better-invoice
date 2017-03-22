@@ -1,67 +1,16 @@
-<!--<div class="my-container">-->
-     <!-- SECTION 1 the Header -->
-    <!--<div id="section1" class="section header">
-        <div id="sec1row1" class="row">
-            <div id="sec1row1col1" class="column"></div>
-                
-            <div id="sec1row1col2" class="column">
-                <div id="title" class="item">{{coName }}</div>
-            </div>
-            <div id="sec1row1col3" class="column"></div>
-        </div>
-        <div id="sec1row2" class="row">
-            <div id="sec1row2col1"></div>
-            <div id="sec1row2col2" class="spacer" (click)="goToEditCompany()">{{coName}} </div>
-            <div id="sec1row2col3"></div>
-        </div>
-        <div id="sec1row3" class="row">
-            <div class="column cd-midbar" [ngClass]="setColor(coColor)"></div>
-        </div>
-    </div>-->
-     <!-- SECTION 2 the Body -->
-    <!--<div id="section2" class="section">
-        <div id="sec2row1" class="row">
-            <div id="sec2row1col1" class="column"></div>
-            <div id="sec2row1col2" class="column">
-                <div id="detail-wrapper">
-                    <item-detail-one *ngFor="let i of items" [item]="i" [color]="coColor"></item-detail-one>
-                </div>
-            </div>
-            <div id="sec2row1col3" class="column"></div>
-        </div>
-    </div>-->
-    <!-- SECTION 3 the Footer -->
-    <!--<div id="section3" class="section">
-        <div id="sec3row1" class="row">
-            <div id="sec3row1col1" class="column"></div>
-            <div id="sec3row1col2" class="column">
-                <button id="cd-submit" class=" item" (click)=" getNothing()">
-                Submit
-            </button>
-            </div>
-            <div id="sec3row1col3" class="column"></div>
-        </div>
-    </div>
-</div>-->
-
-
-
-
-
-
 <div class="my-container">
-     <!--<header id="header"  (click)="goBack()">
+     <header id="header"  (click)="goBack()">
        <div>
             <a  class="glyphicon glyphicon-chevron-left" aria-hidden="true"></a>
             {{title}}
         </div> 
-    </header>-->
-    <div id="section1"  (click)="goBack()">
+    </header>
+    <!--<div id="section1"  (click)="goBack()">
         <div id="col1" class="ni-nav">
             <a class="glyphicon glyphicon-chevron-left" aria-hidden="true" ></a>
             <span>{{title}}</span>
         </div>
-    </div>
+    </div>-->
     <div class="invoice-box">
         <table cellpadding="0" cellspacing="0">
             <tr class="top">
@@ -69,7 +18,7 @@
                     <table>
                         <tr>
                             <td class="title">
-                                <div>{{coName}}</div>
+                                <div>Contractor Name</div>
                                 <!--<img src="logo.png" style="width:100%; max-width:300px;">-->
                             </td>
 
@@ -80,7 +29,7 @@
                     </table>
                 </td>
             </tr>
- <item-detail-one *ngFor="let i of items" [item]="i" [color]="coColor"></item-detail-one>
+
             <tr class="information">
                 <td colspan="2">
                     <table>
@@ -165,12 +114,7 @@
                 </td>
             </tr>
         </table>
-         <div *ngFor="let i of items">This is here{{i.id | json}}</div>
     </div>
-
-   
+    
     <footer id="footer" (click)="noWhere()">Submit</footer>
 </div>
-<div>
-                       <button class="col-xs-12 col-md-4 myCol" (click)="this.printItems()" >get Items </button>
-                    </div>
