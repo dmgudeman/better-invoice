@@ -21,6 +21,7 @@ import 'rxjs/add/operator/filter';
   styleUrls: ['./invoice-pre-pdf.component.css']
 })
 export class InvoicePrePdfComponent implements OnInit {
+   moment = require('moment')
   // existing list
   coId: number;
   color:string = '';
@@ -31,11 +32,13 @@ export class InvoicePrePdfComponent implements OnInit {
   date2 = new Date("2017-2-12");
   errorMessage: string;
   createdDate: Date;
-  due: Date;
+  dueDate: Date;
 
   item: ItemDetailOneComponent;
   items: Item[];
-  items2: Item[] =[]
+  items2: Item[] =[];
+  m = this.moment();
+  
   coDetails
   shared: Shared;
 
@@ -71,11 +74,14 @@ export class InvoicePrePdfComponent implements OnInit {
                            .subscribe(
                                       invoice => {this.invoice = invoice;
                                         this.createdDate = this.invoice.createdAt;
+                                         this.m = this.moment(this.createdDate);
                                         this.company = this._invoiceService.getCompanyFromInvoice(this.invoice);
                                         this.coName = this.company.name;
                                         this.color = this.company.color;
                                         this.coInterval = this.company.paymentTerms;
-                                        console.log("coInterval " + this.coInterval);
+                                        this.dueDate = this.m.add(this.coInterval, 'day');
+                                        // console.log("this.m ", this.m._d);
+                                        // console.log("coInterval " + this.coInterval);
                                return invoice}
                            )
        return this.invoice;

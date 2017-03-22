@@ -23,7 +23,7 @@
                             </td>
 
                             <td>
-                                Invoice #: {{invoiceId}}<br> Created: {{createdDate| date:'yMd'}}<br> Due: February 1, 2015
+                                Invoice #: {{invoiceId}}<br> Created: {{createdDate| date:'yMd'}}<br> Due: {{dueDate| date:'yMd' }}
                             </td>
                         </tr>
                     </table>
@@ -38,7 +38,7 @@
                                 Next Step Webs, Inc.<br> 12345 Sunny Road<br> Sunnyville, TX 12345
                             </td>
                             <td>
-                                Acme Corp.<br> John Doe<br> john@example.com
+                                {{coName}}<br> John Doe<br> john@example.com
                             </td>
                         </tr>
                     </table>

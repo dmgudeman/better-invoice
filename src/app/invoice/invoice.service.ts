@@ -36,14 +36,13 @@ export class InvoiceService {
         // }
 
         addInvoice(payload) {
-                console.log("INVOICESERVICE this._url + '/invoices' = " + this.getInvoiceUrl())
-                console.log("JSON.stringify({ 'invoice': payload } " + JSON.stringify({ invoice: payload }) )
+                // console.log("INVOICESERVICE this._url + '/invoices' = " + this.getInvoiceUrl())
+                // console.log("JSON.stringify({ 'invoice': payload } " + JSON.stringify({ invoice: payload }) )
                 return this._http
                         .post(this.getInvoiceUrl(), { "invoice": payload })
                         .map((res)  => { 
-                                console.log(res.json());
-                                console.log(res.json().createdInvoice.id);
-                                console.log("in here");
+                                // console.log(res.json());
+                                // console.log(res.json().createdInvoice.id);
                                 return res.json();
                         }).catch(this.shared.handleError);
         }
@@ -51,7 +50,7 @@ export class InvoiceService {
         getInvoices(): Observable<Invoice[]> {
                 return this._http.get(this.getInvoiceUrl())
                            .map(response => {
-                                   console.log("GET RESPONSE ", response.json())
+                                //    console.log("GET RESPONSE ", response.json())
                                 return response.json()
                         });
         }
@@ -60,12 +59,12 @@ export class InvoiceService {
                 let body;
                 return this._http.get(this.getInvoiceByIdUrl(invoiceId))
                             .map ((res:Response) => {body = res.json().invoice;
-                                        console.log("INVOICESERVICE Body " + JSON.stringify(body))
+                                        // console.log("INVOICESERVICE Body " + JSON.stringify(body))
                                              return body;})
         }
 
         getCompanyFromInvoice(invoice:Invoice){
-                console.log(JSON.stringify(invoice.Company));
+                // console.log(JSON.stringify(invoice.Company));
                 return invoice.Company;
         }
         
