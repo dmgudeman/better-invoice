@@ -13,11 +13,9 @@ import { Item }              from './item';
 import { MyGlobals }         from '../shared/myglobals';
 import { Shared }            from '../shared/shared';
 
-
 @Injectable()
 export class ItemService {
 	private _url;
-	//  = "http://localhost:3000/items";
     shared: Shared;
 	myglobals:MyGlobals;
 
@@ -33,6 +31,7 @@ export class ItemService {
 		           .get(this._url)
 			       .map(res => res.json());
 	}
+
 	getItemsByCompany(id:number){
         let body;
         return this._http.get(this._companyService.getCompanyUrl(id))
@@ -40,7 +39,6 @@ export class ItemService {
         // console.log("CO_SERVICE: getItemsByCompany " + JSON.stringify(body))
                                                 return body;})
     }    
-
 	
 	getItemsByDateRange (coId, beginDate){
 		 return this.getItemsByCompany(coId)
@@ -48,18 +46,17 @@ export class ItemService {
 	}
     
     getItem(itemId){
-		console.log("this.getItemUrl(itemId)  " + this.getItemUrl(itemId))
+		// console.log("this.getItemUrl(itemId)  " + this.getItemUrl(itemId))
 		let body:Item;
 		let   yunkers = this._http
 		                    .get(this.getItemUrl(itemId))
 							.map((res:Response) => {body = <Item>res.json().item; return body})
-							.do(data => console.log("GETITEM BODY" + JSON.stringify(body)))
+							// .do(data => console.log("GETITEM BODY" + JSON.stringify(body)))
 			                return yunkers;
 	}
     
     addItem(payload){
-		console.log("ADDITEM: payload " + JSON.stringify(payload))
-		console.log("ADDITEM: addItem fired");
+		// console.log("ADDITEM: payload " + JSON.stringify(payload))
 		return this._http
 		           .post(this._url, payload)
 				   .map(res => res.json())
@@ -67,8 +64,7 @@ export class ItemService {
 	}
 
     updateItem(payload, id){
-	    console.log("UPDATE ITEM: payload " + JSON.stringify(payload))
-		console.log("UPDATE ITEM: updateItem fired");	
+	    // console.log("UPDATE ITEM: payload " + JSON.stringify(payload))
 		return this._http
 		           .put(this.getItemUrl(id), payload)
 		           .map((res:Response) => <Item>res.json())
