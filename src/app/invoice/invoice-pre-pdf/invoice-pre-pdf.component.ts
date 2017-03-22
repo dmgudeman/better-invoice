@@ -100,8 +100,6 @@ export class InvoicePrePdfComponent implements OnInit {
                                     return this.items;
   
   }
-
-
     
   // getItemsByDateRange(id, date): Object{
   //  let itemz;

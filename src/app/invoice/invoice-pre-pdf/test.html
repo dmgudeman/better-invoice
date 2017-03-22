@@ -1,0 +1,70 @@
+<div class="my-container">
+     
+    <div class="invoice-box">
+        <table cellpadding="0" cellspacing="0">
+            <tr class="top">
+                <td colspan="2">
+                    <table>
+                        <tr>
+                            <td class="title">
+                                <div>{{coName}}</div>
+                                <!--<img src="logo.png" style="width:100%; max-width:300px;">-->
+                            </td>
+
+                            <td>
+                                Invoice #: {{invoiceId}}<br> Created: {{createdDate| date:'yMd'}}<br> Due: {{dueDate| date:'yMd' }}
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+            <tr class="information">
+                <td colspan="2">
+                    <table>
+                        <tr>
+                            <td>
+                                Next Step Webs, Inc.<br> 12345 Sunny Road<br> Sunnyville, TX 12345
+                            </td>
+                            <td>
+                                {{coName}}<br> John Doe<br> john@example.com
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+            <tr class="heading row1">
+                <td class="col1"> Payment Method </td>
+                <td class="col1 col1-mid"> </td>
+                <td class="col1"> Check # </td>
+            </tr>
+
+            <tr class="details row1">
+                <td class="col1"> Check </td>
+                <td class="col1 col1-mid"> </td>
+                <td class="col1"> 1000 </td>
+            </tr>
+
+            <tr class="heading item row1">
+                <td class="col1"> Item </td>
+                <td class="col1 col1-mid"> Description </td>
+                <td class="col1"> Price </td>
+            </tr>
+
+            <tr class="item row1"  *ngFor="let i of items">
+                <td class="col1"> {{i.date| date:'yMd'}} </td>
+                <td class="col1 col1-mid"> {{i.description}} </td>
+                <td class="col1"> {{i.amount}} </td>
+            </tr>
+            
+            <tr class="total row1">
+                <td class="col1"></td>
+                <td class="col1"></td>
+                <td class="col1"> Total: $385.00 </td>
+            </tr>
+        </table>
+    </div>
+    
+   
+</div>

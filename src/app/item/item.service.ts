@@ -3,6 +3,7 @@ import { Http,
 	     Response, 
 		 Headers, 
 		 RequestOptions }    from '@angular/http';
+import { Router }            from '@angular/router';
 
 import { Observable }        from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
@@ -20,7 +21,8 @@ export class ItemService {
 	myglobals:MyGlobals;
 
 	constructor(private _http: Http,
-	            private _companyService: CompanyService){
+	            private _companyService: CompanyService,
+				private _router:Router){
 		this.shared = new Shared();
 		this.myglobals = new MyGlobals();
         this._url = this.myglobals.url;
@@ -81,6 +83,28 @@ export class ItemService {
                             .catch(this.handleError);
         }
     */
+	calculateAmount(item:Item) {
+		let id = item.companyId;
+		let company: Company;
+		let hourly: number;
+		this._companyService
+                .getCompany(id)
+                .subscribe(
+                    company => {company = company,
+                                hourly = company.hourly;
+								return hourly;
+                               },
+                    response => { if (response.status = 404) {
+                                        this._router.navigate(['not-found']);}
+                                }
+                );
+       console.log( "INVOICESERVICE hourly ", hourly);
+       let subtotal = (item.hours * hourly) + item.amount;
+       console.log( "INVOICESERVICE subtotal ", subtotal);
+
+	   return subtotal;
+  
+	}
     deleteItem(itemId){
 		return this._http
 		           .delete(this.getItemUrl(itemId))

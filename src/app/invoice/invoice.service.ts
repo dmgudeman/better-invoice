@@ -47,6 +47,18 @@ export class InvoiceService {
                         }).catch(this.shared.handleError);
         }
 
+        addPdf(payload) {
+                return this._http
+                        .post(this.getInvoiceUrl() + '/pdf', { payload })
+                        .map((res)  => { 
+                                // console.log(res.json());
+                                // console.log(res.json().createdInvoice.id);
+                                return res.json();
+                        }).catch(this.shared.handleError);
+        }
+
+        
+
         getInvoices(): Observable<Invoice[]> {
                 return this._http.get(this.getInvoiceUrl())
                            .map(response => {
