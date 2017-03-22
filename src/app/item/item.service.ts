@@ -92,6 +92,6 @@ export class ItemService {
 	}
     
     getItemUrl(itemId){
-		return this._url + "/" + itemId;
+		return this._url + "/items/" + itemId;
 	}
 }

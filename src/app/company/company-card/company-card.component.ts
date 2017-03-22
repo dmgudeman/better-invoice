@@ -85,9 +85,9 @@ export class CompanyCardComponent implements OnInit {
      }
 
   }
-  goToNewItem(company){
+  goToEditItem(company){
       let coName = company.name;
       let coId = company.id;
-      this._router.navigate(['/new-item', {coName: coName, coId:coId }]);
+      this._router.navigate(['/item-edit', {coName: coName, coId:coId }]);
   }
 }

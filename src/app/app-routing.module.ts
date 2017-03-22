@@ -10,7 +10,7 @@ import { NotFoundComponent }      from './not-found/not-found.component';
 
 export const routes: Routes = [
   { path: '',                     redirectTo: 'companies', pathMatch: 'full'},
-  { path: 'item-edit/:id',        component: ItemEditComponent},
+  { path: 'item-edit/:id',        component: ItemEditComponent },
   { path: 'item-edit',            component: ItemEditComponent },
   { path: 'app-item-detail',      component: ItemDetailComponent }, 
   { path: 'item-detail-one',      component: ItemDetailOneComponent }, 

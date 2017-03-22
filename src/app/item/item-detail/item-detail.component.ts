@@ -38,7 +38,7 @@ export class ItemDetailComponent implements OnInit {
 
   goToEditItem(item?: Item) {
     let id = item.id;
-    this._router.navigate(['/new-item/' + id, { id: id }]);
+    this._router.navigate(['/item-edit/' + id, { id: id }]);
   }
 
   setColor(color) {
