@@ -20,8 +20,16 @@
         padding:5px;
         vertical-align:top;
     }
+
     
+    .invoice-box table tr td:nth-child(1){
+        text-align:left;
+    
+    }
     .invoice-box table tr td:nth-child(2){
+        text-align:center;
+    }
+    .invoice-box table tr td:nth-child(3){
         text-align:right;
     }
     
@@ -60,6 +68,21 @@
     .invoice-box table tr.total td:nth-child(2){
         border-top:2px solid #eee;
         font-weight:bold;
+    }
+    .item:nth-of-type(even){
+        background-color: rgba(238, 238, 238, 0.5);
+    }
+    .row1 {
+        display: flex;
+        flex-direction: row;
+        min-width: 800px;
+    }
+    .col1 {
+        display: flex;
+        flex: 1 1 0;
+    }
+    .col1.col1-mid {
+        flex: 3 3 0;
     }
     
     /*@media only screen and (max-width: 600px) {
