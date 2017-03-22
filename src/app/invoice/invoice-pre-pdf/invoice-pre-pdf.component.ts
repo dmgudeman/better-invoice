@@ -12,8 +12,10 @@ import { ItemDetailOneComponent }         from '../../item/item-detail-one/item-
 import { ItemService }                    from '../../item/item.service';
 import { Invoice }                        from '../invoice'; 
 import { InvoiceService }                 from '../invoice.service';
+import { MyGlobals }                      from '../../shared/myglobals';
 import { Shared }                         from '../../shared/shared';
 import 'rxjs/add/operator/filter';
+
 
 @Component({
   selector: 'app-invoice-pre-pdf',
@@ -21,6 +23,8 @@ import 'rxjs/add/operator/filter';
   styleUrls: ['./invoice-pre-pdf.component.css']
 })
 export class InvoicePrePdfComponent implements OnInit {
+
+   $ = require("jquery");
    moment = require('moment')
   // existing list
   coId: number;
@@ -33,11 +37,14 @@ export class InvoicePrePdfComponent implements OnInit {
   errorMessage: string;
   createdDate: Date;
   dueDate: Date;
+  
+  
 
   item: ItemDetailOneComponent;
   items: Item[];
   items2: Item[] =[];
   m = this.moment();
+  myGlobals: MyGlobals;
   
   coDetails
   shared: Shared;
@@ -54,6 +61,7 @@ export class InvoicePrePdfComponent implements OnInit {
                private _route:ActivatedRoute,
                private _router:Router) {
                  this.shared = new Shared();
+                 this.myGlobals = new MyGlobals();
                 }
 
   ngOnInit() {
@@ -103,7 +111,7 @@ export class InvoicePrePdfComponent implements OnInit {
     
   // getItemsByDateRange(id, date): Object{
   //  let itemz;
-  //  return itemz = this._itemService.getItemsByDateRange(id, date)
+  //  return itemz = this._itemService.getItemsByDateRange(id, date
   //                             .subscribe(data => { this.items = data;
   //                                       });
   // }
@@ -117,5 +125,25 @@ export class InvoicePrePdfComponent implements OnInit {
         console.log("COLOR " + this.color);
         return color
     }
+  submit(){
+    // let stringy = document.documentElement.innerHTML;
+     let stringy = document.getElementById('invoice-body').innerHTML;
+    //  console.log("SUBMIT stringy " , stringy);
+    //  let stringy2 = JSON.stringify(stringy);
+    //  alert(typeof stringy);
+    //  console.log("SUBMIT stringy2 " +  stringy2);
+     this._invoiceService.addPdf(stringy)
+                         .subscribe(
+                    x => {console.log("Success!");
+                    }
+                    , 
+                    response => { if (response.status = 404) {
+                                        this._router.navigate(['not-found']);}
+
+                                  
+                                }
+                    );
+
+  }
 
 }

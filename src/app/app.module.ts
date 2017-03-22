@@ -14,6 +14,7 @@ import { CompanyModule }            from './company/company.module';
 import { SharedModule }             from 'app/shared/shared.module';
 
 // 3rd party modules
+import 'jquery';
 import { MyDatePickerModule }       from 'mydatepicker';
 import { MyDateRangePickerModule }  from 'mydaterangepicker';
 
@@ -28,6 +29,7 @@ import { Tabs }                     from './shared/tabs';
 
 // services and providers
 import { ItemService }              from './item/item.service';
+import { HttpClientService }        from './shared/http-client.service';
 import { InvoicePrePdfComponent }   from './invoice/invoice-pre-pdf/invoice-pre-pdf.component';
 import { InvoiceService }           from './invoice/invoice.service';
 import { MyGlobals }                from './shared/myglobals';

@@ -26,6 +26,7 @@
     "core-js": "^2.4.1",
     "dateformat": "^2.0.0",
     "hammerjs": "^2.0.8",
+    "jquery": "^3.2.1",
     "latest": "^0.2.0",
     "moment": "^2.17.1",
     "mydatepicker": "^1.6.16",
