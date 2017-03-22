@@ -60,7 +60,7 @@ export class InvoiceService {
                 let body;
                 return this._http.get(this.getInvoiceByIdUrl(invoiceId))
                             .map ((res:Response) => {body = res.json().invoice;
-                                        // console.log("Body " + JSON.stringify(body))
+                                        console.log("INVOICESERVICE Body " + JSON.stringify(body))
                                              return body;})
         }
 

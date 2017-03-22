@@ -29,6 +29,9 @@ export class InvoicePrePdfComponent implements OnInit {
   date = new Date("2017-2-11");
   date2 = new Date("2017-2-12");
   errorMessage: string;
+  createdDate: Date;
+  due: Date;
+
   item: ItemDetailOneComponent;
   items: Item[];
   items2: Item[] =[]
@@ -69,9 +72,12 @@ export class InvoicePrePdfComponent implements OnInit {
        this._invoiceService.getInvoiceById(invoiceId)
                            .subscribe(
                                       invoice => {this.invoice = invoice;
+                                        console.log("invoice " + JSON.stringify(invoice.createdAt));
+                                        this.createdDate = this.invoice.createdAt;
                                         this.company = this._invoiceService.getCompanyFromInvoice(this.invoice);
                                         this.coName = this.company.name;
                                         this.color = this.company.color;
+                                      
                                       console.log("COMPANY  " + JSON.stringify(this.company))
                                       console.log("coName " + JSON.stringify(this.company.name))
                                       console.log("colorrrrrrrrrrrr " + this.color);

@@ -8,6 +8,10 @@ export interface InvoiceInterface {
         description: string;
         amount: number;
         discount: number;
+        url;
+        companyId: number;
+        createdAt: Date;
+        updatedAt: Date;
         Company: Company;
         Items: Item[];
 }
