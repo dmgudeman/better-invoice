@@ -60,8 +60,16 @@ export class InvoiceService {
         padding:5px;
         vertical-align:top;
     }
+
     
+    .invoice-box table tr td:nth-child(1){
+        text-align:left;
+    
+    }
     .invoice-box table tr td:nth-child(2){
+        text-align:center;
+    }
+    .invoice-box table tr td:nth-child(3){
         text-align:right;
     }
     
@@ -101,6 +109,21 @@ export class InvoiceService {
         border-top:2px solid #eee;
         font-weight:bold;
     }
+    .item:nth-of-type(even){
+        background-color: rgba(238, 238, 238, 0.5);
+    }
+    .row1 {
+        display: flex;
+        flex-direction: row;
+        min-width: 800px;
+    }
+    .col1 {
+        display: flex;
+        flex: 1 1 0;
+    }
+    .col1.col1-mid {
+        flex: 3 3 0;
+    }
     
     /*@media only screen and (max-width: 600px) {
         .invoice-box table tr.top table td{
@@ -115,6 +138,108 @@ export class InvoiceService {
             text-align:center;
         }
     }*/
+/*==============SMALLER SCREENS=======================*/
+/*--------------SMALL SCREEN--------------------------*/
+@media (max-width: 766px) {
+    #col1,
+    #col2,
+    #col4, 
+    .myCol {
+        display: none
+    }
+
+    #header {
+        display: flex;
+        position: fixed;
+        font-size:130%;
+        font-weight:strong;
+        left: 0px;
+        top: 0px;
+        height:8%;
+        width: 100%;
+        background-color: white;
+        flex-direction: column;
+        justify-content: center;
+        z-index: 3;
+    }
+
+    /*.ni-description {
+        width: 100%;
+        height: 270px;
+        resize: none;
+        box-sizing: border-box;
+        border-radius: 4px;
+        background-color: #fff;
+        font-size: 90%;
+        font-weight: 300;
+        color: black;
+    }*/
+    #footer {
+        display: flex;
+        position: fixed;
+        padding-top: 4%;
+        left: 0px;
+        bottom: 0px;
+        height: 10%;
+        width: 100%;
+        background-color: #34495e;
+        color: #f2f2f2;
+        z-index: 2;
+        justify-content: center;
+        text-align: center;
+    }
+
+}
+/*--------------MEDIUM SCREEN-------------------------*/
+/*@media (min-width: 416px) and (max-width: 1025px) {
+    #col1,
+    .myCol {
+        display: none
+    }
+   .myCol {
+        font-size: 90%;
+        max-width: 150px;
+        box-sizing: border-box;
+        border-radius: 4px;
+        border: transparent 0px;
+        background-color: #34495e;
+        color: #f2f2f2;
+        margin: 15px;
+        line-height: 2.0;
+    }
+    .ni-description {
+        width: 100%;
+        height: 300px;
+        resize: none;
+        box-sizing: border-box;
+        border-radius: 4px;
+        background-color: #fff;
+        font-size: 90%;
+        font-weight: 300;
+        color: black;
+    }
+}*/
+
+/*--------------LARGE SCREEN--------------------------*/
+/*screen-lg corresponds with col-lg*/
+@media (min-width: 767px) {
+    /*header,
+    footer {
+        display: none;
+    }*/
+    
+    /*.ni-description {
+        width: 100%;
+        height: 300px;
+        resize: none;
+        box-sizing: border-box;
+        border-radius: 4px;
+        background-color: #fff;
+        font-size: 90%;
+        font-weight: 300;
+        color: black;
+    }*/
+}
     </style>
     </head>
     <body>`
@@ -139,9 +264,10 @@ export class InvoiceService {
 
         addPdf(payload) {
              let   augmented  = this.head + payload + this.tail;
-             console.log("AUGMENTED " + augmented);
-            alert(typeof augmented);
-        //      console.log("PAYLOAD " + payload);
+        //      console.log("AUGMENTED " + augmented);
+        //     alert(typeof augmented);
+             console.log("PAYLOAD " + payload);
+
                 return this._http
                         .post(this.getInvoiceUrl() + '/pdf', augmented )
                         .map((res)  => { 
