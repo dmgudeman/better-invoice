@@ -143,7 +143,7 @@ export class InvoiceService {
             alert(typeof augmented);
         //      console.log("PAYLOAD " + payload);
                 return this._http
-                        .post(this.getInvoiceUrl() + '/pdf', { augmented })
+                        .post(this.getInvoiceUrl() + '/pdf', augmented )
                         .map((res)  => { 
                                 // console.log("RES.JSON ",  res);
                                 // console.log("this.getInvoiceUrl() + '/pdf' " + this.getInvoiceUrl() + '/pdf');
