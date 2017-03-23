@@ -1,9 +1,12 @@
 <div class="my-container">
-     <header id="header"  (click)="goBack()">
+     <header id="header"  class="row0" (click)="goBack()">
        <div>
-            <a  class="glyphicon glyphicon-chevron-left" aria-hidden="true"></a>
+            <a  class="glyphicon glyphicon-chevron-left left-arrow col0" aria-hidden="true"></a>
             {{title}}
         </div> 
+       <div class="col0-mid">Invoice Preview</div>
+       <div class="col0"></div>
+     
     </header>
     <!--<div id="section1"  (click)="goBack()">
         <div id="col1" class="ni-nav">
@@ -22,7 +25,6 @@
                                 <div>{{coName}}</div>
                                 <!--<img src="logo.png" style="width:100%; max-width:300px;">-->
                             </td>
-
                             <td>
                                 Invoice #: {{invoiceId}}<br> Created: {{createdDate| date:'yMd'}}<br> Due: {{dueDate| date:'yMd' }}
                             </td>
@@ -78,5 +80,9 @@
         </table>
     </div>
     </div>
-    <footer id="footer"> <button type="submit" (click)="submit()">Submit</button></footer>
+    <footer id="footer" class="row2"> 
+       <div class="col2 col2-mid">
+           <button class="my-submit-btn" type="submit" (click)="submit()">Submit</button>
+       </div>
+    </footer>
 </div>
