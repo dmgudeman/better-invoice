@@ -63,7 +63,8 @@ export class CompanyCardComponent implements OnInit {
 
   goToInvoice(company:Company) {
     let uId = 1;
-    let coId = 1;
+    let coId = company.id;
+
     
     // company.id;
     // this.invoice = this._invoiceService.makeInvoice(uId,coId);
