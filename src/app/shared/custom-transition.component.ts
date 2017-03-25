@@ -1,4 +1,6 @@
-//custom-transition.animation.ts
+// custom-transition.animation.ts
+// github.com/bergben/ng2-page-transition
+
 import {trigger, state, animate, style, transition, AnimationEntryMetadata} from '@angular/core';
 
 export function customTransition():AnimationEntryMetadata {
