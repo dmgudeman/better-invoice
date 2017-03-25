@@ -11,6 +11,7 @@ import { MaterialModule }           from '@angular/material';
 import { AppRoutingModule }         from './app-routing.module';
 import { CompanyRoutingModule }     from './company/company-routing.module';
 import { CompanyModule }            from './company/company.module';
+import { Ng2PageTransitionModule } from 'ng2-page-transition';
 import { SharedModule }             from 'app/shared/shared.module';
 
 // 3rd party modules
@@ -33,7 +34,7 @@ import { HttpClientService }        from './shared/http-client.service';
 import { InvoicePrePdfComponent }   from './invoice/invoice-pre-pdf/invoice-pre-pdf.component';
 import { InvoiceService }           from './invoice/invoice.service';
 import { MyGlobals }                from './shared/myglobals';
-import { ItemListComponent } from './item/item-list/item-list.component';
+import { ItemListComponent }        from './item/item-list/item-list.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { ItemListComponent } from './item/item-list/item-list.component';
     InvoiceEditComponent,
     ItemEditComponent,
     ItemDetailOneComponent,
+    Ng2PageTransitionModule, 
     NotFoundComponent,
     Tab,
     Tabs,
