@@ -43,7 +43,6 @@ import { ItemListComponent }        from './item/item-list/item-list.component';
     InvoiceEditComponent,
     ItemEditComponent,
     ItemDetailOneComponent,
-    Ng2PageTransitionModule, 
     NotFoundComponent,
     Tab,
     Tabs,
@@ -58,6 +57,7 @@ import { ItemListComponent }        from './item/item-list/item-list.component';
     MaterialModule,
     MyDatePickerModule,
     MyDateRangePickerModule,
+    Ng2PageTransitionModule, 
     ReactiveFormsModule,
     SharedModule,
     
