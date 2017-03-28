@@ -9,8 +9,10 @@ import { Shared } from '../../shared/shared';
 @Component({
   selector: 'app-company-card',
   templateUrl: './company-card.component.html',
-  styleUrls: ['./company-card.component.css']
+  styleUrls: ['./company-card.component.css'],
 })
+  
+  
 export class CompanyCardComponent implements OnInit {
   shared:Shared = new Shared();
   coId: number;

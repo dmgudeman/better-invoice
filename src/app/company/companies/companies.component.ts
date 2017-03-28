@@ -1,4 +1,6 @@
-import { Component, OnInit }    from '@angular/core';
+import { Component, 
+         OnInit,
+         HostBinding }          from '@angular/core';
 import { FlexLayoutModule }     from '@angular/flex-layout';
 import { Router, 
          ActivatedRoute, 
@@ -10,13 +12,18 @@ import { CompanyService }       from '../company.service';
 import { InputComponent }       from '../../shared/input/input.component';
 import { InvoiceService }       from '../../invoice/invoice.service';
 import { Invoice }              from '../../invoice/invoice';
+import { customTransition } from '../../shared/custom-transition.component';
 
 @Component({
   selector: 'app-companies',
   templateUrl: './companies.component.html',
-  styleUrls: ['./companies.component.css']
+  styleUrls: ['./companies.component.css'],
+  animations: [customTransition]
 })
 export class CompaniesComponent implements OnInit {
+  @HostBinding('@routeAnimation') routeAnimation = true;
+  @HostBinding('style.display')   display = 'block';
+  @HostBinding('style.position')  position = 'absolute';
 
   class: any;
   companies: Observable<Company[]>;
@@ -52,9 +59,11 @@ export class CompaniesComponent implements OnInit {
           let hourly = company.hourly;
           let paymentTerms = company.paymentTerms;
           let active = company.active;
-          this._router.navigate(['/edit-company/' + coId, {id:coId, name:coName, color:color}]);
+          setTimeout(()=>this._router.navigate(['/edit-company/' + coId, {id:coId, name:coName, color:color}]));
+          return false;
       } else {
-          this._router.navigate(['/edit-company']);
+          setTimeout(()=>this._router.navigate(['/edit-company']));
+          return false;
      }
   }
 
