@@ -1,4 +1,7 @@
-import { Component, OnInit }    from '@angular/core';
+import { 
+    Component, 
+    OnInit,
+    HostBinding }                from '@angular/core';
 import {
     FormBuilder,
     FormControl,
@@ -6,30 +9,36 @@ import {
     FormsModule,
     ReactiveFormsModule,
     Validators
-}                               from '@angular/forms';
-import { Location }             from '@angular/common';
+}                                from '@angular/forms';
+import { Location }              from '@angular/common';
 import {
     Router,
     ActivatedRoute,
     Params
-}                               from '@angular/router';
-import { CompanyService }       from '../../company/company.service';
+}                                from '@angular/router';
 import {
     IMyOptions,
     IMyDateModel
-}                               from 'mydatepicker';
-import { Item }                 from '../../item/item';
-import * as Moment              from 'moment';
-import { Shared }               from '../../shared/shared';
-import { InvoiceService }       from '../invoice.service';
-import { Invoice }              from '../invoice';
+}                                from 'mydatepicker';
+import * as Moment               from 'moment';
+
+import { CompanyService }        from '../../company/company.service';
+import { Item }                  from '../../item/item';
+import { Shared }                from '../../shared/shared';
+import { InvoiceService }        from '../invoice.service';
+import { Invoice }               from '../invoice';
+import { customTransitionRight } from '../../shared/custom-transition-right.component';
 
 @Component({
     selector: 'invoice-edit',
     templateUrl: './invoice-edit.component.html',
-    styleUrls: ['./invoice-edit.component.css']
+    styleUrls: ['./invoice-edit.component.css'],
+    animations: [ customTransitionRight ]
 })
 export class InvoiceEditComponent implements OnInit {
+    @HostBinding('@routeAnimation') routeAnimation = true;
+    @HostBinding('style.display')   display = 'block';
+    @HostBinding('style.position')  position = 'absolute';
     dateFormat = require('dateformat');
 
     myDatePickerOptions: IMyOptions = { dateFormat: 'mm/dd/yyyy', inline: false, selectionTxtFontSize: '15px' };
@@ -86,13 +95,14 @@ export class InvoiceEditComponent implements OnInit {
             this.filterByDateRange(data.beginDate, data.endDate)
             this.output = data
         })
-
     }
+
     toggle = true;
     toggleIt() {
         this.toggle = !this.toggle;
         return this.toggle;
     }
+
     canSave = true;
     onClickCanSave() {
         this.canSave = !this.canSave;
@@ -109,7 +119,7 @@ export class InvoiceEditComponent implements OnInit {
             .getItemsByCompany2(coId)
             .subscribe(items => this.items = items,
             error => this.errorMessage = <any>error,
-            () => console.log('completed')
+            // () => console.log('completed')
             );
     }
     
@@ -138,22 +148,19 @@ export class InvoiceEditComponent implements OnInit {
         this.submittedForm.Items = this.itemIds;
         this._invoiceService.addInvoice(this.submittedForm)
                .subscribe(
-                    x => {console.log("Success!");
-                          console.log("ID " , x.createdInvoice.id);
+                    x => {
+                        //   console.log("Success!");
+                        //   console.log("ID " , x.createdInvoice.id);
                           let id = x.createdInvoice.id;
-                          console.log( 'invoice-pre-pdf/' + id);
+                        //   console.log( 'invoice-pre-pdf/' + id);
                           this._router.navigate(['invoice-pre-pdf/' + id]);
-                    
                     }
                     , 
                     response => { if (response.status = 404) {
                                         this._router.navigate(['not-found']);}
-
-                                  
                                 }
                     );
     }
-    
 
     getInvoices() {
         this._invoiceService.getInvoices()

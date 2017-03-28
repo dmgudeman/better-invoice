@@ -1,4 +1,6 @@
-import { Component, OnInit }              from '@angular/core';
+import { Component, 
+         OnInit,
+         HostBinding }                    from '@angular/core';
 import { FormBuilder, 
          FormControl, 
          FormGroup,
@@ -19,13 +21,19 @@ import { Item }                           from '../item';
 import { ItemService }                    from '../item.service';
 import { Tab }                            from '../../shared/tab';
 import { Tabs }                           from '../../shared/tabs';
+import { customTransitionRight } from '../../shared/custom-transition-right.component';
+
 
 @Component({
     selector: 'app-item-edit',
     templateUrl: './item-edit.component.html',
-    styleUrls: ['./item-edit.component.css']
+    styleUrls: ['./item-edit.component.css'],
+    animations: [customTransitionRight]
 })
 export class ItemEditComponent implements OnInit {
+    @HostBinding('@routeAnimation') routeAnimation = true;
+  @HostBinding('style.display')   display = 'block';
+  @HostBinding('style.position')  position = 'absolute';
     moment = require('moment');
     dateFormat = require('dateformat');
    

@@ -1,20 +1,39 @@
-import { Component, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
-import { Location } from '@angular/common';
-import { CompanyService } from 'app/company/company.service';
-import { Company } from '../company';
-import { InputComponent } from '../../shared/input/input.component';
-import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
-import { ReactiveFormsModule, FormGroup, FormsModule, FormControl, FormBuilder } from '@angular/forms';
-import { ItemDetailComponent } from 'app/item/item-detail/item-detail.component';
+import { 
+    Component, 
+    ChangeDetectionStrategy,
+    HostBinding,
+    OnInit, 
+    ViewChild }                        from '@angular/core';
+import { 
+    FormBuilder, 
+    FormControl, 
+    FormGroup, 
+    FormsModule, 
+    ReactiveFormsModule }              from '@angular/forms';
+import { Location }                    from '@angular/common';
+import { 
+    Router, 
+    ActivatedRoute, 
+    Params }                           from '@angular/router';
+import { Observable }                  from 'rxjs/Observable';
+
+import { CompanyService }              from 'app/company/company.service';
+import { Company }                     from '../company';
+import { customTransitionRight }       from '../../shared/custom-transition-right.component';
+import { InputComponent }              from '../../shared/input/input.component';
+import { ItemDetailComponent }         from 'app/item/item-detail/item-detail.component';
 
 @Component({
   selector: 'app-edit-company',
   templateUrl: './edit-company.component.html',
   styleUrls: ['./edit-company.component.css'],
+  animations: [customTransitionRight ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EditCompanyComponent implements OnInit {
+    @HostBinding('@routeAnimation') routeAnimation = true;
+    @HostBinding('style.display')   display = 'block';
+    @HostBinding('style.position')  position = 'absolute';
   private company:Company;
   private errorMessage: string;
   private coId: number;

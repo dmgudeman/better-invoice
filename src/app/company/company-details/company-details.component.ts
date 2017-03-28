@@ -1,28 +1,36 @@
-import { Component, OnInit }   from '@angular/core';
-import { Location }            from '@angular/common';
+import { 
+    Component, 
+    OnInit,
+    HostBinding }               from '@angular/core';
+import { Location }             from '@angular/common';
 import {
     Router,
     ActivatedRoute,
-    Params
-}                              from '@angular/router';
-import { FlexLayoutModule }    from '@angular/flex-layout';
-import { Observable }          from 'RXJS/Observable';
-import { CompanyService }      from '../company.service';
-import { Company }             from '../company';
-import { InvoiceService }      from '../../invoice/invoice.service';
-import { Invoice }             from '../../invoice/invoice';
-import { Item }                from '../../item/item';
-import { ItemDetailComponent } from 'app/item/item-detail/item-detail.component';
+    Params }                    from '@angular/router';
+import { FlexLayoutModule }     from '@angular/flex-layout';
+import { Observable }           from 'RXJS/Observable';
+import { CompanyService }       from '../company.service';
+import { Company }              from '../company';
+import { customTransitionLeft } from '../../shared/custom-transition-left.component';
+import { InvoiceService }       from '../../invoice/invoice.service';
+import { Invoice }              from '../../invoice/invoice';
+import { Item }                 from '../../item/item';
+import { ItemDetailComponent }  from 'app/item/item-detail/item-detail.component';
 // import { NewItemComponent }    from '../../item/new-item/new-item.component';
-import { Shared }              from '../../shared/shared';
+import { Shared }               from '../../shared/shared';
 
 @Component({
     selector: 'app-company-details',
     templateUrl: './company-details.component.html',
     styleUrls: ['./company-details.component.css'],
+    animations: [customTransitionLeft]
 
 })
 export class CompanyDetailsComponent implements OnInit {
+    @HostBinding('@routeAnimation') routeAnimation = true;
+    @HostBinding('style.display')   display = 'block';
+    @HostBinding('style.position')  position = 'absolute';
+    
     companies: Company[];
     company;
     coId: number;
@@ -54,7 +62,8 @@ export class CompanyDetailsComponent implements OnInit {
         this.getItemsByCompany(this.coId);
         // console.log("coDetails " + coDetails);
 
-        // this.getCompany();
+        this.getCompany();
+        console.log("THIS COMPANY " + this.company)
     }
 
     getCompanies() {
@@ -102,24 +111,25 @@ export class CompanyDetailsComponent implements OnInit {
     }
     goToEditCompany() {
         if (this.coName) {
-            let coId = this.company.id;
-            let coName = this.company.name;
-            let color = this.company.color;
-            let hourly = this.company.hourly;
-            let paymentTerms = this.company.paymentTerms;
-            let active = this.company.active;
-            this._router.navigate(['/edit-company/' + coId, { id: coId, name: coName, color: color }]);
+            // let coId = this.company.id;
+            // let coName = this.company.name;
+            // let color = this.company.color;
+            // let hourly = this.company.hourly;
+            // let paymentTerms = this.company.paymentTerms;
+            // let active = this.company.active;
+            // this._router.navigate(['/edit-company/' + this.coId, { id: this.coId, name: coName, color: color }]);
+            this._router.navigate(['/edit-company/' + this.coId] );
+
         } else {
             this._router.navigate(['/edit-company']);
         }
     }
 
-    // getCompany() {
-    //     var stark = this._companyService
-    //         .getCompany(this.coId)
-    //         .subscribe(company => this.company = company)
-    //     return stark;
-    // }
+    getCompany() {
+         this._companyService
+            .getCompany(this.coId)
+            .subscribe(company => this.company = company)
+    }
 
     goBack() {
         this._location.back();

@@ -12,13 +12,13 @@ import { CompanyService }       from '../company.service';
 import { InputComponent }       from '../../shared/input/input.component';
 import { InvoiceService }       from '../../invoice/invoice.service';
 import { Invoice }              from '../../invoice/invoice';
-import { customTransition } from '../../shared/custom-transition.component';
+import { customTransitionLeft } from '../../shared/custom-transition-left.component';
 
 @Component({
   selector: 'app-companies',
   templateUrl: './companies.component.html',
   styleUrls: ['./companies.component.css'],
-  animations: [customTransition]
+  animations: [customTransitionLeft]
 })
 export class CompaniesComponent implements OnInit {
   @HostBinding('@routeAnimation') routeAnimation = true;
@@ -59,11 +59,11 @@ export class CompaniesComponent implements OnInit {
           let hourly = company.hourly;
           let paymentTerms = company.paymentTerms;
           let active = company.active;
-          setTimeout(()=>this._router.navigate(['/edit-company/' + coId, {id:coId, name:coName, color:color}]));
-          return false;
+          this._router.navigate(['/edit-company/' + coId, {id:coId, name:coName, color:color}]);
+          
       } else {
-          setTimeout(()=>this._router.navigate(['/edit-company']));
-          return false;
+        this._router.navigate(['/edit-company']);
+
      }
   }
 
