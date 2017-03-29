@@ -1,5 +1,5 @@
 import { Component, HostBinding } from '@angular/core';
-import { Ng2PageTransitionModule }  from 'ng2-page-transition';
+// import { Ng2PageTransitionModule }  from 'ng2-page-transition';
 //  import { customTransition } from './shared/custom-transition.component';
 
 @Component({

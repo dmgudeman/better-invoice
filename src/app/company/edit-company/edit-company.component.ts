@@ -34,43 +34,41 @@ export class EditCompanyComponent implements OnInit {
     @HostBinding('@routeAnimation') routeAnimation = true;
     @HostBinding('style.display')   display = 'block';
     @HostBinding('style.position')  position = 'absolute';
-  private company:Company;
-  private errorMessage: string;
-  private coId: number;
-  private coName:string;
-  private title:string;
-  private itemId: number;
+    private company:Company;
+    private errorMessage: string;
+    private coId: number;
+    private coName:string;
+    private title:string;
+    private itemId: number;
 
-
-  myform : FormGroup;
-  name = new FormControl;
-  color = new FormControl;
-  hourly= new FormControl;
-  paymentTerms= new FormControl;
-  active= new FormControl;
-  
-  
-  constructor(
-           private _companyService: CompanyService,
-           private _location:Location,
-           private _router:Router,
-           private _route:ActivatedRoute,
-           private _fb:FormBuilder) { }
-  ngOnInit(){
+    myform : FormGroup;
+    name = new FormControl;
+    color = new FormControl;
+    hourly= new FormControl;
+    paymentTerms= new FormControl;
+    active= new FormControl;
+    
+    constructor(
+        private _companyService: CompanyService,
+        private _location:Location,
+        private _router:Router,
+        private _route:ActivatedRoute,
+        private _fb:FormBuilder) { }
+    
+    ngOnInit(){
         this.myform = this._fb.group({
-                // "id":this.id,
-                "name":this.name,
-                "color":this.color,
-                "hourly": this.hourly,
-                "paymentTerms": this.paymentTerms,
-                "active": this.active,
+            // "id":this.id,
+            "name":this.name,
+            "color":this.color,
+            "hourly": this.hourly,
+            "paymentTerms": this.paymentTerms,
+            "active": this.active,
             });
         this._route.params
-                   .subscribe(params => { 
-                                          this.coId = params['id']
-                                          this.title = params['name']
-                                        });
-          console.log("hi there");                                        
+            .subscribe(params => { 
+                                    this.coId = params['id']
+                                    this.title = params['name']
+                                });
         this.title = this.coId ? " Edit "+ this.title + " Details" : " New Business";
                                   
         if(this.coId){
@@ -90,27 +88,27 @@ export class EditCompanyComponent implements OnInit {
                 }
             });
         }
-  }
+    }
  
-onSubmit() {
-    let  id = this.coId;
-    var payload = this.myform.value;
-    
-    var result;
-        if (id) {
-            result = this._companyService.updateCompany(payload, id);
-        } else {
-            let ID = (id) ? id : "ID NOT HERE";
-            result = this._companyService.addCompany(payload);
-        }   
-		result.subscribe(x => {
-            // Ideally, here we'd want:
-            // this.form.markAsPristine();
-            this._router.navigate(['companies']);
-        });
-	}
+    onSubmit() {
+        let  id = this.coId;
+        var payload = this.myform.value;
+        
+        var result;
+            if (id) {
+                result = this._companyService.updateCompany(payload, id);
+            } else {
+                let ID = (id) ? id : "ID NOT HERE";
+                result = this._companyService.addCompany(payload);
+            }   
+            result.subscribe(x => {
+                // Ideally, here we'd want:
+                // this.form.markAsPristine();
+                this._router.navigate(['companies']);
+            });
+    }
+
     goBack(): void {
         this._location.back();
     }
-    
 }
