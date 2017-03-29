@@ -40,7 +40,7 @@
                    </div>
                    <div class="row"> 
                         <div class="form-group col-md-12 iv-discount "> 
-                              <div *ngIf="toggle">
+                              <div *ngIf="!toggle">
                                     <label for="amount">Discount Amount </label>
                                     <div class="input-group ">
                                         <input class="form-control "
@@ -53,7 +53,7 @@
                                         <span class="input-group-addon iv-group-addon-1" (click)= "toggleIt()">$</span>
                                     </div>
                               </div>
-                              <div *ngIf="!toggle">
+                              <div *ngIf="toggle">
                                     <label for="discount"> Discount Percentage </label>
                                     <div class="input-group ">
                                         <input class="form-control "
