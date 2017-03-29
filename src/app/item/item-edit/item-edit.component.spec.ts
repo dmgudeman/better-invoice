@@ -4,21 +4,21 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 
-import { NewItemComponent } from './new-item.component';
+import { ItemEditComponent } from './item-edit.component';
 
-describe('NewItemComponent', () => {
-  let component: NewItemComponent;
-  let fixture: ComponentFixture<NewItemComponent>;
+describe('ItemEditComponent', () => {
+  let component: ItemEditComponent;
+  let fixture: ComponentFixture<ItemEditComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NewItemComponent ]
+      declarations: [ ItemEditComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NewItemComponent);
+    fixture = TestBed.createComponent(ItemEditComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

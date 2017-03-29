@@ -1,4 +1,5 @@
 import { NgModule }                 from '@angular/core';
+import { BrowserAnimationsModule }  from '@angular/platform-browser/animations';
 import { BrowserModule }            from '@angular/platform-browser';
 import { FormsModule, 
          ReactiveFormsModule }      from '@angular/forms';
@@ -11,13 +12,13 @@ import { MaterialModule }           from '@angular/material';
 import { AppRoutingModule }         from './app-routing.module';
 import { CompanyRoutingModule }     from './company/company-routing.module';
 import { CompanyModule }            from './company/company.module';
-import { Ng2PageTransitionModule } from 'ng2-page-transition';
 import { SharedModule }             from 'app/shared/shared.module';
 
 // 3rd party modules
 import 'jquery';
 import { MyDatePickerModule }       from 'mydatepicker';
 import { MyDateRangePickerModule }  from 'mydaterangepicker';
+import { Ng2PageTransitionModule }  from 'ng2-page-transition';
 
 // components
 import { AppComponent }             from './app.component';
@@ -49,6 +50,7 @@ import { ItemListComponent }        from './item/item-list/item-list.component';
     ItemListComponent,
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     CompanyModule,
     FlexLayoutModule,

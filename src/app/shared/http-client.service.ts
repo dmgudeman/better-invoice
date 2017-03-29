@@ -53,4 +53,4 @@ export class HttpClientService {
     return returnReponse;
   }
 }
-}
+
