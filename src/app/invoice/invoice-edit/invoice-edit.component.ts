@@ -100,6 +100,7 @@ export class InvoiceEditComponent implements OnInit {
     toggle = true;
     toggleIt() {
         this.toggle = !this.toggle;
+        console.log("TOGGLE = " + this.toggle)
         return this.toggle;
     }
 
