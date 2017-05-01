@@ -1,14 +1,17 @@
 import { 
-    Component, 
-    OnInit,
-    HostBinding }               from '@angular/core';
+         Component, 
+         OnInit,
+         HostBinding }          from '@angular/core';
 import { Location }             from '@angular/common';
 import {
-    Router,
-    ActivatedRoute,
-    Params }                    from '@angular/router';
+         Router,
+         ActivatedRoute,
+         Params }               from '@angular/router';
 import { FlexLayoutModule }     from '@angular/flex-layout';
+// 3rd party modules
 import { Observable }           from 'RXJS/Observable';
+// components
+import { AddressComponent }     from '../../address/address/address.component';
 import { CompanyService }       from '../company.service';
 import { Company }              from '../company';
 import { customTransitionLeft } from '../../shared/custom-transition-left.component';
@@ -16,7 +19,6 @@ import { InvoiceService }       from '../../invoice/invoice.service';
 import { Invoice }              from '../../invoice/invoice';
 import { Item }                 from '../../item/item';
 import { ItemDetailComponent }  from 'app/item/item-detail/item-detail.component';
-// import { NewItemComponent }    from '../../item/new-item/new-item.component';
 import { Shared }               from '../../shared/shared';
 
 @Component({
@@ -62,8 +64,8 @@ export class CompanyDetailsComponent implements OnInit {
         this.getItemsByCompany(this.coId);
         // console.log("coDetails " + coDetails);
 
-        this.getCompany();
-        console.log("THIS COMPANY " + this.company)
+        this.getCompany(this.coId);
+        
     }
 
     getCompanies() {
@@ -125,10 +127,13 @@ export class CompanyDetailsComponent implements OnInit {
         }
     }
 
-    getCompany() {
+    getCompany(coId) {
          this._companyService
-            .getCompany(this.coId)
-            .subscribe(company => this.company = company)
+            .getCompany(coId)
+            .subscribe(company => {this.company = company;
+                   console.log("this.coId", this.coId);
+                   console.log("THIS COMPANY " + JSON.stringify(this.company));
+            })
     }
 
     goBack() {

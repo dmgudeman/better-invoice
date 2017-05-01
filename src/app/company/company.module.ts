@@ -6,7 +6,7 @@ import { HttpModule }              from '@angular/http';
 import { RouterModule, Routes }    from '@angular/router';
 import { MaterialModule }          from '@angular/material';
 import { SharedModule }            from 'app/shared/shared.module';
-
+import { AddressComponent }        from '../address/address/address.component';
 import { CompaniesComponent }      from './companies/companies.component';
 import { CompanyDetailsComponent } from './company-details/company-details.component';
 import { CompanyCardComponent }    from './company-card/company-card.component';
@@ -15,10 +15,11 @@ import { EditCompanyComponent }    from './edit-company/edit-company.component';
 
 @NgModule({
   declarations: [
+    AddressComponent,
     CompaniesComponent,
     CompanyCardComponent,
     CompanyDetailsComponent,
-    EditCompanyComponent,
+    EditCompanyComponent
   ],
   imports: [
     CommonModule,

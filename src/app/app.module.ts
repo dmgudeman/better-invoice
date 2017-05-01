@@ -21,6 +21,7 @@ import { MyDateRangePickerModule }  from 'mydaterangepicker';
 import { Ng2PageTransitionModule }  from 'ng2-page-transition';
 
 // components
+// import { AddressComponent }         from './address/address.component';
 import { AppComponent }             from './app.component';
 import { InvoiceEditComponent }     from './invoice/invoice-edit/invoice-edit.component';
 import { ItemEditComponent }        from './item/item-edit/item-edit.component';
@@ -36,9 +37,11 @@ import { InvoicePrePdfComponent }   from './invoice/invoice-pre-pdf/invoice-pre-
 import { InvoiceService }           from './invoice/invoice.service';
 import { MyGlobals }                from './shared/myglobals';
 import { ItemListComponent }        from './item/item-list/item-list.component';
+import { AddressEditComponent } from './address/address-edit/address-edit.component';
 
 @NgModule({
   declarations: [
+    // AddressComponent,
     AppComponent,
     InvoicePrePdfComponent,
     InvoiceEditComponent,
@@ -48,6 +51,7 @@ import { ItemListComponent }        from './item/item-list/item-list.component';
     Tab,
     Tabs,
     ItemListComponent,
+    AddressEditComponent,
   ],
   imports: [
     BrowserAnimationsModule,
