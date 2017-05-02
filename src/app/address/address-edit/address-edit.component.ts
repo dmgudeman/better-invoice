@@ -54,9 +54,7 @@ export class AddressEditComponent implements OnInit {
         private _fb:FormBuilder) { }
 
   ngOnInit() {
-    // this.getCompany(this.coId);
     this.myform = this._fb.group({
-            // "id":this.id,
             "street1":this.street1,
             "street2":this.street2,
             "city": this.city,
@@ -64,41 +62,28 @@ export class AddressEditComponent implements OnInit {
             "postalCode": this.postalCode,
             "country": this.country
             });
-        // this._route.params
-        //     .subscribe(params => { 
-        //                             this.coId = params['id']
-        //                             this.title = params['name']
-        //                         });
-        // this.title = this.coId ? " Edit "+ this.title + " Details" : " New Business";
-                                  
-  //       if(this.coId){
-  //           this._companyService.getCompany(this.coId)
-  //               .subscribe(company => {this.company= company;
-  //                   // this.id.setValue(this.company.id);
-  //                   this.name.setValue(this.company.name);
-  //                   this.color.setValue(this.company.color);
-  //                   this.hourly.setValue(this.company.hourly);
-  //                   this.paymentTerms.setValue(this.company.paymentTerms);
-  //                   this.active.setValue(this.company.active);
-  //                   return this.company;
-  //               },
-  //               response => {
-  //                   if (response.status === 404){
-  //                       this._router.navigate(['NotFound']);
-  //               }
-  //           });
-
-
-  // }
+  
   }
 
-  // getCompany(coId) {
-  //   this._companyService
-  //     .getCompany(coId)
-  //     .subscribe(company => {
-  //     this.company = company;
-  //       console.log("this.coId in address", this.coId);
-  //       console.log("THIS COMPANY in address" + JSON.stringify(this.company));
-  //     })
-  // }
+  onSubmit() {
+        let  id = null;
+        var payload = this.myform.value;
+        
+        var result;
+            if (id) {
+                result = this._addressService.addAddress(payload);
+            } else {
+                let ID = (id) ? id : "ID NOT HERE";
+                result = this._addressService.addAddress(payload);
+            }   
+            result.subscribe(x => {
+                // Ideally, here we'd want:
+                // this.form.markAsPristine();
+                this._router.navigate(['companies']);
+            });
+    }
+
+    goBack(): void {
+        this._location.back();
+    }
 }
