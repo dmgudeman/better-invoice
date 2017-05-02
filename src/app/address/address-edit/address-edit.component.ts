@@ -17,7 +17,7 @@ import {
     ActivatedRoute, 
     Params }                           from '@angular/router';
 import { Observable }                  from 'rxjs/Observable';
-
+import { AddressService }              from '../address.service';
 import { CompanyService }              from 'app/company/company.service';
 import { Company }                     from '../../company/company';
 import { customTransitionRight }       from '../../shared/custom-transition-right.component';
@@ -47,13 +47,14 @@ export class AddressEditComponent implements OnInit {
     invalid = new FormControl;
 
   constructor( private _companyService: CompanyService,
+        private _addressService:AddressService,
         private _location:Location,
         private _router:Router,
         private _route:ActivatedRoute,
         private _fb:FormBuilder) { }
 
   ngOnInit() {
-    this.getCompany(this.coId);
+    // this.getCompany(this.coId);
     this.myform = this._fb.group({
             // "id":this.id,
             "street1":this.street1,
@@ -63,12 +64,12 @@ export class AddressEditComponent implements OnInit {
             "postalCode": this.postalCode,
             "country": this.country
             });
-        this._route.params
-            .subscribe(params => { 
-                                    this.coId = params['id']
-                                    this.title = params['name']
-                                });
-        this.title = this.coId ? " Edit "+ this.title + " Details" : " New Business";
+        // this._route.params
+        //     .subscribe(params => { 
+        //                             this.coId = params['id']
+        //                             this.title = params['name']
+        //                         });
+        // this.title = this.coId ? " Edit "+ this.title + " Details" : " New Business";
                                   
   //       if(this.coId){
   //           this._companyService.getCompany(this.coId)
@@ -91,13 +92,13 @@ export class AddressEditComponent implements OnInit {
   // }
   }
 
-  getCompany(coId) {
-    this._companyService
-      .getCompany(coId)
-      .subscribe(company => {
-      this.company = company;
-        console.log("this.coId in address", this.coId);
-        console.log("THIS COMPANY in address" + JSON.stringify(this.company));
-      })
-  }
+  // getCompany(coId) {
+  //   this._companyService
+  //     .getCompany(coId)
+  //     .subscribe(company => {
+  //     this.company = company;
+  //       console.log("this.coId in address", this.coId);
+  //       console.log("THIS COMPANY in address" + JSON.stringify(this.company));
+  //     })
+  // }
 }
