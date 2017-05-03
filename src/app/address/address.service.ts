@@ -43,7 +43,9 @@ export class AddressService {
 //     }
 
     addAddress(payload){
-		return this._http.post(this.getAddressUpdateUrl(), payload)
+        console.log("PAYLOAD " + JSON.stringify(payload));
+        console.log("this.getAddressUpdateUrl()" + this.getAddressUpdateUrl());
+       		return this._http.post(this.getAddressUpdateUrl(), payload)
                             .map((res:Response) => <Address>res.json())
                             .catch(this.shared.handleError);
         }

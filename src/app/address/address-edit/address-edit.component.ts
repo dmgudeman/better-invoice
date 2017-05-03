@@ -30,12 +30,10 @@ import { ItemDetailComponent }         from 'app/item/item-detail/item-detail.co
   styleUrls: ['./address-edit.component.css']
 })
 export class AddressEditComponent implements OnInit {
-  @Input() coId: number;
- private company:Company;
+    @Input() coId: number;
+    private addressId:number;
+    private company:Company;
     private errorMessage: string;
-    private coName:string;
-    private title:string;
-    private itemId: number;
 
     myform : FormGroup;
     street1 = new FormControl;
@@ -46,8 +44,9 @@ export class AddressEditComponent implements OnInit {
     country = new FormControl;
     invalid = new FormControl;
 
-  constructor( private _companyService: CompanyService,
+  constructor( 
         private _addressService:AddressService,
+        private _companyService:CompanyService,
         private _location:Location,
         private _router:Router,
         private _route:ActivatedRoute,
@@ -68,7 +67,7 @@ export class AddressEditComponent implements OnInit {
   onSubmit() {
         let  id = null;
         var payload = this.myform.value;
-        
+
         var result;
             if (id) {
                 result = this._addressService.addAddress(payload);

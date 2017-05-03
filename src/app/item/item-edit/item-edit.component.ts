@@ -125,17 +125,26 @@ export class ItemEditComponent implements OnInit {
     // }
     onSubmit() {
         let id      = this.id;
-        let x       = this.myform.value.date;
-        let payload = {item:x};
-        let result;
-        
+        let date       = this.myform.value.date;
         this.prepareDate(this.date);
-        x = this.myform.value;
+      
+        let result;
+        // console.log (`x     ${x}`);
+        // console.log(`payload ${payload}`);
+        
+        // console.log(`HIIIIIIIIIII TTTTTTTTTTTTTT `)
+        let x = this.myform.value;
+        let payload = {item:x};
+        console.log(`IE date  ${JSON.stringify(date)}`);
+        console.log (`IE payload     ${JSON.stringify(payload)}`);
+        console.log (`IE x     ${JSON.stringify(x)}`);
         
         if (id) {
            result = this._itemService.updateItem(payload, id);
+
         } else {    
            result = this._itemService.addItem(payload);
+        //    console.log(`result on onSubmit in item-edit ${JSON.stringify(result)}`);
         }
            result.subscribe(x => {
                     // Ideally, here we'd want:

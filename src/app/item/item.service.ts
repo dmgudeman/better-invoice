@@ -58,7 +58,7 @@ export class ItemService {
 	}
     
     addItem(payload){
-		// console.log("ADDITEM: payload " + JSON.stringify(payload))
+		console.log("ADDITEM: payload " + JSON.stringify(payload))
 		return this._http
 		           .post(this._url, payload)
 				   .map(res => res.json())
