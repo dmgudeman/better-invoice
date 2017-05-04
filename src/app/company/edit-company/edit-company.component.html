@@ -18,6 +18,8 @@
         <div class="colum" id="col2"></div>
         <div class="colum" id="col3">
             <form [formGroup]="myform" (ngSubmit)="onSubmit()">
+                 <md-tab-group>
+                    <md-tab label="General">
                 <!--<div> <pre>{{ myform.value | json}}</pre></div>-->
                 <div id="row1" class="row">
                     <div id="input-box1" class="input-box" name="name">
@@ -70,8 +72,15 @@
                         </div>
                         <div id="input-box6" class="input-box"></div>
                 </div>
+               
+                </md-tab>
+                    <md-tab label="Address">
+                        <app-address-edit></app-address-edit>
+                    </md-tab>
+                        </md-tab-group>
+            </form>
                 <!-- FOOTER -->
-                <footer id="row4" class="row">
+             <footer id="row4" class="row">
                     <div id="input-box7" class="input-box">
                         <label id="label7" class="input"></label>
                         <div class="footer-row">
@@ -82,7 +91,6 @@
                     </div>
                     <div id="input-box8" class="input-box"></div>
                 </footer>
-            </form>
         </div>
         <div class="colum" id="col4"></div>
     </div>

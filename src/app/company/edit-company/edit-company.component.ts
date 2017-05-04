@@ -67,9 +67,10 @@ export class EditCompanyComponent implements OnInit {
         this._route.params
             .subscribe(params => { 
                                     this.coId = params['id']
-                                    this.title = params['name']
+                                    this.coName = params['coName']
+                                    console.log(`name ${this.coName}`);
                                 });
-        this.title = this.coId ? " Edit "+ this.title + " Details" : " New Business";
+        this.title = this.coId ? " Edit "+ this.coName + " Details" : " New Business";
                                   
         if(this.coId){
             this._companyService.getCompany(this.coId)

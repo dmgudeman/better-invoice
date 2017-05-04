@@ -60,9 +60,8 @@ export class CompanyDetailsComponent implements OnInit {
                 this.coName = params['coName'];
                 this.coColor = params['coColor'];
             });
-        // let coDetails = 
+        console.log(`this.coId ngOnInit ${this.coId}`)
         this.getItemsByCompany(this.coId);
-        // console.log("coDetails " + coDetails);
 
         this.getCompany(this.coId);
         
@@ -75,6 +74,15 @@ export class CompanyDetailsComponent implements OnInit {
                 this.companies = companies;
                 return this.companies;
             });
+    }
+
+    getCompany(coId) {
+         this._companyService
+            .getCompany(coId)
+            .subscribe(company => {this.company = company;
+                   console.log("this.coId", this.coId);
+                //    console.log("THIS COMPANY " + JSON.stringify(this.company));
+            })
     }
 
     setColor(color) {
@@ -98,6 +106,7 @@ export class CompanyDetailsComponent implements OnInit {
     goToEditItem(item?: Item, company?: Company) {
         let id = item.id;
         let coId = item.companyId;
+        
 
         this._router.navigate(['/item-edit/' + id, { id: id, coId: coId }]);
     }
@@ -120,21 +129,14 @@ export class CompanyDetailsComponent implements OnInit {
             // let paymentTerms = this.company.paymentTerms;
             // let active = this.company.active;
             // this._router.navigate(['/edit-company/' + this.coId, { id: this.coId, name: coName, color: color }]);
-            this._router.navigate(['/edit-company/' + this.coId] );
+            this._router.navigate(['/edit-company/' + + this.coId, {id: this.coId, coName: this.coName}] );
 
         } else {
             this._router.navigate(['/edit-company']);
         }
     }
 
-    getCompany(coId) {
-         this._companyService
-            .getCompany(coId)
-            .subscribe(company => {this.company = company;
-                   console.log("this.coId", this.coId);
-                   console.log("THIS COMPANY " + JSON.stringify(this.company));
-            })
-    }
+    
 
     goBack() {
         this._location.back();
