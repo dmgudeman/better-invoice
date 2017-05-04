@@ -1,16 +1,16 @@
 export class Address {
-    city:string;
-    country:string;
-    invalid:boolean;
-    latitude:number;
-    longitude:number;
-    postalCode:string;
-    street1:string;
-    street2:string;
-    state:string;
+    city:string = '';
+    country:string = '';
+    invalid:boolean = false;
+    latitude:number = null;
+    longitude:number = null;
+    postalCode:string = '';
+    street1:string = '';
+    street2:string = '';
+    state:string = '';
     updatedAt:Date;
     createdAt:Date;
-    companyId:number;
+    companyId:number = null;
 
    constructor(city:string, country:string, invalid:boolean, postalCode:string, state:string, street1:string, street2?:string, companyId?:number){
        this.city = city;

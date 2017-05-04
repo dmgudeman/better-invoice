@@ -43,6 +43,8 @@ export class AddressEditComponent implements OnInit {
     postalCode = new FormControl;
     country = new FormControl;
     invalid = new FormControl;
+    longitude = new FormControl;
+    latitude = new FormControl;
 
   constructor( 
         private _addressService:AddressService,
@@ -53,13 +55,17 @@ export class AddressEditComponent implements OnInit {
         private _fb:FormBuilder) { }
 
   ngOnInit() {
+    this.invalid.setValue(false);
     this.myform = this._fb.group({
+            "city": this.city,
+            "country": this.country,
+            "invalid": this.invalid,
+            "latitude": this.latitude,
+            "longitude": this.longitude,
+            "postalCode": this.postalCode,
             "street1":this.street1,
             "street2":this.street2,
-            "city": this.city,
             "state": this.state,
-            "postalCode": this.postalCode,
-            "country": this.country
             });
   
   }

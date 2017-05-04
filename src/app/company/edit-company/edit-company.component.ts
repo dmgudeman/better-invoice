@@ -45,8 +45,8 @@ export class EditCompanyComponent implements OnInit {
     name = new FormControl;
     color = new FormControl;
     hourly= new FormControl;
-    paymentTerms= new FormControl;
-    active= new FormControl;
+    paymentTerms = new FormControl;
+    active= new FormControl
     
     constructor(
         private _companyService: CompanyService,
