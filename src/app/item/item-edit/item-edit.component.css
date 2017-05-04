@@ -101,6 +101,9 @@ label {
     width: 100%;
 }
 
+#ni-type {
+    visibility:hidden;
+}
 .ni-hours {
     width: 100%;
 }

@@ -59,8 +59,9 @@ export class ItemService {
     
     addItem(payload){
 		console.log("ADDITEM: payload " + JSON.stringify(payload))
+		console.log(`this._url ${this._url}/items`);
 		return this._http
-		           .post(this._url, payload)
+		           .post(this._url + '/items', payload)
 				   .map(res => res.json())
                    .catch(this.shared.handleError);
 	}

@@ -31,7 +31,7 @@ import { customTransitionRight } from '../../shared/custom-transition-right.comp
     animations: [customTransitionRight]
 })
 export class ItemEditComponent implements OnInit {
-    @HostBinding('@routeAnimation') routeAnimation = true;
+  @HostBinding('@routeAnimation') routeAnimation = true;
   @HostBinding('style.display')   display = 'block';
   @HostBinding('style.position')  position = 'absolute';
     moment = require('moment');
@@ -47,6 +47,7 @@ export class ItemEditComponent implements OnInit {
     private m = this.moment();
     private myDatePickerOptions: IMyOptions = { dateFormat: 'yyyy-mm-dd'};
     private title: string;
+    private type: string = 'placeholder';
     private uId: number;
 
 
@@ -56,6 +57,7 @@ export class ItemEditComponent implements OnInit {
     fcAmount    = new FormControl(0);
     fcDate      = new FormControl({date: {year: 2018, month: 10, day: 9}}, Validators.required);
     fcNotes     = new FormControl('');
+    fcType      = new FormControl('');
     fcCompanyId = new FormControl();
 
     constructor(private _itemService: ItemService,
@@ -71,6 +73,7 @@ export class ItemEditComponent implements OnInit {
             "description": this.fcNotes,
             "amount":this.fcAmount,
             "hours":this.fcHours,
+            "type":this.fcType,
             "companyId": this.fcCompanyId
         });
      
@@ -93,6 +96,7 @@ export class ItemEditComponent implements OnInit {
                                     this.fcNotes.setValue(this.item.description);
                                     this.fcAmount.setValue(this.item.amount);
                                     this.fcHours.setValue(this.item.hours);
+                                    this.fcType.setValue(this.item.type);
                                     this.fcCompanyId.setValue(this.item.companyId);
                                     return this.item;
                 },
@@ -133,6 +137,7 @@ export class ItemEditComponent implements OnInit {
         // console.log(`payload ${payload}`);
         
         // console.log(`HIIIIIIIIIII TTTTTTTTTTTTTT `)
+        console.log(`this.fcType.value ${this.fcType.value}`);
         let x = this.myform.value;
         let payload = {item:x};
         console.log(`IE date  ${JSON.stringify(date)}`);
