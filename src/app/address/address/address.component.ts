@@ -3,6 +3,7 @@ import {
     OnInit,
     Input 
   }                          from '@angular/core';
+import { Address }           from '../address';
 import { Company }           from '../../company/company';
 import { CompanyService }    from '../../company/company.service';
 
@@ -13,12 +14,15 @@ import { CompanyService }    from '../../company/company.service';
 })
 export class AddressComponent implements OnInit {
   @Input() coId:number;
+  @Input() address:Address;
   company: Company;
+  city: string;
 
   constructor(private _companyService:CompanyService) { }
   
   ngOnInit() {
     this.getCompany(this.coId);
+    console.log(`Address ngOnInit Address ${this.address}`);
 
 
   }
@@ -27,7 +31,8 @@ export class AddressComponent implements OnInit {
          this._companyService
             .getCompany(coId)
             .subscribe(company => {this.company = company;
-                   console.log("this.coId in address", this.coId);
-                   console.log("THIS COMPANY in address" + JSON.stringify(this.company));
+                   this.city = company.Address.city;
+                   console.log("Address getCompany this.coId ", this.coId);
+                   console.log("Address getCompany this.company" + JSON.stringify(this.company));
             })
     }}

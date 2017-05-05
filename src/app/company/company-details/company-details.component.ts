@@ -11,6 +11,7 @@ import { FlexLayoutModule }     from '@angular/flex-layout';
 // 3rd party modules
 import { Observable }           from 'RXJS/Observable';
 // components
+import { Address }              from '../../address/address';
 import { AddressComponent }     from '../../address/address/address.component';
 import { CompanyService }       from '../company.service';
 import { Company }              from '../company';
@@ -33,6 +34,7 @@ export class CompanyDetailsComponent implements OnInit {
     @HostBinding('style.display')   display = 'block';
     @HostBinding('style.position')  position = 'absolute';
     
+    address: Address;
     companies: Company[];
     company;
     coId: number;
@@ -45,6 +47,7 @@ export class CompanyDetailsComponent implements OnInit {
     items: Item[] = [];
     invoice: Invoice;
     shared: Shared = new Shared();
+    
 
     constructor(
         private _companyService: CompanyService,
@@ -60,10 +63,12 @@ export class CompanyDetailsComponent implements OnInit {
                 this.coName = params['coName'];
                 this.coColor = params['coColor'];
             });
-        console.log(`this.coId ngOnInit ${this.coId}`)
+        console.log(`Company-details ngOnInit this.coId ${this.coId}`)
+
+         this.getCompany(this.coId);
         this.getItemsByCompany(this.coId);
 
-        this.getCompany(this.coId);
+       
         
     }
 
@@ -80,7 +85,10 @@ export class CompanyDetailsComponent implements OnInit {
          this._companyService
             .getCompany(coId)
             .subscribe(company => {this.company = company;
-                   console.log("this.coId", this.coId);
+
+                this.address = company.Address;
+                   console.log("Company-details getCompany this.coId", this.coId);
+                   console.log(`Company-details getCompany Address ${JSON.stringify(company.Address)}`)
                 //    console.log("THIS COMPANY " + JSON.stringify(this.company));
             })
     }

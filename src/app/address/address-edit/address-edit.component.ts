@@ -17,6 +17,7 @@ import {
     ActivatedRoute, 
     Params }                           from '@angular/router';
 import { Observable }                  from 'rxjs/Observable';
+import { Address }                     from '../address';
 import { AddressService }              from '../address.service';
 import { CompanyService }              from 'app/company/company.service';
 import { Company }                     from '../../company/company';
@@ -31,6 +32,7 @@ import { ItemDetailComponent }         from 'app/item/item-detail/item-detail.co
 })
 export class AddressEditComponent implements OnInit {
     @Input() coId: number;
+    @Input() private address:Address;
     private addressId:number;
     private company:Company;
     private errorMessage: string;
@@ -56,6 +58,20 @@ export class AddressEditComponent implements OnInit {
 
   ngOnInit() {
     this.invalid.setValue(false);
+    // if(this.coId){
+    //         this._companyService.getCompany(this.coId)
+    //             .subscribe(company => {this.company= company;
+    //                 this.address.setValue(company.address);
+    //                 return this.company;
+    //             },
+    //             response => {
+    //                 if (response.status === 404){
+    //                     this._router.navigate(['NotFound']);
+    //             }
+    //         });
+    //     }
+    this.city.setValue(this.address.city);
+    
     this.myform = this._fb.group({
             "city": this.city,
             "country": this.country,
@@ -66,7 +82,8 @@ export class AddressEditComponent implements OnInit {
             "street1":this.street1,
             "street2":this.street2,
             "state": this.state,
-            });
+        });
+    
   
   }
 
