@@ -32,18 +32,19 @@ import { ItemDetailComponent }         from 'app/item/item-detail/item-detail.co
 })
 export class AddressEditComponent implements OnInit {
     @Input() coId: number;
-    @Input() private address:Address;
+    // @Input() private address:Address;
+            address:Address;
     private addressId:number;
     private company:Company;
     private errorMessage: string;
 
     myform : FormGroup;
-    street1 = new FormControl;
-    street2 = new FormControl;
-    city = new FormControl;
-    state = new FormControl;
-    postalCode = new FormControl;
-    country = new FormControl;
+    street1 = new FormControl();
+    street2 = new FormControl();
+    city = new FormControl();
+    state = new FormControl();
+    postalCode = new FormControl();
+    country = new FormControl();
     invalid = new FormControl;
     longitude = new FormControl;
     latitude = new FormControl;
@@ -58,19 +59,11 @@ export class AddressEditComponent implements OnInit {
 
   ngOnInit() {
     this.invalid.setValue(false);
-    // if(this.coId){
-    //         this._companyService.getCompany(this.coId)
-    //             .subscribe(company => {this.company= company;
-    //                 this.address.setValue(company.address);
-    //                 return this.company;
-    //             },
-    //             response => {
-    //                 if (response.status === 404){
-    //                     this._router.navigate(['NotFound']);
-    //             }
-    //         });
-    //     }
-    this.city.setValue(this.address.city);
+    console.log(`address-edit ngOnInt this.coId ${this.coId}`)
+    console.log(`address-edit ngOnInt this.coId ${this.coId}`)
+    console.log(`address-edit ngOnInt this.coId ${this.coId}`)
+   
+
     
     this.myform = this._fb.group({
             "city": this.city,
@@ -84,8 +77,30 @@ export class AddressEditComponent implements OnInit {
             "state": this.state,
         });
     
-  
+   this.setAddress(this.coId);
   }
+
+   setAddress(coId) { 
+         this._companyService
+            .getCompany(coId)
+            .subscribe(company => {this.company= company;
+                this.address = company.Address;
+                   console.log(`address-edit setAddress company ${JSON.stringify(this.address)}`)
+                   this.street1.setValue(this.address.street1);
+                   this.street2.setValue(this.address.street2);
+                   this.city.setValue(this.address.city);
+                   this.state.setValue(this.address.state);
+                   this.postalCode.setValue(this.address.postalCode);
+                   this.country.setValue(this.address.country);
+                  //  console.log("Address getCompany this.coId ", this.coId);
+                  response => {
+                    if (response.status === 404){
+                        this._router.navigate(['NotFound']);
+                 //  console.log("Address getCompany this.company" + JSON.stringify(this.company));
+                    }
+                }
+            });
+    }
 
   onSubmit() {
         let  id = null;

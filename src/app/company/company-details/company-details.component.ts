@@ -63,7 +63,7 @@ export class CompanyDetailsComponent implements OnInit {
                 this.coName = params['coName'];
                 this.coColor = params['coColor'];
             });
-        console.log(`Company-details ngOnInit this.coId ${this.coId}`)
+        // console.log(`Company-details ngOnInit this.coId ${this.coId}`)
 
          this.getCompany(this.coId);
         this.getItemsByCompany(this.coId);

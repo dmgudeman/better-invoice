@@ -21,18 +21,18 @@ export class AddressComponent implements OnInit {
   constructor(private _companyService:CompanyService) { }
   
   ngOnInit() {
-    this.getCompany(this.coId);
-    console.log(`Address ngOnInit Address ${this.address}`);
-
+    this.setAddress(this.coId);
+    // console.log(`Address ngOnInit Address ${this.address}`);
 
   }
 
-   getCompany(coId) { 
+   setAddress(coId) { 
          this._companyService
             .getCompany(coId)
             .subscribe(company => {this.company = company;
                    this.city = company.Address.city;
-                   console.log("Address getCompany this.coId ", this.coId);
-                   console.log("Address getCompany this.company" + JSON.stringify(this.company));
-            })
-    }}
+                  //  console.log("Address getCompany this.coId ", this.coId);
+                  //  console.log("Address getCompany this.company" + JSON.stringify(this.company));
+            });
+    }
+}

@@ -17,6 +17,7 @@ import {
     Params }                           from '@angular/router';
 import { Observable }                  from 'rxjs/Observable';
 
+import { Address }                     from '../../address/address';
 import { CompanyService }              from 'app/company/company.service';
 import { Company }                     from '../company';
 import { customTransitionRight }       from '../../shared/custom-transition-right.component';
@@ -34,6 +35,7 @@ export class EditCompanyComponent implements OnInit {
     @HostBinding('@routeAnimation') routeAnimation = true;
     @HostBinding('style.display')   display = 'block';
     @HostBinding('style.position')  position = 'absolute';
+            address:Address;
     private company:Company;
     private errorMessage: string;
     private coId: number;
@@ -75,12 +77,13 @@ export class EditCompanyComponent implements OnInit {
         if(this.coId){
             this._companyService.getCompany(this.coId)
                 .subscribe(company => {this.company= company;
-                    // this.id.setValue(this.company.id);
+        console.log(`Company-details ngOnInit this.company ${JSON.stringify(company)}`)
+                    
                     this.name.setValue(this.company.name);
                     this.color.setValue(this.company.color);
                     this.hourly.setValue(this.company.hourly);
                     this.paymentTerms.setValue(this.company.paymentTerms);
-                    this.active.setValue(this.company.active);
+                    this.active.setValue(this.company.active)
                     return this.company;
                 },
                 response => {
