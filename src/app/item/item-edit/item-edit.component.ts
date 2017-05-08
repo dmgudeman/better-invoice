@@ -137,12 +137,12 @@ export class ItemEditComponent implements OnInit {
         // console.log(`payload ${payload}`);
         
         // console.log(`HIIIIIIIIIII TTTTTTTTTTTTTT `)
-        console.log(`this.fcType.value ${this.fcType.value}`);
+        // console.log(`this.fcType.value ${this.fcType.value}`);
         let x = this.myform.value;
         let payload = {item:x};
-        console.log(`IE date  ${JSON.stringify(date)}`);
-        console.log (`IE payload     ${JSON.stringify(payload)}`);
-        console.log (`IE x     ${JSON.stringify(x)}`);
+        // console.log(`IE date  ${JSON.stringify(date)}`);
+        // console.log (`IE payload     ${JSON.stringify(payload)}`);
+        // console.log (`IE x     ${JSON.stringify(x)}`);
         
         if (id) {
            result = this._itemService.updateItem(payload, id);

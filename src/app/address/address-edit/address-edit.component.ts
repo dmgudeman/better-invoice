@@ -107,15 +107,18 @@ export class AddressEditComponent implements OnInit {
 
   onSubmit() {
         let  id = this.address.id;
-        var payload = this.myform.value;
-        console.log(`address-edit onSubmit payload ${payload}`)
+        console.log(`address-edit onSubmit id ${id}`);
+        
+        let x = this.myform.value;
+        let payload = {address:x};
+        console.log(`address-edit onSubmit payload ${JSON.stringify(payload)}`)
 
         var result;
             if (!id) {
                 result = this._addressService.addAddress(payload);
             } else {
                 let ID = (id) ? id : "ID NOT HERE";
-                result = this._addressService.addAddress(payload);
+                result = this._addressService.updateAddress(payload, id);
             }   
             result.subscribe(x => {
                 // Ideally, here we'd want:

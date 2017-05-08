@@ -44,14 +44,26 @@ export class AddressService {
 
     addAddress(payload){
         console.log("PAYLOAD " + JSON.stringify(payload));
-        console.log("this.getAddressUpdateUrl()" + this.getAddressUpdateUrl());
-       		return this._http.post(this.getAddressUpdateUrl(), payload)
+        console.log("this.getAddressUpdateUrl()" + this.getAddressUrl());
+       		return this._http.post(this.getAddressUrl(), payload)
                             .map((res:Response) => <Address>res.json())
                             .catch(this.shared.handleError);
         }
-     
+     updateAddress(payload, id){
+	    console.log("address.service updateAdress payload " + JSON.stringify(payload))
 
-     getAddressUpdateUrl(){
+		return this._http
+		           .put(this.getUpdateAddressUrl(id), payload)
+		           .map((res:Response) => <Address>res.json())
+                   .do(data => console.log(`address.service updateAddress DATA ${data}`))
+                   .catch(this.shared.handleError);
+	} 
+
+     getAddressUrl(){
         return this._url +"/address";
     }
+
+     getUpdateAddressUrl(addressId){
+		return this._url + "/address/" + addressId;
+	}
 }

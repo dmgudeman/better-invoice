@@ -67,7 +67,7 @@ export class ItemService {
 	}
 
     updateItem(payload, id){
-	    // console.log("UPDATE ITEM: payload " + JSON.stringify(payload))
+	    console.log("UPDATE ITEM: payload " + JSON.stringify(payload))
 		return this._http
 		           .put(this.getItemUrl(id), payload)
 		           .map((res:Response) => <Item>res.json())
