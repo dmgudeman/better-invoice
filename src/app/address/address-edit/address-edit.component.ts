@@ -48,6 +48,7 @@ export class AddressEditComponent implements OnInit {
     invalid = new FormControl;
     longitude = new FormControl;
     latitude = new FormControl;
+    CompanyId = new FormControl;
 
   constructor( 
         private _addressService:AddressService,
@@ -75,8 +76,9 @@ export class AddressEditComponent implements OnInit {
             "street1":this.street1,
             "street2":this.street2,
             "state": this.state,
+            "CompanyId": this.CompanyId
         });
-    
+   this.CompanyId.setValue(this.coId);
    this.setAddress(this.coId);
   }
 
@@ -85,6 +87,7 @@ export class AddressEditComponent implements OnInit {
             .getCompany(coId)
             .subscribe(company => {this.company= company;
                 this.address = company.Address;
+               
                    console.log(`address-edit setAddress company ${JSON.stringify(this.address)}`)
                    this.street1.setValue(this.address.street1);
                    this.street2.setValue(this.address.street2);
@@ -108,7 +111,7 @@ export class AddressEditComponent implements OnInit {
         console.log(`address-edit onSubmit payload ${payload}`)
 
         var result;
-            if (id) {
+            if (!id) {
                 result = this._addressService.addAddress(payload);
             } else {
                 let ID = (id) ? id : "ID NOT HERE";
