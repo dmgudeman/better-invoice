@@ -10,6 +10,7 @@ import { ItemDetailOneComponent } from './item/item-detail-one/item-detail-one.c
 import { ItemEditComponent }      from './item/item-edit/item-edit.component';
 import { NotFoundComponent }      from './not-found/not-found.component';
 import { LoginComponent }         from './users/login/login.component';
+import { UserComponent }          from './users/user/user.component';
 
 export const routes: Routes = [
   { path: '',                     redirectTo: 'companies', pathMatch: 'full'},

@@ -8,11 +8,14 @@ import { LoginComponent }          from './login/login.component';
 import { AlertService }            from './services/alert.service';
 import { AuthenticationService }   from './authentication.service';
 import { UsersRoutingModule }      from './users-routing.module';
+import { UserComponent }           from './user/user.component';
+import { UserService }             from './services/user.service';
 
 
 @NgModule({
   declarations: [
-    LoginComponent
+    LoginComponent,
+    UserComponent
   ],
   exports: [
     LoginComponent,
@@ -26,7 +29,8 @@ import { UsersRoutingModule }      from './users-routing.module';
   ],
   providers: [
     AlertService,
-    AuthenticationService
+    AuthenticationService,
+    UserService
   ]
 })
 export class UsersModule { }
