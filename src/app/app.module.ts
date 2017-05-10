@@ -13,6 +13,8 @@ import { AppRoutingModule }         from './app-routing.module';
 import { CompanyRoutingModule }     from './company/company-routing.module';
 import { CompanyModule }            from './company/company.module';
 import { SharedModule }             from 'app/shared/shared.module';
+import { UsersModule }              from './users/users.module';
+import { UsersRoutingModule }       from './users/users-routing.module';
 
 // 3rd party modules
 import 'jquery';
@@ -66,10 +68,12 @@ import { ItemListComponent }        from './item/item-list/item-list.component';
     Ng2PageTransitionModule, 
     ReactiveFormsModule,
     SharedModule,
+    UsersModule,
     
     // Routing Modules
-    CompanyRoutingModule,
     AppRoutingModule,
+    CompanyRoutingModule,
+    // UsersRoutingModule,
   ],
   providers: [
     InvoiceService,

@@ -4,6 +4,9 @@
     font-family: 'Open Sans', Arial, sans-serif;
     font-weight: 300;
 }
+html, body {
+    height: 100%;
+}
 
 .my-container {
     display: flex;
@@ -83,14 +86,54 @@
     min-width: 100vw;
     background-color: white;
 }
+#section1 {
+     flex-direction: column;
+       flex: 1 1 auto;
+       justify-content: space-between;
 
+}
+#sec1row1 {
+     flex-direction: row;
+       flex: 1 1 auto;
+       justify-content: space-between;
+       min-height: 30px;
+}
 #sec1row1col2 {
+     display:flex;
     flex: 10 10 0px;
     /*background-color: orangered;*/
 }
+#sec1row2 {
+     flex-direction: row;
+       flex: 1 1 auto;
+       min-height: 125px;
+       justify-content: space-between;
+       /*background-color: green;*/
+}
+#sec1row2col1, #sec1row2col3 {
+     flex: 1 1 auto;
+    max-width: 40%;
+    min-width: 40%;
+    min-width: 20px;
+    height: 100px;
+    /*background-color: pink;*/
+}
+#sec1row2col2{
+    display:flex;
+     flex: 1 1 auto;
+        margin: 20 0 20 0;
+        /*background-color:yellow;*/
+
+    max-width: 1000px;
+    min-width: 700px;
+    min-height: 125px;
+    max-height: 150px;
+ 
+
+}
 .cd-midbar {
     width: 100%;
-    height: 25px;
+    min-height: 30px;
     background-color: black;
     color: white;
 }
@@ -117,6 +160,7 @@
 }
 #sec2row1col2 {
     flex: 1 1 auto;
+ 
     max-width: 1000px;
     min-width: 700px;
     min-height: 100%;
