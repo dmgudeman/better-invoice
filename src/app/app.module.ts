@@ -73,7 +73,7 @@ import { ItemListComponent }        from './item/item-list/item-list.component';
     // Routing Modules
     AppRoutingModule,
     CompanyRoutingModule,
-    // UsersRoutingModule,
+    UsersRoutingModule,
   ],
   providers: [
     InvoiceService,

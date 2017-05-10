@@ -5,8 +5,9 @@ import { FormsModule,
          ReactiveFormsModule }     from '@angular/forms';
 import { HttpModule }              from '@angular/http';
 import { LoginComponent }          from './login/login.component';
-import { AlertService }            from './alert.service';
+import { AlertService }            from './services/alert.service';
 import { AuthenticationService }   from './authentication.service';
+import { UsersRoutingModule }      from './users-routing.module';
 
 
 @NgModule({
@@ -14,13 +15,14 @@ import { AuthenticationService }   from './authentication.service';
     LoginComponent
   ],
   exports: [
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule,
-    HttpModule
+    HttpModule,
+    UsersRoutingModule
   ],
   providers: [
     AlertService,

@@ -1,7 +1,7 @@
 ﻿import { Component, OnInit }      from '@angular/core';
 import { FormsModule }            from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AlertService }           from '../alert.service';
+import { AlertService }           from '../services/alert.service';
 import { AuthenticationService }  from '../authentication.service';
 
 // import { AlertService, AuthenticationService } from '../_services/index';

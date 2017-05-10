@@ -13,7 +13,7 @@ import { LoginComponent }         from './users/login/login.component';
 
 export const routes: Routes = [
   { path: '',                     redirectTo: 'companies', pathMatch: 'full'},
-  { path: 'login', component: LoginComponent },
+  // { path: 'login', component: LoginComponent },
   { path: 'address',              component: AddressEditComponent },
   { path: 'item-edit/:id',        component: ItemEditComponent },
   { path: 'item-edit',            component: ItemEditComponent },
