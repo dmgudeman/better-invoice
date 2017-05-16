@@ -10,12 +10,14 @@ import { AuthenticationService }   from './authentication.service';
 import { UsersRoutingModule }      from './users-routing.module';
 import { UserComponent }           from './user/user.component';
 import { UserService }             from './services/user.service';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
   declarations: [
     LoginComponent,
-    UserComponent
+    UserComponent,
+    RegisterComponent
   ],
   exports: [
     LoginComponent,
