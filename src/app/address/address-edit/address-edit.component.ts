@@ -60,11 +60,6 @@ export class AddressEditComponent implements OnInit {
 
   ngOnInit() {
     this.invalid.setValue(false);
-    console.log(`address-edit ngOnInt this.coId ${this.coId}`)
-    console.log(`address-edit ngOnInt this.coId ${this.coId}`)
-    console.log(`address-edit ngOnInt this.coId ${this.coId}`)
-   
-
     
     this.myform = this._fb.group({
             "city": this.city,
@@ -111,7 +106,7 @@ export class AddressEditComponent implements OnInit {
         console.log(`address-edit onSubmit id ${id}`);
         
         let x = this.myform.value;
-        let payload = {address:x};
+        let payload =   x;//{address:x};
         console.log(`address-edit onSubmit payload ${JSON.stringify(payload)}`)
 
         var result;
