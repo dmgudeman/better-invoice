@@ -73,17 +73,7 @@ export class ItemService {
 		           .map((res:Response) => <Item>res.json())
                    .catch(this.shared.handleError);
 	}
-	/*
-	 updateCompany(payload, id){
-        
-        console.log("id " + id)
-        console.log("{company:payload},   " + {company:payload})
-        console.log("this.getCompanyUrl(id) " + this.getCompanyUrl(id));
-		return this._http.put(this.getCompanyUrl(id), {company:payload})
-                            .map((res:Response) => <Company>res.json())
-                            .catch(this.handleError);
-        }
-    */
+	
 	calculateAmount(item:Item) {
 		let id = item.companyId;
 		let company: Company;

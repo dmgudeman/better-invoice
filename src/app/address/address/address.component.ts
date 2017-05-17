@@ -16,7 +16,13 @@ export class AddressComponent implements OnInit {
   @Input() coId:number;
   @Input() address:Address;
   company: Company;
+  street1: string;
+  street2: string;
   city: string;
+  state: string;
+  postalCode: string;
+  country: string;
+
 
   constructor(private _companyService:CompanyService) { }
   
@@ -30,7 +36,13 @@ export class AddressComponent implements OnInit {
          this._companyService
             .getCompany(coId)
             .subscribe(company => {this.company = company;
-                   this.city = company.Address.city;
+                   this.address = company.Address;
+                   this.street1 = this.address.street1
+                   this.street2 = this.address.street2
+                   this.city = this.address.city;
+                   this.postalCode = this.address.postalCode;
+                   this.state = this.address.state;
+                   this.country = this.address.country;
                   //  console.log("Address getCompany this.coId ", this.coId);
                   //  console.log("Address getCompany this.company" + JSON.stringify(this.company));
             });
