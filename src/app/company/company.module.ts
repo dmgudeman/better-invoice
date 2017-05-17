@@ -13,6 +13,7 @@ import { CompaniesComponent }      from './companies/companies.component';
 import { CompanyDetailsComponent } from './company-details/company-details.component';
 import { CompanyCardComponent }    from './company-card/company-card.component';
 import { CompanyService }          from './company.service';
+import { CompanyRoutingModule }     from './company-routing.module';
 import { EditCompanyComponent }    from './edit-company/edit-company.component';
 
 @NgModule({
@@ -32,7 +33,9 @@ import { EditCompanyComponent }    from './edit-company/edit-company.component';
     HttpModule,
     MaterialModule,
     RouterModule,
-    SharedModule
+    SharedModule,
+    
+    CompanyRoutingModule,
   ],
   providers: [
     AddressService,

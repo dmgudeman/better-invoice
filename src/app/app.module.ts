@@ -10,7 +10,6 @@ import { MaterialModule }           from '@angular/material';
 
 // my modules
 import { AppRoutingModule }         from './app-routing.module';
-import { CompanyRoutingModule }     from './company/company-routing.module';
 import { CompanyModule }            from './company/company.module';
 import { SharedModule }             from 'app/shared/shared.module';
 import { UsersModule }              from './users/users.module';
@@ -20,7 +19,6 @@ import { UsersRoutingModule }       from './users/users-routing.module';
 import 'jquery';
 import { MyDatePickerModule }       from 'mydatepicker';
 import { MyDateRangePickerModule }  from 'mydaterangepicker';
-import { Ng2PageTransitionModule }  from 'ng2-page-transition';
 
 // components
 // import { AddressComponent }         from './address/address/address.component';
@@ -65,14 +63,12 @@ import { ItemListComponent }        from './item/item-list/item-list.component';
     MaterialModule,
     MyDatePickerModule,
     MyDateRangePickerModule,
-    Ng2PageTransitionModule, 
     ReactiveFormsModule,
     SharedModule,
     UsersModule,
     
     // Routing Modules
     AppRoutingModule,
-    CompanyRoutingModule,
     UsersRoutingModule,
   ],
   providers: [
