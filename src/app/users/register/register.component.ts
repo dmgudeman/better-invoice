@@ -48,27 +48,23 @@ export class RegisterComponent implements OnInit {
             "password2": this.fcPassword2,
         });
     }
-onSubmit() {
+    onSubmit() {
       
         let result;
-        // console.log (`x     ${x}`);
-        // console.log(`payload ${payload}`);
+        let username = this.fcUsername.value;
+        let password = this.fcPassword.value;
+        let payload = { username, password };
+
+        console.log (`R payload ${JSON.stringify(payload)}`);
         
-        // console.log(`HIIIIIIIIIII TTTTTTTTTTTTTT `)
-        // console.log(`this.fcType.value ${this.fcType.value}`);
-        let payload = this.myform.value;
-        console.log (`R payload     ${JSON.stringify(payload)}`);
-        // console.log (`IE x     ${JSON.stringify(x)}`);
-        
-           result = this._userService.addUser(payload);
-        //    console.log(`result on onSubmit in item-edit ${JSON.stringify(result)}`);
-        }
-        //    result.subscribe(x => {
-        //             // Ideally, here we'd want:
-        //             // this.form.markAsPristine();
-        //         this._router.navigate(['companies']);
-        //    });
+        result = this._userService.addUser(payload);
+    
+        result.subscribe(x => {
+                // Ideally, here we'd want:
+                // this.form.markAsPristine();
+            this._router.navigate(['companies']);
+        });
     }
 
-
+}
 

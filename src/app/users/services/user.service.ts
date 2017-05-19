@@ -48,7 +48,7 @@ export class UserService implements OnInit{
 
     addUser(payload) {
         return this._http
-		           .post(this._url + '/users', payload)
+		           .post(this._url + '/register', payload)
 				   .map(res => res.json())
                    .catch(this.shared.handleError);
     }
