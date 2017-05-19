@@ -10,14 +10,30 @@
     <% } %>-->
 
     <!-- LOGIN FORM -->
-    <form action="/signup" method="post">
+    <form [formGroup]="myform" (ngSubmit)="onSubmit()">
         <div class="form-group">
-            <label>Email</label>
-            <input type="text" class="form-control" name="email">
+            <label id="usernamelab" class="input" for="username" >Username</label>
+            <input id="username" 
+                   type="text" 
+                   class="input ec-input form-control" 
+                   formControlName= "username"
+                   name="username">
         </div>
         <div class="form-group">
-            <label>Password</label>
-            <input type="password" class="form-control" name="password">
+            <label id="passwordlab" class="input" for="password" >Password</label>
+            <input id="password"
+                   type="password" 
+                   class="input ec-input form-control" 
+                   formControlName= "password"
+                   name="password">
+        </div>
+        <div class="form-group">
+            <label id="password2lab" class="input" for="password2" >Repeat Password</label>
+            <input id="password2"
+                   type="password" 
+                   class="input ec-input form-control" 
+                   formControlName= "password2"
+                   name="password2">
         </div>
 
         <button type="submit" class="btn btn-warning btn-lg">Signup</button>

@@ -104,10 +104,7 @@ export class EditCompanyComponent implements OnInit {
             } else {
                 let ID = (id) ? id : "ID NOT HERE";
                 console.log(`edit-company onSubmit payload ${JSON.stringify(payload)}`);
-<<<<<<< HEAD
-                
-=======
->>>>>>> mon
+
                 result = this._companyService.addCompany(payload);
             }   
             result.subscribe(x => {

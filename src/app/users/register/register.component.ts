@@ -1,8 +1,13 @@
 import { Component, OnInit }      from '@angular/core';
-import { FormsModule }            from '@angular/forms';
+import { FormBuilder, 
+         FormControl, 
+         FormGroup,
+         FormsModule, 
+         ReactiveFormsModule, 
+         Validators }             from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AlertService }           from '../services/alert.service';
-import { AuthenticationService }  from '../authentication.service';
+import { AuthenticationService }  from '../services/authentication.service';
 
 @Component({
   selector: 'app-register',
@@ -10,23 +15,38 @@ import { AuthenticationService }  from '../authentication.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-model: any = {};
+    model: any = {};
     loading = false;
     returnUrl: string;
+    
+    myform : FormGroup;
+    fcUsername       = new FormControl();
+    fcPassword       = new FormControl();
+    fcPassword2      = new FormControl();
+
 
     constructor(
-        private route: ActivatedRoute,
-        private router: Router,
-        private authenticationService: AuthenticationService,
-        private alertService: AlertService
+        private _route: ActivatedRoute,
+        private _router: Router,
+        private _authenticationService: AuthenticationService,
+        private _alertService: AlertService,
+        private _fb:FormBuilder
         ) { }
 
     ngOnInit() {
         // reset login status
-        this.authenticationService.logout();
+        this._authenticationService.logout();
 
         // get return url from route parameters or default to '/'
-        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+        this.returnUrl = this._route.snapshot.queryParams['returnUrl'] || '/';
+
+        this.myform = this._fb.group({
+            "username":this.fcUsername,
+            "password": this.fcPassword,
+            "password2": this.fcPassword2,
+        });
     }
+
+
 
 }

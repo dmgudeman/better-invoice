@@ -1,12 +1,15 @@
 ﻿import { Injectable, OnInit } from '@angular/core';
-import { Http, Headers, RequestOptions, Response } from '@angular/http';
-import { Router }            from '@angular/router';
-import { Observable }        from 'rxjs/Observable';
+import { Http, 
+         Headers, 
+         RequestOptions, 
+         Response }           from '@angular/http';
+import { Router }             from '@angular/router';
+import { Observable }         from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
-import { User } from '../user';
-import { MyGlobals }         from '../../shared/myglobals';
-import { Shared }            from '../../shared/shared';
+import { User }               from '../user';
+import { MyGlobals }          from '../../shared/myglobals';
+import { Shared }             from '../../shared/shared';
 
 @Injectable()
 export class UserService implements OnInit{
@@ -43,9 +46,12 @@ export class UserService implements OnInit{
     //     return this._http.get('/users/' + id, this.jwt()).map((response: Response) => response.json());
     // }
 
-    // create(user: User) {
-    //     return this._http.post('/api/users', user, this.jwt()).map((response: Response) => response.json());
-    // }
+    addUser(payload) {
+        return this._http
+		           .post(this._url + '/users', payload)
+				   .map(res => res.json())
+                   .catch(this.shared.handleError);
+    }
 
     // update(user: User) {
     //     return this._http.put('/api/users/' + user.id, user, this.jwt()).map((response: Response) => response.json());

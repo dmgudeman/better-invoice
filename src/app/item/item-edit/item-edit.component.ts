@@ -21,7 +21,7 @@ import { Item }                           from '../item';
 import { ItemService }                    from '../item.service';
 import { Tab }                            from '../../shared/tab';
 import { Tabs }                           from '../../shared/tabs';
-import { customTransitionRight } from '../../shared/custom-transition-right.component';
+import { customTransitionRight }          from '../../shared/custom-transition-right.component';
 
 
 @Component({
@@ -89,7 +89,6 @@ export class ItemEditComponent implements OnInit {
                 this._itemService.getItem(this.id)
                        .subscribe(item => {this.item = item;
                                     let date = this.item.date;
-                                
                                     this.fcId.setValue(this.id);
                                     this.fcDate.setValue(this.item.date);
                                     this.setDate(date);

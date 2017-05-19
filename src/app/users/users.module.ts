@@ -6,11 +6,11 @@ import { FormsModule,
 import { HttpModule }              from '@angular/http';
 import { LoginComponent }          from './login/login.component';
 import { AlertService }            from './services/alert.service';
-import { AuthenticationService }   from './authentication.service';
+import { AuthenticationService }   from './services/authentication.service';
 import { UsersRoutingModule }      from './users-routing.module';
 import { UserComponent }           from './user/user.component';
 import { UserService }             from './services/user.service';
-import { RegisterComponent } from './register/register.component';
+import { RegisterComponent }       from './register/register.component';
 
 
 @NgModule({
@@ -27,7 +27,8 @@ import { RegisterComponent } from './register/register.component';
     FormsModule,
     RouterModule,
     HttpModule,
-    UsersRoutingModule
+    UsersRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [
     AlertService,
