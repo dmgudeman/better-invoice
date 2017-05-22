@@ -12,6 +12,22 @@
     <!-- LOGIN FORM -->
     <form [formGroup]="myform" (ngSubmit)="onSubmit()">
         <div class="form-group">
+            <label id="firstnamelab" class="input" for="firstname" >First Name</label>
+            <input id="firstname" 
+                   type="text" 
+                   class="input ec-input form-control" 
+                   formControlName= "firstname"
+                   name="firstname">
+        </div>
+        <div class="form-group">
+            <label id="lastnamelab" class="input" for="lastname" >Last Name</label>
+            <input id="lastname" 
+                   type="text" 
+                   class="input ec-input form-control" 
+                   formControlName= "lastname"
+                   name="lastname">
+        </div>
+        <div class="form-group">
             <label id="usernamelab" class="input" for="username" >Username</label>
             <input id="username" 
                    type="text" 
@@ -28,12 +44,12 @@
                    name="password">
         </div>
         <div class="form-group">
-            <label id="password2lab" class="input" for="password2" >Repeat Password</label>
-            <input id="password2"
+            <label id="password2lab" class="input" for="password_confirmation" >Repeat Password</label>
+            <input id="password_confirmation"
                    type="password" 
                    class="input ec-input form-control" 
-                   formControlName= "password2"
-                   name="password2">
+                   formControlName= "password_confirmation"
+                   name="password_confirmation">
         </div>
 
         <button type="submit" class="btn btn-warning btn-lg">Signup</button>

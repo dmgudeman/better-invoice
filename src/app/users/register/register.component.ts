@@ -21,9 +21,11 @@ export class RegisterComponent implements OnInit {
     returnUrl: string;
     
     myform : FormGroup;
+    fcFirstname      = new FormControl();
+    fcLastname       = new FormControl();
     fcUsername       = new FormControl();
     fcPassword       = new FormControl();
-    fcPassword2      = new FormControl();
+    fcPassword_confirmation      = new FormControl();
 
 
     constructor(
@@ -43,17 +45,22 @@ export class RegisterComponent implements OnInit {
         this.returnUrl = this._route.snapshot.queryParams['returnUrl'] || '/';
 
         this.myform = this._fb.group({
-            "username":this.fcUsername,
+            "firstname": this.fcFirstname,
+            "lastname": this.fcLastname,
+            "username": this.fcUsername,
             "password": this.fcPassword,
-            "password2": this.fcPassword2,
+            "password_confirmation": this.fcPassword_confirmation,
         });
     }
     onSubmit() {
       
         let result;
+        let firstname = this.fcFirstname.value;
+        let lastname = this.fcLastname.value;
         let username = this.fcUsername.value;
         let password = this.fcPassword.value;
-        let payload = { username, password };
+        let password_confirmation = this.fcPassword_confirmation.value;
+        let payload = { firstname, lastname, username, password };
 
         console.log (`R payload ${JSON.stringify(payload)}`);
         

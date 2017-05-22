@@ -47,11 +47,15 @@ export class UserService implements OnInit{
     // }
 
     addUser(payload) {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
         return this._http
-		           .post(this._url + '/register', payload)
+		           .post(this._url + '/register', payload, options)
 				   .map(res => res.json())
                    .catch(this.shared.handleError);
     }
+
+    
 
     // update(user: User) {
     //     return this._http.put('/api/users/' + user.id, user, this.jwt()).map((response: Response) => response.json());
