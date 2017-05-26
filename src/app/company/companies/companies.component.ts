@@ -68,6 +68,14 @@ export class CompaniesComponent implements OnInit {
      }
   }
 
+  logout() {
+     let result = this._companyService.logout();   
+            result.subscribe(x => {
+                // Ideally, here we'd want:
+                // this.form.markAsPristine();
+                this._router.navigate(['/login']);
+            });
+  }
   goToNowhere () {
     
   }

@@ -55,6 +55,15 @@ export class UserService implements OnInit{
                    .catch(this.shared.handleError);
     }
 
+    login(payload) {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        return this._http
+		           .post(this._url + '/login', payload, options)
+				   .map(res => res.json())
+                   .do(data => console.log(`login in user.service`))
+                   .catch(this.shared.handleError);
+    }
     
 
     // update(user: User) {

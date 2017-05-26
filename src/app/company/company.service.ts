@@ -93,5 +93,12 @@ export class CompanyService {
         let body = res.json();
         return body.data || { };
     }
-    
+
+    logout() {
+        console.log(`in logout company.service ${this._url +'/logout'}`);
+        
+        return this._http.get(this._url + '/logout')
+                   .map(res => res.json().user);
+    }
+
 }
