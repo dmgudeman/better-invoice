@@ -7,6 +7,7 @@ import { InputComponent }           from '../shared/input/input.component';
 import { EditCompanyComponent }     from './edit-company/edit-company.component';
 
 const companyRoutes = [
+  { path: 'companies',            component: CompaniesComponent },
   { path: 'companies/:id',        component: CompaniesComponent },
   { path: 'company-card/:id',     component: CompanyCardComponent },
   { path: 'app-input',            component: InputComponent },

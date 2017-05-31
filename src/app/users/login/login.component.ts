@@ -40,6 +40,8 @@ export class LoginComponent implements OnInit {
     ngOnInit() {
         // reset login status
         this.authenticationService.logout();
+       
+
 
         // get return url from route parameters or default to '/'
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
@@ -56,10 +58,7 @@ export class LoginComponent implements OnInit {
         let payload = { username, password };
 
         console.log(`login.component onSubmit payload ${JSON.stringify(payload)}`);
-         this.route.params
-            .subscribe(params => { 
-                                    this.userId = params['id']
-                                });
+        
 
         result = this.authenticationService.login(username, password);
 
@@ -68,7 +67,7 @@ export class LoginComponent implements OnInit {
             
             // Ideally, here we'd want:
             // this.form.markAsPristine();
-            this._router.navigate([`companies/${this.userId}` ]);
+            this._router.navigate([`companies` ]);
         });
     }
 
