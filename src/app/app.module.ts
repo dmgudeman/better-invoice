@@ -5,9 +5,11 @@ import { FormsModule,
          ReactiveFormsModule }      from '@angular/forms';
 import { FlexLayoutModule }         from '@angular/flex-layout';
 import { HttpModule }               from '@angular/http';
-import { RouterModule, Routes }     from '@angular/router';
+import { RouterModule, 
+         Routes, 
+         RouterOutlet }             from '@angular/router';
+import { RouterTestingModule }     from '@angular/router/testing';
 import { MaterialModule }           from '@angular/material';
-
 // my modules
 import { AppRoutingModule }         from './app-routing.module';
 import { CompanyModule }            from './company/company.module';
@@ -64,6 +66,7 @@ import { ItemListComponent }        from './item/item-list/item-list.component';
     MyDatePickerModule,
     MyDateRangePickerModule,
     ReactiveFormsModule,
+    RouterTestingModule,
     SharedModule,
     UsersModule,
     
@@ -74,7 +77,8 @@ import { ItemListComponent }        from './item/item-list/item-list.component';
   providers: [
     InvoiceService,
     ItemService,
-    MyGlobals
+    MyGlobals,
+    RouterOutlet
   ],
   bootstrap: [AppComponent]
 })

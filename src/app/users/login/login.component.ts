@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
     myform: FormGroup;
     fcUsername = new FormControl();
     fcPassword = new FormControl();
+    userId: number;
 
     constructor(
         private route: ActivatedRoute,
@@ -55,15 +56,19 @@ export class LoginComponent implements OnInit {
         let payload = { username, password };
 
         console.log(`login.component onSubmit payload ${JSON.stringify(payload)}`);
+         this.route.params
+            .subscribe(params => { 
+                                    this.userId = params['id']
+                                });
 
         result = this.authenticationService.login(username, password);
 
         result.subscribe(x => {
-            console.log(`It  fired`);
+            console.log(`login.component onSubmit It fired`);
             
             // Ideally, here we'd want:
             // this.form.markAsPristine();
-            this._router.navigate(['companies']);
+            this._router.navigate([`companies/${this.userId}` ]);
         });
     }
 

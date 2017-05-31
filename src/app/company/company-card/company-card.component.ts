@@ -52,7 +52,7 @@ export class CompanyCardComponent implements OnInit {
     let coName = company.name;
     let coHourly = company.hourly;
     let coColor= company.color
-    let uId = 4
+    let uId = 1
     this._router.navigate(['/company-details', {
                                                coId:coId,
                                                coColor:coColor,

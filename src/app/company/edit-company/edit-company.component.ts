@@ -42,13 +42,14 @@ export class EditCompanyComponent implements OnInit {
     private coName:string;
     private title:string;
     private itemId: number;
+    private userId: number;
 
     myform : FormGroup;
-    name = new FormControl;
-    color = new FormControl;
-    hourly= new FormControl;
+    name   = new FormControl;
+    color  = new FormControl;
+    hourly = new FormControl;
     paymentTerms = new FormControl;
-    active= new FormControl
+    active = new FormControl;
     
     constructor(
         private _companyService: CompanyService,
@@ -70,6 +71,7 @@ export class EditCompanyComponent implements OnInit {
             .subscribe(params => { 
                                     this.coId = params['id']
                                     this.coName = params['coName']
+                                    this.userId = 1;
                                     console.log(`name ${this.coName}`);
                                 });
         this.title = this.coId ? " Edit "+ this.coName + " Details" : " New Business";
@@ -103,6 +105,7 @@ export class EditCompanyComponent implements OnInit {
                 let result = this._companyService.updateCompany(payload, id);
             } else {
                 let ID = (id) ? id : "ID NOT HERE";
+                payload.userId = 1;
                 console.log(`edit-company onSubmit payload ${JSON.stringify(payload)}`);
 
                 let result = this._companyService.addCompany(payload);

@@ -19,6 +19,21 @@ export class Shared {
         return Observable.throw(message);
     }
 
+// https://angular.io/docs/ts/latest/guide/server-communication.html#!#extract-data
+    public handleError2 (error: Response | any) {
+    // In a real world app, you might use a remote logging infrastructure
+    let errMsg: string;
+    if (error instanceof Response) {
+      const body = error.json() || '';
+      const err = body.error || JSON.stringify(body);
+      errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
+    } else {
+      errMsg = error.message ? error.message : error.toString();
+    }
+    console.error(errMsg);
+    return Observable.throw(errMsg);
+  }
+
     public setClassColor(company?: Company, colorr?: string) {
         let color: string;
         if (company) { color = company.color } else { color = colorr };

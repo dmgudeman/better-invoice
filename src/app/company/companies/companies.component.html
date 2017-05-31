@@ -18,7 +18,7 @@
             <div id="card-wrapper">
                 <!--COMPANY CARDS -->
                 <div id="co-card">
-                    <app-company-card *ngFor="let company of companies | async" [company]="company">
+                    <app-company-card *ngFor="let company of companiesArray" [company]="company">
                     </app-company-card>
                 </div>
             </div>

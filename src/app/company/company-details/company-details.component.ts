@@ -47,6 +47,7 @@ export class CompanyDetailsComponent implements OnInit {
     items: Item[] = [];
     invoice: Invoice;
     shared: Shared = new Shared();
+    userId: number;
     
 
     constructor(
@@ -59,12 +60,13 @@ export class CompanyDetailsComponent implements OnInit {
     ngOnInit() {
         this._route.params
             .subscribe(params => {
+                this.userId = params['userId'];
                 this.coId = +params['coId'];
                 this.coName = params['coName'];
                 this.coColor = params['coColor'];
             });
         // console.log(`Company-details ngOnInit this.coId ${this.coId}`)
-
+        
          this.getCompany(this.coId);
         this.getItemsByCompany(this.coId);
 
@@ -72,9 +74,9 @@ export class CompanyDetailsComponent implements OnInit {
         
     }
 
-    getCompanies() {
+    getCompanies(id) {
         this._companyService
-            .getCompanies()
+            .getCompanies(id)
             .subscribe(companies => {
                 this.companies = companies;
                 return this.companies;

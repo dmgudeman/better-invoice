@@ -28,6 +28,7 @@ export class CompaniesComponent implements OnInit {
 
   class: any;
   companies: Observable<Company[]>;
+  companiesArray:Company[]
   invoice: Invoice;
   errorMessage: string;
   name:string;
@@ -36,20 +37,30 @@ export class CompaniesComponent implements OnInit {
   paymentTerms:number;
   active:boolean;
   editing:boolean = false;
+  userId:number
   
   constructor(
               private _companyService: CompanyService,
               private _invoiceService: InvoiceService,
+              private _route:ActivatedRoute,
               private _router:Router) { 
               };
 
   ngOnInit() { 
-    this.getCompanies();
-    
+     this._route.params
+            .subscribe(params => { 
+                                    this.userId = params['id']
+                                });
+    this.getCompanies(this.userId);
+            console.log(`this.userId ${this.userId}`);
   }
   
-  getCompanies(){
-    this.companies = this._companyService.getCompanies();
+  getCompanies(id){
+   this._companyService.getCompanies(id)
+        .subscribe(companies => {
+          console.log(`in companies.Component getCompanies companies ${JSON.stringify(companies)}`);
+          this.companiesArray = companies
+        });
   }
   
   goToEditCompany(company?:Company){

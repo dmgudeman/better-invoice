@@ -1,12 +1,17 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { By }              from '@angular/platform-browser';
+import { DebugElement }    from '@angular/core';
+
+import { RouterTestingModule }     from '@angular/router/testing';
 
 describe('AppComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
       ],
+
     });
     TestBed.compileComponents();
   });

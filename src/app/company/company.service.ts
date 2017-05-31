@@ -33,11 +33,18 @@ export class CompanyService {
         this._url = this.myglobals.url;
 	}
 
-	getCompanies():Observable<Company[]>{
+    // https://angular.io/docs/ts/latest/guide/server-communication.html#!#extract-data
+	getCompanies(id):Observable<Company[]>{
+        console.log(`in company.service getCompanies id ${id}`);
+        
+        let body;
 		return this._http
-                   .get(this._url + '/companies')
-			       .map((res:Response) => <Company[]>res.json().companies)
-                   .catch(this.shared.handleError);
+                   .get(this.getCompanyUrl(id))
+			       .map(res =>{ 
+                       body = res.json().companies;
+                            return body || { };
+                   })
+                   .catch(this.shared.handleError2);
 	}
     
     getCompany(id:number) {
@@ -65,8 +72,11 @@ export class CompanyService {
    
     
     addCompany(payload){
+        console.log(`payload in addCompany ${payload}`);
+               
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
+    
         return this._http.post( this.getCompanyUpdateUrl() , JSON.stringify( {company:payload}), options)
                    .map(res => res.json())
     }
@@ -89,9 +99,10 @@ export class CompanyService {
         return this._url +"/companies";
     }
     
+    // https://angular.io/docs/ts/latest/guide/server-communication.html#!#extract-data
     private extractData(res: Response) {
         let body = res.json();
-        return body.data || { };
+        return body || { };
     }
 
     logout() {
