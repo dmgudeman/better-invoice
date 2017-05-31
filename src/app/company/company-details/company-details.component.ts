@@ -76,7 +76,7 @@ export class CompanyDetailsComponent implements OnInit {
 
     getCompanies(id) {
         this._companyService
-            .getCompanies(id)
+            .getCompanies()
             .subscribe(companies => {
                 this.companies = companies;
                 return this.companies;

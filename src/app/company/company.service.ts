@@ -34,12 +34,11 @@ export class CompanyService {
 	}
 
     // https://angular.io/docs/ts/latest/guide/server-communication.html#!#extract-data
-	getCompanies(id):Observable<Company[]>{
-        console.log(`in company.service getCompanies id ${id}`);
+	getCompanies():Observable<Company[]>{
         
         let body;
 		return this._http
-                   .get(this.getCompanyUrl(id))
+                   .get(this.getCompanyUpdateUrl())
 			       .map(res =>{ 
                        body = res.json().companies;
                             return body || { };
@@ -72,7 +71,7 @@ export class CompanyService {
    
     
     addCompany(payload){
-        console.log(`payload in addCompany ${payload}`);
+        // console.log(`payload in addCompany ${payload}`);
                
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
@@ -106,7 +105,7 @@ export class CompanyService {
     }
 
     logout() {
-        console.log(`in logout company.service ${this._url +'/logout'}`);
+        // console.log(`in logout company.service ${this._url +'/logout'}`);
         
         return this._http.get(this._url + '/logout')
                    .map(res => res.json().user);

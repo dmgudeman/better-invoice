@@ -47,16 +47,12 @@ export class CompaniesComponent implements OnInit {
               };
 
   ngOnInit() { 
-     this._route.params
-            .subscribe(params => { 
-                                    this.userId = params['id']
-                                });
-    this.getCompanies(this.userId);
-            console.log(`this.userId ${this.userId}`);
+     
+    this.getCompanies();
   }
   
-  getCompanies(id){
-   this._companyService.getCompanies(id)
+  getCompanies(){
+   this._companyService.getCompanies()
         .subscribe(companies => {
           console.log(`in companies.Component getCompanies companies ${JSON.stringify(companies)}`);
           this.companiesArray = companies

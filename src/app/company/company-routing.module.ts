@@ -8,7 +8,6 @@ import { EditCompanyComponent }     from './edit-company/edit-company.component'
 
 const companyRoutes = [
   { path: 'companies',            component: CompaniesComponent },
-  { path: 'companies/:id',        component: CompaniesComponent },
   { path: 'company-card/:id',     component: CompanyCardComponent },
   { path: 'app-input',            component: InputComponent },
   { path: 'edit-company',         component: EditCompanyComponent },
