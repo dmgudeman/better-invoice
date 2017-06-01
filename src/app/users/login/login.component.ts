@@ -51,20 +51,14 @@ export class LoginComponent implements OnInit {
         });
     }
     onSubmit() {
-
         let result;
         let username = this.fcUsername.value;
         let password = this.fcPassword.value;
         let payload = { username, password };
-
-        console.log(`login.component onSubmit payload ${JSON.stringify(payload)}`);
-        
-
+        // console.log(`login.component onSubmit payload ${JSON.stringify(payload)}`);
         result = this.authenticationService.login(username, password);
-
         result.subscribe(x => {
-            console.log(`login.component onSubmit It fired`);
-            
+            // console.log(`login.component onSubmit It fired`);
             // Ideally, here we'd want:
             // this.form.markAsPristine();
             this._router.navigate([`companies` ]);

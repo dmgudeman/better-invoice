@@ -54,7 +54,7 @@ export class CompaniesComponent implements OnInit {
   getCompanies(){
    this._companyService.getCompanies()
         .subscribe(companies => {
-          console.log(`in companies.Component getCompanies companies ${JSON.stringify(companies)}`);
+          // console.log(`in companies.Component getCompanies companies ${JSON.stringify(companies)}`);
           this.companiesArray = companies
         });
   }
@@ -80,6 +80,8 @@ export class CompaniesComponent implements OnInit {
             result.subscribe(x => {
                 // Ideally, here we'd want:
                 // this.form.markAsPristine();
+                console.log(`Im in companies component logout`);
+  
                 this._router.navigate(['/login']);
             });
   }

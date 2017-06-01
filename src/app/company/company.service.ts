@@ -20,22 +20,16 @@ export class CompanyService {
     shared: Shared;
     myglobals: MyGlobals;
     
-	// private _url = "http://localhost:3000";
 	private _url ;
-    // = "http://192.168.1.3:3000";
-
 
 	constructor(private _http: Http){
         this.shared = new Shared();
         this.myglobals = new MyGlobals();
-        // console.log ("this.myglobals.url " + this.myglobals.url);
-        // this._url = "http://192.168.1.3:3000";
         this._url = this.myglobals.url;
 	}
 
     // https://angular.io/docs/ts/latest/guide/server-communication.html#!#extract-data
 	getCompanies():Observable<Company[]>{
-        
         let body;
 		return this._http
                    .get(this.getCompanyUpdateUrl())
@@ -51,8 +45,8 @@ export class CompanyService {
         return this._http.get(this.getCompanyUrl(id) )
                    .map ((res:Response) => {body = res.json().company;
                                              return body;})
-                   
        } 
+
     getItemsByCompany(id:number){
         let body;
         return this._http.get(this.getCompanyUrl(id))
@@ -67,8 +61,6 @@ export class CompanyService {
         // console.log("CO_SERVICE: getItemsByCompany " + JSON.stringify(body))
                                                 return body;})
     }    
-    
-   
     
     addCompany(payload){
         // console.log(`payload in addCompany ${payload}`);
@@ -106,9 +98,7 @@ export class CompanyService {
 
     logout() {
         // console.log(`in logout company.service ${this._url +'/logout'}`);
-        
         return this._http.get(this._url + '/logout')
-                   .map(res => res.json().user);
+                //    .map(res => res.json().user);
     }
-
 }
