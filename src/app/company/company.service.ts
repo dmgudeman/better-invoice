@@ -63,12 +63,12 @@ export class CompanyService {
     }    
     
     addCompany(payload){
-        // console.log(`payload in addCompany ${payload}`);
+        console.log(`payload in addCompany ${JSON.stringify(payload)}`);
                
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new RequestOptions({ headers: headers });
+        let options = new RequestOptions({ headers: headers })
     
-        return this._http.post( this.getCompanyUpdateUrl() , JSON.stringify( {company:payload}), options)
+        return this._http.post( this.getCompanyUpdateUrl() , payload)
                    .map(res => res.json())
     }
 

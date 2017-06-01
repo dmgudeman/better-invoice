@@ -105,10 +105,11 @@ export class EditCompanyComponent implements OnInit {
                 let result = this._companyService.updateCompany(payload, id);
             } else {
                 let ID = (id) ? id : "ID NOT HERE";
-                payload.userId = 1;
                 console.log(`edit-company onSubmit payload ${JSON.stringify(payload)}`);
 
                 let result = this._companyService.addCompany(payload);
+                console.log(`result ${JSON.stringify(result)}`);
+                
             }   
             result.subscribe(x => {
                 // Ideally, here we'd want:
