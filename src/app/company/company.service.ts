@@ -68,7 +68,7 @@ export class CompanyService {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers })
     
-        return this._http.post( this.getCompanyUpdateUrl() , payload)
+        return this._http.post( this.getCompanyUpdateUrl() , JSON.stringify(payload), options)
                    .map(res => res.json())
     }
 

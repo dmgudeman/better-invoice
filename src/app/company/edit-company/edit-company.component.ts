@@ -111,7 +111,7 @@ export class EditCompanyComponent implements OnInit {
                 console.log(`result ${JSON.stringify(result)}`);
                 
             }   
-            result.subscribe(x => {
+           this._companyService.addCompany(payload).subscribe(x => {
                 // Ideally, here we'd want:
                 // this.form.markAsPristine();
                 this._router.navigate(['companies']);
