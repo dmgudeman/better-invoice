@@ -34,6 +34,16 @@
                    class="input ec-input form-control" 
                    formControlName= "username"
                    name="username">
+            <div *ngIf="this.myform.controls.username.touched && this.myform.controls.username.error" > 
+                <div 
+                    *ngIf=!username.errors.required
+                    class="alert alert-danger">Username is required
+                </div>
+                <div 
+                    *ngIf="username.errors.cannotContainSpace"
+                    class="alert alert-danger">Username cannot contain space.
+                </div>
+            </div>
         </div>
         <div class="form-group">
             <label id="passwordlab" class="input" for="password" >Password</label>
@@ -44,12 +54,12 @@
                    name="password">
         </div>
         <div class="form-group">
-            <label id="password2lab" class="input" for="password_confirmation" >Repeat Password</label>
-            <input id="password_confirmation"
+            <label id="password2lab" class="input" for="password_confirm" >Repeat Password</label>
+            <input id="password_confirm"
                    type="password" 
                    class="input ec-input form-control" 
-                   formControlName= "password_confirmation"
-                   name="password_confirmation">
+                   formControlName= "password_confirm"
+                   name="password_confirm">
         </div>
 
         <button type="submit" class="btn btn-warning btn-lg">Signup</button>

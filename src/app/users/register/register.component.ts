@@ -9,6 +9,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AlertService }           from '../services/alert.service';
 import { AuthenticationService }  from '../services/authentication.service';
 import { UserService }           from '../services/user.service';
+import { UsernameValidators }     from '../services/username-validators';
 
 @Component({
   selector: 'app-register',
@@ -19,15 +20,13 @@ export class RegisterComponent implements OnInit {
     model: any = {};
     loading = false;
     returnUrl: string;
-    
     myform : FormGroup;
-    fcFirstname      = new FormControl();
-    fcLastname       = new FormControl();
-    fcUsername       = new FormControl();
-    fcPassword       = new FormControl();
-    fcPassword_confirmation      = new FormControl();
-
-
+    fcFirstname;
+    fcLastname;
+    fcUsername;
+    fcPassword;
+    fcPassword_confirm;  
+   
     constructor(
         private _route: ActivatedRoute,
         private _router: Router,
@@ -45,12 +44,25 @@ export class RegisterComponent implements OnInit {
         this.returnUrl = this._route.snapshot.queryParams['returnUrl'] || '/';
 
         this.myform = this._fb.group({
-            "firstname": this.fcFirstname,
-            "lastname": this.fcLastname,
-            "username": this.fcUsername,
-            "password": this.fcPassword,
-            "password_confirmation": this.fcPassword_confirmation,
+            "firstname": this.fcFirstname = new FormControl('', Validators.required),
+            "lastname": this.fcLastname = new FormControl('', Validators.required),
+            "username": this.fcUsername = new FormControl('', Validators.required),
+            "password": this.fcPassword = new FormControl('', [Validators.required,
+                                                               Validators.minLength(1)]),
+            "password_confirm": this.fcPassword_confirm = new FormControl('', Validators.required),
         });
+    }
+
+    signup() {
+        // var results = authService.login(this.form.value)
+
+        this.myform.controls['username'].setErrors({
+            invalidLogin: true
+        });
+
+        console.log(`in signup register.component ${this.myform.value}`);
+        
+
     }
     onSubmit() {
       
@@ -59,7 +71,7 @@ export class RegisterComponent implements OnInit {
         let lastname = this.fcLastname.value;
         let username = this.fcUsername.value;
         let password = this.fcPassword.value;
-        let password_confirmation = this.fcPassword_confirmation.value;
+        let password_confirmation = this.fcPassword_confirm.value;
         let payload = { firstname, lastname, username, password };
 
         console.log (`R payload ${JSON.stringify(payload)}`);
