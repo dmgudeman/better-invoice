@@ -10,7 +10,8 @@ import 'rxjs/add/operator/map'
 
 @Injectable()
 export class AuthenticationService {
-    
+
+    isLoggedIn: boolean     
     private shared;
     private _url;
     private myglobals:MyGlobals;
@@ -30,23 +31,27 @@ login(username, password) {
         
         return this._http
 		           .post(this._url + '/login', payload)
-				   .map(res => res.json())
+				   .map(res => {
+                       console.log(`in authentication.service login ${JSON.stringify(res)}`);
+                       res.json()})
                    .catch(this.shared.handleError);
-
-    }
+}
+// https://www.udemy.com/angular-2-from-theory-to-practice/learn/v4/t/lecture/6039888?start=0
+loggedIn(): boolean {
+    return false;
+}
     
-    logout() {
+logout() {
+// remove user from local storage to log user out
+localStorage.removeItem('currentUser');
+let headers = new Headers({ 'Content-Type': 'application/json' });
+let options = new RequestOptions({ headers: headers });
 
-        // remove user from local storage to log user out
-        localStorage.removeItem('currentUser');
-        let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new RequestOptions({ headers: headers });
-        
-        return this._http
-		           .get(this._url + '/logout')
-                   .catch(this.shared.handleError);
+return this._http
+            .get(this._url + '/logout')
+            .catch(this.shared.handleError);
 
-    }
+}
     // login(username: string, password: string) {
     //       console.log(`${JSON.stringify({ username: username, password: password })}`);
     //     return this.http.post(this._url +'/login', JSON.stringify({ username: username, password: password }))

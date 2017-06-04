@@ -9,7 +9,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AlertService }           from '../services/alert.service';
 import { AuthenticationService }  from '../services/authentication.service';
 import { UserService }           from '../services/user.service';
-import { UsernameValidators }     from '../services/username-validators';
+import { validateUsername }     from '../services/user-validators/validate-username';
 
 @Component({
   selector: 'app-register',
@@ -21,11 +21,11 @@ export class RegisterComponent implements OnInit {
     loading = false;
     returnUrl: string;
     myform : FormGroup;
-    fcFirstname;
-    fcLastname;
-    fcUsername;
-    fcPassword;
-    fcPassword_confirm;  
+    firstname;
+    lastname;
+    username;
+    password;
+    password_confirm; 
    
     constructor(
         private _route: ActivatedRoute,
@@ -39,17 +39,21 @@ export class RegisterComponent implements OnInit {
     ngOnInit() {
         // reset login status
         this._authenticationService.logout();
-
+        this.firstname= new FormControl('', Validators.required);
+        this.lastname = new FormControl('', Validators.required);
+        this.username = new FormControl('', Validators.required),
+        this.password= new FormControl('', [Validators.required,
+                                              Validators.minLength(1)]);
+        this.password_confirm = new FormControl('', Validators.required);  
         // get return url from route parameters or default to '/'
         this.returnUrl = this._route.snapshot.queryParams['returnUrl'] || '/';
 
         this.myform = this._fb.group({
-            "firstname": this.fcFirstname = new FormControl('', Validators.required),
-            "lastname": this.fcLastname = new FormControl('', Validators.required),
-            "username": this.fcUsername = new FormControl('', Validators.required),
-            "password": this.fcPassword = new FormControl('', [Validators.required,
-                                                               Validators.minLength(1)]),
-            "password_confirm": this.fcPassword_confirm = new FormControl('', Validators.required),
+            "firstname": this.firstname,
+            "lastname": this.lastname,
+            "username": this.username,
+            "password": this.password,
+            "password_confirm": this.password_confirm,
         });
     }
 
@@ -57,7 +61,7 @@ export class RegisterComponent implements OnInit {
         // var results = authService.login(this.form.value)
 
         this.myform.controls['username'].setErrors({
-            invalidLogin: true
+            invalidLogin: false
         });
 
         console.log(`in signup register.component ${this.myform.value}`);
@@ -67,11 +71,11 @@ export class RegisterComponent implements OnInit {
     onSubmit() {
       
         let result;
-        let firstname = this.fcFirstname.value;
-        let lastname = this.fcLastname.value;
-        let username = this.fcUsername.value;
-        let password = this.fcPassword.value;
-        let password_confirmation = this.fcPassword_confirm.value;
+        let firstname = this.firstname.value;
+        let lastname = this.lastname.value;
+        let username = this.username.value;
+        let password = this.password.value;
+        let password_confirmation = this.password_confirm.value;
         let payload = { firstname, lastname, username, password };
 
         console.log (`R payload ${JSON.stringify(payload)}`);
@@ -81,7 +85,7 @@ export class RegisterComponent implements OnInit {
         result.subscribe(x => {
                 // Ideally, here we'd want:
                 // this.form.markAsPristine();
-            this._router.navigate(['companies']);
+            this._router.navigate(['login']);
         });
     }
 

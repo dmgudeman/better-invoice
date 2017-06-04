@@ -5,10 +5,10 @@ import { UserComponent }            from '../users/user/user.component';
 import { RegisterComponent }        from '../users/register/register.component';
 
 const usersRoutes = [
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent, name: 'Login', useAsDefault: true },
   { path: 'users', component: UserComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'logout', component: LoginComponent },
+  { path: 'register', component: RegisterComponent, name: 'Register' },
+  { path: 'logout', component: LoginComponent, name:'Logout' },
 ];
 
 @NgModule({

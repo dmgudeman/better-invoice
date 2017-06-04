@@ -24,6 +24,7 @@ export const routes: Routes = [
   { path: 'invoice-edit',         component: InvoiceEditComponent },
   { path: 'invoice-pre-pdf',      component: InvoicePrePdfComponent },
   { path: 'invoice-pre-pdf/:id',  component: InvoicePrePdfComponent },
+  { path: '403', component: LoginComponent },
     
   { path: 'not-found',            component: NotFoundComponent },
   { path: '**',                   redirectTo: 'not-found' }

@@ -1,19 +1,22 @@
 import { Component, 
          OnInit,
-         HostBinding }          from '@angular/core';
+         HostBinding }             from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FlexLayoutModule }     from '@angular/flex-layout';
+import { FlexLayoutModule }        from '@angular/flex-layout';
 import { Router, 
          ActivatedRoute, 
-         Params }               from '@angular/router';
-import { Observable }           from 'RXJS/Observable';
-import { Company }              from '../company';
-import { CompanyCardComponent } from '../company-card/company-card.component';
-import { CompanyService }       from '../company.service';
-import { InputComponent }       from '../../shared/input/input.component';
-import { InvoiceService }       from '../../invoice/invoice.service';
-import { Invoice }              from '../../invoice/invoice';
-import { customTransitionLeft } from '../../shared/custom-transition-left.component';
+         Params,
+         CanActivate }             from '@angular/router';
+import { Observable }              from 'RXJS/Observable';
+
+// my components and services
+import { Company }                 from '../company';
+import { CompanyCardComponent }    from '../company-card/company-card.component';
+import { CompanyService }          from '../company.service';
+import { InputComponent }          from '../../shared/input/input.component';
+import { InvoiceService }          from '../../invoice/invoice.service';
+import { Invoice }                 from '../../invoice/invoice';
+import { customTransitionLeft }    from '../../shared/custom-transition-left.component';
 
 @Component({
   selector: 'app-companies',
@@ -55,7 +58,11 @@ export class CompaniesComponent implements OnInit {
    this._companyService.getCompanies()
         .subscribe(companies => {
           // console.log(`in companies.Component getCompanies companies ${JSON.stringify(companies)}`);
+          if (companies ===[]){
+            this._router.navigate(['/login'])
+          } else {
           this.companiesArray = companies
+          }
         });
   }
   

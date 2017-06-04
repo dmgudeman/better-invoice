@@ -34,6 +34,9 @@ export class CompanyService {
 		return this._http
                    .get(this.getCompanyUpdateUrl())
 			       .map(res =>{ 
+                    //    console.log(`getCompanies company.service ${JSON.stringify(res)}`);
+                    //    console.log(`getCompanies company.service res.header ${JSON.stringify(res.headers)}`);
+                       
                        body = res.json().companies;
                             return body || { };
                    })

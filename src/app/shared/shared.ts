@@ -121,4 +121,7 @@ export class Shared {
         let date = this.m.format('YYYY-MM-DD');
         return date;
     }
+
+    // https://www.udemy.com/angular-2-from-theory-to-practice/learn/v4/t/lecture/6039888?start=0
+    
 }

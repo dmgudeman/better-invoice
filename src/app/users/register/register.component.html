@@ -11,7 +11,7 @@
 
     <!-- LOGIN FORM -->
     <form [formGroup]="myform" (ngSubmit)="onSubmit()">
-        <div class="form-group">
+        <div class="form-group has-danger">
             <label id="firstnamelab" class="input" for="firstname" >First Name</label>
             <input id="firstname" 
                    type="text" 
@@ -19,7 +19,7 @@
                    formControlName= "firstname"
                    name="firstname">
         </div>
-        <div class="form-group">
+        <div class="form-group has-danger">
             <label id="lastnamelab" class="input" for="lastname" >Last Name</label>
             <input id="lastname" 
                    type="text" 
@@ -27,23 +27,31 @@
                    formControlName= "lastname"
                    name="lastname">
         </div>
-        <div class="form-group">
-            <label id="usernamelab" class="input" for="username" >Username</label>
+        <div class="form-group" [ngClass] = "{
+            'has-danger': username.invalid,
+            'has-success': username.valid
+                                      }">
+            <label id="usernamelab" class="input" fo="username" >Username</label>
             <input id="username" 
                    type="text" 
                    class="input ec-input form-control" 
                    formControlName= "username"
                    name="username">
-            <div *ngIf="this.myform.controls.username.touched && this.myform.controls.username.error" > 
                 <div 
-                    *ngIf=!username.errors.required
+                    *ngIf="username.touched && username.pristine"
                     class="alert alert-danger">Username is required
                 </div>
                 <div 
-                    *ngIf="username.errors.cannotContainSpace"
-                    class="alert alert-danger">Username cannot contain space.
+                    *ngIf="username.invalid && username.dirty"
+                    class="alert alert-danger">Username is required
                 </div>
-            </div>
+                
+                
+               
+        <pre>Dirty? {{username.dirty}}</pre>
+        <pre>valid? {{username.valid}}</pre>
+        <pre>Touched? {{username.touched}}</pre>
+        <!--<pre>Touched? {{username.validateUsername}}</pre>-->
         </div>
         <div class="form-group">
             <label id="passwordlab" class="input" for="password" >Password</label>

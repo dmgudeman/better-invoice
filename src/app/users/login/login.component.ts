@@ -57,8 +57,9 @@ export class LoginComponent implements OnInit {
         let payload = { username, password };
         // console.log(`login.component onSubmit payload ${JSON.stringify(payload)}`);
         result = this.authenticationService.login(username, password);
+
         result.subscribe(x => {
-            // console.log(`login.component onSubmit It fired`);
+            console.log(`login.component onSubmit result ${JSON.stringify(x)}`);
             // Ideally, here we'd want:
             // this.form.markAsPristine();
             this._router.navigate([`companies` ]);
